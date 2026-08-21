@@ -38,19 +38,22 @@ export const RadarStage: React.FC<{
   completeActivity: () => void;
 }> = ({lastSelectedPart, onSelect, mode, activityDone, completeActivity}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
-  const [spinning, setSpinning] = useState(false);
+  const [scanning, setScanning] = useState(false);
   const [found, setFound] = useState(false);
 
-  const scan = () => {
+  const startScan = () => {
     if (activityDone) {
       return;
     }
-    setSpinning(true);
-    window.setTimeout(() => {
-      setSpinning(false);
+    setScanning(true);
+  };
+
+  const onWaveHit = () => {
+    if (!found) {
       setFound(true);
+      setScanning(false);
       completeActivity();
-    }, 1400);
+    }
   };
 
   // Video tabs do not need the 3D canvas or its full-stage background.
@@ -87,21 +90,28 @@ export const RadarStage: React.FC<{
           <RadarCanvas
             highlightedPart={mode === 'identify' ? (lastSelectedPart as RadarPartId | null) : null}
             mode={mode}
+            activityScanning={scanning}
+            activityFound={found}
             onPartSelect={onSelect}
+            onWaveHit={onWaveHit}
           />
         </Suspense>
       </RadarErrorBoundary>
       {mode === 'activity' ? (
         <div className="radar-activity radar-activity-overlay">
           <div className="radar-sweep-screen">
-            <div className={`radar-sweep ${spinning ? 'spin' : ''}`} />
-            {found ? <div className="radar-blip">Signal found!</div> : <div className="radar-hint">Scanning for signals…</div>}
+            <div className={`radar-sweep ${scanning ? 'spin' : ''}`} />
+            {found ? (
+              <div className="radar-blip">Airplane found!</div>
+            ) : (
+              <div className="radar-hint">{scanning ? 'Searching the sky…' : 'Ready to scan'}</div>
+            )}
           </div>
           {found || activityDone ? (
             <div className="bee-activity-done">Signal found! The radar works.</div>
           ) : (
-            <button className="primary-action" onClick={scan}>
-              {spinning ? 'Scanning...' : 'Turn on the radar'}
+            <button className="primary-action" onClick={startScan} disabled={scanning}>
+              {scanning ? 'Scanning...' : 'Turn on the radar'}
             </button>
           )}
         </div>

@@ -8,7 +8,7 @@ import {
   ModelOrbitControls,
   Vector3,
   useLoader
-} from "./chunk-3NJM4L7S.js";
+} from "./chunk-CC73DKN2.js";
 import {
   StoryVideoCard,
   WarmupScreen

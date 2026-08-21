@@ -65270,6 +65270,8 @@ export {
   BufferGeometry,
   MeshBasicMaterial,
   Mesh,
+  MeshStandardMaterial,
+  useThree,
   useFrame,
   useLoader,
   Canvas2 as Canvas,
