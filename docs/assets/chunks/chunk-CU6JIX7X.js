@@ -1,0 +1,109 @@
+// src/lessons/airplane/content.json
+var content_default = {
+  slug: "airplane",
+  title: "Mission 1: Lyson Island",
+  subtitle: "Help Lyson Island with supplies.",
+  summary: "Watch the mission story, learn the parts, and assemble the airplane that carries supplies to Lyson Island.",
+  badge: "PILOT",
+  color: "#ff9c31",
+  activity: "assemble",
+  activityLabel: "Assemble the airplane.",
+  activityInstruction: "Drag each part onto the airplane body to build it.",
+  difficulty: 1,
+  topics: ["airplane parts", "lift", "thrust", "stability"],
+  classIds: ["BrickX"],
+  storyVideoUrl: "https://www.youtube.com/embed/zHPxsGBa5wg",
+  warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
+  storyQuestions: [
+    {
+      prompt: "What problem are we trying to solve?",
+      answers: ["Lyson Island needs supplies", "The airplane needs paint", "The ocean is too quiet"],
+      correctIndex: 0,
+      success: "The island needs supplies delivered."
+    },
+    {
+      prompt: "What can help carry supplies to the island?",
+      answers: ["An airplane", "A butterfly", "A flower"],
+      correctIndex: 0,
+      success: "An airplane can fly supplies to the island."
+    },
+    {
+      prompt: "Why do we need to build the airplane carefully?",
+      answers: ["Each part helps it fly safely", "Parts are only decoration", "The airplane should stay broken"],
+      correctIndex: 0,
+      success: "Every main part has a job."
+    },
+    {
+      prompt: "What should we learn before flying?",
+      answers: ["The airplane parts", "How to hide the wings", "How to remove the engine"],
+      correctIndex: 0,
+      success: "Knowing the parts helps us build and fly."
+    }
+  ],
+  quiz: [
+    {
+      prompt: "What does the wing help the airplane do?",
+      answers: ["Fly", "Stop", "Turn off"],
+      correctIndex: 0,
+      success: "Wings create lift."
+    },
+    {
+      prompt: "Where does the pilot sit?",
+      answers: ["Cockpit", "Tail", "Tire"],
+      correctIndex: 0,
+      success: "The cockpit holds the controls."
+    },
+    {
+      prompt: "Which part gives the airplane thrust?",
+      answers: ["Engine", "Window", "Tail"],
+      correctIndex: 0,
+      success: "The engine pushes the airplane forward."
+    },
+    {
+      prompt: "What helps the airplane roll on the runway?",
+      answers: ["Tires", "Wings", "Cockpit"],
+      correctIndex: 0,
+      success: "Tires help with takeoff and landing."
+    },
+    {
+      prompt: "Which part helps keep the airplane stable?",
+      answers: ["Tail", "Engine", "Door"],
+      correctIndex: 0,
+      success: "The tail helps balance the airplane."
+    },
+    {
+      prompt: "Which two parts work together to make lift?",
+      answers: ["Left and right wings", "Tires and cockpit", "Engine and seats"],
+      correctIndex: 0,
+      success: "Both wings help lift the airplane."
+    },
+    {
+      prompt: "What should attach before the airplane can roll?",
+      answers: ["Wheels", "Clouds", "Paint"],
+      correctIndex: 0,
+      success: "Wheels make runway movement possible."
+    },
+    {
+      prompt: "Which part is the main body of the airplane?",
+      answers: ["Fuselage", "Propeller", "Island"],
+      correctIndex: 0,
+      success: "The fuselage is the airplane body."
+    },
+    {
+      prompt: "What does the engine help the airplane do?",
+      answers: ["Move forward", "Float still", "Fold up"],
+      correctIndex: 0,
+      success: "Engines provide forward force."
+    },
+    {
+      prompt: "What is the best way to build the airplane?",
+      answers: ["Attach each part carefully", "Hide the wings", "Remove the tires"],
+      correctIndex: 0,
+      success: "Careful assembly makes it ready to fly."
+    }
+  ]
+};
+
+export {
+  content_default
+};

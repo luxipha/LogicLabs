@@ -1,0 +1,105 @@
+// src/lessons/button-golfer/content.json
+var content_default = {
+  slug: "button-golfer",
+  title: "Mission: Button Golfer",
+  subtitle: "Build the golfer and learn how it swings.",
+  summary: "Meet the button golfer, learn its parts, and press the button to swing the club.",
+  badge: "GOLF",
+  color: "#2e9e4f",
+  activity: "swing",
+  activityLabel: "Swing the club.",
+  activityInstruction: "Press the button to make the golfer swing the club and hit the ball.",
+  difficulty: 1,
+  topics: ["golfer parts", "lever", "swing", "button"],
+  classIds: ["BrickX"],
+  storyVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
+  storyQuestions: [
+    {
+      prompt: "What does the golfer use to hit the ball?",
+      answers: ["A club", "A racket", "A bat"],
+      correctIndex: 0,
+      success: "The golfer swings a club."
+    },
+    {
+      prompt: "What makes the golfer swing?",
+      answers: ["A button", "The wind", "A magnet"],
+      correctIndex: 0,
+      success: "Pressing the button makes it swing."
+    },
+    {
+      prompt: "Where does the golfer try to send the ball?",
+      answers: ["Toward the hole", "Into the air", "Under the grass"],
+      correctIndex: 0,
+      success: "The goal is the hole."
+    },
+    {
+      prompt: "What moves when the golfer swings?",
+      answers: ["The arms and club", "The hat", "The ball holder"],
+      correctIndex: 0,
+      success: "The arms and club move together."
+    }
+  ],
+  quiz: [
+    {
+      prompt: "Which part swings the club?",
+      answers: ["The arms", "The hat", "The ball"],
+      correctIndex: 0,
+      success: "The arms swing the club."
+    },
+    {
+      prompt: "What starts the swing?",
+      answers: ["Pressing the button", "Shouting", "Waiting"],
+      correctIndex: 0,
+      success: "The button starts the swing."
+    },
+    {
+      prompt: "What does the club hit?",
+      answers: ["The ball", "The ground", "The tree"],
+      correctIndex: 0,
+      success: "The club hits the ball."
+    },
+    {
+      prompt: "Where does the ball need to go?",
+      answers: ["Into the hole", "Into the sky", "Backwards"],
+      correctIndex: 0,
+      success: "The ball goes toward the hole."
+    }
+  ],
+  parts: [
+    {
+      id: "hat",
+      label: "Hat",
+      fact: "The golfer wears a cap to block the sun.",
+      help: "The cap on the head."
+    },
+    {
+      id: "head",
+      label: "Head",
+      fact: "The head holds the eyes that watch the ball.",
+      help: "The round part on top."
+    },
+    {
+      id: "body",
+      label: "Body",
+      fact: "The body holds the golfer together.",
+      help: "The middle part."
+    },
+    {
+      id: "arms",
+      label: "Arms",
+      fact: "The arms hold the club and swing it.",
+      help: "The parts that hold the club."
+    },
+    {
+      id: "club",
+      label: "Club",
+      fact: "The club hits the ball toward the hole.",
+      help: "The stick in the golfer's hands."
+    }
+  ]
+};
+
+export {
+  content_default
+};

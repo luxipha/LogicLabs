@@ -1,0 +1,105 @@
+// src/lessons/honey-bee/content.json
+var content_default = {
+  slug: "honey-bee",
+  title: "Mission: Honey Bee",
+  subtitle: "Help the hive by learning honey bees.",
+  summary: "Meet the honey bee, learn its body parts, and carry pollen from flower to flower.",
+  badge: "BEE",
+  color: "#ffb020",
+  activity: "pollinate",
+  activityLabel: "Carry the pollen.",
+  activityInstruction: "Move the bee to the flower, collect pollen, then bring it back to the hive.",
+  difficulty: 1,
+  topics: ["bee parts", "pollen", "honey", "hive"],
+  classIds: ["BrickX"],
+  storyVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
+  storyQuestions: [
+    {
+      prompt: "What do bees collect from flowers?",
+      answers: ["Pollen and nectar", "Sand and stones", "Leaves and twigs"],
+      correctIndex: 0,
+      success: "Bees collect pollen and nectar from flowers."
+    },
+    {
+      prompt: "Where do bees live?",
+      answers: ["In a hive", "Under a rock", "In a pond"],
+      correctIndex: 0,
+      success: "Bees live together in a hive."
+    },
+    {
+      prompt: "What do bees make from nectar?",
+      answers: ["Honey", "Plastic", "Paper"],
+      correctIndex: 0,
+      success: "Bees turn nectar into honey."
+    },
+    {
+      prompt: "How do bees help flowers?",
+      answers: ["They carry pollen", "They eat the petals", "They hide the seeds"],
+      correctIndex: 0,
+      success: "Bees carry pollen that helps flowers grow."
+    }
+  ],
+  quiz: [
+    {
+      prompt: "Which bee part helps it smell flowers?",
+      answers: ["Antennae", "Stinger", "Wings"],
+      correctIndex: 0,
+      success: "Antennae help bees smell."
+    },
+    {
+      prompt: "What do bees use to collect nectar?",
+      answers: ["Proboscis", "Legs", "Eyes"],
+      correctIndex: 0,
+      success: "Bees use their proboscis to sip nectar."
+    },
+    {
+      prompt: "What does a bee carry on its legs?",
+      answers: ["Pollen", "Water", "Honey"],
+      correctIndex: 0,
+      success: "Pollen baskets on the legs carry pollen."
+    },
+    {
+      prompt: "Why do bees fly between flowers?",
+      answers: ["To spread pollen", "To rest", "To make noise"],
+      correctIndex: 0,
+      success: "Flying between flowers spreads pollen."
+    }
+  ],
+  parts: [
+    {
+      id: "antennae",
+      label: "Antennae",
+      fact: "Antennae help bees smell flowers and sense the world.",
+      help: "The feelers on the bee's head."
+    },
+    {
+      id: "wings",
+      label: "Wings",
+      fact: "A bee flaps its wings very fast to fly from flower to flower.",
+      help: "The see-through wings on the back."
+    },
+    {
+      id: "body",
+      label: "Body",
+      fact: "The bee's body is striped with yellow and black bands.",
+      help: "The striped middle part."
+    },
+    {
+      id: "proboscis",
+      label: "Proboscis",
+      fact: "The proboscis is a tube the bee uses to sip nectar.",
+      help: "The tube under the bee's head."
+    },
+    {
+      id: "pollen-basket",
+      label: "Pollen Basket",
+      fact: "Pollen baskets on the legs carry pollen back to the hive.",
+      help: "The fluffy ball on the back legs."
+    }
+  ]
+};
+
+export {
+  content_default
+};

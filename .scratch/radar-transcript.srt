@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:06,880
+ Today is picnic day at Logic Lab School, the food is ready, the games are ready, everyone
+
+2
+00:00:06,880 --> 00:00:14,720
+ is excited. But then the teacher looks at the sky. Far away she sees some dark clouds.
+
+3
+00:00:14,720 --> 00:00:24,160
+ Hmm, is a storm coming? Nobody knows. The clouds are too far away to see clearly.
+
+4
+00:00:25,360 --> 00:00:32,960
+ So the teacher asks the Logic Lab team. Can you help us? Your mission is to find the storm
+
+5
+00:00:32,960 --> 00:00:38,960
+ before it reaches the school. Can you build something that can search far away and look across
+
+6
+00:00:38,960 --> 00:00:43,600
+ the sky? Think. Look. Discover.
+

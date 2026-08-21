@@ -1,0 +1,76 @@
+import React from 'react';
+import {Composition} from 'remotion';
+import {MotionDemo} from './scenes/MotionDemo';
+import {PlaneDemo} from './scenes/PlaneDemo';
+import {PlaneAssemblyLesson} from './scenes/PlaneAssemblyLesson';
+import {PlaneAssemblyPlayground} from './scenes/PlaneAssemblyPlayground';
+import {LysSonMission, TOTAL_FRAMES} from './scenes/LysSonMission';
+import {AppleMission, TOTAL_FRAMES as APPLE_FRAMES} from './scenes/AppleMission';
+import {RadarMission, TOTAL_FRAMES as RADAR_FRAMES} from './scenes/RadarMission';
+
+const LYS_DURATION = TOTAL_FRAMES;
+const APPLE_DURATION = APPLE_FRAMES;
+const RADAR_DURATION = RADAR_FRAMES;
+
+export const RemotionRoot: React.FC = () => {
+  return (
+    <>
+      <Composition
+        id="LysSonMission"
+        component={LysSonMission}
+        durationInFrames={LYS_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AppleMission"
+        component={AppleMission}
+        durationInFrames={APPLE_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="RadarMission"
+        component={RadarMission}
+        durationInFrames={RADAR_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MotionDemo"
+        component={MotionDemo}
+        durationInFrames={9 * 30}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="PlaneDemo"
+        component={PlaneDemo}
+        durationInFrames={12 * 30}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="PlaneAssemblyLesson"
+        component={PlaneAssemblyLesson}
+        durationInFrames={10 * 30}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="PlaneAssemblyPlayground"
+        component={PlaneAssemblyPlayground}
+        durationInFrames={60 * 30}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+    </>
+  );
+};

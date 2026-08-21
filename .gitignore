@@ -1,0 +1,9 @@
+node_modules
+out
+.DS_Store
+*.tsbuildinfo
+
+# whisper.cpp — third-party speech-to-text engine (own upstream repo).
+# Fully regenerable via scripts/transcribe-narration.mjs (installWhisperCpp).
+# Keep it out of version control entirely.
+whisper.cpp/

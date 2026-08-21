@@ -1,0 +1,33 @@
+{
+  "name": "ly-son-island-mission",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The Lý Sơn Island Mission — a config-driven educational story video built with Remotion.",
+  "scripts": {
+    "dev": "remotion studio",
+    "dev:playground": "npm run build:playground && node scripts/serve-docs.mjs",
+    "build:playground": "node scripts/build-classroom.mjs",
+    "typecheck": "tsc --noEmit",
+    "studio": "remotion studio",
+    "render": "remotion render LysSonMission out/LysSonMission.mp4",
+    "render:radar": "remotion render RadarMission out/RadarMission.mp4",
+    "still": "remotion still",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.18.0",
+    "@remotion/cli": "^4.0.509",
+    "@remotion/install-whisper-cpp": "4.0.509",
+    "@remotion/three": "^4.0.509",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.509",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-dom": "^18.3.7",
+    "@types/three": "^0.185.4",
+    "typescript": "^5.9.3"
+  }
+}

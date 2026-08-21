@@ -1,0 +1,98 @@
+{
+  "slug": "butterfly",
+  "title": "Mission 2: Butterfly Lab",
+  "subtitle": "Help flowers grow by learning butterflies.",
+  "summary": "Explore the butterfly, discover how it drinks nectar, and move pollen from flower to flower.",
+  "badge": "GUIDE",
+  "color": "#ff72a9",
+  "activity": "pollinate",
+  "activityLabel": "Move the pollen.",
+  "activityInstruction": "Collect pollen from one flower and carry it to another.",
+  "difficulty": 1,
+  "topics": ["butterfly parts", "nectar", "pollen", "pollination"],
+  "classIds": ["BrickX"],
+  "storyVideoUrl": "https://www.youtube.com/embed/AGPTIuhr77U",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "storyQuestions": [
+    {
+      "prompt": "What is wrong with the garden?",
+      "answers": ["The flowers are not making seeds", "The flowers are flying", "The flowers are sleeping"],
+      "correctIndex": 0,
+      "success": "The garden needs help making new seeds."
+    },
+    {
+      "prompt": "What does the garden already have?",
+      "answers": ["Flowers", "Airplanes", "Snow"],
+      "correctIndex": 0,
+      "success": "The garden already has flowers."
+    },
+    {
+      "prompt": "Does it have sunlight?",
+      "answers": ["Yes", "No", "Only at night"],
+      "correctIndex": 0,
+      "success": "Sunlight helps plants grow."
+    },
+    {
+      "prompt": "Does it have water?",
+      "answers": ["Yes", "No", "Only sand"],
+      "correctIndex": 0,
+      "success": "Water helps the garden stay alive."
+    },
+    {
+      "prompt": "So what could be missing?",
+      "answers": ["Pollination", "Tires", "Paint"],
+      "correctIndex": 0,
+      "success": "Pollination may be missing."
+    },
+    {
+      "prompt": "What helps flowers make new seeds?",
+      "answers": ["Moving pollen", "Hiding petals", "Turning off sunlight"],
+      "correctIndex": 0,
+      "success": "Pollen needs to move to help make seeds."
+    },
+    {
+      "prompt": "What animals usually visit flowers?",
+      "answers": ["Butterflies and bees", "Sharks and lions", "Penguins and whales"],
+      "correctIndex": 0,
+      "success": "Butterflies and bees often visit flowers."
+    },
+    {
+      "prompt": "Why do you think they visit flowers?",
+      "answers": ["To drink nectar", "To build airplanes", "To sleep in water"],
+      "correctIndex": 0,
+      "success": "Nectar attracts butterflies and bees."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "What sweet liquid do butterflies drink from flowers?",
+      "answers": ["Nectar", "Sand", "Rain"],
+      "correctIndex": 0,
+      "success": "Nectar is sweet flower food."
+    },
+    {
+      "prompt": "What is the straw-like tube called?",
+      "answers": ["Proboscis", "Antenna", "Wing"],
+      "correctIndex": 0,
+      "success": "The proboscis unrolls to drink."
+    },
+    {
+      "prompt": "What sticks to a butterfly when it visits a flower?",
+      "answers": ["Pollen", "Pebbles", "Ice"],
+      "correctIndex": 0,
+      "success": "Pollen can travel to another flower."
+    },
+    {
+      "prompt": "What happens when pollen moves to another flower?",
+      "answers": ["Pollination", "Freezing", "Sleeping"],
+      "correctIndex": 0,
+      "success": "Pollination helps plants make seeds."
+    },
+    {
+      "prompt": "Why are butterflies important?",
+      "answers": ["They help plants grow", "They stop flowers", "They hide seeds"],
+      "correctIndex": 0,
+      "success": "Butterflies help flowers reproduce."
+    }
+  ]
+}

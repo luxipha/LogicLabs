@@ -1,0 +1,1389 @@
+:root{
+  color-scheme: light;
+  font-family: "Nunito", "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+.butterfly-app *{
+  box-sizing: border-box;
+}
+.butterfly-app html, .butterfly-app body, .butterfly-app #root{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.butterfly-app body{
+  background: #0874c9;
+}
+.butterfly-app button{
+  font: inherit;
+}
+.butterfly-app .app-shell{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0874c9;
+}
+.butterfly-app .sky-layer{
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(1, 75, 160, 0.9) 0%, rgba(9, 151, 226, 0.9) 52%, rgba(135, 208, 241, 0.92) 78%),
+    radial-gradient(circle at 54% 32%, rgba(255, 255, 255, 0.22), transparent 18%);
+}
+.butterfly-app .sky-layer::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 24%;
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(42, 136, 89, 0.5), transparent 18%),
+    radial-gradient(ellipse at 78% 70%, rgba(42, 136, 89, 0.55), transparent 22%),
+    linear-gradient(180deg, transparent 0%, rgba(16, 108, 170, 0.35) 44%, rgba(12, 99, 156, 0.72) 100%);
+}
+.butterfly-app .mission-header{
+  position: absolute;
+  z-index: 5;
+  top: 20px;
+  left: 24px;
+  right: 168px;
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 24px;
+  pointer-events: none;
+}
+.butterfly-app .mission-title{
+  text-align: center;
+}
+.butterfly-app .mission-title h1{
+  margin: 0;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(1, 31, 84, 0.3);
+}
+.butterfly-app .mission-title p{
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e8f7ff;
+}
+.butterfly-app .home-button, .butterfly-app .score-pill, .butterfly-app .screen-actions button{
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
+}
+.butterfly-app .home-button{
+  height: 48px;
+  font-size: 20px;
+  font-weight: 900;
+  pointer-events: auto;
+}
+.butterfly-app .score-pill{
+  justify-self: end;
+  min-width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 900;
+}
+.butterfly-app .score-star, .butterfly-app .encouragement span{
+  color: #ffe251;
+  font-size: 15px;
+  font-weight: 900;
+}
+.butterfly-app .mode-tabs{
+  position: absolute;
+  z-index: 5;
+  top: 116px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: min(960px, calc(100vw - 560px));
+  min-width: 620px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(2, 77, 154, 0.7);
+  border: 3px solid rgba(95, 185, 255, 0.35);
+  box-shadow: inset 0 0 0 2px rgba(0, 36, 104, 0.22), 0 8px 20px rgba(0, 47, 104, 0.24);
+  pointer-events: auto;
+}
+.butterfly-app .mode-tab{
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  height: 58px;
+  margin-left: -18px;
+  padding: 0 26px 0 34px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-shadow: 0 2px 3px rgba(0, 30, 82, 0.34);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%, 28px 50%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.24), inset 0 -3px 0 rgba(0, 0, 0, 0.14);
+}
+.butterfly-app .mode-tab:first-child{
+  margin-left: 0;
+  border-radius: 8px 0 0 8px;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%);
+}
+.butterfly-app .mode-tab:last-child{
+  border-radius: 0 8px 8px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 28px 50%);
+}
+.butterfly-app .mode-icon{
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  font-size: 10px;
+  font-weight: 900;
+}
+.butterfly-app .mode-tab.identify{
+  background: linear-gradient(180deg, #8f42f3 0%, #602bd4 100%);
+}
+.butterfly-app .mode-tab.assemble{
+  background: linear-gradient(180deg, #63d73d 0%, #27a51f 100%);
+}
+.butterfly-app .mode-tab.explore{
+  background: linear-gradient(180deg, #20a7f1 0%, #0d72c4 100%);
+}
+.butterfly-app .mode-tab.fly{
+  background: linear-gradient(180deg, #ff9c31 0%, #ff6b18 100%);
+}
+.butterfly-app .mode-tab:not(.active){
+  filter: saturate(0.85) brightness(0.92);
+}
+.butterfly-app .task-column, .butterfly-app .progress-column{
+  position: absolute;
+  z-index: 4;
+  top: 176px;
+  bottom: 70px;
+  width: 300px;
+  pointer-events: auto;
+}
+.butterfly-app .task-column{
+  left: 24px;
+}
+.butterfly-app .progress-column{
+  right: 24px;
+}
+.butterfly-app .task-card, .butterfly-app .quiz-card, .butterfly-app .tip-card, .butterfly-app .progress-card, .butterfly-app .parts-list-card{
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(244, 250, 255, 0.95);
+  color: #0a2450;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 24px rgba(0, 51, 112, 0.24);
+}
+.butterfly-app .task-header, .butterfly-app .quiz-header{
+  padding: 16px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.butterfly-app .task-header{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(180deg, #8055e5 0%, #5930c1 100%);
+}
+.butterfly-app .pilot-badge{
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 48px;
+  border-radius: 8px;
+  background: #ffcf4a;
+  color: #114a9a;
+  font-size: 13px;
+  font-weight: 900;
+}
+.butterfly-app .task-body, .butterfly-app .quiz-body{
+  padding: 22px 26px;
+}
+.butterfly-app .task-body h2, .butterfly-app .quiz-body h3{
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+.butterfly-app .task-body p{
+  margin: 12px 0 22px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.butterfly-app .ghost-part{
+  width: 100%;
+  height: 96px;
+  border: 2px dashed #a9bad2;
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(238, 244, 250, 0.9), rgba(255, 255, 255, 0.65));
+  cursor: pointer;
+}
+.butterfly-app .ghost-part.wrong{
+  border-color: #ff9a33;
+  background: #fff0dc;
+  animation: quiz-shake 0.42s ease both;
+}
+.butterfly-app .quiz-card{
+  margin-top: 18px;
+  position: relative;
+}
+.butterfly-app .quiz-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #118ef0 0%, #0466c2 100%);
+}
+.butterfly-app .answer, .butterfly-app .code-buttons button, .butterfly-app .primary-action{
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #278ee8 0%, #0965c8 100%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: left;
+  cursor: pointer;
+}
+.butterfly-app .primary-action{
+  text-align: center;
+  background: linear-gradient(180deg, #68ce37 0%, #299f1c 100%);
+}
+.butterfly-app .correct-pop{
+  animation: quiz-pop 0.6s ease both;
+}
+.butterfly-app .wrong-shake{
+  animation: quiz-shake 0.44s ease both;
+}
+.butterfly-app .correct-burst, .butterfly-app .try-again, .butterfly-app .tip-card{
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 900;
+  text-align: center;
+}
+.butterfly-app .correct-burst{
+  background: linear-gradient(180deg, #ecffcb 0%, #b7f26a 100%);
+  color: #1e6812;
+}
+.butterfly-app .correct-burst span{
+  display: block;
+  font-size: 22px;
+}
+.butterfly-app .correct-burst small{
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+.butterfly-app .try-again{
+  background: #fff3df;
+  color: #a94a04;
+}
+.butterfly-app .tip-card{
+  margin-top: 18px;
+  background: linear-gradient(180deg, #138ae8 0%, #0563bd 100%);
+  color: #fff;
+  font-size: 18px;
+}
+.butterfly-app .progress-card, .butterfly-app .parts-list-card{
+  background: linear-gradient(180deg, rgba(3, 85, 160, 0.96) 0%, rgba(2, 63, 133, 0.94) 100%);
+  color: #fff;
+  border-color: rgba(90, 185, 255, 0.34);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.14),
+    0 12px 26px rgba(0, 43, 105, 0.32);
+}
+.butterfly-app .progress-card{
+  padding: 20px 26px 24px;
+  min-height: 136px;
+}
+.butterfly-app .parts-list-card{
+  margin-top: 16px;
+}
+.butterfly-app .eyebrow{
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 900;
+}
+.butterfly-app .progress-count{
+  margin-top: 8px;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 900;
+}
+.butterfly-app .progress-count span{
+  font-size: 24px;
+}
+.butterfly-app .progress-bar{
+  margin-top: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(0, 28, 80, 0.82);
+  overflow: hidden;
+}
+.butterfly-app .progress-fill{
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b9fa77 0%, #61d531 50%, #2ea51d 100%);
+}
+.butterfly-app .side-part{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) 98px;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  border-top: 1px solid rgba(112, 183, 235, 0.24);
+  background: transparent;
+  color: #fff;
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.butterfly-app .side-part.active{
+  color: #ffec64;
+  background: rgba(255, 255, 255, 0.08);
+}
+.butterfly-app .side-part-icon{
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff 0%, #d7e7f2 100%);
+  box-shadow: 0 3px 8px rgba(0, 25, 72, 0.2);
+}
+.butterfly-app .side-state{
+  color: #ffdc54;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: right;
+}
+.butterfly-app .side-state.done{
+  color: #7ff27d;
+  text-transform: none;
+}
+.butterfly-app .side-state.locked{
+  color: rgba(217, 236, 255, 0.68);
+  text-transform: none;
+}
+.butterfly-app .lesson-stage{
+  position: absolute;
+  inset: 172px 350px 172px;
+  z-index: 2;
+  pointer-events: auto;
+}
+.butterfly-app .lesson-stage canvas{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.butterfly-app .story-video-card{
+  position: absolute;
+  inset: 4% 5%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 42%),
+    rgba(5, 83, 154, 0.9);
+  border: 4px solid rgba(113, 201, 255, 0.55);
+  box-shadow: 0 24px 52px rgba(0, 42, 105, 0.28);
+  color: #ffffff;
+}
+.butterfly-app .story-video-copy span{
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ffcf4a;
+  color: #07316b;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.butterfly-app .story-video-copy h2{
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 52px);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 34, 84, 0.28);
+}
+.butterfly-app .story-video-copy p{
+  margin: 8px 0 0;
+  max-width: 780px;
+  color: #dff5ff;
+  font-size: clamp(17px, 1.4vw, 24px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+.butterfly-app .story-video-frame{
+  overflow: hidden;
+  border-radius: 14px;
+  background: #06244b;
+  border: 4px solid rgba(255, 255, 255, 0.24);
+  box-shadow: inset 0 0 0 2px rgba(8, 91, 170, 0.62);
+}
+.butterfly-app .story-video-frame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.butterfly-app .butterfly-debug{
+  position: absolute;
+  z-index: 20;
+  left: 12px;
+  top: 12px;
+  max-width: 540px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background: rgba(0, 24, 54, 0.86);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.4;
+  box-shadow: 0 8px 22px rgba(0, 34, 80, 0.24);
+}
+.butterfly-app .butterfly-debug strong, .butterfly-app .butterfly-debug span, .butterfly-app .butterfly-debug small{
+  display: block;
+}
+.butterfly-app .butterfly-debug strong{
+  color: #ffdf46;
+  font-size: 15px;
+}
+.butterfly-app .butterfly-debug small{
+  margin-top: 6px;
+  color: #cceeff;
+}
+.butterfly-app .butterfly-stage-error{
+  position: absolute;
+  inset: 18%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  border-radius: 8px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 18px 44px rgba(0, 45, 104, 0.3);
+}
+.butterfly-app .butterfly-stage-error strong, .butterfly-app .butterfly-stage-error span{
+  display: block;
+}
+.butterfly-app .butterfly-stage-error strong{
+  font-size: 30px;
+  font-weight: 900;
+}
+.butterfly-app .butterfly-stage-error span{
+  margin-top: 12px;
+  color: #e8f7ff;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+.butterfly-app .flower-prop{
+  position: absolute;
+  z-index: 3;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.butterfly-app .flower-prop::before, .butterfly-app .flower-prop::after{
+  content: "";
+  position: absolute;
+  inset: 20px;
+  border-radius: 50%;
+  background: #ffd84d;
+  box-shadow:
+    0 -34px 0 #ff72a9,
+    0 34px 0 #ff72a9,
+    -34px 0 0 #ff85b8,
+    34px 0 0 #ff85b8;
+}
+.butterfly-app .left-flower{
+  left: 6%;
+  bottom: 6%;
+}
+.butterfly-app .right-flower{
+  right: 6%;
+  bottom: 8%;
+}
+.butterfly-app .pollination-demo{
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.butterfly-app .flower-label{
+  position: absolute;
+  z-index: 5;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(5, 73, 139, 0.86);
+  border: 2px solid rgba(255, 255, 255, 0.32);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 900;
+  text-shadow: 0 2px 0 rgba(0, 36, 84, 0.28);
+}
+.butterfly-app .male-label{
+  left: 4.8%;
+  bottom: 21%;
+}
+.butterfly-app .female-label{
+  right: 4.8%;
+  bottom: 23%;
+}
+.butterfly-app .pollen-cluster{
+  position: absolute;
+  z-index: 6;
+  width: 62px;
+  height: 42px;
+  pointer-events: none;
+}
+.butterfly-app .pollen-cluster span{
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #ffe765;
+  box-shadow: 0 0 10px rgba(255, 231, 101, 0.72);
+}
+.butterfly-app .pollen-cluster span:nth-child(1){
+  left: 4px;
+  top: 10px;
+}
+.butterfly-app .pollen-cluster span:nth-child(2){
+  left: 18px;
+  top: -9px;
+}
+.butterfly-app .pollen-cluster span:nth-child(3){
+  left: 35px;
+  top: 8px;
+}
+.butterfly-app .pollen-cluster span:nth-child(4){
+  left: 43px;
+  top: 25px;
+}
+.butterfly-app .male-pollen{
+  left: 8%;
+  bottom: 14%;
+  opacity: 1;
+}
+.butterfly-app .carried-pollen{
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.butterfly-app .female-pollen{
+  right: 8%;
+  bottom: 16%;
+  opacity: 0;
+}
+.butterfly-app .pollination-step-1 .male-pollen{
+  animation: pollen-fade-out 0.5s ease both;
+}
+.butterfly-app .pollination-step-1 .carried-pollen{
+  animation: pollen-carry 1.2s ease both;
+}
+.butterfly-app .pollination-step-2 .male-pollen{
+  opacity: 0.22;
+}
+.butterfly-app .pollination-step-2 .carried-pollen{
+  animation: pollen-deliver 0.9s ease both;
+}
+.butterfly-app .pollination-step-2 .female-pollen{
+  animation: pollen-arrive 0.55s ease both;
+}
+.butterfly-app .parts-tray{
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 86px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: min(850px, calc(100vw - 720px));
+  min-width: 560px;
+  padding: 14px;
+  border-radius: 8px;
+  background: rgba(234, 247, 255, 0.94);
+  border: 3px solid rgba(29, 133, 212, 0.65);
+  box-shadow: 0 12px 28px rgba(0, 63, 135, 0.24);
+}
+.butterfly-app .tray-part{
+  min-width: 0;
+  border: 1px solid #d3e5f4;
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+  color: #09244c;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.butterfly-app .tray-part.active{
+  outline: 4px solid #ffdc54;
+}
+.butterfly-app .tray-thumb{
+  display: grid;
+  place-items: center;
+  height: 58px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #f3f8ff 0%, #d8e9f7 100%);
+  overflow: hidden;
+}
+.butterfly-app .encouragement{
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(500px, calc(100vw - 48px));
+  padding: 14px 22px;
+  border-radius: 8px;
+  background: rgba(5, 73, 139, 0.9);
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 10px 24px rgba(0, 51, 112, 0.24);
+}
+.butterfly-app .encouragement.correct{
+  border: 2px solid rgba(255, 231, 88, 0.72);
+  animation: banner-pop 0.62s ease both;
+}
+.butterfly-app .encouragement.wrong{
+  border: 2px solid rgba(255, 174, 88, 0.72);
+  animation: banner-wrong 0.44s ease both;
+}
+.butterfly-app .watch-button{
+  width: 100%;
+  margin-top: 18px;
+  border: 4px solid rgba(255, 232, 142, 0.74);
+  border-radius: 8px;
+  padding: 24px 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 34%),
+    linear-gradient(180deg, #ffbd3c 0%, #ff8d1f 48%, #f56b16 100%);
+  color: #fff;
+  font-size: 29px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.butterfly-app .watch-play{
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ff8a1e;
+  font-size: 11px;
+}
+.butterfly-app .screen-actions{
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  z-index: 6;
+  display: flex;
+  gap: 12px;
+}
+.butterfly-app .screen-actions button{
+  width: 58px;
+  height: 48px;
+  font-size: 0;
+  cursor: pointer;
+}
+.butterfly-app .screen-actions button[aria-label="Sound"]::before{
+  content: "VOL";
+  font-size: 15px;
+  font-weight: 900;
+}
+.butterfly-app .screen-actions button[aria-label="Settings"]::before{
+  content: "SET";
+  font-size: 15px;
+  font-weight: 900;
+}
+.butterfly-app .butterfly-part-preview{
+  position: relative;
+  display: block;
+  width: 92px;
+  height: 52px;
+}
+.butterfly-app .side-part-icon .butterfly-part-preview{
+  transform: scale(0.48);
+}
+.butterfly-app .tray-thumb .butterfly-part-preview{
+  transform: scale(0.86);
+}
+.butterfly-app .ghost-part .butterfly-part-preview{
+  transform: scale(1.5);
+}
+.butterfly-app .mini-wing, .butterfly-app .mini-body, .butterfly-app .mini-antenna, .butterfly-app .mini-proboscis, .butterfly-app .mini-petal, .butterfly-app .mini-flower-center, .butterfly-app .mini-pollen{
+  position: absolute;
+  display: block;
+}
+.butterfly-app .mini-wing{
+  top: 10px;
+  width: 42px;
+  height: 34px;
+  border-radius: 70% 25% 60% 35%;
+}
+.butterfly-app .mini-wing-left{
+  left: 7px;
+  background: linear-gradient(145deg, #91f5ff, #176fc6);
+  transform: rotate(-18deg);
+}
+.butterfly-app .mini-wing-right{
+  right: 7px;
+  background: linear-gradient(145deg, #fff0a1, #f48328);
+  transform: rotate(18deg) scaleX(-1);
+}
+.butterfly-app .mini-body{
+  left: 39px;
+  top: 8px;
+  width: 14px;
+  height: 38px;
+  border-radius: 999px;
+  background: #2e1f33;
+}
+.butterfly-app .mini-antenna{
+  top: 8px;
+  width: 34px;
+  height: 34px;
+  border-top: 4px solid #2e1f33;
+  border-radius: 50%;
+}
+.butterfly-app .mini-antenna.left{
+  left: 19px;
+  transform: rotate(-28deg);
+}
+.butterfly-app .mini-antenna.right{
+  right: 19px;
+  transform: rotate(28deg) scaleX(-1);
+}
+.butterfly-app .mini-proboscis{
+  left: 32px;
+  top: 11px;
+  width: 38px;
+  height: 28px;
+  border: 5px solid #ffda66;
+  border-left: 0;
+  border-radius: 0 999px 999px 0;
+}
+.butterfly-app .mini-petal{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ff72a9;
+}
+.butterfly-app .mini-petal.top{
+  left: 32px;
+  top: 4px;
+}
+.butterfly-app .mini-petal.bottom{
+  left: 32px;
+  bottom: 4px;
+}
+.butterfly-app .mini-petal.left{
+  left: 18px;
+  top: 16px;
+}
+.butterfly-app .mini-petal.right{
+  right: 18px;
+  top: 16px;
+}
+.butterfly-app .mini-flower-center{
+  left: 38px;
+  top: 19px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ffd84d;
+}
+.butterfly-app .mini-pollen{
+  border-radius: 50%;
+  background: #ffe765;
+}
+.butterfly-app .mini-pollen.one{
+  left: 28px;
+  top: 18px;
+  width: 15px;
+  height: 15px;
+}
+.butterfly-app .mini-pollen.two{
+  left: 46px;
+  top: 10px;
+  width: 13px;
+  height: 13px;
+}
+.butterfly-app .mini-pollen.three{
+  left: 56px;
+  top: 28px;
+  width: 12px;
+  height: 12px;
+}
+.butterfly-app .butterfly-svg-stage{
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+}
+.butterfly-app .svg-butterfly, .butterfly-app .svg-flower, .butterfly-app .svg-pollen{
+  cursor: pointer;
+}
+.butterfly-app .svg-left-wing, .butterfly-app .svg-right-wing{
+  transform-box: fill-box;
+  transform-origin: center right;
+}
+.butterfly-app .svg-right-wing{
+  transform-origin: center left;
+}
+.butterfly-app .svg-left-wing.slow{
+  animation: flap-left 1.35s ease-in-out infinite;
+}
+.butterfly-app .svg-right-wing.slow{
+  animation: flap-right 1.35s ease-in-out infinite;
+}
+.butterfly-app .svg-left-wing.fast{
+  animation: flap-left 0.42s ease-in-out infinite;
+}
+.butterfly-app .svg-right-wing.fast{
+  animation: flap-right 0.42s ease-in-out infinite;
+}
+.butterfly-app .selected{
+  filter: drop-shadow(0 0 12px #ffec58) drop-shadow(0 0 20px rgba(255, 236, 88, 0.44));
+}
+.butterfly-app .svg-pollen{
+  fill: #ffe765;
+  transform: translate(158px, 346px);
+}
+.butterfly-app .svg-pollen.travel{
+  animation: pollen-travel 1.8s ease-in-out both;
+}
+@keyframes flap-left {
+  0%, 100%{
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateY(36deg) rotateZ(4deg);
+  }
+}
+@keyframes flap-right {
+  0%, 100%{
+    transform: rotateY(0deg) rotateZ(0deg);
+  }
+  50%{
+    transform: rotateY(-36deg) rotateZ(-4deg);
+  }
+}
+@keyframes pollen-travel {
+  0%{
+    transform: translate(12%, 0) scale(1);
+  }
+  55%{
+    transform: translate(40vw, -16vh) scale(1.14);
+  }
+  100%{
+    transform: translate(66vw, 0) scale(1);
+  }
+}
+@keyframes pollen-fade-out {
+  from{
+    opacity: 1;
+    transform: scale(1);
+  }
+to{
+    opacity: 0.2;
+    transform: translate(36vw, -16vh) scale(0.8);
+  }
+}
+@keyframes pollen-carry {
+  0%{
+    opacity: 0;
+    transform: translate(-38vw, 24vh) scale(0.75);
+  }
+  30%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+}
+@keyframes pollen-deliver {
+  0%{
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.12);
+  }
+  100%{
+    opacity: 0;
+    transform: translate(38vw, 24vh) scale(0.75);
+  }
+}
+@keyframes pollen-arrive {
+  from{
+    opacity: 0;
+    transform: translate(-30vw, -14vh) scale(0.8);
+  }
+to{
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+@keyframes quiz-pop {
+  0%{
+    transform: scale(1);
+  }
+  45%{
+    transform: scale(1.025);
+  }
+  100%{
+    transform: scale(1);
+  }
+}
+@keyframes quiz-shake {
+  0%, 100%{
+    transform: translateX(0);
+  }
+  25%{
+    transform: translateX(-6px);
+  }
+  75%{
+    transform: translateX(6px);
+  }
+}
+@keyframes banner-pop {
+  0%{
+    transform: translateX(-50%) scale(0.92);
+  }
+  45%{
+    transform: translateX(-50%) scale(1.05);
+  }
+  100%{
+    transform: translateX(-50%) scale(1);
+  }
+}
+@keyframes banner-wrong {
+  0%, 100%{
+    transform: translateX(-50%);
+  }
+  25%{
+    transform: translateX(calc(-50% - 8px));
+  }
+  75%{
+    transform: translateX(calc(-50% + 8px));
+  }
+}
+
+
+
+
+
+
+
+@media (min-width: 1201px) and (max-height: 760px) {
+.butterfly-app .mission-header{
+    top: 10px;
+  }
+.butterfly-app .mission-title h1{
+    font-size: 34px;
+  }
+.butterfly-app .mission-title p{
+    margin-top: 4px;
+    font-size: 18px;
+  }
+.butterfly-app .home-button{
+    height: 44px;
+    font-size: 18px;
+  }
+.butterfly-app .score-pill{
+    height: 46px;
+    font-size: 20px;
+  }
+.butterfly-app .screen-actions{
+    top: 16px;
+  }
+.butterfly-app .screen-actions button{
+    height: 44px;
+  }
+.butterfly-app .mode-tabs{
+    top: 104px;
+    width: min(960px, calc(100vw - 660px));
+  }
+.butterfly-app .mode-tab{
+    height: 48px;
+    font-size: 20px;
+  }
+.butterfly-app .mode-icon{
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+  }
+.butterfly-app .lesson-stage{
+    inset: 170px 350px 88px;
+  }
+.butterfly-app .story-video-card{
+    inset: 0;
+    grid-template-columns: minmax(230px, 0.72fr) minmax(420px, 1.28fr);
+    grid-template-rows: 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+.butterfly-app .story-video-copy h2{
+    margin-top: 10px;
+    font-size: 36px;
+  }
+.butterfly-app .story-video-copy p{
+    font-size: 18px;
+  }
+.butterfly-app .task-column, .butterfly-app .progress-column{
+    top: 162px;
+    bottom: 20px;
+  }
+.butterfly-app .task-body, .butterfly-app .quiz-body{
+    padding: 12px 18px;
+  }
+.butterfly-app .task-body h2, .butterfly-app .quiz-body h3{
+    font-size: 18px;
+  }
+.butterfly-app .task-body p{
+    margin: 8px 0 12px;
+    font-size: 16px;
+  }
+.butterfly-app .ghost-part{
+    height: 74px;
+  }
+.butterfly-app .quiz-card{
+    margin-top: 8px;
+  }
+.butterfly-app .task-header, .butterfly-app .quiz-header{
+    padding: 10px 18px;
+  }
+.butterfly-app .pilot-badge{
+    width: 44px;
+    height: 40px;
+    font-size: 12px;
+  }
+.butterfly-app .answer, .butterfly-app .code-buttons button, .butterfly-app .primary-action{
+    margin-top: 7px;
+    padding: 8px 12px;
+    font-size: 15px;
+    line-height: 1.18;
+  }
+.butterfly-app .tip-card{
+    display: none;
+  }
+.butterfly-app .progress-card{
+    min-height: 104px;
+    padding: 12px 18px 16px;
+  }
+.butterfly-app .progress-count{
+    margin-top: 6px;
+    font-size: 40px;
+  }
+.butterfly-app .progress-count span{
+    font-size: 18px;
+  }
+.butterfly-app .progress-bar{
+    margin-top: 12px;
+    height: 14px;
+  }
+.butterfly-app .parts-list-card{
+    max-height: 330px;
+    overflow: auto;
+  }
+.butterfly-app .side-part{
+    grid-template-columns: 54px minmax(0, 1fr) 84px;
+    gap: 10px;
+    padding: 9px 14px;
+    font-size: 17px;
+  }
+.butterfly-app .side-part-icon{
+    width: 44px;
+    height: 38px;
+  }
+.butterfly-app .side-state{
+    font-size: 13px;
+  }
+.butterfly-app .watch-button{
+    margin-top: 10px;
+    padding: 14px;
+    font-size: 22px;
+  }
+.butterfly-app .watch-play{
+    width: 46px;
+    height: 46px;
+  }
+.butterfly-app .parts-tray{
+    bottom: 18px;
+    width: min(780px, calc(100vw - 740px));
+    padding: 10px;
+  }
+.butterfly-app .tray-thumb{
+    height: 48px;
+  }
+.butterfly-app .encouragement{
+    bottom: 10px;
+    width: min(450px, calc(100vw - 760px));
+    padding: 10px 18px;
+    font-size: 18px;
+  }
+
+}
+@media (max-width: 1200px) {
+.butterfly-app .app-shell{
+    min-height: 1280px;
+    overflow-y: auto;
+  }
+.butterfly-app .mission-header{
+    grid-template-columns: 110px 1fr 100px;
+    gap: 12px;
+  }
+.butterfly-app .mission-title h1{
+    font-size: 30px;
+  }
+.butterfly-app .mode-tabs{
+    width: calc(100vw - 48px);
+    min-width: 0;
+  }
+.butterfly-app .mode-tab{
+    height: 50px;
+    font-size: 16px;
+    margin-left: -16px;
+    padding: 0 18px 0 26px;
+  }
+.butterfly-app .mode-icon{
+    display: none;
+  }
+.butterfly-app .lesson-stage{
+    inset: 160px 24px auto;
+    height: 350px;
+  }
+.butterfly-app .task-column, .butterfly-app .progress-column{
+    top: 540px;
+    bottom: auto;
+    width: calc(50vw - 36px);
+    max-height: 360px;
+  }
+.butterfly-app .task-column{
+    left: 24px;
+  }
+.butterfly-app .progress-column{
+    right: 24px;
+  }
+.butterfly-app .quiz-card, .butterfly-app .tip-card, .butterfly-app .watch-button{
+    display: block;
+  }
+.butterfly-app .parts-list-card{
+    max-height: 260px;
+    overflow: auto;
+  }
+.butterfly-app .parts-tray{
+    top: 990px;
+    bottom: auto;
+    width: calc(100vw - 48px);
+    min-width: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+.butterfly-app .encouragement{
+    bottom: 12px;
+  }
+
+}
+@media (max-width: 720px) {
+.butterfly-app .app-shell{
+    min-height: 1780px;
+  }
+.butterfly-app .mission-header{
+    left: 12px;
+    right: 12px;
+    grid-template-columns: 80px 1fr;
+  }
+.butterfly-app .score-pill{
+    display: none;
+  }
+.butterfly-app .mission-title h1{
+    font-size: 22px;
+  }
+.butterfly-app .mission-title p{
+    font-size: 13px;
+  }
+.butterfly-app .mode-tabs{
+    top: 94px;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    padding: 8px;
+  }
+.butterfly-app .mode-tab{
+    clip-path: none;
+    border-radius: 8px;
+    height: 44px;
+    font-size: 12px;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+.butterfly-app .mode-tab:first-child, .butterfly-app .mode-tab:last-child{
+    clip-path: none;
+    border-radius: 8px;
+  }
+.butterfly-app .lesson-stage{
+    top: 210px;
+    left: 12px;
+    right: 12px;
+    bottom: auto;
+    height: 430px;
+  }
+.butterfly-app .story-video-card{
+    inset: 0;
+  }
+.butterfly-app .task-column, .butterfly-app .progress-column{
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+.butterfly-app .task-column{
+    top: 660px;
+    bottom: auto;
+    max-height: none;
+  }
+.butterfly-app .progress-column{
+    top: 1110px;
+    bottom: auto;
+    max-height: none;
+  }
+.butterfly-app .ghost-part{
+    display: none;
+  }
+.butterfly-app .parts-tray{
+    top: 1370px;
+    bottom: auto;
+    left: 12px;
+    right: 12px;
+    transform: none;
+    width: auto;
+    grid-template-columns: repeat(2, 1fr);
+  }
+.butterfly-app .encouragement{
+    position: fixed;
+    bottom: 10px;
+    width: calc(100vw - 24px);
+    font-size: 15px;
+    padding: 10px 12px;
+  }
+.butterfly-app .progress-count{
+    font-size: 42px;
+  }
+.butterfly-app .side-part{
+    grid-template-columns: 52px minmax(0, 1fr) 78px;
+    gap: 8px;
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+.butterfly-app .side-state{
+    font-size: 12px;
+  }
+
+}
+
+/* The lesson header and task card already provide the story context. */
+.butterfly-app .story-video-card.video-only{
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 12px;
+}
+.butterfly-app .story-video-card.video-only .story-video-frame{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+/* Warmup screen */
+.butterfly-app .warmup-screen{
+  position: absolute;
+  inset: 4% 5%;
+  display: grid;
+  place-items: center;
+}
+.butterfly-app .warmup-video-frame{
+  width: min(960px, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #06244b;
+  border: 4px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 24px 52px rgba(0, 42, 105, 0.3);
+}
+.butterfly-app .warmup-video-frame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+@media (min-width: 721px) {
+  .butterfly-app .mission-header{
+    left: auto;
+    right: 168px;
+    width: auto;
+    display: block;
+  }
+
+  .butterfly-app .mode-tabs{
+    top: 24px;
+  }
+
+  .butterfly-app .lesson-stage{
+    top: 104px;
+  }
+
+  .butterfly-app .task-column{
+    top: 20px;
+  }
+
+  .butterfly-app .progress-column{
+    top: 108px;
+  }
+}
