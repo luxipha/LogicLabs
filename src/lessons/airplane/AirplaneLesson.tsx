@@ -626,7 +626,7 @@ export const AirplaneLesson: React.FC<{onHome?: () => void; onComplete?: () => v
             <Suspense fallback={null}>
               <group position={planePosition} rotation={planeRotation} scale={planeScale}>
                 <AirplaneLessonModel
-                  modelUrl="/models/airplane.glb"
+                  modelUrl="models/airplane.glb"
                   activePart={selectedPart}
                   assembledParts={displayAssembledParts}
                   partPositions={displayPartPositions}

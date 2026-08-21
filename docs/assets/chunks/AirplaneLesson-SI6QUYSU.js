@@ -931,7 +931,7 @@ var AirplaneLesson = ({
           /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_react2.Suspense, { fallback: null, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("group", { position: planePosition, rotation: planeRotation, scale: planeScale, children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
             AirplaneLessonModel,
             {
-              modelUrl: "/models/airplane.glb",
+              modelUrl: "models/airplane.glb",
               activePart: selectedPart,
               assembledParts: displayAssembledParts,
               partPositions: displayPartPositions,

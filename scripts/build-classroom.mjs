@@ -6,6 +6,7 @@ const root = process.cwd();
 const outdir = path.join(root, 'docs');
 const assetsDir = path.join(outdir, 'assets');
 const modelsDir = path.join(outdir, 'models');
+const publicBasePath = (process.env.PUBLIC_BASE_PATH ?? '/LogicLabs/').replace(/\/?$/, '/');
 
 // Regenerate scoped lesson stylesheets from canonical sources, awaiting them.
 const {run: runScoping} = await import('./scope-css.mjs');
@@ -40,12 +41,14 @@ for (const file of chunkCssFiles) {
   await fs.rm(path.join(chunkDir, file));
 }
 
-// Copy the SPA shell (single entry, all routes served by it).
-await fs.copyFile(path.join(root, 'src/app/index.html'), path.join(outdir, 'index.html'));
+// The base path keeps asset URLs inside the GitHub Pages project URL rather
+// than incorrectly resolving them from luxipha.github.io's domain root.
+const sourceShell = await fs.readFile(path.join(root, 'src/app/index.html'), 'utf8');
+const shell = sourceShell.replace('{{BASE_PATH}}', publicBasePath);
+await fs.writeFile(path.join(outdir, 'index.html'), shell);
 
 // Emit directory indexes so static hosts can serve `/lessons/<slug>` without
 // an SPA rewrite. Each is the same shell; the SPA reads the requested path.
-const shell = await fs.readFile(path.join(root, 'src/app/index.html'), 'utf8');
 const routes = [
   '/lessons/airplane',
   '/lessons/butterfly',

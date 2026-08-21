@@ -301,7 +301,7 @@ var CameraRig = ({ mode }) => {
   return null;
 };
 var RadarTruckModel = ({ highlightedPart, mode, activityScanning, activityFound, onPartSelect, onWaveHit }) => {
-  const gltf = useLoader(GLTFLoader, "/models/radar-truck.glb");
+  const gltf = useLoader(GLTFLoader, "models/radar-truck.glb");
   const model = (0, import_react.useMemo)(() => {
     const cloned = gltf.scene.clone(true);
     cloned.updateMatrixWorld(true);

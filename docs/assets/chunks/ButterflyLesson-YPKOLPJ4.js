@@ -248,7 +248,7 @@ var createBakedMesh = (source, geometry, part, active) => {
   return mesh;
 };
 var ButterflyModel = ({ activePart, mode, flapSpeed, pollinationStep, onDebug, onPartSelect }) => {
-  const gltf = useLoader(GLTFLoader, "/models/butterfly.glb");
+  const gltf = useLoader(GLTFLoader, "models/butterfly.glb");
   const model = (0, import_react.useMemo)(() => {
     const cloned = gltf.scene.clone(true);
     cloned.updateMatrixWorld(true);

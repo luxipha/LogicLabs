@@ -21793,11 +21793,11 @@ var PRESET_CLASSES = [
 
 // src/app/lessons.ts
 var import_react2 = __toESM(require_react());
-var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-4M3CZYY3.js"));
-var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-S4H2BSVO.js"));
+var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-SI6QUYSU.js"));
+var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-YPKOLPJ4.js"));
 var HoneyBeeLesson = (0, import_react2.lazy)(() => import("./chunks/HoneyBeeLesson-CXGOEOYT.js"));
 var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-X3L4NRXB.js"));
-var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-PHZ5VB43.js"));
+var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-IQWTDZXZ.js"));
 var LESSONS = [
   { id: "airplane", content: content_default },
   { id: "butterfly", content: content_default2 },

@@ -308,7 +308,7 @@ const ButterflyModel: React.FC<{
   onDebug?: (debug: ModelDebug) => void;
   onPartSelect: (part: PartId) => void;
 }> = ({activePart, mode, flapSpeed, pollinationStep, onDebug, onPartSelect}) => {
-  const gltf = useLoader(GLTFLoader, '/models/butterfly.glb');
+  const gltf = useLoader(GLTFLoader, 'models/butterfly.glb');
   const model = useMemo(() => {
     const cloned = gltf.scene.clone(true);
     cloned.updateMatrixWorld(true);

@@ -372,7 +372,7 @@ export const RadarTruckModel: React.FC<{
   onPartSelect: (part: RadarPartId) => void;
   onWaveHit: () => void;
 }> = ({highlightedPart, mode, activityScanning, activityFound, onPartSelect, onWaveHit}) => {
-  const gltf = useLoader(GLTFLoader, '/models/radar-truck.glb');
+  const gltf = useLoader(GLTFLoader, 'models/radar-truck.glb');
 
   const model = useMemo(() => {
     const cloned = gltf.scene.clone(true);

@@ -5,6 +5,7 @@ import path from 'node:path';
 const host = '127.0.0.1';
 const port = 4173;
 const root = path.join(process.cwd(), 'docs');
+const pagesBasePath = (process.env.PUBLIC_BASE_PATH ?? '/LogicLabs/').replace(/\/$/, '');
 
 const contentTypes = new Map([
   ['.html', 'text/html; charset=utf-8'],
@@ -21,7 +22,10 @@ const contentTypes = new Map([
 const server = http.createServer(async (req, res) => {
   try {
     const requestUrl = new URL(req.url ?? '/', `http://${host}:${port}`);
-    const urlPath = requestUrl.pathname === '/' ? '/index.html' : requestUrl.pathname;
+    const requestPath = requestUrl.pathname.startsWith(`${pagesBasePath}/`)
+      ? requestUrl.pathname.slice(pagesBasePath.length)
+      : requestUrl.pathname;
+    const urlPath = requestPath === '/' ? '/index.html' : requestPath;
     const safePath = path.normalize(urlPath).replace(/^(\.\.[/\\])+/, '');
     let filePath = path.join(root, safePath);
 
