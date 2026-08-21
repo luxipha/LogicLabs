@@ -1,9 +1,25 @@
 import {useEffect, useState} from 'react';
 
-export const getPath = (): string => window.location.pathname;
+const getBasePath = (): string => {
+  const pathname = new URL(document.baseURI).pathname.replace(/\/$/, '');
+  return pathname === '/' ? '' : pathname;
+};
+
+// Routes stay application-relative (/lessons, /lessons/<id>) while the
+// browser URL stays inside the GitHub Pages project path (/LogicLabs/).
+export const getPath = (): string => {
+  const basePath = getBasePath();
+  const pathname = window.location.pathname;
+  if (!basePath || !pathname.startsWith(basePath)) {
+    return pathname;
+  }
+  return pathname.slice(basePath.length) || '/';
+};
 
 export const navigate = (path: string): void => {
-  window.history.pushState({}, '', path);
+  const basePath = getBasePath();
+  const route = path.startsWith('/') ? path : `/${path}`;
+  window.history.pushState({}, '', `${basePath}${route}`);
   window.dispatchEvent(new PopStateEvent('popstate'));
 };
 

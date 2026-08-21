@@ -21699,9 +21699,22 @@ var import_react5 = __toESM(require_react());
 
 // src/app/router.ts
 var import_react = __toESM(require_react());
-var getPath = () => window.location.pathname;
+var getBasePath = () => {
+  const pathname = new URL(document.baseURI).pathname.replace(/\/$/, "");
+  return pathname === "/" ? "" : pathname;
+};
+var getPath = () => {
+  const basePath = getBasePath();
+  const pathname = window.location.pathname;
+  if (!basePath || !pathname.startsWith(basePath)) {
+    return pathname;
+  }
+  return pathname.slice(basePath.length) || "/";
+};
 var navigate = (path) => {
-  window.history.pushState({}, "", path);
+  const basePath = getBasePath();
+  const route = path.startsWith("/") ? path : `/${path}`;
+  window.history.pushState({}, "", `${basePath}${route}`);
   window.dispatchEvent(new PopStateEvent("popstate"));
 };
 var usePath = () => {
