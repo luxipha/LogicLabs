@@ -21,11 +21,11 @@ const App: React.FC = () => {
   const lesson = lessonSlug ? getLesson(lessonSlug) : undefined;
   let page: React.ReactNode;
   if (path === '/') {
-    page = <HomePage />;
+    page = <HomePage onClassSelected={setCls} />;
   } else if (path === '/lessons') {
-    page = cls ? <LessonsPage /> : <HomePage />;
+    page = cls ? <LessonsPage /> : <HomePage onClassSelected={setCls} />;
   } else if (lessonSlug) {
-    page = cls ? <LessonPage id={lessonSlug} /> : <HomePage />;
+    page = cls ? <LessonPage id={lessonSlug} /> : <HomePage onClassSelected={setCls} />;
   } else {
     page = <NotFoundPage />;
   }

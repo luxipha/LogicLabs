@@ -3,10 +3,11 @@ import {PRESET_CLASSES, rememberClass, setCurrentClass, type ClassInfo} from '..
 import {navigate} from '../router';
 import {ClassArtwork} from './ClassArtwork';
 
-export const HomePage: React.FC = () => {
+export const HomePage: React.FC<{onClassSelected: (cls: ClassInfo) => void}> = ({onClassSelected}) => {
   const joinClass = (cls: ClassInfo) => {
     setCurrentClass(cls);
     rememberClass(cls);
+    onClassSelected(cls);
     navigate('/lessons');
   };
 

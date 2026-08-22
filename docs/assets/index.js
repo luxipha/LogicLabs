@@ -21896,10 +21896,11 @@ var ClassArtwork = ({ art }) => {
 
 // src/app/pages/HomePage.tsx
 var import_jsx_runtime2 = __toESM(require_jsx_runtime());
-var HomePage = () => {
+var HomePage = ({ onClassSelected }) => {
   const joinClass = (cls) => {
     setCurrentClass(cls);
     rememberClass(cls);
+    onClassSelected(cls);
     navigate("/lessons");
   };
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("main", { className: "home-page", children: [
@@ -22042,11 +22043,11 @@ var App = () => {
   const lesson = lessonSlug ? getLesson(lessonSlug) : void 0;
   let page;
   if (path === "/") {
-    page = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, {});
+    page = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
   } else if (path === "/lessons") {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, {});
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
   } else if (lessonSlug) {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, {});
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
   } else {
     page = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(NotFoundPage, {});
   }
