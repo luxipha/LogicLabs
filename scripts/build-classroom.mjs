@@ -49,7 +49,7 @@ await fs.writeFile(path.join(outdir, 'index.html'), shell);
 
 // Emit directory indexes so static hosts can serve `/lessons/<slug>` without
 // an SPA rewrite. Each is the same shell; the SPA reads the requested path.
-const routes = [
+const lessonRoutes = [
   '/lessons/airplane',
   '/lessons/butterfly',
   '/lessons/button-golfer',
@@ -57,6 +57,8 @@ const routes = [
   '/lessons/bee',
   '/lessons/elevator',
 ];
+const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
+const routes = [...lessonRoutes, ...drawRoutes];
 for (const route of routes) {
   const filePath = path.join(outdir, route.replace(/^\//, ''), 'index.html');
   await fs.mkdir(path.dirname(filePath), {recursive: true});
