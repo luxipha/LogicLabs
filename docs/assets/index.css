@@ -253,6 +253,7 @@
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .plane-app .mode-tabs {
@@ -2498,6 +2499,7 @@
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .butterfly-app .butterfly-part-preview {
@@ -3305,6 +3307,7 @@
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
@@ -5101,7 +5104,7 @@ button {
   background: #ffffff;
 }
 
-/* AirplaneLesson-ISW2QGBH.css */
+/* AirplaneLesson-6GHE7UUY.css */
 /* src/lessons/airplane/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -5357,6 +5360,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .plane-app .mode-tabs {
@@ -6749,7 +6753,7 @@ button {
   display: block;
 }
 
-/* BeeLesson-G6V2KFZ3.css */
+/* BeeLesson-GNIBEJD7.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -6900,6 +6904,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
@@ -8117,7 +8122,7 @@ button {
   }
 }
 
-/* ButterflyLesson-JXXF6DYT.css */
+/* ButterflyLesson-5SG53M2S.css */
 /* src/lessons/butterfly/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -8971,6 +8976,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .butterfly-app .butterfly-part-preview {
@@ -9628,7 +9634,7 @@ button {
   }
 }
 
-/* ButtonGolferLesson-3OIJWQNJ.css */
+/* ButtonGolferLesson-FF6FFIZC.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -9779,6 +9785,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
@@ -10996,7 +11003,7 @@ button {
   }
 }
 
-/* ElevatorLesson-F2QALUQ4.css */
+/* ElevatorLesson-MEQE5HIU.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -11147,6 +11154,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
@@ -12364,7 +12372,7 @@ button {
   }
 }
 
-/* MobileRadarLesson-UXNDKHAD.css */
+/* MobileRadarLesson-CNHVIAJL.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -12515,6 +12523,7 @@ button {
   font-size: 22px;
   line-height: 1;
   cursor: pointer;
+  pointer-events: auto;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
