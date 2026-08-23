@@ -137,10 +137,13 @@ const WebGLFallback: React.FC = () => (
   </div>
 );
 
-export const AirplaneLesson: React.FC<{onHome?: () => void; onComplete?: () => void}> = ({
-  onHome,
-  onComplete,
-}) => {
+export const AirplaneLesson: React.FC<{
+  onHome?: () => void;
+  onComplete?: () => void;
+  warmupVideoUrl?: string;
+  onDraw?: () => void;
+  onBoard?: () => void;
+}> = ({onHome, onComplete, warmupVideoUrl, onDraw, onBoard}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
   const [mode, setMode] = useState<LessonMode>('warmup');
   const [assembledParts, setAssembledParts] = useState<Record<LessonPartId, boolean>>(
@@ -542,9 +545,13 @@ export const AirplaneLesson: React.FC<{onHome?: () => void; onComplete?: () => v
     <div className="app-shell plane-app">
       <div className="sky-layer" />
       <header className="mission-header">
-        <div className="score-pill">
-          <span className="score-star">STAR</span>
-          <span>{120 + correctAnswers * 10}</span>
+        <div className="screen-actions">
+          <button className="icon-btn icon-btn-draw" aria-label="Draw" onClick={onDraw} title="Draw">
+            ✏️
+          </button>
+          <button className="icon-btn icon-btn-board" aria-label="Board" onClick={onBoard} title="Board">
+            🖼️
+          </button>
         </div>
       </header>
 
@@ -595,7 +602,7 @@ export const AirplaneLesson: React.FC<{onHome?: () => void; onComplete?: () => v
 
       {mode === 'warmup' ? (
         <section className="story-stage">
-          <WarmupScreen videoUrl={lessonContent.warmupVideoUrl} />
+          <WarmupScreen videoUrl={warmupVideoUrl ?? lessonContent.warmupVideoUrl} />
         </section>
       ) : mode === 'story' ? (
         <section className="story-stage">
@@ -913,11 +920,6 @@ export const AirplaneLesson: React.FC<{onHome?: () => void; onComplete?: () => v
           </div>
         </>
       ) : null}
-
-      <div className="screen-actions">
-        <button aria-label="Sound">Sound</button>
-        <button aria-label="Settings">Settings</button>
-      </div>
     </div>
   );
 };

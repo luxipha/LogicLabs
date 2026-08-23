@@ -34,9 +34,10 @@ export const RadarStage: React.FC<{
   identified: Set<string>;
   onSelect: (part: string) => void;
   mode: string;
+  warmupVideoUrl: string;
   activityDone: boolean;
   completeActivity: () => void;
-}> = ({lastSelectedPart, onSelect, mode, activityDone, completeActivity}) => {
+}> = ({lastSelectedPart, onSelect, mode, warmupVideoUrl, activityDone, completeActivity}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
   const [scanning, setScanning] = useState(false);
   const [found, setFound] = useState(false);
@@ -58,7 +59,7 @@ export const RadarStage: React.FC<{
 
   // Video tabs do not need the 3D canvas or its full-stage background.
   if (mode === 'warmup') {
-    return <WarmupScreen videoUrl={lessonContent.warmupVideoUrl} />;
+    return <WarmupScreen videoUrl={warmupVideoUrl} />;
   }
 
   if (mode === 'story') {

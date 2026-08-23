@@ -30,18 +30,30 @@ export const GenericLesson: React.FC<{
   content: LessonContent;
   onHome: () => void;
   onComplete: () => void;
+  warmupVideoUrl?: string;
+  onDraw?: () => void;
+  onBoard?: () => void;
   stage: (props: {
     mode: GenericMode;
     activePart: string;
     lastSelectedPart: string | null;
+    warmupVideoUrl: string;
     onSelect: (part: string) => void;
     identified: Set<string>;
     activityDone: boolean;
     completeActivity: () => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, stage, partPreview}) => {
-  const [mode, setMode] = useState<GenericMode>('warmup');
+}> = ({content, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, stage, partPreview}) => {
+  const [mode, setMode] = useState<GenericMode>(() => {
+    if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('mode');
+      if (param === 'story' || param === 'identify' || param === 'explore' || param === 'activity' || param === 'quiz') {
+        return param;
+      }
+    }
+    return 'warmup';
+  });
   const [warmupDone, setWarmupDone] = useState(false);
   const [activePart, setActivePart] = useState(content.parts?.[0]?.id ?? 'part');
   const [lastSelectedPart, setLastSelectedPart] = useState<string | null>(null);
@@ -253,7 +265,7 @@ export const GenericLesson: React.FC<{
   return (
     <div className="app-shell generic-app">
       <div className="sky-layer" />
-      <MissionHeader score={120 + identified.size * 10} />
+      <MissionHeader score={120 + identified.size * 10} onDraw={onDraw} onBoard={onBoard} />
       <ModeTabs tabs={MODE_TABS} activeMode={mode} onSelect={selectMode} />
 
       <LessonStage>
@@ -261,6 +273,7 @@ export const GenericLesson: React.FC<{
           mode,
           activePart,
           lastSelectedPart,
+          warmupVideoUrl: warmupVideoUrl ?? content.warmupVideoUrl,
           onSelect: selectPart,
           identified,
           activityDone,
@@ -325,10 +338,6 @@ export const GenericLesson: React.FC<{
 
       {mode === 'identify' ? <PartsTray parts={trayParts} onSelect={selectPart} /> : null}
       {mode !== 'identify' || feedback ? <FeedbackBanner message={bannerMessage} state={bannerState} /> : null}
-      <div className="screen-actions">
-        <button aria-label="Sound">Sound</button>
-        <button aria-label="Settings">Settings</button>
-      </div>
     </div>
   );
 };

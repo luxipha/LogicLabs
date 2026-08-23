@@ -534,10 +534,13 @@ const ButterflyStage: React.FC<{
   );
 };
 
-export const ButterflyLesson: React.FC<{onHome?: () => void; onComplete?: () => void}> = ({
-  onHome,
-  onComplete,
-}) => {
+export const ButterflyLesson: React.FC<{
+  onHome?: () => void;
+  onComplete?: () => void;
+  warmupVideoUrl?: string;
+  onDraw?: () => void;
+  onBoard?: () => void;
+}> = ({onHome, onComplete, warmupVideoUrl, onDraw, onBoard}) => {
   const [mode, setMode] = useState<LessonMode>('warmup');
   const [selectedPart, setSelectedPart] = useState<PartId>('wings');
   const [identified, setIdentified] = useState<Partial<Record<PartId, boolean>>>({});
@@ -724,14 +727,12 @@ export const ButterflyLesson: React.FC<{onHome?: () => void; onComplete?: () => 
   return (
     <div className="app-shell butterfly-app">
       <div className="sky-layer" />
-      <MissionHeader
-        score={120 + foundCount * 10}
-      />
+      <MissionHeader score={120 + foundCount * 10} onDraw={onDraw} onBoard={onBoard} />
       <ModeTabs tabs={MODE_TABS} activeMode={mode} onSelect={selectMode} />
 
       <LessonStage>
         {mode === 'warmup' ? (
-          <WarmupScreen videoUrl={lessonContent.warmupVideoUrl} />
+          <WarmupScreen videoUrl={warmupVideoUrl ?? lessonContent.warmupVideoUrl} />
         ) : mode === 'story' ? (
           <StoryVideoCard
             title="The Garden Needs Help"
@@ -835,10 +836,6 @@ export const ButterflyLesson: React.FC<{onHome?: () => void; onComplete?: () => 
 
       {mode === 'story' || mode === 'warmup' ? null : <PartsTray parts={trayParts} onSelect={selectPart} />}
       <FeedbackBanner message={bannerMessage} state={bannerState} />
-      <div className="screen-actions">
-        <button aria-label="Sound">Sound</button>
-        <button aria-label="Settings">Settings</button>
-      </div>
     </div>
   );
 };

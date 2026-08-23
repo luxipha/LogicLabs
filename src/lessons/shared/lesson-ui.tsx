@@ -27,11 +27,21 @@ export type LessonTrayPart<TPart extends string> = {
 
 export const MissionHeader: React.FC<{
   score: number;
-}> = ({score}) => (
+  onDraw?: () => void;
+  onBoard?: () => void;
+}> = ({onDraw, onBoard}) => (
   <header className="mission-header">
-    <div className="score-pill">
-      <span className="score-star">STAR</span>
-      <span>{score}</span>
+    <div className="screen-actions">
+      {onDraw ? (
+        <button className="icon-btn icon-btn-draw" aria-label="Draw" onClick={onDraw} title="Draw">
+          ✏️
+        </button>
+      ) : null}
+      {onBoard ? (
+        <button className="icon-btn icon-btn-board" aria-label="Board" onClick={onBoard} title="Board">
+          🖼️
+        </button>
+      ) : null}
     </div>
   </header>
 );

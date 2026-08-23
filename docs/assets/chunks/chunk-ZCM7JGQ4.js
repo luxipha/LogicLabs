@@ -65262,6 +65262,8 @@ var ModelOrbitControls = ({ zoomEnabled, rotateEnabled, target, minDistance, max
 
 export {
   DoubleSide,
+  LoopRepeat,
+  SRGBColorSpace,
   Vector3,
   Group,
   Color,
@@ -65271,6 +65273,7 @@ export {
   MeshBasicMaterial,
   Mesh,
   MeshStandardMaterial,
+  AnimationMixer,
   useThree,
   useFrame,
   useLoader,

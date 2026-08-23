@@ -1,10 +1,10 @@
 import React from 'react';
 import {GenericLesson} from '../generic/GenericLesson';
-import {GolfStage, GolfPartPreview} from './GolfStage';
+import {BeeStage, BeePartPreview} from './BeeStage';
 import content from './content.json';
 import '../generic/lesson.scoped.css';
 
-export const ButtonGolferLesson: React.FC<{
+export const BeeLesson: React.FC<{
   onHome?: () => void;
   onComplete?: () => void;
   warmupVideoUrl?: string;
@@ -18,9 +18,9 @@ export const ButtonGolferLesson: React.FC<{
     warmupVideoUrl={warmupVideoUrl}
     onDraw={onDraw}
     onBoard={onBoard}
-    stage={(props) => <GolfStage {...props} mode={props.mode} />}
-    partPreview={(part) => <GolfPartPreview part={part} />}
+    stage={(props) => <BeeStage {...props} mode={props.mode} />}
+    partPreview={(part) => <BeePartPreview part={part} />}
   />
 );
 
-export default ButtonGolferLesson;
+export default BeeLesson;

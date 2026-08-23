@@ -52,9 +52,10 @@ await fs.writeFile(path.join(outdir, 'index.html'), shell);
 const routes = [
   '/lessons/airplane',
   '/lessons/butterfly',
-  '/lessons/honey-bee',
   '/lessons/button-golfer',
   '/lessons/mobile-radar',
+  '/lessons/bee',
+  '/lessons/elevator',
 ];
 for (const route of routes) {
   const filePath = path.join(outdir, route.replace(/^\//, ''), 'index.html');
@@ -68,6 +69,11 @@ await fs.copyFile(path.join(root, 'public/models/butterfly.glb'), path.join(mode
 await fs.copyFile(
   path.join(root, 'public/models/renault_trm_radar_truck.glb'),
   path.join(modelsDir, 'radar-truck.glb'),
+);
+await fs.copyFile(path.join(root, 'public/models/bee.glb'), path.join(modelsDir, 'bee.glb'));
+await fs.copyFile(
+  path.join(root, 'public/models/animated_female_character_swings_golf_club.glb'),
+  path.join(modelsDir, 'golfer.glb'),
 );
 
 console.log('Built classroom app into docs/');

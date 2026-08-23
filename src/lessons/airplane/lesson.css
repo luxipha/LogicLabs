@@ -216,24 +216,18 @@ button{
   display: flex;
   gap: 12px;
 }
-.screen-actions button{
-  width: 58px;
+.screen-actions .icon-btn{
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.screen-actions button::first-letter{
-  font-size: 0;
-}
-.screen-actions button[aria-label="Sound"]::before{
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.screen-actions button[aria-label="Settings"]::before{
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .mode-tabs{
   position: absolute;

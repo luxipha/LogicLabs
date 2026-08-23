@@ -5,9 +5,9 @@ import {
 
 // src/lessons/shared/lesson-ui.tsx
 var import_jsx_runtime = __toESM(require_jsx_runtime());
-var MissionHeader = ({ score }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", { className: "mission-header", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "score-pill", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "score-star", children: "STAR" }),
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: score })
+var MissionHeader = ({ onDraw, onBoard }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("header", { className: "mission-header", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "screen-actions", children: [
+  onDraw ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "icon-btn icon-btn-draw", "aria-label": "Draw", onClick: onDraw, title: "Draw", children: "\u270F\uFE0F" }) : null,
+  onBoard ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "icon-btn icon-btn-board", "aria-label": "Board", onClick: onBoard, title: "Board", children: "\u{1F5BC}\uFE0F" }) : null
 ] }) });
 var ModeTabs = ({
   tabs,

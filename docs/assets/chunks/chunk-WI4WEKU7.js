@@ -1,7 +1,7 @@
-// src/lessons/honey-bee/content.json
+// src/lessons/bee/content.json
 var content_default = {
-  slug: "honey-bee",
-  title: "Mission: Honey Bee",
+  slug: "bee",
+  title: "Mission: The Bee",
   subtitle: "Help the hive by learning honey bees.",
   summary: "Meet the honey bee, learn its body parts, and carry pollen from flower to flower.",
   badge: "BEE",
@@ -48,30 +48,36 @@ var content_default = {
       success: "Antennae help bees smell."
     },
     {
-      prompt: "What do bees use to collect nectar?",
-      answers: ["Proboscis", "Legs", "Eyes"],
-      correctIndex: 0,
-      success: "Bees use their proboscis to sip nectar."
-    },
-    {
-      prompt: "What does a bee carry on its legs?",
-      answers: ["Pollen", "Water", "Honey"],
+      prompt: "Which part of the bee carries pollen?",
+      answers: ["The legs", "The wings", "The eyes"],
       correctIndex: 0,
       success: "Pollen baskets on the legs carry pollen."
     },
     {
-      prompt: "Why do bees fly between flowers?",
-      answers: ["To spread pollen", "To rest", "To make noise"],
+      prompt: "How many wings does a bee have?",
+      answers: ["Four wings", "Two wings", "Six wings"],
       correctIndex: 0,
-      success: "Flying between flowers spreads pollen."
+      success: "A bee has four wings: two big and two small."
+    },
+    {
+      prompt: "What is the middle part of the bee called?",
+      answers: ["The thorax", "The head", "The wing"],
+      correctIndex: 0,
+      success: "The thorax is the middle body where wings attach."
     }
   ],
   parts: [
     {
+      id: "head",
+      label: "Head",
+      fact: "The bee's head holds its eyes and antennae, which help it find flowers.",
+      help: "The front part with the eyes."
+    },
+    {
       id: "antennae",
       label: "Antennae",
       fact: "Antennae help bees smell flowers and sense the world.",
-      help: "The feelers on the bee's head."
+      help: "The two feelers on the head."
     },
     {
       id: "wings",
@@ -83,19 +89,13 @@ var content_default = {
       id: "body",
       label: "Body",
       fact: "The bee's body is striped with yellow and black bands.",
-      help: "The striped middle part."
+      help: "The fuzzy middle and striped back part."
     },
     {
-      id: "proboscis",
-      label: "Proboscis",
-      fact: "The proboscis is a tube the bee uses to sip nectar.",
-      help: "The tube under the bee's head."
-    },
-    {
-      id: "pollen-basket",
-      label: "Pollen Basket",
+      id: "legs",
+      label: "Legs",
       fact: "Pollen baskets on the legs carry pollen back to the hive.",
-      help: "The fluffy ball on the back legs."
+      help: "The six legs under the body."
     }
   ]
 };

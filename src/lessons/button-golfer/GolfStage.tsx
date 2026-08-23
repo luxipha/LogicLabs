@@ -1,23 +1,51 @@
-import React, {useState} from 'react';
+import React, {Component, Suspense, useState, type ReactNode} from 'react';
 import {WarmupScreen} from '../shared/WarmupScreen';
 import {StoryVideoCard} from '../shared/lesson-ui';
+import {GolfCanvas, type GolfPartId} from './GolfModel';
 import lessonContent from './content.json';
+
+const hasWebGLSupport = () => {
+  if (typeof document === 'undefined') {
+    return false;
+  }
+  const canvas = document.createElement('canvas');
+  return Boolean(
+    canvas.getContext('webgl2') ||
+      canvas.getContext('webgl') ||
+      canvas.getContext('experimental-webgl'),
+  );
+};
+
+class GolfErrorBoundary extends Component<
+  {children: ReactNode; fallback: ReactNode},
+  {hasError: boolean}
+> {
+  state = {hasError: false};
+
+  static getDerivedStateFromError() {
+    return {hasError: true};
+  }
+
+  render() {
+    return this.state.hasError ? this.props.fallback : this.props.children;
+  }
+}
 
 export const GolfStage: React.FC<{
   activePart: string;
   identified: Set<string>;
   onSelect: (part: string) => void;
   mode: string;
+  warmupVideoUrl: string;
   activityDone: boolean;
   completeActivity: () => void;
-}> = ({activePart, identified, onSelect, mode, activityDone, completeActivity}) => {
-  const [swinging, setSwinging] = useState(false);
-  const [ballX, setBallX] = useState(0);
+}> = ({activePart, identified, onSelect, mode, warmupVideoUrl, activityDone, completeActivity}) => {
+  const [webGLAvailable] = useState(hasWebGLSupport);
 
   if (mode === 'warmup') {
     return (
       <div className="generic-stage">
-        <WarmupScreen videoUrl={lessonContent.warmupVideoUrl} />
+        <WarmupScreen videoUrl={warmupVideoUrl} />
       </div>
     );
   }
@@ -30,39 +58,64 @@ export const GolfStage: React.FC<{
     );
   }
 
-  const swing = () => {
-    if (activityDone) {
-      return;
+  // Explore uses the 3D course: rotate the model and tap a part to read about it.
+  if (mode === 'explore') {
+    if (!webGLAvailable) {
+      return (
+        <div className="generic-stage">
+          <div className="golf-no-webgl">
+            <strong>The golfer needs WebGL.</strong>
+            <span>Enable graphics acceleration in Chrome, or use Firefox.</span>
+          </div>
+        </div>
+      );
     }
-    setSwinging(true);
-    setBallX(1);
-    window.setTimeout(() => {
-      setSwinging(false);
-      setBallX(2);
-      completeActivity();
-    }, 900);
-  };
+    return (
+      <div className="generic-stage golf-model-stage">
+        <GolfErrorBoundary
+          fallback={
+            <div className="golf-no-webgl">
+              <strong>The golfer model failed to load.</strong>
+              <span>Check the browser console for details.</span>
+            </div>
+          }
+        >
+          <Suspense fallback={<div className="golf-loading">Loading golfer…</div>}>
+            <GolfCanvas
+              highlightedPart={activePart as GolfPartId | null}
+              onPartSelect={onSelect}
+            />
+          </Suspense>
+        </GolfErrorBoundary>
+      </div>
+    );
+  }
 
   if (mode === 'activity') {
     return (
       <div className="generic-stage">
-        <div className="golf-activity">
-          <div className="golf-green" />
-          <div className={`golf-golfer ${swinging ? 'swinging' : ''}`}>⛳</div>
-          <div className={`golf-ball ${ballX === 1 ? 'hit' : ''} ${ballX === 2 ? 'rolled' : ''}`}>⚪</div>
-          <div className="golf-hole">⛳</div>
-          {activityDone ? (
-            <div className="bee-activity-done">Nice shot! The ball rolled to the hole.</div>
-          ) : (
-            <button className="primary-action" onClick={swing}>
-              {swinging ? 'Swinging...' : 'Press the button'}
-            </button>
-          )}
+        <div className="golf-game-embed">
+          <iframe
+            title="Golf Bit"
+            src="https://cloud.onlinegames.io/games/2026/construct/328/golf-bit/index.html"
+            allow="fullscreen; autoplay; gamepad"
+            allowFullScreen
+          />
+          <div className="golf-game-bar">
+            {activityDone ? (
+              <div className="bee-activity-done">Nice round! You played the course.</div>
+            ) : (
+              <button className="primary-action" onClick={completeActivity}>
+                Done playing
+              </button>
+            )}
+          </div>
         </div>
       </div>
     );
   }
 
+  // Identify tab — SVG parts view (unchanged).
   return (
     <div className="generic-stage">
       <svg viewBox="0 0 680 460" className="generic-art" aria-label="Button golfer">

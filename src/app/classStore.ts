@@ -47,6 +47,7 @@ export type PresetClass = ClassInfo & {
   tagline: string;
   color: string;
   art: ClassArtwork;
+  warmupVideoUrl: string;
 };
 
 export const PRESET_CLASSES: PresetClass[] = [
@@ -56,6 +57,7 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Colors, shapes, and first builds.',
     color: '#ff8d1f',
     art: 'blocks',
+    warmupVideoUrl: 'https://www.youtube.com/embed/pn1qJET81a4',
     createdAt: '',
   },
   {
@@ -64,6 +66,7 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Vehicles and machines that move.',
     color: '#20a7f1',
     art: 'moto',
+    warmupVideoUrl: 'https://www.youtube.com/embed/mwVSrqLdk-4',
     createdAt: '',
   },
   {
@@ -72,6 +75,7 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Motors, gears, and power.',
     color: '#3fbf3f',
     art: 'gear',
+    warmupVideoUrl: 'https://www.youtube.com/embed/pn1qJET81a4',
     createdAt: '',
   },
   {
@@ -80,6 +84,7 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Robots and simple coding.',
     color: '#8f42f3',
     art: 'robot',
+    warmupVideoUrl: 'https://www.youtube.com/embed/pn1qJET81a4',
     createdAt: '',
   },
   {
@@ -88,6 +93,10 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Advanced builds and challenges.',
     color: '#d62839',
     art: 'brick',
+    warmupVideoUrl: 'https://www.youtube.com/embed/pn1qJET81a4',
     createdAt: '',
   },
 ];
+
+export const getPresetClass = (name: string): PresetClass | undefined =>
+  PRESET_CLASSES.find((cls) => cls.name === name);

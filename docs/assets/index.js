@@ -6,13 +6,16 @@ import {
 } from "./chunks/chunk-SIX2DKDD.js";
 import {
   content_default as content_default3
-} from "./chunks/chunk-JOJRIEWH.js";
-import {
-  content_default as content_default4
 } from "./chunks/chunk-HWIG5UP4.js";
 import {
-  content_default as content_default5
+  content_default as content_default4
 } from "./chunks/chunk-GM2NIAG2.js";
+import {
+  content_default as content_default5
+} from "./chunks/chunk-WI4WEKU7.js";
+import {
+  content_default as content_default6
+} from "./chunks/chunk-BVHPWJQA.js";
 import {
   __commonJS,
   __toESM,
@@ -492,9 +495,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React5 = require_react();
+        var React6 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React5.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -2101,7 +2104,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React5.Children.forEach(props.children, function(child) {
+                React6.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -21691,11 +21694,11 @@ var require_client = __commonJS({
 });
 
 // src/app/index.tsx
-var import_react6 = __toESM(require_react());
+var import_react7 = __toESM(require_react());
 var import_client = __toESM(require_client());
 
 // src/app/App.tsx
-var import_react5 = __toESM(require_react());
+var import_react6 = __toESM(require_react());
 
 // src/app/router.ts
 var import_react = __toESM(require_react());
@@ -21728,6 +21731,10 @@ var usePath = () => {
 };
 var matchLessonPath = (path) => {
   const match = path.match(/^\/lessons\/([a-z0-9-]+)\/?$/);
+  return match ? match[1] : null;
+};
+var matchDrawPath = (path) => {
+  const match = path.match(/^\/draw\/([a-z0-9-]+)\/?$/);
   return match ? match[1] : null;
 };
 
@@ -21768,6 +21775,7 @@ var PRESET_CLASSES = [
     tagline: "Colors, shapes, and first builds.",
     color: "#ff8d1f",
     art: "blocks",
+    warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
     createdAt: ""
   },
   {
@@ -21776,6 +21784,7 @@ var PRESET_CLASSES = [
     tagline: "Vehicles and machines that move.",
     color: "#20a7f1",
     art: "moto",
+    warmupVideoUrl: "https://www.youtube.com/embed/mwVSrqLdk-4",
     createdAt: ""
   },
   {
@@ -21784,6 +21793,7 @@ var PRESET_CLASSES = [
     tagline: "Motors, gears, and power.",
     color: "#3fbf3f",
     art: "gear",
+    warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
     createdAt: ""
   },
   {
@@ -21792,6 +21802,7 @@ var PRESET_CLASSES = [
     tagline: "Robots and simple coding.",
     color: "#8f42f3",
     art: "robot",
+    warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
     createdAt: ""
   },
   {
@@ -21800,23 +21811,27 @@ var PRESET_CLASSES = [
     tagline: "Advanced builds and challenges.",
     color: "#d62839",
     art: "brick",
+    warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
     createdAt: ""
   }
 ];
+var getPresetClass = (name) => PRESET_CLASSES.find((cls) => cls.name === name);
 
 // src/app/lessons.ts
 var import_react2 = __toESM(require_react());
-var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-SI6QUYSU.js"));
-var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-YPKOLPJ4.js"));
-var HoneyBeeLesson = (0, import_react2.lazy)(() => import("./chunks/HoneyBeeLesson-CXGOEOYT.js"));
-var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-X3L4NRXB.js"));
-var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-IQWTDZXZ.js"));
+var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-4L3V2I7U.js"));
+var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-H3M43FTL.js"));
+var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-UQYHHMSI.js"));
+var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-5UISJ7VO.js"));
+var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-VTGWYNTX.js"));
+var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-TBRO6N3U.js"));
 var LESSONS = [
   { id: "airplane", content: content_default },
   { id: "butterfly", content: content_default2 },
-  { id: "honey-bee", content: content_default3 },
-  { id: "button-golfer", content: content_default4 },
-  { id: "mobile-radar", content: content_default5 }
+  { id: "button-golfer", content: content_default3 },
+  { id: "mobile-radar", content: content_default4 },
+  { id: "bee", content: content_default5 },
+  { id: "elevator", content: content_default6 }
 ];
 var getLesson = (id) => LESSONS.find((lesson) => lesson.id === id);
 var getLessonComponent = (id) => {
@@ -21825,12 +21840,14 @@ var getLessonComponent = (id) => {
       return AirplaneLesson;
     case "butterfly":
       return ButterflyLesson;
-    case "honey-bee":
-      return HoneyBeeLesson;
     case "button-golfer":
       return ButtonGolferLesson;
     case "mobile-radar":
       return MobileRadarLesson;
+    case "bee":
+      return BeeLesson;
+    case "elevator":
+      return ElevatorLesson;
   }
 };
 
@@ -21975,26 +21992,209 @@ var LessonsPage = () => {
 };
 
 // src/app/pages/LessonPage.tsx
+var import_react5 = __toESM(require_react());
+
+// src/components/DrawingCanvas.tsx
 var import_react4 = __toESM(require_react());
 var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+var COLORS = ["#ff5252", "#ffb020", "#4caf50", "#2196f3", "#9c27b0", "#000000"];
+var storageKey = (scope) => `classroom.drawing.${scope}`;
+var DrawingCanvas = ({ scope, overlay = false, className }) => {
+  const canvasRef = (0, import_react4.useRef)(null);
+  const [tool, setTool] = (0, import_react4.useState)("pen");
+  const [color, setColor] = (0, import_react4.useState)(COLORS[0]);
+  const drawing = (0, import_react4.useRef)(false);
+  const last = (0, import_react4.useRef)(null);
+  (0, import_react4.useEffect)(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      return;
+    }
+    ctx.lineCap = "round";
+    ctx.lineJoin = "round";
+    ctx.fillStyle = overlay ? "transparent" : "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    try {
+      const saved = window.localStorage.getItem(storageKey(scope));
+      if (saved) {
+        const img = new Image();
+        img.onload = () => ctx.drawImage(img, 0, 0);
+        img.src = saved;
+      }
+    } catch {
+    }
+  }, [overlay, scope]);
+  const resize = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0) {
+      canvas.width = Math.round(rect.width * window.devicePixelRatio);
+      canvas.height = Math.round(rect.height * window.devicePixelRatio);
+    }
+  };
+  (0, import_react4.useEffect)(() => {
+    resize();
+    window.addEventListener("resize", resize);
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+  const getPos = (e) => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return null;
+    }
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: (e.clientX - rect.left) * scaleX,
+      y: (e.clientY - rect.top) * scaleY
+    };
+  };
+  const start = (e) => {
+    e.preventDefault();
+    e.target.setPointerCapture?.(e.pointerId);
+    const pos = getPos(e);
+    if (!pos) {
+      return;
+    }
+    drawing.current = true;
+    last.current = pos;
+    const ctx = canvasRef.current?.getContext("2d");
+    if (ctx) {
+      ctx.beginPath();
+      ctx.moveTo(pos.x, pos.y);
+    }
+  };
+  const move = (e) => {
+    if (!drawing.current) {
+      return;
+    }
+    const pos = getPos(e);
+    const ctx = canvasRef.current?.getContext("2d");
+    if (!pos || !ctx || !last.current) {
+      return;
+    }
+    ctx.strokeStyle = tool === "eraser" ? overlay ? "rgba(255,255,255,0.9)" : "#ffffff" : color;
+    ctx.lineWidth = tool === "eraser" ? 32 : 5;
+    ctx.beginPath();
+    ctx.moveTo(last.current.x, last.current.y);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.stroke();
+    last.current = pos;
+  };
+  const end = () => {
+    if (!drawing.current) {
+      return;
+    }
+    drawing.current = false;
+    last.current = null;
+    save();
+  };
+  const save = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) {
+      return;
+    }
+    try {
+      window.localStorage.setItem(storageKey(scope), canvas.toDataURL());
+    } catch {
+    }
+  };
+  const clear = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext("2d");
+    if (!canvas || !ctx) {
+      return;
+    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (!overlay) {
+      ctx.fillStyle = "#ffffff";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+    save();
+  };
+  const toolbar = /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: overlay ? "draw-toolbar draw-toolbar-overlay" : "draw-toolbar", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "draw-colors", children: COLORS.map((c) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      "button",
+      {
+        className: color === c ? "draw-color active" : "draw-color",
+        style: { background: c },
+        "aria-label": `Color ${c}`,
+        onClick: () => setColor(c)
+      },
+      c
+    )) }),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "draw-tools", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "button",
+        {
+          className: tool === "pen" ? "draw-tool active" : "draw-tool",
+          onClick: () => setTool("pen"),
+          children: "\u270F\uFE0F Pen"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+        "button",
+        {
+          className: tool === "eraser" ? "draw-tool active" : "draw-tool",
+          onClick: () => setTool("eraser"),
+          children: "\u{1F9FD} Eraser"
+        }
+      ),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { className: "draw-tool", onClick: clear, children: "\u{1F5D1}\uFE0F Clear" })
+    ] })
+  ] });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: overlay ? "draw-overlay-wrap" : "draw-board-wrap", children: [
+    toolbar,
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      "canvas",
+      {
+        ref: canvasRef,
+        className: className ?? (overlay ? "draw-canvas draw-canvas-overlay" : "draw-canvas"),
+        onPointerDown: start,
+        onPointerMove: move,
+        onPointerUp: end,
+        onPointerLeave: end
+      }
+    )
+  ] });
+};
+
+// src/app/pages/LessonPage.tsx
+var import_jsx_runtime5 = __toESM(require_jsx_runtime());
 var LessonPage = ({ id }) => {
   const lesson = getLesson(id);
-  const [complete, setComplete] = (0, import_react4.useState)(false);
-  (0, import_react4.useEffect)(() => {
+  const [complete, setComplete] = (0, import_react5.useState)(false);
+  const [drawing, setDrawing] = (0, import_react5.useState)(false);
+  (0, import_react5.useEffect)(() => {
     setComplete(false);
+    setDrawing(false);
   }, [id]);
   if (!lesson) {
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(NotFound, { id });
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(NotFound, { id });
   }
   const Lesson = getLessonComponent(lesson.id);
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "lesson-viewport", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+  const cls = getCurrentClass();
+  const preset = cls ? getPresetClass(cls.name) : void 0;
+  const warmupVideoUrl = preset?.warmupVideoUrl || lesson.content.warmupVideoUrl;
+  const drawScope = `${cls?.name ?? "class"}/${lesson.id}`;
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lesson-viewport", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       Lesson,
       {
+        warmupVideoUrl,
         onHome: () => navigate("/lessons"),
+        onDraw: () => setDrawing(true),
+        onBoard: () => navigate(`/draw/${lesson.id}`),
         onComplete: () => {
           setComplete(true);
-          const cls = getCurrentClass();
           if (cls) {
             const key = `classroom.progress.${cls.name}.${lesson.id}`;
             try {
@@ -22005,62 +22205,92 @@ var LessonPage = ({ id }) => {
         }
       }
     ),
-    complete ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "lesson-done-toast", role: "status", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { children: "Lesson complete!" }),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { onClick: () => navigate("/lessons"), children: "Back to lessons" })
+    drawing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "draw-overlay", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "draw-close", onClick: () => setDrawing(false), "aria-label": "Close drawing", children: "\u2715" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawingCanvas, { scope: drawScope, overlay: true })
+    ] }) : null,
+    complete ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lesson-done-toast", role: "status", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "Lesson complete!" }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { onClick: () => navigate("/lessons"), children: "Back to lessons" })
     ] }) : null
   ] });
 };
-var NotFound = ({ id }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { className: "not-found", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h1", { children: [
+var NotFound = ({ id }) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { className: "not-found", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h1", { children: [
     "No lesson named \u201C",
     id,
     "\u201D."
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "Check the lesson list and try again." }),
-  /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { className: "primary-action", onClick: () => navigate("/lessons"), children: "See lessons" })
+  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "Check the lesson list and try again." }),
+  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "primary-action", onClick: () => navigate("/lessons"), children: "See lessons" })
 ] });
 
+// src/app/pages/DrawPage.tsx
+var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+var DrawPage = ({ lessonId }) => {
+  const lesson = getLesson(lessonId);
+  const cls = getCurrentClass();
+  const scope = `${cls?.name ?? "class"}/${lessonId}`;
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("main", { className: "draw-page", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "draw-page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { className: "draw-back", onClick: () => navigate(`/lessons/${lessonId}`), children: [
+        "\u2190 Back to ",
+        lesson?.content.title ?? "lesson"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { children: "Drawing Board" }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "draw-page-sub", children: [
+        cls?.name ?? "Class",
+        " \xB7 ",
+        lesson?.content.title ?? lessonId
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(DrawingCanvas, { scope })
+  ] });
+};
+
 // src/app/pages/NotFoundPage.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime());
-var NotFoundPage = () => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { className: "not-found", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h1", { children: "This page is missing." }),
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "Head back to the classroom home." }),
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Go home" })
+var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+var NotFoundPage = () => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("main", { className: "not-found", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h1", { children: "This page is missing." }),
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: "Head back to the classroom home." }),
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Go home" })
 ] });
 
 // src/app/App.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+var import_jsx_runtime8 = __toESM(require_jsx_runtime());
 var App = () => {
   const path = usePath();
-  const [cls, setCls] = (0, import_react5.useState)(getCurrentClass);
-  (0, import_react5.useEffect)(() => {
+  const [cls, setCls] = (0, import_react6.useState)(getCurrentClass);
+  (0, import_react6.useEffect)(() => {
     if (path !== "/" && !cls) {
       navigate("/");
     }
   }, [path, cls]);
   const lessonSlug = matchLessonPath(path);
+  const drawSlug = matchDrawPath(path);
   const lesson = lessonSlug ? getLesson(lessonSlug) : void 0;
   let page;
   if (path === "/") {
-    page = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
+    page = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
   } else if (path === "/lessons") {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
   } else if (lessonSlug) {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(HomePage, { onClassSelected: setCls });
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
+  } else if (drawSlug) {
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(DrawPage, { lessonId: drawSlug }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
   } else {
-    page = /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(NotFoundPage, {});
+    page = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(NotFoundPage, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "classroom-shell", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("nav", { className: "top-nav", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { className: "brand", onClick: () => navigate(cls ? "/lessons" : "/"), children: "HOME" }),
-      lesson ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "top-lesson-title", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: lesson.content.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { children: lesson.content.subtitle })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "nav-class", children: cls ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "nav-class-name", children: cls.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "classroom-shell", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("nav", { className: "top-nav", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { className: "brand", onClick: () => navigate(cls ? "/lessons" : "/"), children: "HOME" }),
+      lesson ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "top-lesson-title", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: lesson.content.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: lesson.content.subtitle })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "nav-class", children: cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "nav-class-name", children: cls.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
           "button",
           {
             className: "nav-class-switch",
@@ -22072,21 +22302,21 @@ var App = () => {
             children: "Switch"
           }
         )
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: "nav-class-name muted", children: "No class" }) })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "nav-class-name muted", children: "No class" }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(import_react5.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "route-loading", children: "Loading lesson\u2026" }), children: page })
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_react6.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "route-loading", children: "Loading lesson\u2026" }), children: page })
   ] });
 };
 var App_default = App;
 
 // src/app/index.tsx
-var import_jsx_runtime7 = __toESM(require_jsx_runtime());
+var import_jsx_runtime9 = __toESM(require_jsx_runtime());
 var rootElement = document.getElementById("root");
 if (!rootElement) {
   throw new Error("Missing #root element for classroom app");
 }
 (0, import_client.createRoot)(rootElement).render(
-  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_react6.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(App_default, {}) })
+  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_react7.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(App_default, {}) })
 );
 /*! Bundled license information:
 

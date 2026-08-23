@@ -8,11 +8,11 @@ import {
   ModelOrbitControls,
   Vector3,
   useLoader
-} from "./chunk-CC73DKN2.js";
+} from "./chunk-ZCM7JGQ4.js";
 import {
   StoryVideoCard,
   WarmupScreen
-} from "./chunk-PMMSFJ7E.js";
+} from "./chunk-LSECZ6XO.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -553,10 +553,7 @@ var WebGLFallback = () => /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { 
   /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("strong", { children: "3D airplane needs WebGL." }),
   /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: "This browser has WebGL disabled. Enable graphics acceleration in Chrome, or use Firefox." })
 ] }) });
-var AirplaneLesson = ({
-  onHome,
-  onComplete
-}) => {
+var AirplaneLesson = ({ onHome, onComplete, warmupVideoUrl, onDraw, onBoard }) => {
   const [webGLAvailable] = (0, import_react2.useState)(hasWebGLSupport);
   const [mode, setMode] = (0, import_react2.useState)("warmup");
   const [assembledParts, setAssembledParts] = (0, import_react2.useState)(
@@ -829,9 +826,9 @@ var AirplaneLesson = ({
   const planeRotation = looseAssembly ? [0.18, -0.52, 0] : [0.08, -0.34, 0];
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "app-shell plane-app", children: [
     /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "sky-layer" }),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("header", { className: "mission-header", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "score-pill", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "score-star", children: "STAR" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: 120 + correctAnswers * 10 })
+    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("header", { className: "mission-header", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "screen-actions", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "icon-btn icon-btn-draw", "aria-label": "Draw", onClick: onDraw, title: "Draw", children: "\u270F\uFE0F" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "icon-btn icon-btn-board", "aria-label": "Board", onClick: onBoard, title: "Board", children: "\u{1F5BC}\uFE0F" })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("nav", { className: "mode-tabs", "aria-label": "Lesson modes", children: [
       /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(
@@ -901,7 +898,7 @@ var AirplaneLesson = ({
         }
       )
     ] }),
-    mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("section", { className: "story-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WarmupScreen, { videoUrl: content_default.warmupVideoUrl }) }) : mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("section", { className: "story-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("section", { className: "story-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WarmupScreen, { videoUrl: warmupVideoUrl ?? content_default.warmupVideoUrl }) }) : mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("section", { className: "story-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
       StoryVideoCard,
       {
         title: "Lyson Island Needs Supplies",
@@ -1148,11 +1145,7 @@ var AirplaneLesson = ({
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "finish-title", children: "You built the airplane." }),
         /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "finish-text", children: "The cockpit, engines, wings, tail, and tires are all attached." })
       ] })
-    ] }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "screen-actions", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { "aria-label": "Sound", children: "Sound" }),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { "aria-label": "Settings", children: "Settings" })
-    ] })
+    ] }) : null
   ] });
 };
 var AirplaneLesson_default = AirplaneLesson;

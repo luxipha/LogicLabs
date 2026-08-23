@@ -1,10 +1,11 @@
 import React, {Suspense, useEffect, useState} from 'react';
-import {usePath, navigate, matchLessonPath} from './router';
+import {usePath, navigate, matchLessonPath, matchDrawPath} from './router';
 import {clearCurrentClass, getCurrentClass, type ClassInfo} from './classStore';
 import {getLesson} from './lessons';
 import {HomePage} from './pages/HomePage';
 import {LessonsPage} from './pages/LessonsPage';
 import {LessonPage} from './pages/LessonPage';
+import {DrawPage} from './pages/DrawPage';
 import {NotFoundPage} from './pages/NotFoundPage';
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
   }, [path, cls]);
 
   const lessonSlug = matchLessonPath(path);
+  const drawSlug = matchDrawPath(path);
   const lesson = lessonSlug ? getLesson(lessonSlug) : undefined;
   let page: React.ReactNode;
   if (path === '/') {
@@ -26,6 +28,8 @@ const App: React.FC = () => {
     page = cls ? <LessonsPage /> : <HomePage onClassSelected={setCls} />;
   } else if (lessonSlug) {
     page = cls ? <LessonPage id={lessonSlug} /> : <HomePage onClassSelected={setCls} />;
+  } else if (drawSlug) {
+    page = cls ? <DrawPage lessonId={drawSlug} /> : <HomePage onClassSelected={setCls} />;
   } else {
     page = <NotFoundPage />;
   }

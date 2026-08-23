@@ -14,7 +14,7 @@ import {
   Vector3,
   useFrame,
   useLoader
-} from "./chunk-CC73DKN2.js";
+} from "./chunk-ZCM7JGQ4.js";
 import {
   FeedbackBanner,
   LessonStage,
@@ -28,7 +28,7 @@ import {
   TaskCard,
   TipCard,
   WarmupScreen
-} from "./chunk-PMMSFJ7E.js";
+} from "./chunk-LSECZ6XO.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -447,10 +447,7 @@ var ButterflyStage = ({ activePart, mode, flapSpeed, pollinationStep, onPartSele
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "flower-prop right-flower" })
   ] });
 };
-var ButterflyLesson = ({
-  onHome,
-  onComplete
-}) => {
+var ButterflyLesson = ({ onHome, onComplete, warmupVideoUrl, onDraw, onBoard }) => {
   const [mode, setMode] = (0, import_react.useState)("warmup");
   const [selectedPart, setSelectedPart] = (0, import_react.useState)("wings");
   const [identified, setIdentified] = (0, import_react.useState)({});
@@ -562,14 +559,9 @@ var ButterflyLesson = ({
   }));
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "app-shell butterfly-app", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sky-layer" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-      MissionHeader,
-      {
-        score: 120 + foundCount * 10
-      }
-    ),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + foundCount * 10, onDraw, onBoard }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModeTabs, { tabs: MODE_TABS, activeMode: mode, onSelect: selectMode }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LessonStage, { children: mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarmupScreen, { videoUrl: content_default.warmupVideoUrl }) : mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LessonStage, { children: mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(WarmupScreen, { videoUrl: warmupVideoUrl ?? content_default.warmupVideoUrl }) : mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
       StoryVideoCard,
       {
         title: "The Garden Needs Help",
@@ -661,11 +653,7 @@ var ButterflyLesson = ({
       )
     ] }),
     mode === "story" || mode === "warmup" ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsTray, { parts: trayParts, onSelect: selectPart }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeedbackBanner, { message: bannerMessage, state: bannerState }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "screen-actions", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { "aria-label": "Sound", children: "Sound" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { "aria-label": "Settings", children: "Settings" })
-    ] })
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeedbackBanner, { message: bannerMessage, state: bannerState })
   ] });
 };
 var ButterflyLesson_default = ButterflyLesson;

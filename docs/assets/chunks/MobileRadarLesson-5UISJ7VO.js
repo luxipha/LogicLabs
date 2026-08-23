@@ -18,14 +18,14 @@ import {
   useFrame,
   useLoader,
   useThree
-} from "./chunk-CC73DKN2.js";
+} from "./chunk-ZCM7JGQ4.js";
 import {
   GenericLesson
-} from "./chunk-FKNKSDAA.js";
+} from "./chunk-XAZTOAQT.js";
 import {
   StoryVideoCard,
   WarmupScreen
-} from "./chunk-PMMSFJ7E.js";
+} from "./chunk-LSECZ6XO.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -449,7 +449,7 @@ var RadarErrorBoundary = class extends import_react2.Component {
     return this.state.hasError ? this.props.fallback : this.props.children;
   }
 };
-var RadarStage = ({ lastSelectedPart, onSelect, mode, activityDone, completeActivity }) => {
+var RadarStage = ({ lastSelectedPart, onSelect, mode, warmupVideoUrl, activityDone, completeActivity }) => {
   const [webGLAvailable] = (0, import_react2.useState)(hasWebGLSupport);
   const [scanning, setScanning] = (0, import_react2.useState)(false);
   const [found, setFound] = (0, import_react2.useState)(false);
@@ -467,7 +467,7 @@ var RadarStage = ({ lastSelectedPart, onSelect, mode, activityDone, completeActi
     }
   };
   if (mode === "warmup") {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WarmupScreen, { videoUrl: content_default.warmupVideoUrl });
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(WarmupScreen, { videoUrl: warmupVideoUrl });
   }
   if (mode === "story") {
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(StoryVideoCard, { title: content_default.title, youtubeEmbedUrl: content_default.storyVideoUrl });
@@ -518,10 +518,7 @@ var RadarPartPreview = ({ part }) => /* @__PURE__ */ (0, import_jsx_runtime2.jsx
 
 // src/lessons/mobile-radar/MobileRadarLesson.tsx
 var import_jsx_runtime3 = __toESM(require_jsx_runtime());
-var MobileRadarLesson = ({
-  onHome,
-  onComplete
-}) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+var MobileRadarLesson = ({ onHome, onComplete, warmupVideoUrl, onDraw, onBoard }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
   GenericLesson,
   {
     content: content_default,
@@ -529,6 +526,9 @@ var MobileRadarLesson = ({
     }),
     onComplete: onComplete ?? (() => {
     }),
+    warmupVideoUrl,
+    onDraw,
+    onBoard,
     stage: (props) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(RadarStage, { ...props, mode: props.mode }),
     partPreview: (part) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(RadarPartPreview, { part })
   }

@@ -242,24 +242,18 @@
   display: flex;
   gap: 12px;
 }
-.plane-app .screen-actions button {
-  width: 58px;
+.plane-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.plane-app .screen-actions button::first-letter {
-  font-size: 0;
-}
-.plane-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.plane-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .plane-app .mode-tabs {
   position: absolute;
@@ -2493,21 +2487,18 @@
   display: flex;
   gap: 12px;
 }
-.butterfly-app .screen-actions button {
-  width: 58px;
+.butterfly-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.butterfly-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.butterfly-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .butterfly-app .butterfly-part-preview {
   position: relative;
@@ -3303,21 +3294,18 @@
   display: flex;
   gap: 12px;
 }
-.generic-app .screen-actions button {
-  width: 58px;
+.generic-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.generic-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.generic-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
   position: absolute;
@@ -3858,6 +3846,127 @@
   width: auto;
   padding: 14px 34px;
 }
+.generic-app .golf-model-stage {
+  display: block;
+}
+.generic-app .golf-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .golf-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .golf-no-webgl,
+.generic-app .golf-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .golf-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .golf-no-webgl strong,
+.generic-app .golf-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .golf-no-webgl span,
+.generic-app .golf-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .golf-game-embed {
+  position: absolute;
+  inset: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.generic-app .golf-game-embed iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #000;
+}
+.generic-app .golf-game-bar {
+  display: flex;
+  justify-content: center;
+}
+.generic-app .golf-game-bar .primary-action {
+  width: auto;
+  padding: 12px 32px;
+}
+.generic-app .elevator-activity {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+}
+.generic-app .elevator-shaft {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #0a3a6b 0%,
+      #0d4a85 100%);
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  overflow: hidden;
+}
+.generic-app .elevator-floors {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #e8f7ff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.generic-app .elevator-cab-move {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  transition: bottom 0.8s ease;
+  bottom: 12px;
+}
+.generic-app .elevator-cab-move.floor-1 {
+  bottom: 104px;
+}
+.generic-app .elevator-cab-move.floor-2 {
+  bottom: 196px;
+}
+.generic-app .elevator-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
 .generic-app .golf-green {
   position: absolute;
   left: 10%;
@@ -3916,6 +4025,82 @@
   inset: 0;
   z-index: 4;
   background: rgba(3, 71, 149, 0.78);
+}
+.generic-app .bee-model-stage {
+  display: block;
+}
+.generic-app .bee-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .bee-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .bee-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.72);
+}
+.generic-app .bee-activity-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(4, 79, 151, 0.92);
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-legend {
+  display: flex;
+  gap: 14px;
+  color: #e8f7ff;
+  font-size: 16px;
+  font-weight: 800;
+}
+.generic-app .bee-activity-controls .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+.generic-app .bee-no-webgl,
+.generic-app .bee-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .bee-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .bee-no-webgl strong,
+.generic-app .bee-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .bee-no-webgl span,
+.generic-app .bee-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
 }
 .generic-app .radar-no-webgl,
 .generic-app .radar-loading {
@@ -4777,8 +4962,146 @@ button {
 .not-found .primary-action {
   width: 220px;
 }
+.draw-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(2, 47, 105, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.draw-overlay .draw-overlay-wrap {
+  position: relative;
+  width: min(1100px, 92vw);
+  height: min(640px, 80vh);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 24px 60px rgba(0, 20, 60, 0.45);
+}
+.draw-overlay canvas.draw-canvas-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+.draw-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0, 30, 70, 0.85);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.draw-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px;
+  background: rgba(4, 79, 151, 0.95);
+  border-bottom: 3px solid rgba(113, 201, 255, 0.5);
+}
+.draw-toolbar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border-radius: 14px 14px 0 0;
+}
+.draw-colors {
+  display: flex;
+  gap: 8px;
+}
+.draw-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.draw-color.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
+}
+.draw-tools {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+.draw-tool {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.draw-tool.active {
+  background: #ffcf4a;
+  color: #114a9a;
+}
+.draw-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0874c9;
+}
+.draw-page-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 24px;
+  background: rgba(2, 60, 130, 0.9);
+  color: #fff;
+}
+.draw-page-head h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 900;
+}
+.draw-page-sub {
+  font-size: 16px;
+  font-weight: 800;
+  color: #dff5ff;
+}
+.draw-back {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.draw-page .draw-board-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.draw-page .draw-canvas {
+  flex: 1;
+  width: 100%;
+  cursor: crosshair;
+  touch-action: none;
+  background: #ffffff;
+}
 
-/* AirplaneLesson-A7DRNBFW.css */
+/* AirplaneLesson-ISW2QGBH.css */
 /* src/lessons/airplane/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -5023,24 +5346,18 @@ button {
   display: flex;
   gap: 12px;
 }
-.plane-app .screen-actions button {
-  width: 58px;
+.plane-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.plane-app .screen-actions button::first-letter {
-  font-size: 0;
-}
-.plane-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.plane-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .plane-app .mode-tabs {
   position: absolute;
@@ -6432,7 +6749,1375 @@ button {
   display: block;
 }
 
-/* ButterflyLesson-3TJ6RW7L.css */
+/* BeeLesson-G6V2KFZ3.css */
+/* src/lessons/generic/lesson.scoped.css */
+:root {
+  color-scheme: light;
+  font-family:
+    "Nunito",
+    "Avenir Next",
+    Avenir,
+    "Segoe UI",
+    sans-serif;
+}
+.generic-app * {
+  box-sizing: border-box;
+}
+.generic-app html,
+.generic-app body,
+.generic-app #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.generic-app body {
+  background: #0874c9;
+}
+.generic-app button {
+  font: inherit;
+}
+.generic-app .app-shell {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 720px;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0874c9;
+}
+.generic-app .sky-layer {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(1, 75, 160, 0.9) 0%,
+      rgba(9, 151, 226, 0.9) 52%,
+      rgba(135, 208, 241, 0.92) 78%),
+    radial-gradient(
+      circle at 54% 32%,
+      rgba(255, 255, 255, 0.22),
+      transparent 18%);
+}
+.generic-app .sky-layer::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 24%;
+  background:
+    radial-gradient(
+      ellipse at 20% 70%,
+      rgba(42, 136, 89, 0.5),
+      transparent 18%),
+    radial-gradient(
+      ellipse at 78% 70%,
+      rgba(42, 136, 89, 0.55),
+      transparent 22%),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(16, 108, 170, 0.35) 44%,
+      rgba(12, 99, 156, 0.72) 100%);
+}
+.generic-app .mission-header {
+  position: absolute;
+  z-index: 5;
+  top: 20px;
+  left: 24px;
+  right: 168px;
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) 150px;
+  align-items: center;
+  gap: 24px;
+  pointer-events: none;
+}
+.generic-app .mission-title {
+  text-align: center;
+}
+.generic-app .mission-title h1 {
+  margin: 0;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 900;
+  text-shadow: 0 4px 12px rgba(1, 31, 84, 0.3);
+}
+.generic-app .mission-title p {
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #e8f7ff;
+}
+.generic-app .home-button,
+.generic-app .score-pill,
+.generic-app .screen-actions button {
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
+}
+.generic-app .home-button {
+  height: 48px;
+  font-size: 20px;
+  font-weight: 900;
+  pointer-events: auto;
+}
+.generic-app .score-pill {
+  justify-self: end;
+  min-width: 120px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 900;
+}
+.generic-app .score-star,
+.generic-app .encouragement span {
+  color: #ffe251;
+  font-size: 15px;
+  font-weight: 900;
+}
+.generic-app .screen-actions {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  z-index: 6;
+  display: flex;
+  gap: 12px;
+}
+.generic-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
+}
+.generic-app .mode-tabs {
+  position: absolute;
+  z-index: 5;
+  top: 116px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: min(960px, calc(100vw - 560px));
+  min-width: 620px;
+  padding: 6px;
+  border-radius: 8px;
+  background: rgba(2, 77, 154, 0.7);
+  border: 3px solid rgba(95, 185, 255, 0.35);
+  box-shadow: inset 0 0 0 2px rgba(0, 36, 104, 0.22), 0 8px 20px rgba(0, 47, 104, 0.24);
+  pointer-events: auto;
+}
+.generic-app .mode-tab {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  height: 58px;
+  margin-left: -18px;
+  padding: 0 26px 0 34px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-shadow: 0 2px 3px rgba(0, 30, 82, 0.34);
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%, 28px 50%);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.24), inset 0 -3px 0 rgba(0, 0, 0, 0.14);
+}
+.generic-app .mode-tab:first-child {
+  margin-left: 0;
+  border-radius: 8px 0 0 8px;
+  clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 50%, calc(100% - 28px) 100%, 0 100%);
+}
+.generic-app .mode-tab:last-child {
+  border-radius: 0 8px 8px 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 28px 50%);
+}
+.generic-app .mode-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.22);
+  font-size: 10px;
+  font-weight: 900;
+}
+.generic-app .mode-tab.identify {
+  background:
+    linear-gradient(
+      180deg,
+      #8f42f3 0%,
+      #602bd4 100%);
+}
+.generic-app .mode-tab.assemble {
+  background:
+    linear-gradient(
+      180deg,
+      #63d73d 0%,
+      #27a51f 100%);
+}
+.generic-app .mode-tab.explore {
+  background:
+    linear-gradient(
+      180deg,
+      #20a7f1 0%,
+      #0d72c4 100%);
+}
+.generic-app .mode-tab.fly {
+  background:
+    linear-gradient(
+      180deg,
+      #ff9c31 0%,
+      #ff6b18 100%);
+}
+.generic-app .mode-tab:not(.active) {
+  filter: saturate(0.85) brightness(0.92);
+}
+.generic-app .task-column,
+.generic-app .progress-column {
+  position: absolute;
+  z-index: 4;
+  top: 176px;
+  bottom: 70px;
+  width: 300px;
+  pointer-events: auto;
+}
+.generic-app .task-column {
+  left: 24px;
+}
+.generic-app .progress-column {
+  right: 24px;
+}
+.generic-app .task-card,
+.generic-app .quiz-card,
+.generic-app .tip-card,
+.generic-app .progress-card,
+.generic-app .parts-list-card {
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(244, 250, 255, 0.95);
+  color: #0a2450;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 24px rgba(0, 51, 112, 0.24);
+}
+.generic-app .task-header,
+.generic-app .quiz-header {
+  padding: 16px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.generic-app .task-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #8055e5 0%,
+      #5930c1 100%);
+}
+.generic-app .pilot-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 48px;
+  border-radius: 8px;
+  background: #ffcf4a;
+  color: #114a9a;
+  font-size: 13px;
+  font-weight: 900;
+}
+.generic-app .task-body,
+.generic-app .quiz-body {
+  padding: 22px 26px;
+}
+.generic-app .task-body h2,
+.generic-app .quiz-body h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 900;
+}
+.generic-app .task-body p {
+  margin: 12px 0 22px;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.generic-app .primary-action {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 14px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+}
+.generic-app .quiz-card {
+  margin-top: 18px;
+  position: relative;
+}
+.generic-app .quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background:
+    linear-gradient(
+      180deg,
+      #118ef0 0%,
+      #0466c2 100%);
+}
+.generic-app .answer {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background:
+    linear-gradient(
+      180deg,
+      #278ee8 0%,
+      #0965c8 100%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: left;
+  cursor: pointer;
+}
+.generic-app .answer.correct {
+  background:
+    linear-gradient(
+      180deg,
+      #68ce37 0%,
+      #299f1c 100%);
+}
+.generic-app .answer.wrong {
+  background:
+    linear-gradient(
+      180deg,
+      #ff9d31 0%,
+      #f06416 100%);
+}
+.generic-app .correct-pop {
+  animation: quiz-pop 0.6s ease both;
+}
+.generic-app .wrong-shake {
+  animation: quiz-shake 0.44s ease both;
+}
+.generic-app .correct-burst,
+.generic-app .try-again,
+.generic-app .tip-card {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 900;
+  text-align: center;
+}
+.generic-app .correct-burst {
+  background:
+    linear-gradient(
+      180deg,
+      #ecffcb 0%,
+      #b7f26a 100%);
+  color: #1e6812;
+}
+.generic-app .correct-burst span {
+  display: block;
+  font-size: 22px;
+}
+.generic-app .correct-burst small {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+.generic-app .try-again {
+  background: #fff3df;
+  color: #a94a04;
+}
+.generic-app .tip-card {
+  margin-top: 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #138ae8 0%,
+      #0563bd 100%);
+  color: #fff;
+  font-size: 18px;
+}
+.generic-app .progress-card,
+.generic-app .parts-list-card {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3, 85, 160, 0.96) 0%,
+      rgba(2, 63, 133, 0.94) 100%);
+  color: #fff;
+  border-color: rgba(90, 185, 255, 0.34);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.14), 0 12px 26px rgba(0, 43, 105, 0.32);
+}
+.generic-app .progress-card {
+  padding: 20px 26px 24px;
+  min-height: 136px;
+}
+.generic-app .parts-list-card {
+  margin-top: 16px;
+}
+.generic-app .eyebrow {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 900;
+}
+.generic-app .progress-count {
+  margin-top: 8px;
+  font-size: 54px;
+  line-height: 0.95;
+  font-weight: 900;
+}
+.generic-app .progress-count span {
+  font-size: 24px;
+}
+.generic-app .progress-bar {
+  margin-top: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(0, 28, 80, 0.82);
+  overflow: hidden;
+}
+.generic-app .progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background:
+    linear-gradient(
+      180deg,
+      #b9fa77 0%,
+      #61d531 50%,
+      #2ea51d 100%);
+}
+.generic-app .side-part {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr) 98px;
+  align-items: center;
+  gap: 12px;
+  border: 0;
+  border-top: 1px solid rgba(112, 183, 235, 0.24);
+  background: transparent;
+  color: #fff;
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 20px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.generic-app .side-part.active {
+  color: #ffec64;
+  background: rgba(255, 255, 255, 0.08);
+}
+.generic-app .side-part-icon {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 44px;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff 0%,
+      #d7e7f2 100%);
+  box-shadow: 0 3px 8px rgba(0, 25, 72, 0.2);
+}
+.generic-app .side-state {
+  color: #ffdc54;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 900;
+  text-align: right;
+}
+.generic-app .side-state.done {
+  color: #7ff27d;
+  text-transform: none;
+}
+.generic-app .side-state.locked {
+  color: rgba(217, 236, 255, 0.68);
+  text-transform: none;
+}
+.generic-app .lesson-stage {
+  position: absolute;
+  inset: 172px 350px 172px;
+  z-index: 2;
+  pointer-events: auto;
+}
+.generic-app .lesson-stage canvas,
+.generic-app .lesson-stage svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.generic-app .story-video-card {
+  position: absolute;
+  inset: 4% 5%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0) 42%),
+    rgba(5, 83, 154, 0.9);
+  border: 4px solid rgba(113, 201, 255, 0.55);
+  box-shadow: 0 24px 52px rgba(0, 42, 105, 0.28);
+  color: #ffffff;
+}
+.generic-app .story-video-copy span {
+  display: inline-grid;
+  place-items: center;
+  margin-bottom: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ffcf4a;
+  color: #07316b;
+  font-size: 14px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.generic-app .story-video-copy h2 {
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 52px);
+  line-height: 1;
+  text-shadow: 0 3px 0 rgba(0, 34, 84, 0.28);
+}
+.generic-app .story-video-copy p {
+  margin: 8px 0 0;
+  max-width: 780px;
+  color: #dff5ff;
+  font-size: clamp(17px, 1.4vw, 24px);
+  font-weight: 800;
+  line-height: 1.3;
+}
+.generic-app .story-video-frame {
+  overflow: hidden;
+  border-radius: 14px;
+  background: #06244b;
+  border: 4px solid rgba(255, 255, 255, 0.24);
+}
+.generic-app .story-video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.generic-app .generic-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.generic-app .generic-art {
+  width: min(680px, 100%);
+  height: auto;
+}
+.generic-app .generic-part {
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.generic-app .generic-part:hover {
+  filter: brightness(1.12);
+}
+.generic-app .generic-part.active {
+  filter: drop-shadow(0 0 10px #ffec58) drop-shadow(0 0 18px rgba(255, 236, 88, 0.5));
+}
+.generic-app .generic-part.done {
+  filter: drop-shadow(0 0 8px rgba(120, 255, 120, 0.7));
+}
+.generic-app .generic-part-miss {
+  animation: generic-shake 0.4s ease;
+}
+.generic-app .generic-part-preview {
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  line-height: 1;
+}
+.generic-app .warmup-screen {
+  position: absolute;
+  inset: 4% 5%;
+  display: grid;
+  place-items: center;
+}
+.generic-app .warmup-video-frame {
+  width: min(960px, 100%);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #06244b;
+  border: 4px solid rgba(255, 255, 255, 0.24);
+  box-shadow: 0 24px 52px rgba(0, 42, 105, 0.3);
+}
+.generic-app .warmup-video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+.generic-app .bee-activity,
+.generic-app .golf-activity,
+.generic-app .radar-activity {
+  position: absolute;
+  inset: 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  box-shadow: 0 18px 44px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-flower {
+  font-size: 84px;
+  position: absolute;
+  left: 12%;
+  bottom: 16%;
+}
+.generic-app .bee-activity-hive {
+  font-size: 84px;
+  position: absolute;
+  right: 12%;
+  bottom: 16%;
+}
+.generic-app .bee-activity-bee {
+  font-size: 72px;
+  transition: transform 1s ease;
+}
+.generic-app .bee-activity-bee.collecting {
+  transform: translateX(-42%);
+}
+.generic-app .bee-activity-bee.returning {
+  transform: translateX(42%);
+}
+.generic-app .bee-activity-done {
+  padding: 16px 24px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #ecffcb 0%,
+      #b7f26a 100%);
+  color: #1e6812;
+  font-size: 24px;
+  font-weight: 900;
+  text-align: center;
+}
+.generic-app .bee-activity .primary-action,
+.generic-app .golf-activity .primary-action,
+.generic-app .radar-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
+.generic-app .golf-model-stage {
+  display: block;
+}
+.generic-app .golf-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .golf-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .golf-no-webgl,
+.generic-app .golf-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .golf-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .golf-no-webgl strong,
+.generic-app .golf-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .golf-no-webgl span,
+.generic-app .golf-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .golf-game-embed {
+  position: absolute;
+  inset: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.generic-app .golf-game-embed iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #000;
+}
+.generic-app .golf-game-bar {
+  display: flex;
+  justify-content: center;
+}
+.generic-app .golf-game-bar .primary-action {
+  width: auto;
+  padding: 12px 32px;
+}
+.generic-app .elevator-activity {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+}
+.generic-app .elevator-shaft {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #0a3a6b 0%,
+      #0d4a85 100%);
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  overflow: hidden;
+}
+.generic-app .elevator-floors {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #e8f7ff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.generic-app .elevator-cab-move {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  transition: bottom 0.8s ease;
+  bottom: 12px;
+}
+.generic-app .elevator-cab-move.floor-1 {
+  bottom: 104px;
+}
+.generic-app .elevator-cab-move.floor-2 {
+  bottom: 196px;
+}
+.generic-app .elevator-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
+.generic-app .golf-green {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 12%;
+  height: 26%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse,
+      #4fae5a 0%,
+      #2e9e4f 70%);
+}
+.generic-app .golf-golfer {
+  position: absolute;
+  left: 22%;
+  bottom: 30%;
+  font-size: 84px;
+  transition: transform 0.9s ease;
+}
+.generic-app .golf-golfer.swinging {
+  transform: rotate(-24deg) translateY(-8px);
+}
+.generic-app .golf-ball {
+  position: absolute;
+  left: 42%;
+  bottom: 32%;
+  font-size: 34px;
+  transition: transform 0.9s ease;
+}
+.generic-app .golf-ball.hit {
+  transform: translate(120px, -40px);
+}
+.generic-app .golf-ball.rolled {
+  transform: translate(240px, 0);
+}
+.generic-app .golf-hole {
+  position: absolute;
+  right: 16%;
+  bottom: 26%;
+  font-size: 44px;
+}
+.generic-app .radar-model-stage {
+  display: block;
+}
+.generic-app .radar-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .radar-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .radar-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.78);
+}
+.generic-app .bee-model-stage {
+  display: block;
+}
+.generic-app .bee-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .bee-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .bee-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.72);
+}
+.generic-app .bee-activity-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(4, 79, 151, 0.92);
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-legend {
+  display: flex;
+  gap: 14px;
+  color: #e8f7ff;
+  font-size: 16px;
+  font-weight: 800;
+}
+.generic-app .bee-activity-controls .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+.generic-app .bee-no-webgl,
+.generic-app .bee-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .bee-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .bee-no-webgl strong,
+.generic-app .bee-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .bee-no-webgl span,
+.generic-app .bee-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .radar-no-webgl,
+.generic-app .radar-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .radar-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .radar-no-webgl strong,
+.generic-app .radar-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .radar-no-webgl span,
+.generic-app .radar-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .radar-sweep-screen {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      #06244b 0%,
+      #0a3a6b 75%);
+  border: 4px solid rgba(113, 201, 255, 0.6);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.generic-app .radar-sweep {
+  position: absolute;
+  inset: 0;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(90, 220, 120, 0.55),
+      transparent 70deg);
+  transform-origin: center;
+}
+.generic-app .radar-sweep.spin {
+  animation: radar-spin 1.4s linear 1;
+}
+.generic-app .radar-hint,
+.generic-app .radar-blip {
+  position: relative;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.4);
+  color: #b9fa77;
+  font-size: 18px;
+  font-weight: 900;
+}
+.generic-app .radar-blip {
+  background: rgba(90, 220, 120, 0.25);
+  animation: radar-blink 0.5s ease infinite alternate;
+}
+@keyframes radar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes radar-blink {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.generic-app .encouragement {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(500px, calc(100vw - 48px));
+  padding: 14px 22px;
+  border-radius: 8px;
+  background: rgba(5, 73, 139, 0.9);
+  color: #fff;
+  font-size: 20px;
+  box-shadow: 0 10px 24px rgba(0, 51, 112, 0.24);
+}
+.generic-app .encouragement.correct {
+  border: 2px solid rgba(255, 231, 88, 0.72);
+}
+.generic-app .encouragement.wrong {
+  border: 2px solid rgba(255, 174, 88, 0.72);
+}
+.generic-app .quiz-finished {
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      180deg,
+      #ecffcb 0%,
+      #b7f26a 100%);
+  color: #1e6812;
+  font-size: 22px;
+  font-weight: 900;
+  text-align: center;
+}
+.generic-app .parts-tray {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  bottom: 86px;
+  transform: translateX(-50%);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  width: min(850px, calc(100vw - 720px));
+  min-width: 560px;
+  padding: 14px;
+  border-radius: 8px;
+  background: rgba(234, 247, 255, 0.94);
+  border: 3px solid rgba(29, 133, 212, 0.65);
+  box-shadow: 0 12px 28px rgba(0, 63, 135, 0.24);
+}
+.generic-app .tray-part {
+  min-width: 0;
+  border: 1px solid #d3e5f4;
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+  color: #09244c;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.generic-app .tray-part.active {
+  outline: 4px solid #ffdc54;
+}
+.generic-app .tray-part:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.generic-app .tray-thumb {
+  display: grid;
+  place-items: center;
+  height: 58px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background:
+    linear-gradient(
+      145deg,
+      #f3f8ff 0%,
+      #d8e9f7 100%);
+  overflow: hidden;
+}
+.generic-app .tray-thumb .generic-part-preview {
+  transform: scale(0.86);
+}
+@keyframes quiz-pop {
+  0% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.025);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes quiz-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+@keyframes generic-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+.generic-app .story-video-card.video-only {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 12px;
+}
+.generic-app .story-video-card.video-only .story-video-frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+@media (min-width: 721px) {
+  .generic-app .mission-header {
+    left: auto;
+    right: 168px;
+    width: auto;
+    display: block;
+  }
+  .generic-app .mode-tabs {
+    top: 24px;
+  }
+  .generic-app .lesson-stage {
+    top: 104px;
+  }
+  .generic-app .task-column {
+    top: 20px;
+  }
+  .generic-app .progress-column {
+    top: 108px;
+  }
+}
+@media (min-width: 1201px) and (max-height: 760px) {
+  .generic-app .mode-tabs {
+    top: 20px;
+    width: min(960px, calc(100vw - 660px));
+  }
+  .generic-app .mode-tab {
+    height: 48px;
+    font-size: 20px;
+  }
+  .generic-app .mode-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 8px;
+  }
+  .generic-app .lesson-stage {
+    top: 92px;
+    bottom: 88px;
+  }
+  .generic-app .task-column {
+    top: 20px;
+    bottom: 20px;
+  }
+  .generic-app .progress-column {
+    top: 92px;
+    bottom: 20px;
+  }
+  .generic-app .task-body,
+  .generic-app .quiz-body {
+    padding: 12px 18px;
+  }
+  .generic-app .task-body h2,
+  .generic-app .quiz-body h3 {
+    font-size: 18px;
+  }
+  .generic-app .task-body p {
+    margin: 8px 0 12px;
+    font-size: 16px;
+  }
+  .generic-app .quiz-card {
+    margin-top: 8px;
+  }
+  .generic-app .task-header,
+  .generic-app .quiz-header {
+    padding: 10px 18px;
+  }
+  .generic-app .pilot-badge {
+    width: 44px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .generic-app .answer,
+  .generic-app .primary-action {
+    margin-top: 7px;
+    padding: 8px 12px;
+    font-size: 15px;
+    line-height: 1.18;
+  }
+  .generic-app .tip-card {
+    display: none;
+  }
+  .generic-app .progress-card {
+    min-height: 104px;
+    padding: 12px 18px 16px;
+  }
+  .generic-app .progress-count {
+    margin-top: 6px;
+    font-size: 40px;
+  }
+  .generic-app .progress-count span {
+    font-size: 18px;
+  }
+  .generic-app .progress-bar {
+    margin-top: 12px;
+    height: 14px;
+  }
+  .generic-app .parts-list-card {
+    max-height: 330px;
+    overflow: auto;
+  }
+  .generic-app .parts-tray {
+    bottom: 18px;
+    width: min(780px, calc(100vw - 740px));
+    padding: 10px;
+  }
+  .generic-app .tray-thumb {
+    height: 48px;
+  }
+}
+@media (max-width: 1200px) and (min-width: 721px) {
+  .generic-app {
+    min-height: 1280px;
+    overflow-y: auto;
+  }
+  .generic-app .mode-tabs {
+    top: 104px;
+    width: calc(100vw - 48px);
+    min-width: 0;
+  }
+  .generic-app .mode-tab {
+    height: 50px;
+    font-size: 16px;
+    margin-left: -16px;
+    padding: 0 18px 0 26px;
+  }
+  .generic-app .mode-icon {
+    display: none;
+  }
+  .generic-app .lesson-stage {
+    top: 160px;
+    left: 24px;
+    right: 24px;
+    bottom: auto;
+    height: 350px;
+  }
+  .generic-app .task-column,
+  .generic-app .progress-column {
+    top: 540px;
+    bottom: auto;
+    width: calc(50vw - 36px);
+    max-height: 360px;
+  }
+  .generic-app .task-column {
+    left: 24px;
+  }
+  .generic-app .progress-column {
+    right: 24px;
+  }
+}
+@media (max-width: 720px) {
+  .generic-app {
+    min-height: 1780px;
+  }
+  .generic-app .mode-tabs {
+    top: 94px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    min-width: 0;
+    gap: 8px;
+    padding: 8px;
+  }
+  .generic-app .mode-tab {
+    clip-path: none;
+    border-radius: 8px;
+    height: 44px;
+    margin-left: 0;
+    padding: 0 10px;
+  }
+  .generic-app .mode-tab:first-child,
+  .generic-app .mode-tab:last-child {
+    clip-path: none;
+    border-radius: 8px;
+  }
+  .generic-app .lesson-stage {
+    top: 210px;
+    left: 12px;
+    right: 12px;
+    bottom: auto;
+    height: 430px;
+  }
+  .generic-app .task-column,
+  .generic-app .progress-column {
+    left: 12px;
+    right: 12px;
+    width: auto;
+  }
+  .generic-app .task-column {
+    top: 660px;
+    bottom: auto;
+    max-height: none;
+  }
+  .generic-app .progress-column {
+    top: 1110px;
+    bottom: auto;
+    max-height: none;
+  }
+}
+
+/* ButterflyLesson-JXXF6DYT.css */
 /* src/lessons/butterfly/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -7275,21 +8960,18 @@ button {
   display: flex;
   gap: 12px;
 }
-.butterfly-app .screen-actions button {
-  width: 58px;
+.butterfly-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.butterfly-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.butterfly-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .butterfly-app .butterfly-part-preview {
   position: relative;
@@ -7946,7 +9628,7 @@ button {
   }
 }
 
-/* ButtonGolferLesson-4UFVK7BU.css */
+/* ButtonGolferLesson-3OIJWQNJ.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -8086,21 +9768,18 @@ button {
   display: flex;
   gap: 12px;
 }
-.generic-app .screen-actions button {
-  width: 58px;
+.generic-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.generic-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.generic-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
   position: absolute;
@@ -8641,6 +10320,127 @@ button {
   width: auto;
   padding: 14px 34px;
 }
+.generic-app .golf-model-stage {
+  display: block;
+}
+.generic-app .golf-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .golf-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .golf-no-webgl,
+.generic-app .golf-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .golf-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .golf-no-webgl strong,
+.generic-app .golf-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .golf-no-webgl span,
+.generic-app .golf-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .golf-game-embed {
+  position: absolute;
+  inset: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.generic-app .golf-game-embed iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #000;
+}
+.generic-app .golf-game-bar {
+  display: flex;
+  justify-content: center;
+}
+.generic-app .golf-game-bar .primary-action {
+  width: auto;
+  padding: 12px 32px;
+}
+.generic-app .elevator-activity {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+}
+.generic-app .elevator-shaft {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #0a3a6b 0%,
+      #0d4a85 100%);
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  overflow: hidden;
+}
+.generic-app .elevator-floors {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #e8f7ff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.generic-app .elevator-cab-move {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  transition: bottom 0.8s ease;
+  bottom: 12px;
+}
+.generic-app .elevator-cab-move.floor-1 {
+  bottom: 104px;
+}
+.generic-app .elevator-cab-move.floor-2 {
+  bottom: 196px;
+}
+.generic-app .elevator-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
 .generic-app .golf-green {
   position: absolute;
   left: 10%;
@@ -8699,6 +10499,82 @@ button {
   inset: 0;
   z-index: 4;
   background: rgba(3, 71, 149, 0.78);
+}
+.generic-app .bee-model-stage {
+  display: block;
+}
+.generic-app .bee-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .bee-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .bee-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.72);
+}
+.generic-app .bee-activity-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(4, 79, 151, 0.92);
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-legend {
+  display: flex;
+  gap: 14px;
+  color: #e8f7ff;
+  font-size: 16px;
+  font-weight: 800;
+}
+.generic-app .bee-activity-controls .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+.generic-app .bee-no-webgl,
+.generic-app .bee-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .bee-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .bee-no-webgl strong,
+.generic-app .bee-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .bee-no-webgl span,
+.generic-app .bee-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
 }
 .generic-app .radar-no-webgl,
 .generic-app .radar-loading {
@@ -9120,7 +10996,7 @@ button {
   }
 }
 
-/* HoneyBeeLesson-V3UG4PKC.css */
+/* ElevatorLesson-F2QALUQ4.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -9260,21 +11136,18 @@ button {
   display: flex;
   gap: 12px;
 }
-.generic-app .screen-actions button {
-  width: 58px;
+.generic-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.generic-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.generic-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
   position: absolute;
@@ -9815,6 +11688,127 @@ button {
   width: auto;
   padding: 14px 34px;
 }
+.generic-app .golf-model-stage {
+  display: block;
+}
+.generic-app .golf-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .golf-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .golf-no-webgl,
+.generic-app .golf-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .golf-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .golf-no-webgl strong,
+.generic-app .golf-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .golf-no-webgl span,
+.generic-app .golf-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .golf-game-embed {
+  position: absolute;
+  inset: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.generic-app .golf-game-embed iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #000;
+}
+.generic-app .golf-game-bar {
+  display: flex;
+  justify-content: center;
+}
+.generic-app .golf-game-bar .primary-action {
+  width: auto;
+  padding: 12px 32px;
+}
+.generic-app .elevator-activity {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+}
+.generic-app .elevator-shaft {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #0a3a6b 0%,
+      #0d4a85 100%);
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  overflow: hidden;
+}
+.generic-app .elevator-floors {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #e8f7ff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.generic-app .elevator-cab-move {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  transition: bottom 0.8s ease;
+  bottom: 12px;
+}
+.generic-app .elevator-cab-move.floor-1 {
+  bottom: 104px;
+}
+.generic-app .elevator-cab-move.floor-2 {
+  bottom: 196px;
+}
+.generic-app .elevator-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
 .generic-app .golf-green {
   position: absolute;
   left: 10%;
@@ -9873,6 +11867,82 @@ button {
   inset: 0;
   z-index: 4;
   background: rgba(3, 71, 149, 0.78);
+}
+.generic-app .bee-model-stage {
+  display: block;
+}
+.generic-app .bee-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .bee-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .bee-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.72);
+}
+.generic-app .bee-activity-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(4, 79, 151, 0.92);
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-legend {
+  display: flex;
+  gap: 14px;
+  color: #e8f7ff;
+  font-size: 16px;
+  font-weight: 800;
+}
+.generic-app .bee-activity-controls .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+.generic-app .bee-no-webgl,
+.generic-app .bee-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .bee-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .bee-no-webgl strong,
+.generic-app .bee-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .bee-no-webgl span,
+.generic-app .bee-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
 }
 .generic-app .radar-no-webgl,
 .generic-app .radar-loading {
@@ -10294,7 +12364,7 @@ button {
   }
 }
 
-/* MobileRadarLesson-4KT6PUIY.css */
+/* MobileRadarLesson-UXNDKHAD.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -10434,21 +12504,18 @@ button {
   display: flex;
   gap: 12px;
 }
-.generic-app .screen-actions button {
-  width: 58px;
+.generic-app .screen-actions .icon-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
   height: 48px;
-  font-size: 0;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.5);
+  font-size: 22px;
+  line-height: 1;
   cursor: pointer;
-}
-.generic-app .screen-actions button[aria-label=Sound]::before {
-  content: "VOL";
-  font-size: 15px;
-  font-weight: 900;
-}
-.generic-app .screen-actions button[aria-label=Settings]::before {
-  content: "SET";
-  font-size: 15px;
-  font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 6px 16px rgba(0, 42, 101, 0.2);
 }
 .generic-app .mode-tabs {
   position: absolute;
@@ -10989,6 +13056,127 @@ button {
   width: auto;
   padding: 14px 34px;
 }
+.generic-app .golf-model-stage {
+  display: block;
+}
+.generic-app .golf-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .golf-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .golf-no-webgl,
+.generic-app .golf-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .golf-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .golf-no-webgl strong,
+.generic-app .golf-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .golf-no-webgl span,
+.generic-app .golf-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+.generic-app .golf-game-embed {
+  position: absolute;
+  inset: 4%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.generic-app .golf-game-embed iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #000;
+}
+.generic-app .golf-game-bar {
+  display: flex;
+  justify-content: center;
+}
+.generic-app .golf-game-bar .primary-action {
+  width: auto;
+  padding: 12px 32px;
+}
+.generic-app .elevator-activity {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+}
+.generic-app .elevator-shaft {
+  position: relative;
+  width: 220px;
+  height: 280px;
+  border-radius: 12px;
+  background:
+    linear-gradient(
+      180deg,
+      #0a3a6b 0%,
+      #0d4a85 100%);
+  border: 4px solid rgba(113, 201, 255, 0.5);
+  overflow: hidden;
+}
+.generic-app .elevator-floors {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  color: #e8f7ff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.generic-app .elevator-cab-move {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 64px;
+  transition: bottom 0.8s ease;
+  bottom: 12px;
+}
+.generic-app .elevator-cab-move.floor-1 {
+  bottom: 104px;
+}
+.generic-app .elevator-cab-move.floor-2 {
+  bottom: 196px;
+}
+.generic-app .elevator-activity .primary-action {
+  width: auto;
+  padding: 14px 34px;
+}
 .generic-app .golf-green {
   position: absolute;
   left: 10%;
@@ -11047,6 +13235,82 @@ button {
   inset: 0;
   z-index: 4;
   background: rgba(3, 71, 149, 0.78);
+}
+.generic-app .bee-model-stage {
+  display: block;
+}
+.generic-app .bee-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+.generic-app .bee-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .bee-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: rgba(3, 71, 149, 0.72);
+}
+.generic-app .bee-activity-controls {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 22px;
+  border-radius: 12px;
+  background: rgba(4, 79, 151, 0.92);
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3);
+}
+.generic-app .bee-activity-legend {
+  display: flex;
+  gap: 14px;
+  color: #e8f7ff;
+  font-size: 16px;
+  font-weight: 800;
+}
+.generic-app .bee-activity-controls .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+.generic-app .bee-no-webgl,
+.generic-app .bee-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .bee-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+.generic-app .bee-no-webgl strong,
+.generic-app .bee-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+.generic-app .bee-no-webgl span,
+.generic-app .bee-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
 }
 .generic-app .radar-no-webgl,
 .generic-app .radar-loading {

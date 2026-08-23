@@ -9,7 +9,7 @@ import {
   QuizCard,
   TaskCard,
   TipCard
-} from "./chunk-PMMSFJ7E.js";
+} from "./chunk-LSECZ6XO.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -27,8 +27,16 @@ var MODE_TABS = [
   { id: "activity", label: "Activity", icon: "DO", tone: "assemble" },
   { id: "quiz", label: "Quiz", icon: "TICK", tone: "fly" }
 ];
-var GenericLesson = ({ content, onHome, onComplete, stage, partPreview }) => {
-  const [mode, setMode] = (0, import_react.useState)("warmup");
+var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, stage, partPreview }) => {
+  const [mode, setMode] = (0, import_react.useState)(() => {
+    if (typeof window !== "undefined") {
+      const param = new URLSearchParams(window.location.search).get("mode");
+      if (param === "story" || param === "identify" || param === "explore" || param === "activity" || param === "quiz") {
+        return param;
+      }
+    }
+    return "warmup";
+  });
   const [warmupDone, setWarmupDone] = (0, import_react.useState)(false);
   const [activePart, setActivePart] = (0, import_react.useState)(content.parts?.[0]?.id ?? "part");
   const [lastSelectedPart, setLastSelectedPart] = (0, import_react.useState)(null);
@@ -149,12 +157,13 @@ var GenericLesson = ({ content, onHome, onComplete, stage, partPreview }) => {
   }));
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "app-shell generic-app", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sky-layer" }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + identified.size * 10 }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + identified.size * 10, onDraw, onBoard }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModeTabs, { tabs: MODE_TABS, activeMode: mode, onSelect: selectMode }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LessonStage, { children: stage({
       mode,
       activePart,
       lastSelectedPart,
+      warmupVideoUrl: warmupVideoUrl ?? content.warmupVideoUrl,
       onSelect: selectPart,
       identified,
       activityDone,
@@ -203,11 +212,7 @@ var GenericLesson = ({ content, onHome, onComplete, stage, partPreview }) => {
       mode === "identify" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsList, { parts: partRows, onSelect: selectPart }) : null
     ] }),
     mode === "identify" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsTray, { parts: trayParts, onSelect: selectPart }) : null,
-    mode !== "identify" || feedback ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeedbackBanner, { message: bannerMessage, state: bannerState }) : null,
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "screen-actions", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { "aria-label": "Sound", children: "Sound" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { "aria-label": "Settings", children: "Settings" })
-    ] })
+    mode !== "identify" || feedback ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeedbackBanner, { message: bannerMessage, state: bannerState }) : null
   ] });
 };
 

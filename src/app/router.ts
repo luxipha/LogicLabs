@@ -39,3 +39,8 @@ export const matchLessonPath = (path: string): string | null => {
   const match = path.match(/^\/lessons\/([a-z0-9-]+)\/?$/);
   return match ? match[1] : null;
 };
+
+export const matchDrawPath = (path: string): string | null => {
+  const match = path.match(/^\/draw\/([a-z0-9-]+)\/?$/);
+  return match ? match[1] : null;
+};
