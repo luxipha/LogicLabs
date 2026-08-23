@@ -4969,19 +4969,14 @@ button {
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgba(2, 47, 105, 0.45);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
 }
 .draw-overlay .draw-overlay-wrap {
   position: relative;
-  width: min(1100px, 92vw);
-  height: min(640px, 80vh);
-  border-radius: 14px;
+  flex: 1;
+  min-height: 0;
   overflow: hidden;
-  background: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 24px 60px rgba(0, 20, 60, 0.45);
 }
 .draw-overlay canvas.draw-canvas-overlay {
   position: absolute;
@@ -4991,11 +4986,20 @@ button {
   cursor: crosshair;
   touch-action: none;
 }
+.draw-overlay .draw-toolbar-overlay {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  border-radius: 999px;
+  box-shadow: 0 10px 26px rgba(0, 20, 60, 0.35);
+}
 .draw-close {
   position: absolute;
   top: 14px;
   right: 14px;
-  z-index: 50;
+  z-index: 60;
   width: 44px;
   height: 44px;
   border: 0;
@@ -5015,12 +5019,9 @@ button {
   border-bottom: 3px solid rgba(113, 201, 255, 0.5);
 }
 .draw-toolbar-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
-  border-radius: 14px 14px 0 0;
+  border-radius: 999px;
+  border-bottom: none;
+  background: rgba(4, 79, 151, 0.95);
 }
 .draw-colors {
   display: flex;
