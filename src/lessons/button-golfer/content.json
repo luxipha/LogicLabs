@@ -15,28 +15,44 @@
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "storyQuestions": [
     {
-      "prompt": "What does the golfer use to hit the ball?",
-      "answers": ["A club", "A racket", "A bat"],
+      "prompt": "What are we trying to move?",
+      "answers": ["The golf ball", "The club", "The hole"],
       "correctIndex": 0,
-      "success": "The golfer swings a club."
+      "success": "We are trying to move the golf ball."
     },
     {
-      "prompt": "What makes the golfer swing?",
-      "answers": ["A button", "The wind", "A magnet"],
+      "prompt": "Where do we want the ball to go?",
+      "answers": ["Into the hole", "Into the air", "Into the water"],
       "correctIndex": 0,
-      "success": "Pressing the button makes it swing."
+      "success": "We want the ball to go into the hole."
     },
     {
-      "prompt": "Where does the golfer try to send the ball?",
-      "answers": ["Toward the hole", "Into the air", "Under the grass"],
+      "prompt": "Can we touch the ball with our hands?",
+      "answers": ["No", "Yes", "Only at night"],
       "correctIndex": 0,
-      "success": "The goal is the hole."
+      "success": "We cannot touch the ball with our hands."
     },
     {
-      "prompt": "What moves when the golfer swings?",
-      "answers": ["The arms and club", "The hat", "The ball holder"],
+      "prompt": "What happens if we hit the ball too softly?",
+      "answers": ["It stops too soon", "It goes too far", "It bounces high"],
       "correctIndex": 0,
-      "success": "The arms and club move together."
+      "success": "A soft hit makes the ball stop too soon."
+    },
+    {
+      "prompt": "What happens if we hit the ball too hard?",
+      "answers": ["It goes too far", "It stops too soon", "It rolls backward"],
+      "correctIndex": 0,
+      "success": "A hard hit makes the ball go too far."
+    },
+    {
+      "prompt": "What do we need to build?",
+      "answers": [
+        "Something that can hit the ball toward the hole",
+        "Something that can carry the ball",
+        "Something that can hide the ball"
+      ],
+      "correctIndex": 0,
+      "success": "We need to build something that can hit the ball toward the hole."
     }
   ],
   "quiz": [

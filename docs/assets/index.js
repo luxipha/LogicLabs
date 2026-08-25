@@ -6,7 +6,7 @@ import {
 } from "./chunks/chunk-SIX2DKDD.js";
 import {
   content_default as content_default3
-} from "./chunks/chunk-AKAAXFBT.js";
+} from "./chunks/chunk-XB7SOL3B.js";
 import {
   content_default as content_default4
 } from "./chunks/chunk-GM2NIAG2.js";
@@ -21821,7 +21821,7 @@ var getPresetClass = (name) => PRESET_CLASSES.find((cls) => cls.name === name);
 var import_react2 = __toESM(require_react());
 var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-4L3V2I7U.js"));
 var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-H3M43FTL.js"));
-var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-AVYCWO5D.js"));
+var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-U33GZQ77.js"));
 var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-5UISJ7VO.js"));
 var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-VTGWYNTX.js"));
 var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-TBRO6N3U.js"));

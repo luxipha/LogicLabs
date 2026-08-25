@@ -1,6 +1,6 @@
 import {
   content_default
-} from "./chunk-AKAAXFBT.js";
+} from "./chunk-XB7SOL3B.js";
 import {
   AnimationMixer,
   Box3,
