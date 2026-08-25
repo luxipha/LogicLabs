@@ -3900,6 +3900,32 @@
   flex-direction: column;
   gap: 14px;
 }
+.generic-app .golf-identify-stage {
+  display: block;
+}
+.generic-app .sketchfab-embed-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.generic-app .sketchfab-embed-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 12px;
+}
+.generic-app .sketchfab-embed-wrapper p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #dff5ff;
+}
+.generic-app .sketchfab-embed-wrapper p a {
+  color: #7fd4ff;
+  font-weight: 800;
+}
 .generic-app .golf-game-embed iframe {
   flex: 1;
   width: 100%;
@@ -6754,7 +6780,7 @@ button {
   display: block;
 }
 
-/* BeeLesson-GNIBEJD7.css */
+/* BeeLesson-GCTTN4RC.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -7497,6 +7523,32 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.generic-app .golf-identify-stage {
+  display: block;
+}
+.generic-app .sketchfab-embed-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.generic-app .sketchfab-embed-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 12px;
+}
+.generic-app .sketchfab-embed-wrapper p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #dff5ff;
+}
+.generic-app .sketchfab-embed-wrapper p a {
+  color: #7fd4ff;
+  font-weight: 800;
 }
 .generic-app .golf-game-embed iframe {
   flex: 1;
@@ -9635,7 +9687,7 @@ button {
   }
 }
 
-/* ButtonGolferLesson-FF6FFIZC.css */
+/* ButtonGolferLesson-OALZ2QF4.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -10378,6 +10430,32 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.generic-app .golf-identify-stage {
+  display: block;
+}
+.generic-app .sketchfab-embed-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.generic-app .sketchfab-embed-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 12px;
+}
+.generic-app .sketchfab-embed-wrapper p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #dff5ff;
+}
+.generic-app .sketchfab-embed-wrapper p a {
+  color: #7fd4ff;
+  font-weight: 800;
 }
 .generic-app .golf-game-embed iframe {
   flex: 1;
@@ -11004,7 +11082,7 @@ button {
   }
 }
 
-/* ElevatorLesson-MEQE5HIU.css */
+/* ElevatorLesson-ZT6V5LAJ.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -11747,6 +11825,32 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.generic-app .golf-identify-stage {
+  display: block;
+}
+.generic-app .sketchfab-embed-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.generic-app .sketchfab-embed-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 12px;
+}
+.generic-app .sketchfab-embed-wrapper p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #dff5ff;
+}
+.generic-app .sketchfab-embed-wrapper p a {
+  color: #7fd4ff;
+  font-weight: 800;
 }
 .generic-app .golf-game-embed iframe {
   flex: 1;
@@ -12373,7 +12477,7 @@ button {
   }
 }
 
-/* MobileRadarLesson-CNHVIAJL.css */
+/* MobileRadarLesson-U6VUINGN.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -13116,6 +13220,32 @@ button {
   display: flex;
   flex-direction: column;
   gap: 14px;
+}
+.generic-app .golf-identify-stage {
+  display: block;
+}
+.generic-app .sketchfab-embed-wrapper {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.generic-app .sketchfab-embed-wrapper iframe {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  border-radius: 12px;
+}
+.generic-app .sketchfab-embed-wrapper p {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #dff5ff;
+}
+.generic-app .sketchfab-embed-wrapper p a {
+  color: #7fd4ff;
+  font-weight: 800;
 }
 .generic-app .golf-game-embed iframe {
   flex: 1;
