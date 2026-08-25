@@ -88,7 +88,7 @@ export const FinalCard: React.FC<{
         background: 'linear-gradient(to top, rgba(8,16,28,0.72) 0%, rgba(8,16,28,0.35) 100%)',
         opacity,
         transform: `scale(${0.97 + 0.03 * scale})`,
-        translate: "0px 203.7px"
+        translate: "0px 18px"
       }}
     >
       <div style={{textAlign: 'center', padding: '0 120px'}}>

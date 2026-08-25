@@ -12,7 +12,7 @@ var content_default = {
   difficulty: 1,
   topics: ["golfer parts", "lever", "swing", "button"],
   classIds: ["BrickX"],
-  storyVideoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  storyVideoUrl: "https://www.youtube.com/embed/EZ_o8zS7M_k",
   warmupVideoUrl: "https://www.youtube.com/embed/pn1qJET81a4",
   storyQuestions: [
     {
