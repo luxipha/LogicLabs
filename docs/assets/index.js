@@ -495,9 +495,9 @@ var require_react_dom_development = __commonJS({
         if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
           __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
         }
-        var React6 = require_react();
+        var React8 = require_react();
         var Scheduler = require_scheduler();
-        var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
         var suppressWarning = false;
         function setSuppressWarning(newSuppressWarning) {
           {
@@ -2104,7 +2104,7 @@ var require_react_dom_development = __commonJS({
           {
             if (props.value == null) {
               if (typeof props.children === "object" && props.children !== null) {
-                React6.Children.forEach(props.children, function(child) {
+                React8.Children.forEach(props.children, function(child) {
                   if (child == null) {
                     return;
                   }
@@ -21694,11 +21694,11 @@ var require_client = __commonJS({
 });
 
 // src/app/index.tsx
-var import_react7 = __toESM(require_react());
+var import_react9 = __toESM(require_react());
 var import_client = __toESM(require_client());
 
 // src/app/App.tsx
-var import_react6 = __toESM(require_react());
+var import_react8 = __toESM(require_react());
 
 // src/app/router.ts
 var import_react = __toESM(require_react());
@@ -21819,12 +21819,12 @@ var getPresetClass = (name) => PRESET_CLASSES.find((cls) => cls.name === name);
 
 // src/app/lessons.ts
 var import_react2 = __toESM(require_react());
-var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-4L3V2I7U.js"));
-var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-H3M43FTL.js"));
-var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-U33GZQ77.js"));
-var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-5UISJ7VO.js"));
-var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-VTGWYNTX.js"));
-var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-TBRO6N3U.js"));
+var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-NXJNQYPO.js"));
+var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-VQCGDZMT.js"));
+var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-M2XABTMM.js"));
+var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-CJN7OESL.js"));
+var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-7XMNZESD.js"));
+var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-WFKDU5NQ.js"));
 var LESSONS = [
   { id: "airplane", content: content_default },
   { id: "butterfly", content: content_default2 },
@@ -21945,67 +21945,237 @@ var HomePage = ({ onClassSelected }) => {
 };
 
 // src/app/pages/LessonsPage.tsx
+var import_react4 = __toESM(require_react());
+
+// src/app/components/StudentSetupModal.tsx
 var import_react3 = __toESM(require_react());
 var import_jsx_runtime3 = __toESM(require_jsx_runtime());
+var emptyRows = ["", "", "", ""];
+var normalizeNames = (names) => names.map((name) => name.trim()).filter((name) => name.length > 0);
+var StudentSetupModal = ({
+  className,
+  initialNames,
+  onCancel,
+  onContinue
+}) => {
+  const [names, setNames] = (0, import_react3.useState)(initialNames.length > 0 ? initialNames : emptyRows);
+  const [step, setStep] = (0, import_react3.useState)(1);
+  (0, import_react3.useEffect)(() => {
+    setNames(initialNames.length > 0 ? initialNames : emptyRows);
+    setStep(1);
+  }, [initialNames]);
+  const updateName = (index, value) => {
+    setNames((current) => current.map((name, itemIndex) => itemIndex === index ? value : name));
+  };
+  const addRow = () => setNames((current) => [...current, ""]);
+  const cleanNames = normalizeNames(names);
+  const continueSetup = () => {
+    if (step === 1) {
+      if (cleanNames.length > 0) setStep(2);
+      return;
+    }
+    onContinue(cleanNames);
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "dialog-scrim", role: "presentation", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "class-dialog student-setup-dialog", role: "dialog", "aria-modal": "true", "aria-labelledby": "student-setup-title", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("header", { className: "student-setup-progress", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("strong", { children: [
+        "Step ",
+        step,
+        " of 2"
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "student-progress-track", "aria-label": `Step ${step} of 2`, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "student-progress-dot active", children: "1" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `student-progress-line ${step === 2 ? "complete" : ""}` }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: `student-progress-dot ${step === 2 ? "active" : ""}`, children: "2" })
+      ] })
+    ] }),
+    step === 1 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "student-setup-body", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "student-setup-form", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "page-kicker", children: "Class setup" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { id: "student-setup-title", children: "Create your class list" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: "You can add names now and edit them later." }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "student-setup-list", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { className: "student-list-label", children: "Student names" }),
+          names.map((name, index) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("label", { className: "student-name-field", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "student-row-number", children: index + 1 }),
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+              "input",
+              {
+                value: name,
+                onChange: (event) => updateName(index, event.target.value),
+                placeholder: "Enter student name",
+                "aria-label": `Student ${index + 1} name`
+              }
+            )
+          ] }, index))
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "student-add-button", onClick: addRow, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { "aria-hidden": "true", children: "+" }),
+          " Add student"
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("aside", { className: "student-setup-aside", "aria-label": "What happens next", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { children: "What happens next?" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "setup-benefit", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { className: "setup-benefit-icon", src: "assets/class-setup-people.png", alt: "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "Names appear in the points panel" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "setup-benefit", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { className: "setup-benefit-icon", src: "assets/class-setup-coin.png", alt: "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "Tap + to award coins" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "setup-benefit", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { className: "setup-benefit-icon", src: "assets/class-setup-saved.png", alt: "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: "Saved on this device" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("img", { src: "assets/class-setup-backpack.png", alt: "School backpack and books" })
+      ] })
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "student-confirmation", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "page-kicker", children: "Ready to go" }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { id: "student-setup-title", children: "Your class list is ready" }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+        cleanNames.length,
+        " student",
+        cleanNames.length === 1 ? "" : "s",
+        " will appear in the points panel for ",
+        className,
+        "."
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "student-confirmation-names", children: cleanNames.map((name) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: name }, name)) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("footer", { className: "student-setup-actions", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { type: "button", className: "student-back-button", onClick: step === 1 ? onCancel : () => setStep(1), children: "Back" }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { type: "button", className: "student-next-button", onClick: continueSetup, disabled: step === 1 && cleanNames.length === 0, children: [
+        step === 1 ? "Next" : "Open class",
+        " ",
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { "aria-hidden": "true", children: "\u2192" })
+      ] })
+    ] })
+  ] }) });
+};
+
+// src/app/studentStore.ts
+var getStudentsKey = (className) => `classroom.students.${className}`;
+var makeStudentId = () => {
+  if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+    return crypto.randomUUID();
+  }
+  return `student-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+};
+var sanitizeStudents = (students) => students.map((student) => ({
+  id: student.id || makeStudentId(),
+  name: student.name.trim(),
+  points: Number.isFinite(student.points) ? Math.max(0, Math.floor(student.points)) : 0
+})).filter((student) => student.name.length > 0);
+var getStudents = (className) => {
+  try {
+    const raw = window.localStorage.getItem(getStudentsKey(className));
+    if (!raw) return [];
+    return sanitizeStudents(JSON.parse(raw));
+  } catch {
+    return [];
+  }
+};
+var saveStudents = (className, students) => {
+  const clean = sanitizeStudents(students);
+  window.localStorage.setItem(getStudentsKey(className), JSON.stringify(clean));
+  return clean;
+};
+var upsertStudentsFromNames = (className, names) => {
+  const existing = getStudents(className);
+  const existingByName = new Map(existing.map((student) => [student.name.toLowerCase(), student]));
+  const next = names.map((name) => name.trim()).filter((name) => name.length > 0).map((name) => {
+    const match = existingByName.get(name.toLowerCase());
+    return match ?? { id: makeStudentId(), name, points: 0 };
+  });
+  return saveStudents(className, next);
+};
+var incrementStudentPoints = (className, studentId, amount = 1) => {
+  const next = getStudents(className).map(
+    (student) => student.id === studentId ? { ...student, points: student.points + amount } : student
+  );
+  return saveStudents(className, next);
+};
+var clearStudentPoints = (className) => saveStudents(
+  className,
+  getStudents(className).map((student) => ({ ...student, points: 0 }))
+);
+
+// src/app/pages/LessonsPage.tsx
+var import_jsx_runtime4 = __toESM(require_jsx_runtime());
 var DIFFICULTY_STARS = ["\u2605", "\u2605\u2605", "\u2605\u2605\u2605"];
 var LessonsPage = () => {
-  const [cls] = (0, import_react3.useState)(getCurrentClass);
+  const [cls] = (0, import_react4.useState)(getCurrentClass);
+  const [selectedLessonId, setSelectedLessonId] = (0, import_react4.useState)(null);
   const classLessons = LESSONS.filter(
     (lesson) => lesson.content.classIds.includes(cls?.name ?? "")
   );
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("main", { className: "lessons-page", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("header", { className: "page-head", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "page-kicker", children: "Lesson Catalogue" }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h1", { children: cls ? `${cls.name} lessons` : "Choose a lesson." }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: "Each lesson is a short mission: watch the story, learn the parts, and do the activity." })
+  const selectedLesson = classLessons.find((lesson) => lesson.id === selectedLessonId);
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("main", { className: "lessons-page", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("header", { className: "page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "page-kicker", children: "Lesson Catalogue" }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h1", { children: cls ? `${cls.name} lessons` : "Choose a lesson." }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "Each lesson is a short mission: watch the story, learn the parts, and do the activity." })
     ] }),
-    classLessons.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "no-lessons", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("h2", { children: [
+    classLessons.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("section", { className: "no-lessons", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("h2", { children: [
         "No lessons for ",
         cls?.name,
         " yet."
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: "New missions are being added. Try another class." }),
-      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Switch class" })
-    ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("section", { className: "lesson-grid", children: classLessons.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: "New missions are being added. Try another class." }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Switch class" })
+    ] }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("section", { className: "lesson-grid", children: classLessons.map((lesson) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
       "button",
       {
         className: "lesson-card",
         style: { "--lesson-color": lesson.content.color },
-        onClick: () => navigate(`/lessons/${lesson.id}`),
+        onClick: () => setSelectedLessonId(lesson.id),
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { className: "lesson-card-top", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "lesson-badge", children: lesson.content.badge }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "lesson-difficulty", children: DIFFICULTY_STARS[lesson.content.difficulty - 1] })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "lesson-card-top", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "lesson-badge", children: lesson.content.badge }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "lesson-difficulty", children: DIFFICULTY_STARS[lesson.content.difficulty - 1] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("span", { className: "lesson-card-body", children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: lesson.content.title }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: lesson.content.summary }),
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "lesson-topics", children: lesson.content.topics.map((topic) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "lesson-topic", children: topic }, topic)) })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("span", { className: "lesson-card-body", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { children: lesson.content.title }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("p", { children: lesson.content.summary }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "lesson-topics", children: lesson.content.topics.map((topic) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "lesson-topic", children: topic }, topic)) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "lesson-card-cta", children: "Start lesson" })
+          /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "lesson-card-cta", children: "Start lesson" })
         ]
       },
       lesson.id
-    )) })
+    )) }),
+    cls && selectedLesson ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      StudentSetupModal,
+      {
+        className: cls.name,
+        initialNames: getStudents(cls.name).map((student) => student.name),
+        onCancel: () => setSelectedLessonId(null),
+        onContinue: (names) => {
+          upsertStudentsFromNames(cls.name, names);
+          navigate(`/lessons/${selectedLesson.id}`);
+        }
+      }
+    ) : null
   ] });
 };
 
 // src/app/pages/LessonPage.tsx
-var import_react5 = __toESM(require_react());
+var import_react7 = __toESM(require_react());
 
 // src/components/DrawingCanvas.tsx
-var import_react4 = __toESM(require_react());
-var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+var import_react5 = __toESM(require_react());
+var import_jsx_runtime5 = __toESM(require_jsx_runtime());
 var COLORS = ["#ff5252", "#ffb020", "#4caf50", "#2196f3", "#9c27b0", "#000000"];
 var storageKey = (scope) => `classroom.drawing.${scope}`;
 var DrawingCanvas = ({ scope, overlay = false, className }) => {
-  const canvasRef = (0, import_react4.useRef)(null);
-  const [tool, setTool] = (0, import_react4.useState)("pen");
-  const [color, setColor] = (0, import_react4.useState)(COLORS[0]);
-  const drawing = (0, import_react4.useRef)(false);
-  const last = (0, import_react4.useRef)(null);
-  (0, import_react4.useEffect)(() => {
+  const canvasRef = (0, import_react5.useRef)(null);
+  const [tool, setTool] = (0, import_react5.useState)("pen");
+  const [color, setColor] = (0, import_react5.useState)(COLORS[0]);
+  const drawing = (0, import_react5.useRef)(false);
+  const last = (0, import_react5.useRef)(null);
+  (0, import_react5.useEffect)(() => {
     const canvas = canvasRef.current;
     if (!canvas) {
       return;
@@ -22039,7 +22209,7 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
       canvas.height = Math.round(rect.height * window.devicePixelRatio);
     }
   };
-  (0, import_react4.useEffect)(() => {
+  (0, import_react5.useEffect)(() => {
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);
@@ -22120,8 +22290,8 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
     }
     save();
   };
-  const toolbar = /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: overlay ? "draw-toolbar draw-toolbar-overlay" : "draw-toolbar", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "draw-colors", children: COLORS.map((c) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+  const toolbar = /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: overlay ? "draw-toolbar draw-toolbar-overlay" : "draw-toolbar", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: "draw-colors", children: COLORS.map((c) => /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       "button",
       {
         className: color === c ? "draw-color active" : "draw-color",
@@ -22131,8 +22301,8 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
       },
       c
     )) }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: "draw-tools", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "draw-tools", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
         "button",
         {
           className: tool === "pen" ? "draw-tool active" : "draw-tool",
@@ -22140,7 +22310,7 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
           children: "\u270F\uFE0F Pen"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
         "button",
         {
           className: tool === "eraser" ? "draw-tool active" : "draw-tool",
@@ -22148,12 +22318,12 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
           children: "\u{1F9FD} Eraser"
         }
       ),
-      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("button", { className: "draw-tool", onClick: clear, children: "\u{1F5D1}\uFE0F Clear" })
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "draw-tool", onClick: clear, children: "\u{1F5D1}\uFE0F Clear" })
     ] })
   ] });
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: overlay ? "draw-overlay-wrap" : "draw-board-wrap", children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: overlay ? "draw-overlay-wrap" : "draw-board-wrap", children: [
     toolbar,
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
       "canvas",
       {
         ref: canvasRef,
@@ -22167,26 +22337,98 @@ var DrawingCanvas = ({ scope, overlay = false, className }) => {
   ] });
 };
 
+// src/app/components/ClassPointsCard.tsx
+var import_react6 = __toESM(require_react());
+var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+var MAX_VISIBLE_STUDENTS = 4;
+var getInitials = (name) => name.split(/\s+/).filter(Boolean).slice(0, 2).map((part) => part[0]?.toUpperCase() ?? "").join("");
+var ClassPointsCard = ({
+  className,
+  students,
+  onAddPoint,
+  onClearPoints,
+  onManageStudents
+}) => {
+  const [showAll, setShowAll] = (0, import_react6.useState)(false);
+  const [awardedStudentId, setAwardedStudentId] = (0, import_react6.useState)(null);
+  const visibleStudents = showAll ? students : students.slice(0, MAX_VISIBLE_STUDENTS);
+  const remaining = Math.max(0, students.length - MAX_VISIBLE_STUDENTS);
+  const totalPoints = students.reduce((sum, student) => sum + student.points, 0);
+  const awardPoint = (studentId) => {
+    onAddPoint(studentId);
+    setAwardedStudentId(null);
+    window.requestAnimationFrame(() => setAwardedStudentId(studentId));
+  };
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("aside", { className: "class-points-card", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "class-points-header", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "class-points-title", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { className: "class-points-coin", src: "assets/points-coin.png", alt: "" }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: "Points" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+            className,
+            " team total: ",
+            totalPoints
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", className: "class-points-link", onClick: () => setShowAll((current) => !current), children: showAll ? "Show less" : "All" })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "class-points-list", children: visibleStudents.map((student) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "class-points-row", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: "student-badge", "aria-hidden": "true", children: getInitials(student.name) }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "student-points-copy", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("strong", { children: student.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { className: "inline-coin", src: "assets/points-coin.png", alt: "" }),
+          student.points
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { type: "button", className: "point-add-button", onClick: () => awardPoint(student.id), "aria-label": `Add point for ${student.name}`, children: [
+        "+",
+        awardedStudentId === student.id ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "coin-award-burst", "aria-hidden": "true", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { className: "award-coin award-coin-one", src: "assets/points-coin.png", alt: "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { className: "award-coin award-coin-two", src: "assets/points-coin.png", alt: "" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("img", { className: "award-coin award-coin-three", src: "assets/points-coin.png", alt: "" })
+        ] }) : null
+      ] })
+    ] }, student.id)) }),
+    !showAll && remaining > 0 ? /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "class-points-more", children: [
+      "+ ",
+      remaining,
+      " more students"
+    ] }) : null,
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: "class-points-footer", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", className: "secondary-action", onClick: onManageStudents, children: "Edit students" }),
+      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("button", { type: "button", className: "secondary-action", onClick: onClearPoints, children: "Clear points" })
+    ] })
+  ] });
+};
+
 // src/app/pages/LessonPage.tsx
-var import_jsx_runtime5 = __toESM(require_jsx_runtime());
+var import_jsx_runtime7 = __toESM(require_jsx_runtime());
 var LessonPage = ({ id }) => {
   const lesson = getLesson(id);
-  const [complete, setComplete] = (0, import_react5.useState)(false);
-  const [drawing, setDrawing] = (0, import_react5.useState)(false);
-  (0, import_react5.useEffect)(() => {
+  const cls = getCurrentClass();
+  const [complete, setComplete] = (0, import_react7.useState)(false);
+  const [drawing, setDrawing] = (0, import_react7.useState)(false);
+  const [students, setStudents] = (0, import_react7.useState)([]);
+  const [showStudentEditor, setShowStudentEditor] = (0, import_react7.useState)(false);
+  (0, import_react7.useEffect)(() => {
     setComplete(false);
     setDrawing(false);
   }, [id]);
+  (0, import_react7.useEffect)(() => {
+    setStudents(cls ? getStudents(cls.name) : []);
+  }, [cls?.name]);
   if (!lesson) {
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(NotFound, { id });
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(NotFound, { id });
   }
   const Lesson = getLessonComponent(lesson.id);
-  const cls = getCurrentClass();
   const preset = cls ? getPresetClass(cls.name) : void 0;
   const warmupVideoUrl = preset?.warmupVideoUrl || lesson.content.warmupVideoUrl;
   const drawScope = `${cls?.name ?? "class"}/${lesson.id}`;
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lesson-viewport", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "lesson-viewport", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
       Lesson,
       {
         warmupVideoUrl,
@@ -22205,63 +22447,85 @@ var LessonPage = ({ id }) => {
         }
       }
     ),
-    drawing ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "draw-overlay", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "draw-close", onClick: () => setDrawing(false), "aria-label": "Close drawing", children: "\u2715" }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(DrawingCanvas, { scope: drawScope, overlay: true })
+    cls ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: "lesson-points-panel", children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      ClassPointsCard,
+      {
+        className: cls.name,
+        students,
+        onAddPoint: (studentId) => setStudents(incrementStudentPoints(cls.name, studentId)),
+        onClearPoints: () => setStudents(clearStudentPoints(cls.name)),
+        onManageStudents: () => setShowStudentEditor(true)
+      }
+    ) }) : null,
+    drawing ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "draw-overlay", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { className: "draw-close", onClick: () => setDrawing(false), "aria-label": "Close drawing", children: "\u2715" }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(DrawingCanvas, { scope: drawScope, overlay: true })
     ] }) : null,
-    complete ? /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: "lesson-done-toast", role: "status", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { children: "Lesson complete!" }),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { onClick: () => navigate("/lessons"), children: "Back to lessons" })
-    ] }) : null
+    complete ? /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "lesson-done-toast", role: "status", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { children: "Lesson complete!" }),
+      /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { onClick: () => navigate("/lessons"), children: "Back to lessons" })
+    ] }) : null,
+    cls && showStudentEditor ? /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+      StudentSetupModal,
+      {
+        className: cls.name,
+        initialNames: students.map((student) => student.name),
+        onCancel: () => setShowStudentEditor(false),
+        onContinue: (names) => {
+          setStudents(upsertStudentsFromNames(cls.name, names));
+          setShowStudentEditor(false);
+        }
+      }
+    ) : null
   ] });
 };
-var NotFound = ({ id }) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("main", { className: "not-found", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("h1", { children: [
+var NotFound = ({ id }) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("main", { className: "not-found", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("h1", { children: [
     "No lesson named \u201C",
     id,
     "\u201D."
   ] }),
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("p", { children: "Check the lesson list and try again." }),
-  /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("button", { className: "primary-action", onClick: () => navigate("/lessons"), children: "See lessons" })
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: "Check the lesson list and try again." }),
+  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { className: "primary-action", onClick: () => navigate("/lessons"), children: "See lessons" })
 ] });
 
 // src/app/pages/DrawPage.tsx
-var import_jsx_runtime6 = __toESM(require_jsx_runtime());
+var import_jsx_runtime8 = __toESM(require_jsx_runtime());
 var DrawPage = ({ lessonId }) => {
   const lesson = getLesson(lessonId);
   const cls = getCurrentClass();
   const scope = `${cls?.name ?? "class"}/${lessonId}`;
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("main", { className: "draw-page", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("header", { className: "draw-page-head", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("button", { className: "draw-back", onClick: () => navigate(`/lessons/${lessonId}`), children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("main", { className: "draw-page", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("header", { className: "draw-page-head", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("button", { className: "draw-back", onClick: () => navigate(`/lessons/${lessonId}`), children: [
         "\u2190 Back to ",
         lesson?.content.title ?? "lesson"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("h1", { children: "Drawing Board" }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("span", { className: "draw-page-sub", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("h1", { children: "Drawing Board" }),
+      /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("span", { className: "draw-page-sub", children: [
         cls?.name ?? "Class",
         " \xB7 ",
         lesson?.content.title ?? lessonId
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(DrawingCanvas, { scope })
+    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(DrawingCanvas, { scope })
   ] });
 };
 
 // src/app/pages/NotFoundPage.tsx
-var import_jsx_runtime7 = __toESM(require_jsx_runtime());
-var NotFoundPage = () => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("main", { className: "not-found", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("h1", { children: "This page is missing." }),
-  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("p", { children: "Head back to the classroom home." }),
-  /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Go home" })
+var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+var NotFoundPage = () => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("main", { className: "not-found", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("h1", { children: "This page is missing." }),
+  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", { children: "Head back to the classroom home." }),
+  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("button", { className: "primary-action", onClick: () => navigate("/"), children: "Go home" })
 ] });
 
 // src/app/App.tsx
-var import_jsx_runtime8 = __toESM(require_jsx_runtime());
+var import_jsx_runtime10 = __toESM(require_jsx_runtime());
 var App = () => {
   const path = usePath();
-  const [cls, setCls] = (0, import_react6.useState)(getCurrentClass);
-  (0, import_react6.useEffect)(() => {
+  const [cls, setCls] = (0, import_react8.useState)(getCurrentClass);
+  (0, import_react8.useEffect)(() => {
     if (path !== "/" && !cls) {
       navigate("/");
     }
@@ -22271,26 +22535,26 @@ var App = () => {
   const lesson = lessonSlug ? getLesson(lessonSlug) : void 0;
   let page;
   if (path === "/") {
-    page = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
+    page = /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(HomePage, { onClassSelected: setCls });
   } else if (path === "/lessons") {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LessonsPage, {}) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(HomePage, { onClassSelected: setCls });
   } else if (lessonSlug) {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LessonPage, { id: lessonSlug }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(HomePage, { onClassSelected: setCls });
   } else if (drawSlug) {
-    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(DrawPage, { lessonId: drawSlug }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(HomePage, { onClassSelected: setCls });
+    page = cls ? /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(DrawPage, { lessonId: drawSlug }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(HomePage, { onClassSelected: setCls });
   } else {
-    page = /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(NotFoundPage, {});
+    page = /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(NotFoundPage, {});
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "classroom-shell", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("nav", { className: "top-nav", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("button", { className: "brand", onClick: () => navigate(cls ? "/lessons" : "/"), children: "HOME" }),
-      lesson ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)("div", { className: "top-lesson-title", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("strong", { children: lesson.content.title }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { children: lesson.content.subtitle })
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", {}),
-      /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "nav-class", children: cls ? /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(import_jsx_runtime8.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "nav-class-name", children: cls.name }),
-        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "classroom-shell", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("nav", { className: "top-nav", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("button", { className: "brand", onClick: () => navigate(cls ? "/lessons" : "/"), children: "HOME" }),
+      lesson ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "top-lesson-title", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("strong", { children: lesson.content.title }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { children: lesson.content.subtitle })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", {}),
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "nav-class", children: cls ? /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(import_jsx_runtime10.Fragment, { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "nav-class-name", children: cls.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
           "button",
           {
             className: "nav-class-switch",
@@ -22302,21 +22566,21 @@ var App = () => {
             children: "Switch"
           }
         )
-      ] }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("span", { className: "nav-class-name muted", children: "No class" }) })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("span", { className: "nav-class-name muted", children: "No class" }) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_react6.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("div", { className: "route-loading", children: "Loading lesson\u2026" }), children: page })
+    /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(import_react8.Suspense, { fallback: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "route-loading", children: "Loading lesson\u2026" }), children: page })
   ] });
 };
 var App_default = App;
 
 // src/app/index.tsx
-var import_jsx_runtime9 = __toESM(require_jsx_runtime());
+var import_jsx_runtime11 = __toESM(require_jsx_runtime());
 var rootElement = document.getElementById("root");
 if (!rootElement) {
   throw new Error("Missing #root element for classroom app");
 }
 (0, import_client.createRoot)(rootElement).render(
-  /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_react7.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(App_default, {}) })
+  /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_react9.default.StrictMode, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(App_default, {}) })
 );
 /*! Bundled license information:
 

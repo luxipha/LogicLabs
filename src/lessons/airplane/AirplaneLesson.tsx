@@ -775,72 +775,6 @@ export const AirplaneLesson: React.FC<{
           </div>
         </section>
 
-        {mode === 'story' || mode === 'warmup' ? null : <section className="parts-list-card">
-          <div className="eyebrow">Parts List</div>
-          {LESSON_PARTS.map((part) => {
-            const assembled = assembledParts[part];
-            const identified = Boolean(identifiedParts[part]);
-            const active = selectedPart === part;
-            const nextIndex = nextPart ? ASSEMBLY_SEQUENCE.indexOf(nextPart) : -1;
-            const partIndex = ASSEMBLY_SEQUENCE.indexOf(part as (typeof ASSEMBLY_SEQUENCE)[number]);
-            const assemblyLocked =
-              part !== 'body' && !assembled && nextIndex !== -1 && partIndex > nextIndex;
-            const identifyIndex = identifyTarget ? IDENTIFY_SEQUENCE.indexOf(identifyTarget) : -1;
-            const partIdentifyIndex = IDENTIFY_SEQUENCE.indexOf(part);
-            const identifyLocked =
-              mode === 'identify' &&
-              !identified &&
-              identifyIndex !== -1 &&
-              partIdentifyIndex > identifyIndex;
-            const locked = mode === 'assemble' ? assemblyLocked : identifyLocked;
-            const status =
-              mode === 'watch'
-                ? 'Ready'
-                : mode === 'explore'
-                ? active
-                  ? 'Reading'
-                  : 'Explore'
-                : mode === 'identify'
-                  ? identified
-                    ? 'Complete'
-                    : locked
-                      ? 'Locked'
-                      : 'Find'
-                  : part === 'body' || assembled
-                    ? 'Complete'
-                    : locked
-                      ? 'Locked'
-                      : 'Drag';
-            const done = status === 'Complete';
-
-            return (
-              <button
-                key={part}
-                className={active ? 'side-part active' : 'side-part'}
-                onClick={() => {
-                  if (mode === 'identify') {
-                    selectIdentifyPart(part);
-                    return;
-                  }
-                  if (mode === 'explore') {
-                    selectExplorePart(part);
-                    return;
-                  }
-                  selectPart(part);
-                }}
-              >
-                <span className="side-part-icon">
-                  <PartPreview part={part} />
-                </span>
-                <span>{PART_LABELS[part]}</span>
-                <span className={done ? 'side-state done' : locked ? 'side-state locked' : 'side-state'}>
-                  {status}
-                </span>
-              </button>
-            );
-          })}
-        </section>}
-
         <button className="watch-button" onClick={() => selectMode('watch')}>
           <span className="watch-play">PLAY</span>
           Watch It Fly
@@ -872,11 +806,37 @@ export const AirplaneLesson: React.FC<{
         {ASSEMBLY_SEQUENCE.map((part) => {
           const assembled = assembledParts[part];
           const active = selectedPart === part;
+          const identified = Boolean(identifiedParts[part]);
+          const nextIndex = nextPart ? ASSEMBLY_SEQUENCE.indexOf(nextPart) : -1;
+          const partIndex = ASSEMBLY_SEQUENCE.indexOf(part);
+          const assemblyLocked = !assembled && nextIndex !== -1 && partIndex > nextIndex;
+          const identifyIndex = identifyTarget ? IDENTIFY_SEQUENCE.indexOf(identifyTarget) : -1;
+          const partIdentifyIndex = IDENTIFY_SEQUENCE.indexOf(part);
+          const identifyLocked = mode === 'identify' && !identified && identifyIndex !== -1 && partIdentifyIndex > identifyIndex;
+          const locked = mode === 'assemble' ? assemblyLocked : identifyLocked;
+          const status =
+            mode === 'watch'
+              ? 'Ready'
+              : mode === 'explore'
+                ? active
+                  ? 'Reading'
+                  : 'Explore'
+                : mode === 'identify'
+                  ? identified
+                    ? 'Complete'
+                    : locked
+                      ? 'Locked'
+                      : 'Find'
+                  : assembled
+                    ? 'Complete'
+                    : locked
+                      ? 'Locked'
+                      : 'Drag';
 
           return (
             <button
               key={part}
-              className={active ? 'tray-part active' : 'tray-part'}
+              className={active ? 'tray-part active' : status === 'Complete' ? 'tray-part done' : locked ? 'tray-part locked' : 'tray-part'}
               onClick={() => {
                 if (mode === 'identify') {
                   selectIdentifyPart(part);
@@ -894,6 +854,7 @@ export const AirplaneLesson: React.FC<{
                 <PartPreview part={part} />
               </span>
               <span>{PART_LABELS[part]}</span>
+              <span className="tray-part-status">{status}</span>
             </button>
           );
         })}

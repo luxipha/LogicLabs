@@ -3,13 +3,12 @@ import {
   LessonStage,
   MissionHeader,
   ModeTabs,
-  PartsList,
   PartsTray,
   ProgressCard,
   QuizCard,
   TaskCard,
   TipCard
-} from "./chunk-LSECZ6XO.js";
+} from "./chunk-I2HZKRWI.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -149,12 +148,7 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
     status: mode === "identify" ? identified.has(part.id) ? "Complete" : identifyTarget?.id === part.id ? "Find" : "Locked" : mode === "explore" ? activePart === part.id ? "Reading" : "Explore" : "Learn",
     preview: partPreview(part.id)
   }));
-  const trayParts = parts.map((part) => ({
-    id: part.id,
-    label: part.label,
-    active: activePart === part.id,
-    preview: partPreview(part.id)
-  }));
+  const trayParts = partRows;
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "app-shell generic-app", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sky-layer" }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + identified.size * 10, onDraw, onBoard }),
@@ -207,10 +201,7 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
       ),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TipCard, { children: mode === "warmup" ? "Tip: Warm bodies learn best." : mode === "story" ? "Tip: Look for clues in the story." : "Tip: Look closely at the picture." })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", { className: "progress-column", children: [
-      mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: storyCorrect, total: content.storyQuestions.length, label: "answered" }) : mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: warmupDone ? 1 : 0, total: 1, label: "warmup" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: progressDone, total: progressTotal, label: mode === "identify" ? "found" : "done" }),
-      mode === "identify" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsList, { parts: partRows, onSelect: selectPart }) : null
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("aside", { className: "progress-column", children: mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: storyCorrect, total: content.storyQuestions.length, label: "answered" }) : mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: warmupDone ? 1 : 0, total: 1, label: "warmup" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: progressDone, total: progressTotal, label: mode === "identify" ? "found" : "done" }) }),
     mode === "identify" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsTray, { parts: trayParts, onSelect: selectPart }) : null,
     mode !== "identify" || feedback ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FeedbackBanner, { message: bannerMessage, state: bannerState }) : null
   ] });

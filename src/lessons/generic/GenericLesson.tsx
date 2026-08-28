@@ -5,7 +5,6 @@ import {
   LessonStage,
   MissionHeader,
   ModeTabs,
-  PartsList,
   PartsTray,
   ProgressCard,
   QuizCard,
@@ -255,12 +254,7 @@ export const GenericLesson: React.FC<{
     preview: partPreview(part.id),
   }));
 
-  const trayParts = parts.map((part) => ({
-    id: part.id,
-    label: part.label,
-    active: activePart === part.id,
-    preview: partPreview(part.id),
-  }));
+  const trayParts = partRows;
 
   return (
     <div className="app-shell generic-app">
@@ -333,7 +327,6 @@ export const GenericLesson: React.FC<{
         ) : (
           <ProgressCard done={progressDone} total={progressTotal} label={mode === 'identify' ? 'found' : 'done'} />
         )}
-        {mode === 'identify' ? <PartsList parts={partRows} onSelect={selectPart} /> : null}
       </aside>
 
       {mode === 'identify' ? <PartsTray parts={trayParts} onSelect={selectPart} /> : null}

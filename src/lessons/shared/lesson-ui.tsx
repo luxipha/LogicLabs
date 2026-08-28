@@ -22,6 +22,9 @@ export type LessonTrayPart<TPart extends string> = {
   label: string;
   active: boolean;
   disabled?: boolean;
+  done?: boolean;
+  locked?: boolean;
+  status?: string;
   preview: ReactNode;
 };
 
@@ -218,7 +221,7 @@ export const PartsTray = <TPart extends string>({
     {parts.map((part) => (
       <button
         key={part.id}
-        className={part.active ? 'tray-part active' : 'tray-part'}
+        className={part.active ? 'tray-part active' : part.done ? 'tray-part done' : part.locked ? 'tray-part locked' : 'tray-part'}
         disabled={part.disabled}
         aria-disabled={!interactive}
         onClick={() => {
@@ -229,6 +232,7 @@ export const PartsTray = <TPart extends string>({
       >
         <span className="tray-thumb">{part.preview}</span>
         <span>{part.label}</span>
+        {part.status ? <span className="tray-part-status">{part.status}</span> : null}
       </button>
     ))}
   </section>

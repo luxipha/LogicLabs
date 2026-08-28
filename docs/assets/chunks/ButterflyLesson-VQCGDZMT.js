@@ -20,7 +20,6 @@ import {
   LessonStage,
   MissionHeader,
   ModeTabs,
-  PartsList,
   PartsTray,
   ProgressCard,
   QuizCard,
@@ -28,7 +27,7 @@ import {
   TaskCard,
   TipCard,
   WarmupScreen
-} from "./chunk-LSECZ6XO.js";
+} from "./chunk-I2HZKRWI.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -551,12 +550,7 @@ var ButterflyLesson = ({ onHome, onComplete, warmupVideoUrl, onDraw, onBoard }) 
     status: mode === "identify" ? identified[part] ? "Complete" : identifyTarget === part ? "Find" : "Locked" : mode === "explore" ? selectedPart === part ? "Reading" : "Explore" : "Learn",
     preview: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartPreview, { part })
   }));
-  const trayParts = PARTS.map((part) => ({
-    id: part,
-    label: LABELS[part],
-    active: selectedPart === part,
-    preview: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartPreview, { part })
-  }));
+  const trayParts = partRows;
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "app-shell butterfly-app", children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sky-layer" }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + foundCount * 10, onDraw, onBoard }),
@@ -632,10 +626,7 @@ var ButterflyLesson = ({ onHome, onComplete, warmupVideoUrl, onDraw, onBoard }) 
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TipCard, { children: mode === "warmup" ? "Tip: Warm bodies learn best." : mode === "story" ? "Tip: Look for what the garden has and what it is missing." : "Tip: Butterflies and flowers help each other." })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", { className: "progress-column", children: [
-      mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: storyCorrectAnswers, total: STORY_QUESTIONS.length, label: "answered" }) : mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: 0, total: 1, label: "warmup" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: foundCount, total: IDENTIFY_ORDER.length, label: "found" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PartsList, { parts: partRows, onSelect: selectPart })
-      ] }),
+      mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: storyCorrectAnswers, total: STORY_QUESTIONS.length, label: "answered" }) : mode === "warmup" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: 0, total: 1, label: "warmup" }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProgressCard, { done: foundCount, total: IDENTIFY_ORDER.length, label: "found" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         "button",
         {

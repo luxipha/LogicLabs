@@ -18,7 +18,6 @@ import {
   LessonStage,
   MissionHeader,
   ModeTabs,
-  PartsList,
   PartsTray,
   ProgressCard,
   QuizCard,
@@ -717,12 +716,7 @@ export const ButterflyLesson: React.FC<{
     preview: <PartPreview part={part} />,
   }));
 
-  const trayParts = PARTS.map((part) => ({
-    id: part,
-    label: LABELS[part],
-    active: selectedPart === part,
-    preview: <PartPreview part={part} />,
-  }));
+  const trayParts = partRows;
 
   return (
     <div className="app-shell butterfly-app">
@@ -816,10 +810,7 @@ export const ButterflyLesson: React.FC<{
         ) : mode === 'warmup' ? (
           <ProgressCard done={0} total={1} label="warmup" />
         ) : (
-          <>
-            <ProgressCard done={foundCount} total={IDENTIFY_ORDER.length} label="found" />
-            <PartsList parts={partRows} onSelect={selectPart} />
-          </>
+          <ProgressCard done={foundCount} total={IDENTIFY_ORDER.length} label="found" />
         )}
         <button
           className="watch-button"

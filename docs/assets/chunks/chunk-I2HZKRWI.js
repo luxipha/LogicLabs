@@ -84,31 +84,6 @@ var ProgressCard = ({ done, total, label }) => /* @__PURE__ */ (0, import_jsx_ru
   ] }),
   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "progress-bar", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "progress-fill", style: { width: `${done / total * 100}%` } }) })
 ] });
-var PartsList = ({
-  parts,
-  onSelect,
-  interactive = true
-}) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "parts-list-card", children: [
-  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "eyebrow", children: "Parts List" }),
-  parts.map((part) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-    "button",
-    {
-      className: part.active ? "side-part active" : "side-part",
-      "aria-disabled": !interactive,
-      onClick: () => {
-        if (interactive) {
-          onSelect(part.id);
-        }
-      },
-      children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "side-part-icon", children: part.preview }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: part.label }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: part.done ? "side-state done" : part.locked ? "side-state locked" : "side-state", children: part.status })
-      ]
-    },
-    part.id
-  ))
-] });
 var PartsTray = ({
   parts,
   onSelect,
@@ -116,7 +91,7 @@ var PartsTray = ({
 }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { className: "parts-tray", children: parts.map((part) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
   "button",
   {
-    className: part.active ? "tray-part active" : "tray-part",
+    className: part.active ? "tray-part active" : part.done ? "tray-part done" : part.locked ? "tray-part locked" : "tray-part",
     disabled: part.disabled,
     "aria-disabled": !interactive,
     onClick: () => {
@@ -126,7 +101,8 @@ var PartsTray = ({
     },
     children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "tray-thumb", children: part.preview }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: part.label })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: part.label }),
+      part.status ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "tray-part-status", children: part.status }) : null
     ]
   },
   part.id
@@ -157,7 +133,6 @@ export {
   TipCard,
   LessonStage,
   ProgressCard,
-  PartsList,
   PartsTray,
   FeedbackBanner,
   WarmupScreen

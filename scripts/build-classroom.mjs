@@ -6,6 +6,7 @@ const root = process.cwd();
 const outdir = path.join(root, 'docs');
 const assetsDir = path.join(outdir, 'assets');
 const modelsDir = path.join(outdir, 'models');
+const publicAssetsDir = path.join(root, 'public/assets');
 const publicBasePath = (process.env.PUBLIC_BASE_PATH ?? '/LogicLabs/').replace(/\/?$/, '/');
 
 // Regenerate scoped lesson stylesheets from canonical sources, awaiting them.
@@ -15,6 +16,9 @@ await runScoping();
 await fs.rm(outdir, {recursive: true, force: true});
 await fs.mkdir(assetsDir, {recursive: true});
 await fs.mkdir(modelsDir, {recursive: true});
+
+// Classroom illustrations are referenced as app-relative static assets.
+await fs.cp(publicAssetsDir, assetsDir, {recursive: true});
 
 await build({
   entryPoints: [path.join(root, 'src/app/index.tsx')],

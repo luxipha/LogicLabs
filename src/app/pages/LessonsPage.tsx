@@ -2,14 +2,18 @@ import React, {useState} from 'react';
 import {LESSONS} from '../lessons';
 import {getCurrentClass} from '../classStore';
 import {navigate} from '../router';
+import {StudentSetupModal} from '../components/StudentSetupModal';
+import {getStudents, upsertStudentsFromNames} from '../studentStore';
 
 const DIFFICULTY_STARS = ['★', '★★', '★★★'];
 
 export const LessonsPage: React.FC = () => {
   const [cls] = useState(getCurrentClass);
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
   const classLessons = LESSONS.filter((lesson) =>
     lesson.content.classIds.includes(cls?.name ?? ''),
   );
+  const selectedLesson = classLessons.find((lesson) => lesson.id === selectedLessonId);
 
   return (
     <main className="lessons-page">
@@ -36,7 +40,7 @@ export const LessonsPage: React.FC = () => {
               key={lesson.id}
               className="lesson-card"
               style={{'--lesson-color': lesson.content.color} as React.CSSProperties}
-              onClick={() => navigate(`/lessons/${lesson.id}`)}
+              onClick={() => setSelectedLessonId(lesson.id)}
             >
               <span className="lesson-card-top">
                 <span className="lesson-badge">{lesson.content.badge}</span>
@@ -60,6 +64,18 @@ export const LessonsPage: React.FC = () => {
           ))}
         </section>
       )}
+
+      {cls && selectedLesson ? (
+        <StudentSetupModal
+          className={cls.name}
+          initialNames={getStudents(cls.name).map((student) => student.name)}
+          onCancel={() => setSelectedLessonId(null)}
+          onContinue={(names) => {
+            upsertStudentsFromNames(cls.name, names);
+            navigate(`/lessons/${selectedLesson.id}`);
+          }}
+        />
+      ) : null}
     </main>
   );
 };

@@ -4821,6 +4821,17 @@ button {
   opacity: 0.55;
   cursor: default;
 }
+.secondary-action {
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  padding: 12px 16px;
+  background: rgba(2, 56, 117, 0.55);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
 .no-lessons {
   display: grid;
   place-items: center;
@@ -4938,10 +4949,665 @@ button {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.mission-map-page {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  width: 100%;
+}
+.mission-map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 24px;
+  width: 100%;
+  max-width: 1450px;
+  align-items: start;
+}
+.mission-map-main {
+  min-width: 0;
+  display: grid;
+  gap: 22px;
+}
+.mission-map-head {
+  text-align: center;
+  position: relative;
+}
+.mission-map-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 14px;
+}
+.map-view-toggle {
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(3, 71, 149, 0.5);
+  color: #dff5ff;
+  border-radius: 999px;
+  padding: 7px 18px;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.map-view-toggle.active {
+  background: #ffdf46;
+  border-color: #ffdf46;
+  color: #12395f;
+}
+.mission-map-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 1180px;
+  height: min(66vh, 640px);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 22px 50px rgba(0, 30, 90, 0.35);
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  touch-action: none;
+}
+.mission-map-canvas canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.mission-map-medallion {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 5;
+  width: 84px;
+  height: 60px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  display: grid;
+  place-items: center;
+}
+.mission-map-medallion .class-art {
+  width: 56px;
+  height: 40px;
+}
+.mission-launch {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: rgba(2, 32, 82, 0.85);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  max-width: min(92%, 560px);
+}
+.mission-launch-badge {
+  font-size: 34px;
+  line-height: 1;
+}
+.mission-launch strong {
+  display: block;
+  font-size: 19px;
+  font-weight: 900;
+}
+.mission-launch span {
+  display: block;
+  font-size: 13px;
+  color: #cfe4f7;
+  font-weight: 700;
+}
+.mission-launch .primary-action {
+  margin-left: auto;
+  white-space: nowrap;
+}
+.mission-launch .primary-action:disabled {
+  background: #51647e;
+  color: #c4d2e2;
+  cursor: not-allowed;
+}
+.mission-map-hint {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+  font-size: 13px;
+  font-weight: 800;
+  color: #12395f;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(3px);
+  pointer-events: none;
+}
+.mission-list {
+  max-width: 1100px;
+}
+.class-points-card {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 24px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(7, 96, 183, 0.98) 0%,
+      rgba(4, 72, 145, 0.98) 100%);
+  border: 3px solid rgba(132, 204, 255, 0.4);
+  box-shadow: 0 22px 44px rgba(0, 36, 92, 0.32);
+}
+.class-points-header,
+.class-points-title,
+.class-points-row,
+.class-points-footer {
+  display: flex;
+  align-items: center;
+}
+.class-points-header,
+.class-points-footer {
+  justify-content: space-between;
+  gap: 12px;
+}
+.class-points-title {
+  gap: 14px;
+  min-width: 0;
+}
+.class-points-title strong,
+.class-points-title span {
+  display: block;
+}
+.class-points-title strong {
+  font-size: 25px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.class-points-title span {
+  font-size: 14px;
+  font-weight: 800;
+  color: #dff5ff;
+}
+.class-points-coin,
+.inline-coin {
+  display: inline-block;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 8px rgba(89, 53, 0, 0.25));
+}
+.class-points-coin {
+  width: 52px;
+  height: 52px;
+}
+.class-points-link {
+  border: 0;
+  background: transparent;
+  color: #fff2b2;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.class-points-list {
+  display: grid;
+  gap: 12px;
+}
+.class-points-row {
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 22px;
+  background:
+    linear-gradient(
+      180deg,
+      #fff7dd 0%,
+      #fdf0c5 100%);
+  color: #12395f;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.85), 0 8px 18px rgba(2, 45, 101, 0.18);
+}
+.student-badge {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      180deg,
+      #ffd89f 0%,
+      #ffb349 100%);
+  font-size: 19px;
+  font-weight: 900;
+  color: #7a3f00;
+}
+.student-points-copy {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  flex: 1;
+}
+.student-points-copy strong {
+  font-size: 24px;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.student-points-copy span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 900;
+}
+.inline-coin {
+  width: 28px;
+  height: 28px;
+}
+.point-add-button {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  flex: 0 0 58px;
+  border: 0;
+  border-radius: 50%;
+  background:
+    linear-gradient(
+      180deg,
+      #ffbe32 0%,
+      #ff9900 100%);
+  color: #fff;
+  font-size: 36px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.4), 0 10px 20px rgba(191, 101, 0, 0.28);
+}
+.coin-award-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.award-coin {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  opacity: 0;
+  filter: drop-shadow(0 4px 6px rgba(89, 53, 0, 0.28));
+  animation: coin-award-flight 760ms cubic-bezier(0.15, 0.8, 0.26, 1) both;
+}
+.award-coin-two {
+  animation-delay: 70ms;
+}
+.award-coin-three {
+  animation-delay: 140ms;
+}
+@keyframes coin-award-flight {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) scale(0.45) rotate(-18deg);
+  }
+  16% {
+    opacity: 1;
+  }
+  58% {
+    opacity: 1;
+    transform: translate(-78px, -30px) scale(0.9) rotate(125deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-152px, 0) scale(0.55) rotate(260deg);
+  }
+}
+.class-points-more {
+  padding: 2px 6px 0;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  color: #dff5ff;
+}
+.class-points-footer {
+  flex-wrap: wrap;
+}
+.dialog-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 28, 67, 0.54);
+  backdrop-filter: blur(8px);
+}
+.class-dialog {
+  width: min(100%, 900px);
+  overflow: hidden;
+  border: 3px solid #0764cf;
+  border-radius: 22px;
+  background: #fff;
+  color: #073b82;
+  box-shadow: 0 28px 56px rgba(0, 26, 72, 0.45);
+}
+.class-dialog h2 {
+  margin: 0;
+  font-size: clamp(30px, 4vw, 40px);
+  font-weight: 900;
+  line-height: 1.05;
+}
+.class-dialog p {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #6681aa;
+}
+.student-setup-progress {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 20px 24px 18px;
+  border-bottom: 1px solid #d9e7f7;
+  color: #1262cc;
+}
+.student-setup-progress strong {
+  font-size: 16px;
+}
+.student-progress-track {
+  display: flex;
+  align-items: center;
+}
+.student-progress-dot {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  border: 1px solid #d7e4f4;
+  border-radius: 50%;
+  background: #fff;
+  color: #6c86aa;
+  font-weight: 900;
+}
+.student-progress-dot.active {
+  border-color: #1269d5;
+  background: #176bd4;
+  color: #fff;
+}
+.student-progress-line {
+  width: 130px;
+  height: 3px;
+  background: #dfe9f5;
+}
+.student-progress-line.complete {
+  background: #176bd4;
+}
+.student-setup-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.9fr);
+  gap: 30px;
+  padding: 26px 26px 28px;
+}
+.student-setup-form {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+.student-setup-form .page-kicker {
+  justify-self: start;
+  padding: 6px 36px;
+  font-size: 13px;
+}
+.student-setup-list {
+  display: grid;
+  gap: 12px;
+  max-height: min(40vh, 310px);
+  overflow-y: auto;
+  padding: 10px 5px 0 0;
+}
+.student-list-label {
+  font-size: 16px;
+  color: #0754ba;
+}
+.student-name-field {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: 14px;
+}
+.student-row-number {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #cedff3;
+  border-radius: 50%;
+  background: #f8fbff;
+  color: #0b4d9d;
+  font-size: 18px;
+  font-weight: 900;
+}
+.student-name-field input {
+  width: 100%;
+  border: 1px solid #c9d9ed;
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: #fff;
+  color: #12395f;
+  font-size: 16px;
+  font-weight: 800;
+  outline: none;
+}
+.student-name-field input:focus {
+  border-color: #1269d5;
+  box-shadow: 0 0 0 4px rgba(18, 105, 213, 0.13);
+}
+.student-add-button,
+.student-back-button,
+.student-next-button {
+  border-radius: 9px;
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.student-add-button {
+  justify-self: start;
+  border: 2px solid #176bd4;
+  background: #fff;
+  color: #1262cc;
+}
+.student-add-button span {
+  font-size: 27px;
+  font-weight: 500;
+  line-height: 0;
+  vertical-align: -2px;
+  margin-right: 6px;
+}
+.student-setup-aside {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  padding: 26px 26px 12px;
+  border: 1px solid #cfe1f7;
+  border-radius: 14px;
+  background:
+    linear-gradient(
+      145deg,
+      #f8fbff,
+      #eef6ff);
+}
+.student-setup-aside h3 {
+  margin: 0;
+  font-size: 20px;
+  text-align: center;
+}
+.setup-benefit {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  align-items: center;
+  gap: 12px;
+  color: #083b7d;
+  font-size: 15px;
+  line-height: 1.25;
+}
+.setup-benefit-icon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+.student-setup-aside img {
+  width: min(100%, 220px);
+  justify-self: center;
+  margin-top: auto;
+}
+.student-setup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 20px 26px 24px;
+  border-top: 1px solid #d9e7f7;
+}
+.student-back-button {
+  min-width: 114px;
+  border: 2px solid #176bd4;
+  background: #fff;
+  color: #1262cc;
+}
+.student-next-button {
+  min-width: 120px;
+  border: 0;
+  background:
+    linear-gradient(
+      180deg,
+      #ffd253,
+      #f8b92a);
+  color: #0750aa;
+  box-shadow: 0 6px 14px rgba(221, 157, 10, 0.22);
+}
+.student-next-button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.student-confirmation {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  padding: 54px 30px;
+  text-align: center;
+}
+.student-confirmation .page-kicker {
+  padding-inline: 34px;
+}
+.student-confirmation-names {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 550px;
+}
+.student-confirmation-names span {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #e8f3ff;
+  color: #0754ba;
+  font-weight: 900;
+}
 .lesson-viewport {
   position: relative;
   flex: 1;
   min-height: 0;
+}
+.lesson-points-panel {
+  position: absolute;
+  z-index: 12;
+  top: 342px;
+  right: 24px;
+  width: 300px;
+  max-height: calc(100% - 420px);
+}
+.lesson-points-panel .class-points-card {
+  position: static;
+  max-height: 100%;
+  overflow-y: auto;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 14px;
+}
+.lesson-points-panel .class-points-title strong {
+  font-size: 19px;
+}
+.lesson-points-panel .class-points-title span {
+  font-size: 12px;
+}
+.lesson-points-panel .class-points-coin {
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+.lesson-points-panel .class-points-row {
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 14px;
+}
+.lesson-points-panel .student-badge {
+  width: 42px;
+  height: 42px;
+  flex-basis: 42px;
+  font-size: 14px;
+}
+.lesson-points-panel .student-points-copy strong {
+  font-size: 18px;
+}
+.lesson-points-panel .student-points-copy span {
+  font-size: 16px;
+  gap: 6px;
+}
+.lesson-points-panel .inline-coin {
+  width: 22px;
+  height: 22px;
+  font-size: 12px;
+}
+.lesson-points-panel .point-add-button {
+  width: 42px;
+  height: 42px;
+  flex-basis: 42px;
+  font-size: 28px;
+}
+.lesson-points-panel .class-points-more {
+  font-size: 14px;
+}
+.lesson-points-panel .secondary-action {
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+.generic-app .tray-part,
+.butterfly-app .tray-part,
+.plane-app .tray-part {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  align-content: start;
+  gap: 3px;
+}
+.generic-app .tray-part-status,
+.butterfly-app .tray-part-status,
+.plane-app .tray-part-status {
+  color: #1761ae;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+.generic-app .tray-part.done .tray-part-status,
+.butterfly-app .tray-part.done .tray-part-status,
+.plane-app .tray-part.done .tray-part-status {
+  color: #1d861f;
+}
+.generic-app .tray-part.locked .tray-part-status,
+.butterfly-app .tray-part.locked .tray-part-status,
+.plane-app .tray-part.locked .tray-part-status {
+  color: #7f8da0;
 }
 .lesson-done-toast {
   position: absolute;
@@ -5101,6 +5767,63 @@ button {
   margin: 0;
   font-size: 26px;
   font-weight: 900;
+}
+@media (max-width: 1100px) {
+  .mission-map-layout {
+    grid-template-columns: 1fr;
+  }
+  .class-points-card {
+    position: static;
+  }
+}
+@media (max-width: 720px) {
+  .class-points-header,
+  .class-points-row {
+    align-items: flex-start;
+  }
+  .class-points-header,
+  .class-points-footer,
+  .student-setup-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .class-points-link,
+  .point-add-button {
+    align-self: flex-start;
+  }
+  .student-points-copy strong {
+    font-size: 21px;
+  }
+  .student-points-copy span {
+    font-size: 18px;
+  }
+  .class-dialog {
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
+  }
+  .student-setup-body {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 22px;
+  }
+  .student-setup-aside {
+    padding: 20px;
+  }
+  .student-setup-aside img {
+    width: 150px;
+  }
+  .student-progress-line {
+    width: 94px;
+  }
+  .student-setup-actions {
+    flex-direction: row;
+    padding: 16px 22px 20px;
+  }
+  .student-back-button,
+  .student-next-button {
+    flex: 1;
+    min-width: 0;
+  }
 }
 .draw-page-sub {
   font-size: 16px;
