@@ -77,6 +77,7 @@ await fs.copyFile(
   path.join(modelsDir, 'radar-truck.glb'),
 );
 await fs.copyFile(path.join(root, 'public/models/bee.glb'), path.join(modelsDir, 'bee.glb'));
+await fs.copyFile(path.join(root, 'public/models/elevator.glb'), path.join(modelsDir, 'elevator.glb'));
 await fs.copyFile(
   path.join(root, 'public/models/animated_female_character_swings_golf_club.glb'),
   path.join(modelsDir, 'golfer.glb'),

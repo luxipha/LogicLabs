@@ -66,7 +66,7 @@ export const PRESET_CLASSES: PresetClass[] = [
     tagline: 'Vehicles and machines that move.',
     color: '#20a7f1',
     art: 'moto',
-    warmupVideoUrl: 'https://www.youtube.com/embed/mwVSrqLdk-4',
+    warmupVideoUrl: 'https://www.youtube.com/embed/VSWR6oIVjR4',
     createdAt: '',
   },
   {

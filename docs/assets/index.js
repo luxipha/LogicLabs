@@ -15,7 +15,7 @@ import {
 } from "./chunks/chunk-WI4WEKU7.js";
 import {
   content_default as content_default6
-} from "./chunks/chunk-BVHPWJQA.js";
+} from "./chunks/chunk-Q2ZCSMT6.js";
 import {
   __commonJS,
   __toESM,
@@ -21784,7 +21784,7 @@ var PRESET_CLASSES = [
     tagline: "Vehicles and machines that move.",
     color: "#20a7f1",
     art: "moto",
-    warmupVideoUrl: "https://www.youtube.com/embed/mwVSrqLdk-4",
+    warmupVideoUrl: "https://www.youtube.com/embed/VSWR6oIVjR4",
     createdAt: ""
   },
   {
@@ -21815,16 +21815,15 @@ var PRESET_CLASSES = [
     createdAt: ""
   }
 ];
-var getPresetClass = (name) => PRESET_CLASSES.find((cls) => cls.name === name);
 
 // src/app/lessons.ts
 var import_react2 = __toESM(require_react());
-var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-NXJNQYPO.js"));
-var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-VQCGDZMT.js"));
-var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-M2XABTMM.js"));
-var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-CJN7OESL.js"));
-var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-7XMNZESD.js"));
-var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-WFKDU5NQ.js"));
+var AirplaneLesson = (0, import_react2.lazy)(() => import("./chunks/AirplaneLesson-JEEEBSVS.js"));
+var ButterflyLesson = (0, import_react2.lazy)(() => import("./chunks/ButterflyLesson-3SWW2KM2.js"));
+var ButtonGolferLesson = (0, import_react2.lazy)(() => import("./chunks/ButtonGolferLesson-FQXKB7YU.js"));
+var MobileRadarLesson = (0, import_react2.lazy)(() => import("./chunks/MobileRadarLesson-O3OTRPE5.js"));
+var BeeLesson = (0, import_react2.lazy)(() => import("./chunks/BeeLesson-YGNPOQAC.js"));
+var ElevatorLesson = (0, import_react2.lazy)(() => import("./chunks/ElevatorLesson-4QFAWWEV.js"));
 var LESSONS = [
   { id: "airplane", content: content_default },
   { id: "butterfly", content: content_default2 },
@@ -22424,8 +22423,7 @@ var LessonPage = ({ id }) => {
     return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(NotFound, { id });
   }
   const Lesson = getLessonComponent(lesson.id);
-  const preset = cls ? getPresetClass(cls.name) : void 0;
-  const warmupVideoUrl = preset?.warmupVideoUrl || lesson.content.warmupVideoUrl;
+  const warmupVideoUrl = lesson.content.warmupVideoUrl;
   const drawScope = `${cls?.name ?? "class"}/${lesson.id}`;
   return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: "lesson-viewport", children: [
     /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(

@@ -2,6 +2,9 @@ import {
   content_default
 } from "./chunk-GM2NIAG2.js";
 import {
+  GenericLesson
+} from "./chunk-UMMAZRAW.js";
+import {
   Box3,
   BufferGeometry,
   Canvas,
@@ -14,18 +17,13 @@ import {
   MeshBasicMaterial,
   MeshStandardMaterial,
   ModelOrbitControls,
+  StoryVideoCard,
   Vector3,
+  WarmupScreen,
   useFrame,
   useLoader,
   useThree
-} from "./chunk-ZCM7JGQ4.js";
-import {
-  GenericLesson
-} from "./chunk-BUNVSDHT.js";
-import {
-  StoryVideoCard,
-  WarmupScreen
-} from "./chunk-I2HZKRWI.js";
+} from "./chunk-P5CB4QJJ.js";
 import {
   __toESM,
   require_jsx_runtime,

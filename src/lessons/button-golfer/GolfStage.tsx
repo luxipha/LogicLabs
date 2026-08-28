@@ -1,6 +1,6 @@
 import React, {Component, Suspense, useState, type ReactNode} from 'react';
 import {WarmupScreen} from '../shared/WarmupScreen';
-import {StoryVideoCard} from '../shared/lesson-ui';
+import {SketchfabEmbed, StoryVideoCard} from '../shared/lesson-ui';
 import {GolfCanvas, type GolfPartId} from './GolfModel';
 import lessonContent from './content.json';
 
@@ -117,34 +117,11 @@ export const GolfStage: React.FC<{
 
   // Identify tab — 3D golf club iron from Sketchfab.
   return (
-    <div className="generic-stage golf-identify-stage">
-      <div className="sketchfab-embed-wrapper">
-        <iframe
-          title="Golf club Iron"
-          frameBorder="0"
-          allowFullScreen
-          allow="autoplay; fullscreen; xr-spatial-tracking; web-share"
-          src="https://sketchfab.com/models/dc748ddd268c4acab25c54c4048b3912/embed"
-        />
-        <p>
-          <a
-            href="https://sketchfab.com/3d-models/golf-club-iron-dc748ddd268c4acab25c54c4048b3912"
-            target="_blank"
-            rel="nofollow"
-          >
-            Golf club Iron
-          </a>{' '}
-          by{' '}
-          <a href="https://sketchfab.com/real_slimshady" target="_blank" rel="nofollow">
-            ℜ𝔢𝔞𝔩 𝔖𝔩𝔦𝔪 𝔖𝔥𝔞𝔡𝔶
-          </a>{' '}
-          on{' '}
-          <a href="https://sketchfab.com" target="_blank" rel="nofollow">
-            Sketchfab
-          </a>
-        </p>
-      </div>
-    </div>
+    <SketchfabEmbed
+      embedUrl="https://sketchfab.com/models/dc748ddd268c4acab25c54c4048b3912/embed"
+      modelName="Golf club Iron"
+      modelPageUrl="https://sketchfab.com/3d-models/golf-club-iron-dc748ddd268c4acab25c54c4048b3912"
+    />
   );
 };
 

@@ -4066,6 +4066,37 @@
   width: 100% !important;
   height: 100% !important;
 }
+.generic-app .elevator-model-stage {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  background: transparent;
+}
+.generic-app .elevator-model-stage > div,
+.generic-app .elevator-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .elevator-no-webgl,
+.generic-app .elevator-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .elevator-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+}
 .generic-app .bee-activity-overlay {
   position: absolute;
   inset: 0;
@@ -7503,7 +7534,7 @@ button {
   display: block;
 }
 
-/* BeeLesson-GCTTN4RC.css */
+/* BeeLesson-GDE4NTEL.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -8412,6 +8443,37 @@ button {
 .generic-app .bee-model-stage canvas {
   width: 100% !important;
   height: 100% !important;
+}
+.generic-app .elevator-model-stage {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  background: transparent;
+}
+.generic-app .elevator-model-stage > div,
+.generic-app .elevator-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .elevator-no-webgl,
+.generic-app .elevator-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .elevator-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
 }
 .generic-app .bee-activity-overlay {
   position: absolute;
@@ -10410,7 +10472,7 @@ button {
   }
 }
 
-/* ButtonGolferLesson-OALZ2QF4.css */
+/* ButtonGolferLesson-ERXI53IX.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -11319,6 +11381,37 @@ button {
 .generic-app .bee-model-stage canvas {
   width: 100% !important;
   height: 100% !important;
+}
+.generic-app .elevator-model-stage {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  background: transparent;
+}
+.generic-app .elevator-model-stage > div,
+.generic-app .elevator-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .elevator-no-webgl,
+.generic-app .elevator-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .elevator-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
 }
 .generic-app .bee-activity-overlay {
   position: absolute;
@@ -11805,7 +11898,7 @@ button {
   }
 }
 
-/* ElevatorLesson-ZT6V5LAJ.css */
+/* ElevatorLesson-7M4DSSOD.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -12714,6 +12807,37 @@ button {
 .generic-app .bee-model-stage canvas {
   width: 100% !important;
   height: 100% !important;
+}
+.generic-app .elevator-model-stage {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  background: transparent;
+}
+.generic-app .elevator-model-stage > div,
+.generic-app .elevator-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .elevator-no-webgl,
+.generic-app .elevator-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .elevator-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
 }
 .generic-app .bee-activity-overlay {
   position: absolute;
@@ -13200,7 +13324,7 @@ button {
   }
 }
 
-/* MobileRadarLesson-U6VUINGN.css */
+/* MobileRadarLesson-TC75DXDR.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -14109,6 +14233,37 @@ button {
 .generic-app .bee-model-stage canvas {
   width: 100% !important;
   height: 100% !important;
+}
+.generic-app .elevator-model-stage {
+  display: block;
+  overflow: hidden;
+  border-radius: 14px;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  background: transparent;
+}
+.generic-app .elevator-model-stage > div,
+.generic-app .elevator-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.generic-app .elevator-no-webgl,
+.generic-app .elevator-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  color: #fff;
+  text-align: center;
+}
+.generic-app .elevator-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
 }
 .generic-app .bee-activity-overlay {
   position: absolute;

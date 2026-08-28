@@ -8,7 +8,7 @@ import {
   QuizCard,
   TaskCard,
   TipCard
-} from "./chunk-I2HZKRWI.js";
+} from "./chunk-P5CB4QJJ.js";
 import {
   __toESM,
   require_jsx_runtime,

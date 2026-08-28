@@ -11,32 +11,45 @@
   "difficulty": 1,
   "topics": ["elevator parts", "cable", "pulley", "up and down"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "storyVideoUrl": "https://www.youtube.com/embed/_s7XMkKfgN8",
+  "sketchfabEmbedUrl": "https://sketchfab.com/models/61ded500c8fa498d8ae7eeb2ba546df9/embed",
+  "warmupVideoUrl": "https://www.youtube.com/embed/VSWR6oIVjR4",
   "storyQuestions": [
     {
-      "prompt": "Which way does an elevator go?",
-      "answers": ["Up and down", "Left and right", "In circles"],
+      "prompt": "What is in the box?",
+      "answers": ["Robot parts", "Toys", "Books"],
       "correctIndex": 0,
-      "success": "Elevators move up and down."
+      "success": "The box has robot parts inside."
     },
     {
-      "prompt": "What carries people in the elevator?",
-      "answers": ["The cab", "The roof", "The stairs"],
+      "prompt": "Is the box light or heavy?",
+      "answers": ["Heavy", "Light", "Medium"],
       "correctIndex": 0,
-      "success": "People ride inside the cab."
+      "success": "The box is heavy."
     },
     {
-      "prompt": "What pulls the elevator up?",
-      "answers": ["A strong cable", "A fan", "A spring"],
+      "prompt": "Where does the box need to go?",
+      "answers": ["Upstairs", "Downstairs", "Outside"],
       "correctIndex": 0,
-      "success": "A strong cable lifts the cab."
+      "success": "The box needs to go upstairs."
     },
     {
-      "prompt": "What do you press to call the elevator?",
-      "answers": ["A button", "A bell", "A lock"],
+      "prompt": "Can the teacher carry it easily?",
+      "answers": ["No", "Yes", "Sometimes"],
       "correctIndex": 0,
-      "success": "Pressing a button calls the elevator."
+      "success": "The box is too heavy for the teacher to carry easily."
+    },
+    {
+      "prompt": "What do we need to do?",
+      "answers": ["Lift the box", "Open the box", "Hide the box"],
+      "correctIndex": 0,
+      "success": "We need to lift the box."
+    },
+    {
+      "prompt": "Should our machine move up or down?",
+      "answers": ["Up and down", "Only up", "Only down"],
+      "correctIndex": 0,
+      "success": "Our machine should move up and down."
     }
   ],
   "quiz": [
@@ -91,10 +104,16 @@
       "help": "The wheel at the top of the shaft."
     },
     {
-      "id": "button",
-      "label": "Button",
-      "fact": "The button tells the elevator which floor you want.",
-      "help": "The round button inside the cab."
+      "id": "motor",
+      "label": "Motor",
+      "fact": "The motor turns the pulley to move the elevator safely.",
+      "help": "The machine at the top of the shaft."
+    },
+    {
+      "id": "counterweight",
+      "label": "Counterweight",
+      "fact": "The counterweight balances the cab so the motor does not need to lift everything alone.",
+      "help": "The stacked block that travels opposite the cab."
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getLesson, getLessonComponent} from '../lessons';
 import {navigate} from '../router';
-import {getCurrentClass, getPresetClass} from '../classStore';
+import {getCurrentClass} from '../classStore';
 import {DrawingCanvas} from '../../components/DrawingCanvas';
 import {ClassPointsCard} from '../components/ClassPointsCard';
 import {StudentSetupModal} from '../components/StudentSetupModal';
@@ -35,9 +35,8 @@ export const LessonPage: React.FC<{id: string}> = ({id}) => {
   }
 
   const Lesson = getLessonComponent(lesson.id);
-  // Warmup is class-specific: the class preset wins, the lesson JSON falls back.
-  const preset = cls ? getPresetClass(cls.name) : undefined;
-  const warmupVideoUrl = preset?.warmupVideoUrl || lesson.content.warmupVideoUrl;
+  // Warmup comes from the lesson's own content JSON.
+  const warmupVideoUrl = lesson.content.warmupVideoUrl;
   const drawScope = `${cls?.name ?? 'class'}/${lesson.id}`;
 
   return (

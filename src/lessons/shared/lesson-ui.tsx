@@ -154,6 +154,34 @@ export const StoryVideoCard: React.FC<{
   </section>
 );
 
+export const SketchfabEmbed: React.FC<{
+  embedUrl: string;
+  modelName: string;
+  modelPageUrl: string;
+  stageClass?: string;
+}> = ({embedUrl, modelName, modelPageUrl, stageClass = 'golf-identify-stage'}) => (
+  <div className={`generic-stage ${stageClass}`}>
+    <div className="sketchfab-embed-wrapper">
+      <iframe
+        title={modelName}
+        frameBorder="0"
+        allowFullScreen
+        allow="autoplay; fullscreen; xr-spatial-tracking; web-share"
+        src={embedUrl}
+      />
+      <p>
+        <a href={modelPageUrl} target="_blank" rel="nofollow">
+          {modelName}
+        </a>{' '}
+        on{' '}
+        <a href="https://sketchfab.com" target="_blank" rel="nofollow">
+          Sketchfab
+        </a>
+      </p>
+    </div>
+  </div>
+);
+
 export const TipCard: React.FC<{children: ReactNode}> = ({children}) => <div className="tip-card">{children}</div>;
 
 export const LessonStage: React.FC<{children: ReactNode}> = ({children}) => (

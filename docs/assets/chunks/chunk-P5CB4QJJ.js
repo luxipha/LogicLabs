@@ -65260,6 +65260,146 @@ var ModelOrbitControls = ({ zoomEnabled, rotateEnabled, target, minDistance, max
   return null;
 };
 
+// src/lessons/shared/lesson-ui.tsx
+var import_jsx_runtime3 = __toESM(require_jsx_runtime());
+var MissionHeader = ({ onDraw, onBoard }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("header", { className: "mission-header", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "screen-actions", children: [
+  onDraw ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "icon-btn icon-btn-draw", "aria-label": "Draw", onClick: onDraw, title: "Draw", children: "\u270F\uFE0F" }) : null,
+  onBoard ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "icon-btn icon-btn-board", "aria-label": "Board", onClick: onBoard, title: "Board", children: "\u{1F5BC}\uFE0F" }) : null
+] }) });
+var ModeTabs = ({
+  tabs,
+  activeMode,
+  onSelect
+}) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("nav", { className: "mode-tabs", "aria-label": "Lesson modes", children: tabs.map((tab) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  "button",
+  {
+    className: activeMode === tab.id ? `mode-tab ${tab.tone} active` : `mode-tab ${tab.tone}`,
+    onClick: () => onSelect(tab.id),
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "mode-icon", children: tab.icon }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: tab.label })
+    ]
+  },
+  tab.id
+)) });
+var TaskCard = ({ badge, title, text, preview, feedback = null, children, onPreviewClick }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "task-card", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "task-header", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "pilot-badge", children: badge }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "Your Task" })
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "task-body", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h2", { children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("p", { children: text }),
+    preview ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: feedback === "wrong" ? "ghost-part wrong" : "ghost-part", onClick: onPreviewClick, children: preview }) : null,
+    children
+  ] })
+] });
+var QuizCard = ({ prompt, answers, indexLabel, feedback, success, onAnswer }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  "section",
+  {
+    className: feedback === "correct" ? "quiz-card correct-pop" : feedback === "wrong" ? "quiz-card wrong-shake" : "quiz-card",
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "quiz-header", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "Check Question" }),
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: indexLabel })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "quiz-body", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("h3", { children: prompt }),
+        answers.map((answer, index) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { className: "answer", onClick: () => onAnswer(index), children: [
+          String.fromCharCode(65 + index),
+          " ",
+          answer
+        ] }, answer)),
+        feedback === "correct" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "correct-burst", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "Correct!" }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("small", { children: success ?? "Keep going." })
+        ] }) : null,
+        feedback === "wrong" ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "try-again", children: "Try again. Look for the clue." }) : null
+      ] })
+    ]
+  }
+);
+var StoryVideoCard = ({ title, youtubeEmbedUrl }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("section", { className: "story-video-card video-only", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "story-video-frame", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+  "iframe",
+  {
+    title,
+    src: youtubeEmbedUrl,
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    allowFullScreen: true
+  }
+) }) });
+var SketchfabEmbed = ({ embedUrl, modelName, modelPageUrl, stageClass = "golf-identify-stage" }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: `generic-stage ${stageClass}`, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "sketchfab-embed-wrapper", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+    "iframe",
+    {
+      title: modelName,
+      frameBorder: "0",
+      allowFullScreen: true,
+      allow: "autoplay; fullscreen; xr-spatial-tracking; web-share",
+      src: embedUrl
+    }
+  ),
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: modelPageUrl, target: "_blank", rel: "nofollow", children: modelName }),
+    " ",
+    "on",
+    " ",
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "https://sketchfab.com", target: "_blank", rel: "nofollow", children: "Sketchfab" })
+  ] })
+] }) });
+var TipCard = ({ children }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "tip-card", children });
+var LessonStage = ({ children }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("section", { className: "lesson-stage", children });
+var ProgressCard = ({ done, total, label }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "progress-card", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "eyebrow", children: "Your Progress" }),
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "progress-count", children: [
+    done,
+    "/",
+    total,
+    " ",
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: label })
+  ] }),
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "progress-bar", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "progress-fill", style: { width: `${done / total * 100}%` } }) })
+] });
+var PartsTray = ({
+  parts,
+  onSelect,
+  interactive = true
+}) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("section", { className: "parts-tray", children: parts.map((part) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(
+  "button",
+  {
+    className: part.active ? "tray-part active" : part.done ? "tray-part done" : part.locked ? "tray-part locked" : "tray-part",
+    disabled: part.disabled,
+    "aria-disabled": !interactive,
+    onClick: () => {
+      if (interactive) {
+        onSelect(part.id);
+      }
+    },
+    children: [
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "tray-thumb", children: part.preview }),
+      /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: part.label }),
+      part.status ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "tray-part-status", children: part.status }) : null
+    ]
+  },
+  part.id
+)) });
+var FeedbackBanner = ({ message, state = null }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: state ? `encouragement ${state}` : "encouragement", children: [
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { children: "STAR" }),
+  /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("strong", { children: message })
+] });
+
+// src/lessons/shared/WarmupScreen.tsx
+var import_jsx_runtime4 = __toESM(require_jsx_runtime());
+var WarmupScreen = ({ videoUrl }) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("section", { className: "story-video-card video-only warmup-screen", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: "story-video-frame", children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+  "iframe",
+  {
+    title: "Warmup video",
+    src: videoUrl,
+    allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share",
+    allowFullScreen: true
+  }
+) }) });
+
 export {
   DoubleSide,
   LoopRepeat,
@@ -65279,7 +65419,19 @@ export {
   useLoader,
   Canvas2 as Canvas,
   GLTFLoader,
-  ModelOrbitControls
+  ModelOrbitControls,
+  MissionHeader,
+  ModeTabs,
+  TaskCard,
+  QuizCard,
+  StoryVideoCard,
+  SketchfabEmbed,
+  TipCard,
+  LessonStage,
+  ProgressCard,
+  PartsTray,
+  FeedbackBanner,
+  WarmupScreen
 };
 /*! Bundled license information:
 

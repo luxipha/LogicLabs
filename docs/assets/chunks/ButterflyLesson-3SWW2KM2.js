@@ -6,28 +6,26 @@ import {
   BufferGeometry,
   Canvas,
   Color,
+  FeedbackBanner,
   Float32BufferAttribute,
   GLTFLoader,
   Group,
-  Mesh,
-  ModelOrbitControls,
-  Vector3,
-  useFrame,
-  useLoader
-} from "./chunk-ZCM7JGQ4.js";
-import {
-  FeedbackBanner,
   LessonStage,
+  Mesh,
   MissionHeader,
   ModeTabs,
+  ModelOrbitControls,
   PartsTray,
   ProgressCard,
   QuizCard,
   StoryVideoCard,
   TaskCard,
   TipCard,
-  WarmupScreen
-} from "./chunk-I2HZKRWI.js";
+  Vector3,
+  WarmupScreen,
+  useFrame,
+  useLoader
+} from "./chunk-P5CB4QJJ.js";
 import {
   __toESM,
   require_jsx_runtime,

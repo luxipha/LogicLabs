@@ -6,13 +6,11 @@ import {
   Color,
   GLTFLoader,
   ModelOrbitControls,
-  Vector3,
-  useLoader
-} from "./chunk-ZCM7JGQ4.js";
-import {
   StoryVideoCard,
-  WarmupScreen
-} from "./chunk-I2HZKRWI.js";
+  Vector3,
+  WarmupScreen,
+  useLoader
+} from "./chunk-P5CB4QJJ.js";
 import {
   __toESM,
   require_jsx_runtime,

@@ -2,6 +2,9 @@ import {
   content_default
 } from "./chunk-XB7SOL3B.js";
 import {
+  GenericLesson
+} from "./chunk-UMMAZRAW.js";
+import {
   AnimationMixer,
   Box3,
   Canvas,
@@ -10,17 +13,13 @@ import {
   Group,
   LoopRepeat,
   ModelOrbitControls,
+  SketchfabEmbed,
+  StoryVideoCard,
   Vector3,
+  WarmupScreen,
   useFrame,
   useLoader
-} from "./chunk-ZCM7JGQ4.js";
-import {
-  GenericLesson
-} from "./chunk-BUNVSDHT.js";
-import {
-  StoryVideoCard,
-  WarmupScreen
-} from "./chunk-I2HZKRWI.js";
+} from "./chunk-P5CB4QJJ.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -263,37 +262,14 @@ var GolfStage = ({ activePart, identified, onSelect, mode, warmupVideoUrl, activ
       /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "golf-game-bar", children: activityDone ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "bee-activity-done", children: "Nice round! You played the course." }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "primary-action", onClick: completeActivity, children: "Done playing" }) })
     ] }) });
   }
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage golf-identify-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "sketchfab-embed-wrapper", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-      "iframe",
-      {
-        title: "Golf club Iron",
-        frameBorder: "0",
-        allowFullScreen: true,
-        allow: "autoplay; fullscreen; xr-spatial-tracking; web-share",
-        src: "https://sketchfab.com/models/dc748ddd268c4acab25c54c4048b3912/embed"
-      }
-    ),
-    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("p", { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        "a",
-        {
-          href: "https://sketchfab.com/3d-models/golf-club-iron-dc748ddd268c4acab25c54c4048b3912",
-          target: "_blank",
-          rel: "nofollow",
-          children: "Golf club Iron"
-        }
-      ),
-      " ",
-      "by",
-      " ",
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: "https://sketchfab.com/real_slimshady", target: "_blank", rel: "nofollow", children: "\u211C\u{1D522}\u{1D51E}\u{1D529} \u{1D516}\u{1D529}\u{1D526}\u{1D52A} \u{1D516}\u{1D525}\u{1D51E}\u{1D521}\u{1D536}" }),
-      " ",
-      "on",
-      " ",
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("a", { href: "https://sketchfab.com", target: "_blank", rel: "nofollow", children: "Sketchfab" })
-    ] })
-  ] }) });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
+    SketchfabEmbed,
+    {
+      embedUrl: "https://sketchfab.com/models/dc748ddd268c4acab25c54c4048b3912/embed",
+      modelName: "Golf club Iron",
+      modelPageUrl: "https://sketchfab.com/3d-models/golf-club-iron-dc748ddd268c4acab25c54c4048b3912"
+    }
+  );
 };
 var GolfPartPreview = ({ part }) => /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("span", { className: "generic-part-preview", "aria-hidden": "true", children: [
   part === "hat" ? "\u{1F9E2}" : null,
