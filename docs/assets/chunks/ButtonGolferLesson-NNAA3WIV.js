@@ -3,7 +3,7 @@ import {
 } from "./chunk-XB7SOL3B.js";
 import {
   GenericLesson
-} from "./chunk-UMMAZRAW.js";
+} from "./chunk-KUM7UDSH.js";
 import {
   AnimationMixer,
   Box3,
@@ -19,7 +19,7 @@ import {
   WarmupScreen,
   useFrame,
   useLoader
-} from "./chunk-P5CB4QJJ.js";
+} from "./chunk-YSRYPTBG.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -249,17 +249,9 @@ var GolfStage = ({ activePart, identified, onSelect, mode, warmupVideoUrl, activ
     ) });
   }
   if (mode === "activity") {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "golf-game-embed", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        "iframe",
-        {
-          title: "Golf Bit",
-          src: "https://cloud.onlinegames.io/games/2026/construct/328/golf-bit/index.html",
-          allow: "fullscreen; autoplay; gamepad",
-          allowFullScreen: true
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "golf-game-bar", children: activityDone ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "bee-activity-done", children: "Nice round! You played the course." }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "primary-action", onClick: completeActivity, children: "Done playing" }) })
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "elevator-stage-placeholder", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "elevator-stage-icon", children: "\u{1F3CC}\uFE0F" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: "Press the play button to start the game." })
     ] }) });
   }
   return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(

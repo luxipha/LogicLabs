@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import type {LessonContent} from '../../app/types';
 import {
   FeedbackBanner,
+  GameEmbed,
   LessonStage,
   MissionHeader,
   ModeTabs,
@@ -65,7 +66,15 @@ export const GenericLesson: React.FC<{
   const [quizCorrect, setQuizCorrect] = useState(0);
   const [quizFeedback, setQuizFeedback] = useState<'correct' | 'wrong' | null>(null);
   const [activityDone, setActivityDone] = useState(false);
+  const [openGameId, setOpenGameId] = useState<string | null>(null);
   const parts = content.parts ?? [];
+  const activityGames = content.activityGames ?? (content.gameEmbedUrl ? [{
+    id: 'game',
+    label: content.activityLabel,
+    title: content.activityLabel,
+    src: content.gameEmbedUrl,
+  }] : []);
+  const openGame = activityGames.find((game) => game.id === openGameId) ?? null;
 
   const storyQuestion = content.storyQuestions[storyIndex];
   const quizQuestion = content.quiz[quizIndex];
@@ -93,6 +102,7 @@ export const GenericLesson: React.FC<{
     setMode(next);
     setFeedback(null);
     setLastSelectedPart(null);
+    setOpenGameId(null);
     if (next === 'identify') {
       setActivePart(identifyTarget?.id ?? parts[0]?.id ?? 'part');
     }
@@ -159,6 +169,7 @@ export const GenericLesson: React.FC<{
     setQuizCorrect(0);
     setQuizFeedback(null);
     setActivityDone(false);
+    setOpenGameId(null);
   };
 
   const progressDone =
@@ -263,16 +274,26 @@ export const GenericLesson: React.FC<{
       <ModeTabs tabs={MODE_TABS} activeMode={mode} onSelect={selectMode} />
 
       <LessonStage>
-        {stage({
-          mode,
-          activePart,
-          lastSelectedPart,
-          warmupVideoUrl: warmupVideoUrl ?? content.warmupVideoUrl,
-          onSelect: selectPart,
-          identified,
-          activityDone,
-          completeActivity: () => setActivityDone(true),
-        })}
+        {mode === 'activity' && openGame ? (
+          <GameEmbed
+            title={openGame.title}
+            src={openGame.src}
+            open
+            onClose={() => setOpenGameId(null)}
+            onComplete={() => setActivityDone(true)}
+          />
+        ) : (
+          stage({
+            mode,
+            activePart,
+            lastSelectedPart,
+            warmupVideoUrl: warmupVideoUrl ?? content.warmupVideoUrl,
+            onSelect: selectPart,
+            identified,
+            activityDone,
+            completeActivity: () => setActivityDone(true),
+          })
+        )}
       </LessonStage>
 
       <aside className="task-column">
@@ -282,7 +303,7 @@ export const GenericLesson: React.FC<{
               Start Identifying
             </button>
           ) : null}
-          {mode === 'activity' && !activityDone ? (
+          {mode === 'activity' && !activityDone && activityGames.length === 0 ? (
             <button
               className="primary-action"
               onClick={() => {
@@ -306,7 +327,21 @@ export const GenericLesson: React.FC<{
             success={storyQuestion.success}
             onAnswer={answerStory}
           />
-        ) : mode === 'warmup' ? null : (
+        ) : mode === 'warmup' || mode === 'activity' ? (
+          mode === 'activity' && activityGames.length > 0 ? (
+            <div className="activity-game-launchers">
+              {activityGames.map((game, index) => (
+                <GameEmbed
+                  key={game.id}
+                  title={game.title}
+                  src={game.src}
+                  buttonLabel={game.id === 'draw-the-bridge' ? game.label : `Activity ${index}: ${game.label}`}
+                  onOpen={() => setOpenGameId(game.id)}
+                />
+              ))}
+            </div>
+          ) : null
+        ) : (
           <QuizCard
             prompt={quizComplete ? 'You finished all the questions.' : quizQuestion.prompt}
             answers={quizComplete ? [] : quizQuestion.answers}

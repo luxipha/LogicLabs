@@ -14,6 +14,26 @@ var content_default = {
   classIds: ["Brickmoto"],
   storyVideoUrl: "https://www.youtube.com/embed/_s7XMkKfgN8",
   sketchfabEmbedUrl: "https://sketchfab.com/models/61ded500c8fa498d8ae7eeb2ba546df9/embed",
+  activityGames: [
+    {
+      id: "draw-the-bridge",
+      label: "Play Draw the Bridge",
+      title: "Draw the Bridge",
+      src: "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+    },
+    {
+      id: "pulley-lab",
+      label: "Pulley Lab",
+      title: "Elevator Pulley Lab",
+      src: "elevator-activities/pulley-lab.html"
+    },
+    {
+      id: "motor-counterweight-lab",
+      label: "Motor & Counterweight Lab",
+      title: "Elevator Motor & Counterweight Lab",
+      src: "elevator-activities/motor-counterweight-lab.html"
+    }
+  ],
   warmupVideoUrl: "https://www.youtube.com/embed/VSWR6oIVjR4",
   storyQuestions: [
     {

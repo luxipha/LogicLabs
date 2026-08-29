@@ -3,7 +3,7 @@ import {
 } from "./chunk-GM2NIAG2.js";
 import {
   GenericLesson
-} from "./chunk-UMMAZRAW.js";
+} from "./chunk-KUM7UDSH.js";
 import {
   Box3,
   BufferGeometry,
@@ -23,7 +23,7 @@ import {
   useFrame,
   useLoader,
   useThree
-} from "./chunk-P5CB4QJJ.js";
+} from "./chunk-YSRYPTBG.js";
 import {
   __toESM,
   require_jsx_runtime,

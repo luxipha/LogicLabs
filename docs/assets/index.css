@@ -3942,6 +3942,60 @@
   width: auto;
   padding: 12px 32px;
 }
+.generic-app .game-launch-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+  margin-top: 18px;
+}
+.generic-app .activity-game-launchers {
+  display: grid;
+  gap: 10px;
+}
+.generic-app .activity-game-launchers .game-launch-btn {
+  margin-top: 0;
+  text-align: left;
+}
+.generic-app .elevator-stage-placeholder {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  color: #e8f7ff;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.generic-app .elevator-stage-icon {
+  font-size: 64px;
+}
+.generic-app .secondary-action {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0565c9;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
+}
 .generic-app .elevator-activity {
   position: absolute;
   inset: 8%;
@@ -7534,7 +7588,7 @@ button {
   display: block;
 }
 
-/* BeeLesson-GDE4NTEL.css */
+/* BeeLesson-2XRFNUBQ.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -8319,6 +8373,60 @@ button {
 .generic-app .golf-game-bar .primary-action {
   width: auto;
   padding: 12px 32px;
+}
+.generic-app .game-launch-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+  margin-top: 18px;
+}
+.generic-app .activity-game-launchers {
+  display: grid;
+  gap: 10px;
+}
+.generic-app .activity-game-launchers .game-launch-btn {
+  margin-top: 0;
+  text-align: left;
+}
+.generic-app .elevator-stage-placeholder {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  color: #e8f7ff;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.generic-app .elevator-stage-icon {
+  font-size: 64px;
+}
+.generic-app .secondary-action {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0565c9;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
 }
 .generic-app .elevator-activity {
   position: absolute;
@@ -10472,7 +10580,7 @@ button {
   }
 }
 
-/* ButtonGolferLesson-ERXI53IX.css */
+/* ButtonGolferLesson-DVKRNI7X.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -11257,6 +11365,60 @@ button {
 .generic-app .golf-game-bar .primary-action {
   width: auto;
   padding: 12px 32px;
+}
+.generic-app .game-launch-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+  margin-top: 18px;
+}
+.generic-app .activity-game-launchers {
+  display: grid;
+  gap: 10px;
+}
+.generic-app .activity-game-launchers .game-launch-btn {
+  margin-top: 0;
+  text-align: left;
+}
+.generic-app .elevator-stage-placeholder {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  color: #e8f7ff;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.generic-app .elevator-stage-icon {
+  font-size: 64px;
+}
+.generic-app .secondary-action {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0565c9;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
 }
 .generic-app .elevator-activity {
   position: absolute;
@@ -11898,7 +12060,7 @@ button {
   }
 }
 
-/* ElevatorLesson-7M4DSSOD.css */
+/* ElevatorLesson-J7KOECE2.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -12683,6 +12845,60 @@ button {
 .generic-app .golf-game-bar .primary-action {
   width: auto;
   padding: 12px 32px;
+}
+.generic-app .game-launch-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+  margin-top: 18px;
+}
+.generic-app .activity-game-launchers {
+  display: grid;
+  gap: 10px;
+}
+.generic-app .activity-game-launchers .game-launch-btn {
+  margin-top: 0;
+  text-align: left;
+}
+.generic-app .elevator-stage-placeholder {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  color: #e8f7ff;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.generic-app .elevator-stage-icon {
+  font-size: 64px;
+}
+.generic-app .secondary-action {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0565c9;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
 }
 .generic-app .elevator-activity {
   position: absolute;
@@ -13324,7 +13540,7 @@ button {
   }
 }
 
-/* MobileRadarLesson-TC75DXDR.css */
+/* MobileRadarLesson-XBEH7ZJI.css */
 /* src/lessons/generic/lesson.scoped.css */
 :root {
   color-scheme: light;
@@ -14109,6 +14325,60 @@ button {
 .generic-app .golf-game-bar .primary-action {
   width: auto;
   padding: 12px 32px;
+}
+.generic-app .game-launch-btn {
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background:
+    linear-gradient(
+      180deg,
+      #30a5ff 0%,
+      #0565c9 100%);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 64, 136, 0.22);
+  margin-top: 18px;
+}
+.generic-app .activity-game-launchers {
+  display: grid;
+  gap: 10px;
+}
+.generic-app .activity-game-launchers .game-launch-btn {
+  margin-top: 0;
+  text-align: left;
+}
+.generic-app .elevator-stage-placeholder {
+  position: absolute;
+  inset: 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-radius: 16px;
+  background: rgba(4, 79, 151, 0.7);
+  border: 3px solid rgba(113, 201, 255, 0.45);
+  color: #e8f7ff;
+  font-size: 18px;
+  font-weight: 800;
+  text-align: center;
+}
+.generic-app .elevator-stage-icon {
+  font-size: 64px;
+}
+.generic-app .secondary-action {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0565c9;
+  font-size: 17px;
+  font-weight: 900;
+  cursor: pointer;
 }
 .generic-app .elevator-activity {
   position: absolute;

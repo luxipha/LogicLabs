@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elevator Motor & Counterweight Lab</title>
+  <style>
+    :root {
+      --ink: #17335b;
+      --paper: #f7fbff;
+      --panel: #ffffff;
+      --line: #d9e7f5;
+      --soft: #eef6ff;
+      --brand: #0874c9;
+      --brand-dark: #17335b;
+      --accent: #ffe251;
+      --shadow: 0 14px 35px rgba(37, 82, 130, .14);
+      --radius: 22px;
+      --danger: #e84d4f;
+      --success: #4fc56b;
+      --warning: #f4b93e;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; font-family: "Nunito", "Avenir Next", Avenir, "Segoe UI", sans-serif; color: var(--ink); background: linear-gradient(180deg, rgba(1, 75, 160, 0.9) 0%, rgba(9, 151, 226, 0.9) 52%, rgba(135, 208, 241, 0.92) 78%); }
+    body { min-height: 100vh; display: grid; place-items: center; padding: 18px; }
+
+    .app {
+      width: min(1500px, 100%);
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .title-wrap h1 { margin: 0; font-size: clamp(20px, 2vw, 30px); letter-spacing: -.02em; font-weight: 900; }
+    .title-wrap p { margin: 4px 0 0; color: #5d7492; font-size: 14px; font-weight: 700; }
+
+    .mission-pill {
+      background: var(--accent);
+      border: 1px solid #e6c93f;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 260px minmax(560px, 1fr) 270px;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(43, 85, 125, .08);
+    }
+
+    .left-panel, .right-panel { padding: 16px; }
+    .panel h2 { font-size: 16px; margin: 0 0 12px; font-weight: 900; }
+
+    .load-list { display: grid; gap: 10px; }
+    .load-card {
+      width: 100%;
+      border: 2px solid transparent;
+      background: #f8fbff;
+      border-radius: 16px;
+      padding: 10px 11px;
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      transition: .16s ease;
+      color: var(--ink);
+      text-align: left;
+      font-family: inherit;
+    }
+    .load-card:hover { transform: translateY(-1px); border-color: #b7d8ff; background: #f2f8ff; }
+    .load-card:active { transform: translateY(0); }
+    .load-card:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .load-card.active { border-color: var(--brand); background: #eef6ff; }
+    .load-card .icon { font-size: 27px; text-align: center; white-space: nowrap; }
+    .load-card strong { display:block; font-size:14px; }
+    .load-card small { color: #66809f; }
+    .badge { min-width: 44px; padding: 5px 7px; text-align:center; border-radius:999px; font-size:12px; font-weight:900; background:#e8f2ff; }
+
+    .mini-note {
+      margin-top: 12px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: #f4f9ff;
+      color: #54708f;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .counter-card {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 48px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border-radius: 16px;
+      background: #edf7ff;
+      border: 1px solid #cfe5f7;
+    }
+    .counter-card .icon { font-size: 30px; }
+    .counter-card strong { font-size: 14px; display:block; }
+    .counter-card small { color:#66809f; }
+
+    .canvas-panel { position: relative; overflow: hidden; min-height: 700px; background: linear-gradient(#eef8ff 0 15%, #edf1f5 15% 100%); }
+    canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+
+    .canvas-overlay {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      background: rgba(255,255,255,.93);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 9px 11px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(34,74,114,.08);
+      pointer-events: none;
+    }
+
+    .floor-pad { display:grid; grid-template-columns: repeat(5, 1fr); gap:7px; margin-bottom:14px; }
+    .floor-btn {
+      aspect-ratio: 1;
+      border-radius: 14px;
+      border: 2px solid #cbdff3;
+      background: #f7fbff;
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 950;
+      cursor:pointer;
+      transition:.15s ease;
+      position:relative;
+      font-family: inherit;
+    }
+    .floor-btn:hover { transform:translateY(-1px); border-color:#8cbdea; }
+    .floor-btn:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .floor-btn.current { background: var(--brand); color:white; border-color: var(--brand); }
+    .floor-btn.target:not(.current) { background:#fff2be; border-color:#e5bd3e; }
+    .floor-btn:disabled { opacity:.55; cursor:default; }
+
+    .effort-wrap { display: grid; gap: 10px; }
+    .meter-shell { height: 190px; display: grid; grid-template-columns: 50px 1fr; align-items: stretch; gap: 10px; }
+    .faces { display:flex; flex-direction:column; justify-content:space-between; align-items:center; font-size:23px; padding:2px 0; }
+    .meter {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #183657;
+      background: linear-gradient(to top, #ef4a4a 0 34%, #ffd54e 34% 67%, #59d26f 67% 100%);
+    }
+    .meter-cover { position:absolute; inset:0; background: rgba(255,255,255,.78); transform-origin: top; transition: transform .25s ease; }
+    .meter-marker { position:absolute; left:-7px; right:-7px; height:4px; background: var(--brand-dark); border-radius:999px; transform: translateY(-50%); transition: top .25s ease; }
+
+    .balance-sign {
+      margin: 12px 0;
+      min-height: 68px;
+      border-radius: 16px;
+      padding: 12px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      font-weight:950;
+      font-size:14px;
+      border:2px solid #b8d8f3;
+      background:#eef7ff;
+      color:#285c88;
+      transition:.2s ease;
+    }
+    .balance-sign.good { background:#ebfaef; border-color:#80d691; color:#26703a; }
+    .balance-sign.warn { background:#fff6d8; border-color:#e7c75d; color:#7a5a00; }
+    .balance-sign.danger { background:#fff0f0; border-color:#ef7779; color:#a52227; animation: pulse 1s ease-in-out infinite alternate; }
+    @keyframes pulse { from { box-shadow:0 0 0 rgba(232,77,79,0); } to { box-shadow:0 0 0 5px rgba(232,77,79,.12); } }
+
+    .status-card {
+      padding: 12px;
+      border-radius: 16px;
+      background: #f7fbff;
+      border: 1px solid var(--line);
+      min-height: 104px;
+    }
+    .status-card strong { display:block; margin-bottom:4px; }
+    .status-card p { margin:0; color:#5f7898; font-size:13px; line-height:1.4; }
+
+    .stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+    .stat { background:#f7fbff; border:1px solid var(--line); border-radius:14px; padding:10px; }
+    .stat span { display:block; color:#7088a5; font-size:10px; text-transform:uppercase; letter-spacing:.06em; font-weight:900; }
+    .stat b { display:block; margin-top:3px; font-size:17px; }
+
+    .controls { display:grid; gap:9px; margin-top:10px; }
+    .primary, .secondary { border:0; border-radius:14px; padding:12px 14px; font-weight:900; cursor:pointer; font-family: inherit; }
+    .primary { background: var(--brand); color:white; }
+    .primary:focus-visible, .secondary:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .secondary { background:#eaf4ff; color: var(--brand-dark); }
+
+    .tip {
+      margin-top:12px;
+      padding:10px;
+      border-radius:14px;
+      background:#fff7d9;
+      border:1px solid #f0d66b;
+      font-size:12px;
+      line-height:1.4;
+      color:#6b5711;
+    }
+
+    @media (max-width: 1120px) {
+      .content { grid-template-columns: 225px 1fr; }
+      .right-panel { grid-column: 1 / -1; display:grid; grid-template-columns: 280px 220px 1fr; gap:14px; align-items:start; }
+      .floor-pad { grid-column:1; }
+      .meter-shell { height:150px; }
+    }
+
+    @media (max-width: 780px) {
+      body { padding: 0; background:white; }
+      .app { border-radius: 0; min-height:100vh; }
+      .topbar { align-items:flex-start; }
+      .mission-pill { display:none; }
+      .content { grid-template-columns: 1fr; }
+      .canvas-panel { min-height: 620px; order:1; }
+      .left-panel { order:2; }
+      .right-panel { order:3; grid-column:auto; display:block; }
+      .load-list { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>Elevator Motor & Counterweight Lab</h1>
+        <p>Choose a load. Press a floor. Watch the motor, elevator and counterweight work together.</p>
+      </div>
+      <div class="mission-pill">Mission: How does an elevator move?</div>
+    </header>
+
+    <section class="content">
+      <aside class="panel left-panel">
+        <h2>1. Load the elevator</h2>
+        <div class="load-list">
+          <button class="load-card" data-load="empty">
+            <span class="icon">🛗</span><span><strong>Empty Cab</strong><small>Cab only</small></span><span class="badge">2 units</span>
+          </button>
+          <button class="load-card active" data-load="student">
+            <span class="icon">🧒</span><span><strong>1 Student</strong><small>Light load</small></span><span class="badge">3 units</span>
+          </button>
+          <button class="load-card" data-load="students">
+            <span class="icon">🧒🧒</span><span><strong>2 Students</strong><small>Medium load</small></span><span class="badge">4 units</span>
+          </button>
+          <button class="load-card" data-load="box">
+            <span class="icon">📦</span><span><strong>Robot Parts</strong><small>Balanced load</small></span><span class="badge">5 units</span>
+          </button>
+          <button class="load-card" data-load="robot">
+            <span class="icon">🤖📦</span><span><strong>Robot + Parts</strong><small>Heavy load</small></span><span class="badge">6 units</span>
+          </button>
+        </div>
+
+        <div class="mini-note">The number includes the elevator cab plus what is inside it. Change the load and watch which side becomes heavier.</div>
+
+        <h2 style="margin-top:18px;">Counterweight</h2>
+        <div class="counter-card">
+          <span class="icon">⬛</span>
+          <span><strong>Fixed Counterweight</strong><small>Helps balance the cab</small></span>
+          <span class="badge">5 units</span>
+        </div>
+        <div class="mini-note">When both sides are close in weight, the motor needs less effort to move the elevator.</div>
+      </aside>
+
+      <section class="panel canvas-panel" id="canvasPanel">
+        <canvas id="simCanvas" aria-label="Interactive motor elevator and counterweight simulation"></canvas>
+        <div class="canvas-overlay">Press a floor button → Watch both sides move</div>
+      </section>
+
+      <aside class="panel right-panel">
+        <div>
+          <h2>2. Choose a floor</h2>
+          <div class="floor-pad" id="floorPad">
+            <button class="floor-btn" data-floor="5">5</button>
+            <button class="floor-btn" data-floor="4">4</button>
+            <button class="floor-btn" data-floor="3">3</button>
+            <button class="floor-btn" data-floor="2">2</button>
+            <button class="floor-btn current" data-floor="1">1</button>
+          </div>
+        </div>
+
+        <div class="effort-wrap">
+          <h2>Motor effort</h2>
+          <div class="meter-shell">
+            <div class="faces"><span>🙂</span><span>😮</span><span>😣</span></div>
+            <div class="meter">
+              <div class="meter-cover" id="meterCover"></div>
+              <div class="meter-marker" id="meterMarker"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="balance-sign" id="balanceSign">COUNTERWEIGHT SIDE HEAVIER</div>
+
+        <div class="status-card" id="statusCard">
+          <strong>Ready</strong>
+          <p>Choose a floor to start the motor.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><span>Current floor</span><b id="floorStat">1</b></div>
+          <div class="stat"><span>Target floor</span><b id="targetStat">—</b></div>
+          <div class="stat"><span>Cab side</span><b id="cabStat">3</b></div>
+          <div class="stat"><span>Counterweight</span><b id="counterStat">5</b></div>
+        </div>
+
+        <div class="controls">
+          <button class="primary" id="resetBtn">Reset to Floor 1</button>
+        </div>
+
+        <div class="tip"><strong>Teaching prompt:</strong> “When the elevator goes UP, which way does the counterweight go?” Then try the heavy load and ask, “Which side is heavier now?”</div>
+      </aside>
+    </section>
+  </main>
+
+<script>
+(() => {
+  const canvas = document.getElementById('simCanvas');
+  const ctx = canvas.getContext('2d');
+  const panel = document.getElementById('canvasPanel');
+
+  const COUNTERWEIGHT = 5;
+  const FLOOR_COUNT = 5;
+
+  const loads = {
+    empty:    { label:'Empty Cab', weight:2, type:'empty' },
+    student:  { label:'1 Student', weight:3, type:'student' },
+    students: { label:'2 Students', weight:4, type:'students' },
+    box:      { label:'Robot Parts', weight:5, type:'box' },
+    robot:    { label:'Robot + Parts', weight:6, type:'robot' }
+  };
+
+  const state = {
+    load: 'student',
+    floorPos: 1,
+    currentFloor: 1,
+    targetFloor: null,
+    moving: false,
+    motorAngle: 0,
+    lastTime: performance.now(),
+    direction: 0
+  };
+
+  const meterCover = document.getElementById('meterCover');
+  const meterMarker = document.getElementById('meterMarker');
+  const balanceSign = document.getElementById('balanceSign');
+  const statusCard = document.getElementById('statusCard');
+  const floorStat = document.getElementById('floorStat');
+  const targetStat = document.getElementById('targetStat');
+  const cabStat = document.getElementById('cabStat');
+  const counterStat = document.getElementById('counterStat');
+
+  function clamp(v,min,max){ return Math.max(min,Math.min(max,v)); }
+
+  function imbalance() {
+    return loads[state.load].weight - COUNTERWEIGHT;
+  }
+
+  function motorEffort() {
+    // A simplified teaching model: closer balance = less motor effort.
+    // A small baseline remains so the motor is never shown as doing literally zero work.
+    return 0.18 + Math.abs(imbalance()) * 0.26;
+  }
+
+  function resize() {
+    const rect = panel.getBoundingClientRect();
+    const h = Math.max(rect.height, 660);
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+
+  function roundRect(x,y,w,h,r,fill,stroke,lineWidth=1) {
+    ctx.beginPath(); ctx.roundRect(x,y,w,h,r);
+    if (fill) { ctx.fillStyle=fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle=stroke; ctx.lineWidth=lineWidth; ctx.stroke(); }
+  }
+
+  function line(x1,y1,x2,y2,width,stroke) {
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.lineWidth=width; ctx.strokeStyle=stroke; ctx.lineCap='round'; ctx.stroke();
+  }
+
+  function drawRope(x1,y1,x2,y2) {
+    line(x1,y1,x2,y2,10,'#d79224');
+    line(x1,y1,x2,y2,3,'#f7ca5c');
+  }
+
+  function drawPerson(x,y,scale=1) {
+    ctx.save(); ctx.translate(x,y); ctx.scale(scale,scale);
+    ctx.beginPath(); ctx.arc(0,-20,11,0,Math.PI*2); ctx.fillStyle='#f0b07e'; ctx.fill();
+    roundRect(-11,-9,22,29,7,'#2b5f96');
+    line(-7,20,-8,34,5,'#26384f'); line(7,20,8,34,5,'#26384f');
+    line(-11,-2,-18,10,5,'#f0b07e'); line(11,-2,18,10,5,'#f0b07e');
+    ctx.restore();
+  }
+
+  function drawBox(x,y,w=60,h=48) {
+    roundRect(x,y,w,h,7,'#c98a3e','#70441d',2);
+    line(x+w/2,y,x+w/2,y+h,2,'#8a5a2a');
+    ctx.fillStyle='#613d20'; ctx.font='700 11px system-ui'; ctx.textAlign='center';
+    ctx.fillText('ROBOT',x+w/2,y+20); ctx.fillText('PARTS',x+w/2,y+34);
+  }
+
+  function drawRobot(x,y,scale=.8) {
+    ctx.save(); ctx.translate(x,y); ctx.scale(scale,scale);
+    roundRect(-19,-26,38,36,10,'#51c1d9','#184b63',3);
+    ctx.beginPath(); ctx.arc(-7,-10,3,0,Math.PI*2); ctx.arc(7,-10,3,0,Math.PI*2); ctx.fillStyle='#17335b'; ctx.fill();
+    line(0,-26,0,-36,3,'#184b63'); ctx.beginPath(); ctx.arc(0,-39,4,0,Math.PI*2); ctx.fillStyle='#f04f52'; ctx.fill();
+    roundRect(-14,11,28,25,7,'#9b67d5','#543781',3);
+    line(-17,16,-27,29,5,'#184b63'); line(17,16,27,29,5,'#184b63');
+    line(-8,36,-10,49,5,'#184b63'); line(8,36,10,49,5,'#184b63');
+    ctx.restore();
+  }
+
+  function drawMotor(x,y,r=42) {
+    ctx.save(); ctx.translate(x,y);
+    // motor body
+    roundRect(-62,-33,64,66,12,'#4f6578','#24394c',4);
+    ctx.fillStyle='#d9e6ef'; ctx.font='900 12px system-ui'; ctx.textAlign='center'; ctx.fillText('MOTOR',-30,5);
+    // traction sheave
+    ctx.rotate(state.motorAngle);
+    ctx.beginPath(); ctx.arc(33,0,r,0,Math.PI*2); ctx.fillStyle='#596573'; ctx.fill();
+    ctx.lineWidth=5; ctx.strokeStyle='#26384f'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(33,0,r-10,0,Math.PI*2); ctx.fillStyle='#aeb8c3'; ctx.fill();
+    for (let i=0;i<6;i++) {
+      const a=i*Math.PI/3;
+      line(33+Math.cos(a)*9,Math.sin(a)*9,33+Math.cos(a)*(r-12),Math.sin(a)*(r-12),4,'#667686');
+    }
+    ctx.beginPath(); ctx.arc(33,0,7,0,Math.PI*2); ctx.fillStyle='#26384f'; ctx.fill();
+    ctx.restore();
+  }
+
+  function geometry(W,H) {
+    const shaftX = W*0.15;
+    const shaftW = W*0.70;
+    const topY = H*0.09;
+    const bottomY = H*0.91;
+    const travelTop = topY + 140;
+    const travelBottom = bottomY - 98;
+    const t = (state.floorPos - 1) / (FLOOR_COUNT - 1);
+    const carY = travelBottom - t*(travelBottom-travelTop);
+    const counterY = travelTop + t*(travelBottom-travelTop);
+    return {shaftX,shaftW,topY,bottomY,travelTop,travelBottom,carY,counterY};
+  }
+
+  function updateUI() {
+    const d = imbalance();
+    const effort = clamp(motorEffort(),0,1);
+    const pct = clamp(effort,0,1);
+    meterCover.style.transform = `scaleY(${1-pct})`;
+    meterMarker.style.top = `${100-pct*100}%`;
+
+    cabStat.textContent = `${loads[state.load].weight} units`;
+    counterStat.textContent = `${COUNTERWEIGHT} units`;
+    floorStat.textContent = state.moving ? state.floorPos.toFixed(1) : String(state.currentFloor);
+    targetStat.textContent = state.targetFloor ?? '—';
+
+    balanceSign.className = 'balance-sign';
+    if (d > 0) {
+      balanceSign.classList.add('danger');
+      balanceSign.innerHTML = `⚠ CAB SIDE HEAVIER<br><span style="font-size:12px;font-weight:800">${loads[state.load].weight} &gt; ${COUNTERWEIGHT} units</span>`;
+    } else if (d === 0) {
+      balanceSign.classList.add('good');
+      balanceSign.innerHTML = `✓ BALANCED<br><span style="font-size:12px;font-weight:800">Both sides = ${COUNTERWEIGHT} units</span>`;
+    } else {
+      balanceSign.classList.add('warn');
+      balanceSign.innerHTML = `COUNTERWEIGHT SIDE HEAVIER<br><span style="font-size:12px;font-weight:800">${COUNTERWEIGHT} &gt; ${loads[state.load].weight} units</span>`;
+    }
+
+    let strong='Ready';
+    let text='Choose a floor to start the motor.';
+    if (state.moving) {
+      const dir = state.direction>0 ? 'up' : 'down';
+      strong = `Motor running — elevator moving ${dir} ⚙️`;
+      text = `The counterweight moves ${dir==='up'?'down':'up'} at the same time.`;
+    } else if (d > 0) {
+      strong='Cab side is heavier 🔴';
+      text='The motor must work harder because the cab side outweighs the counterweight.';
+    } else if (d === 0) {
+      strong='The system is balanced 🟢';
+      text='The two sides help balance each other, so the motor needs less effort.';
+    } else {
+      strong='Counterweight side is heavier';
+      text='The counterweight helps offset the elevator cab and its load.';
+    }
+    statusCard.innerHTML = `<strong>${strong}</strong><p>${text}</p>`;
+
+    document.querySelectorAll('.floor-btn').forEach(btn => {
+      const f=Number(btn.dataset.floor);
+      btn.classList.toggle('current', !state.moving && f===state.currentFloor);
+      btn.classList.toggle('target', state.targetFloor===f);
+      btn.disabled = state.moving;
+    });
+  }
+
+  function draw() {
+    const W=canvas.clientWidth, H=canvas.clientHeight;
+    ctx.clearRect(0,0,W,H);
+    const g=geometry(W,H);
+
+    const bg=ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0,'#dff3ff'); bg.addColorStop(.16,'#edf3f6'); bg.addColorStop(1,'#e1e5e8');
+    ctx.fillStyle=bg; ctx.fillRect(0,0,W,H);
+
+    // floor landing guides and labels
+    for (let floor=1; floor<=FLOOR_COUNT; floor++) {
+      const t=(floor-1)/(FLOOR_COUNT-1);
+      const y=g.travelBottom - t*(g.travelBottom-g.travelTop) + 72;
+      ctx.setLineDash([5,7]);
+      line(18,y,W-18,y,2,'#9bb0c355');
+      ctx.setLineDash([]);
+      roundRect(16,y-18,70,36,12,'#ffffffdd','#c8d9ea');
+      ctx.fillStyle='#17335b'; ctx.font='900 13px system-ui'; ctx.textAlign='center'; ctx.fillText(`FLOOR ${floor}`,51,y+5);
+    }
+
+    // shaft
+    roundRect(g.shaftX,g.topY,g.shaftW,g.bottomY-g.topY,14,'#d1d5d8','#687481',4);
+    roundRect(g.shaftX+16,g.topY+18,g.shaftW-32,g.bottomY-g.topY-30,8,'#eceff1','#97a2ad',2);
+    roundRect(g.shaftX-14,g.topY-15,g.shaftW+28,48,8,'#6f6557','#3f3a34',3);
+
+    const carW=Math.min(250,g.shaftW*.42), carH=145;
+    const counterW=82, counterH=122;
+    const carX=g.shaftX+g.shaftW*.30-carW/2;
+    const counterX=g.shaftX+g.shaftW*.76-counterW/2;
+    const carY=g.carY-carH/2;
+    const counterY=g.counterY-counterH/2;
+    const sheaveX=g.shaftX+g.shaftW*.53;
+    const sheaveY=g.topY+69;
+
+    // Rope: visually continuous over traction sheave.
+    drawRope(carX+carW/2,carY,sheaveX-32,sheaveY+3);
+    drawRope(sheaveX+32,sheaveY+3,counterX+counterW/2,counterY);
+
+    drawMotor(sheaveX-33,sheaveY,34);
+
+    // motor motion arrows
+    if (state.moving) {
+      const arrow = state.direction>0 ? '↻' : '↺';
+      ctx.font='900 28px system-ui'; ctx.fillStyle='#17335b'; ctx.textAlign='center'; ctx.fillText(arrow,sheaveX+1,sheaveY-50);
+    }
+
+    // elevator rails
+    line(carX-14,g.travelTop-50,carX-14,g.travelBottom+85,5,'#8b949c');
+    line(carX+carW+14,g.travelTop-50,carX+carW+14,g.travelBottom+85,5,'#8b949c');
+    line(counterX-11,g.travelTop-50,counterX-11,g.travelBottom+85,5,'#8b949c');
+    line(counterX+counterW+11,g.travelTop-50,counterX+counterW+11,g.travelBottom+85,5,'#8b949c');
+
+    // elevator cab
+    ctx.shadowColor='rgba(40,60,80,.18)'; ctx.shadowBlur=12; ctx.shadowOffsetY=6;
+    roundRect(carX,carY,carW,carH,13,'#8a949c','#3f4b56',4);
+    ctx.shadowColor='transparent';
+    roundRect(carX+12,carY+14,carW-24,carH-28,7,'#f2f3f5','#6f7c86',2);
+    line(carX+carW/2,carY+14,carX+carW/2,carY+carH-14,2,'#a3abb1');
+    roundRect(carX+8,carY-7,carW-16,18,6,'#d5a72f','#7e5e16',2);
+
+    const type=loads[state.load].type;
+    if (type==='empty') {
+      ctx.fillStyle='#718397'; ctx.font='900 15px system-ui'; ctx.textAlign='center'; ctx.fillText('EMPTY',carX+carW/2,carY+78);
+    } else if (type==='student') {
+      drawPerson(carX+carW/2,carY+92,.95);
+    } else if (type==='students') {
+      drawPerson(carX+carW*.38,carY+92,.9); drawPerson(carX+carW*.62,carY+92,.9);
+    } else if (type==='box') {
+      drawBox(carX+carW/2-43,carY+67,86,58);
+    } else if (type==='robot') {
+      drawRobot(carX+carW*.37,carY+82,.72); drawBox(carX+carW*.53,carY+72,72,52);
+    }
+
+    // cab side label
+    const cabDanger=imbalance()>0;
+    roundRect(carX+15,carY+carH-28,carW-30,22,8,cabDanger?'#d94447':'#17335b');
+    ctx.fillStyle='white'; ctx.font='900 12px system-ui'; ctx.textAlign='center';
+    ctx.fillText(`CAB SIDE: ${loads[state.load].weight} UNITS`,carX+carW/2,carY+carH-13);
+
+    // counterweight
+    ctx.shadowColor='rgba(40,60,80,.16)'; ctx.shadowBlur=10; ctx.shadowOffsetY=5;
+    roundRect(counterX,counterY,counterW,counterH,10,'#59636c','#30373d',4);
+    ctx.shadowColor='transparent';
+    for(let i=0;i<4;i++) line(counterX+13,counterY+24+i*22,counterX+counterW-13,counterY+24+i*22,4,'#858f97');
+    ctx.fillStyle='white'; ctx.font='900 11px system-ui'; ctx.textAlign='center';
+    ctx.fillText('COUNTER',counterX+counterW/2,counterY+counterH/2-5);
+    ctx.fillText('WEIGHT',counterX+counterW/2,counterY+counterH/2+10);
+    roundRect(counterX-4,counterY+counterH+8,counterW+8,24,8,'#17335b');
+    ctx.fillStyle='white'; ctx.fillText(`${COUNTERWEIGHT} UNITS`,counterX+counterW/2,counterY+counterH+25);
+
+    // motion arrows near cab/counterweight
+    if (state.moving) {
+      ctx.font='900 34px system-ui';
+      ctx.fillStyle='#2b78b8';
+      ctx.fillText(state.direction>0?'↑':'↓',carX-36,carY+carH/2+8);
+      ctx.fillText(state.direction>0?'↓':'↑',counterX+counterW+35,counterY+counterH/2+8);
+    }
+
+    // center explanation badge
+    const midX=g.shaftX+g.shaftW*.54;
+    const d=imbalance();
+    let label='COUNTERWEIGHT HELPS BALANCE THE CAB';
+    let bgc='#ffffffdf', border='#cbdff1', color='#17335b';
+    if (d===0) { label='BALANCED — MOTOR NEEDS LESS EFFORT'; bgc='#edfaef'; border='#76cd88'; color='#286c39'; }
+    if (d>0) { label='⚠ CAB SIDE HEAVIER — MOTOR WORKS HARDER'; bgc='#fff0f0'; border='#ea6e71'; color='#a52227'; }
+    const badgeW=Math.min(310,W*.39);
+    roundRect(midX-badgeW/2,g.bottomY-54,badgeW,34,16,bgc,border,2);
+    ctx.fillStyle=color; ctx.font='900 12px system-ui'; ctx.textAlign='center'; ctx.fillText(label,midX,g.bottomY-32);
+  }
+
+  function setLoad(key) {
+    state.load=key;
+    document.querySelectorAll('.load-card').forEach(b=>b.classList.toggle('active',b.dataset.load===key));
+    updateUI(); draw();
+  }
+
+  function goToFloor(floor) {
+    if (state.moving || floor===state.currentFloor) return;
+    state.targetFloor=floor;
+    state.direction=Math.sign(floor-state.floorPos);
+    state.moving=true;
+    updateUI();
+  }
+
+  function tick(now) {
+    const dt=Math.min((now-state.lastTime)/1000,.05);
+    state.lastTime=now;
+    if (state.moving && state.targetFloor!=null) {
+      const speed=0.72; // floors per second
+      const delta=state.targetFloor-state.floorPos;
+      const step=Math.sign(delta)*speed*dt;
+      if (Math.abs(step)>=Math.abs(delta)) {
+        state.floorPos=state.targetFloor;
+        state.currentFloor=state.targetFloor;
+        state.targetFloor=null;
+        state.moving=false;
+        state.direction=0;
+      } else {
+        state.floorPos+=step;
+      }
+      state.motorAngle += step*5.2;
+      updateUI();
+    }
+    draw();
+    requestAnimationFrame(tick);
+  }
+
+  document.querySelectorAll('.load-card').forEach(btn=>btn.addEventListener('click',()=>setLoad(btn.dataset.load)));
+  document.querySelectorAll('.floor-btn').forEach(btn=>btn.addEventListener('click',()=>goToFloor(Number(btn.dataset.floor))));
+
+  document.getElementById('resetBtn').addEventListener('click',()=>{
+    state.floorPos=1; state.currentFloor=1; state.targetFloor=null; state.moving=false; state.direction=0; state.motorAngle=0;
+    setLoad('student');
+    updateUI(); draw();
+  });
+
+  window.addEventListener('resize',()=>{ resize(); draw(); });
+  resize();
+  updateUI();
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

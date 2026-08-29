@@ -65347,6 +65347,18 @@ var SketchfabEmbed = ({ embedUrl, modelName, modelPageUrl, stageClass = "golf-id
     /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("a", { href: "https://sketchfab.com", target: "_blank", rel: "nofollow", children: "Sketchfab" })
   ] })
 ] }) });
+var GameEmbed = ({ title, src, buttonLabel = "Play game", onComplete, open = false, onOpen, onClose }) => {
+  if (!open) {
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("button", { className: "game-launch-btn", onClick: onOpen, children: [
+      "\u{1F3AE} ",
+      buttonLabel
+    ] });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "golf-game-embed", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("iframe", { title, src, allow: "fullscreen; autoplay; gamepad", allowFullScreen: true }),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "golf-game-bar", children: onComplete ? /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "primary-action", onClick: onComplete, children: "Done playing" }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "secondary-action", onClick: onClose, children: "Close game" }) })
+  ] });
+};
 var TipCard = ({ children }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: "tip-card", children });
 var LessonStage = ({ children }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("section", { className: "lesson-stage", children });
 var ProgressCard = ({ done, total, label }) => /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("section", { className: "progress-card", children: [
@@ -65426,6 +65438,7 @@ export {
   QuizCard,
   StoryVideoCard,
   SketchfabEmbed,
+  GameEmbed,
   TipCard,
   LessonStage,
   ProgressCard,

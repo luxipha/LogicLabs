@@ -1,6 +1,6 @@
 import React, {Component, Suspense, useState, type ReactNode} from 'react';
 import {WarmupScreen} from '../shared/WarmupScreen';
-import {SketchfabEmbed, StoryVideoCard} from '../shared/lesson-ui';
+import {GameEmbed, SketchfabEmbed, StoryVideoCard} from '../shared/lesson-ui';
 import {GolfCanvas, type GolfPartId} from './GolfModel';
 import lessonContent from './content.json';
 
@@ -94,22 +94,9 @@ export const GolfStage: React.FC<{
   if (mode === 'activity') {
     return (
       <div className="generic-stage">
-        <div className="golf-game-embed">
-          <iframe
-            title="Golf Bit"
-            src="https://cloud.onlinegames.io/games/2026/construct/328/golf-bit/index.html"
-            allow="fullscreen; autoplay; gamepad"
-            allowFullScreen
-          />
-          <div className="golf-game-bar">
-            {activityDone ? (
-              <div className="bee-activity-done">Nice round! You played the course.</div>
-            ) : (
-              <button className="primary-action" onClick={completeActivity}>
-                Done playing
-              </button>
-            )}
-          </div>
+        <div className="elevator-stage-placeholder">
+          <span className="elevator-stage-icon">🏌️</span>
+          <span>Press the play button to start the game.</span>
         </div>
       </div>
     );

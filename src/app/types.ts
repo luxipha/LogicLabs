@@ -12,6 +12,13 @@ export type GenericPart = {
   help: string;
 };
 
+export type ActivityGame = {
+  id: string;
+  label: string;
+  title: string;
+  src: string;
+};
+
 export type LessonContent = {
   slug: string;
   title: string;
@@ -29,5 +36,7 @@ export type LessonContent = {
   storyQuestions: QuizItem[];
   quiz: QuizItem[];
   warmupVideoUrl: string;
+  gameEmbedUrl?: string;
+  activityGames?: ActivityGame[];
   parts?: GenericPart[];
 };

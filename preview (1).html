@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Elevator Pulley Lab</title>
+  <style>
+    :root {
+      --ink: #17335b;
+      --paper: #f7fbff;
+      --panel: #ffffff;
+      --line: #d9e7f5;
+      --soft: #eef6ff;
+      --brand: #0874c9;
+      --brand-dark: #17335b;
+      --accent: #ffe251;
+      --shadow: 0 14px 35px rgba(37, 82, 130, .14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; font-family: "Nunito", "Avenir Next", Avenir, "Segoe UI", sans-serif; color: var(--ink); background: linear-gradient(180deg, rgba(1, 75, 160, 0.9) 0%, rgba(9, 151, 226, 0.9) 52%, rgba(135, 208, 241, 0.92) 78%); }
+    body { min-height: 100vh; display: grid; place-items: center; padding: 18px; }
+
+    .app {
+      width: min(1500px, 100%);
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 20px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .title-wrap h1 { margin: 0; font-size: clamp(20px, 2vw, 30px); letter-spacing: -.02em; font-weight: 900; }
+    .title-wrap p { margin: 4px 0 0; color: #5d7492; font-size: 14px; font-weight: 700; }
+
+    .mission-pill {
+      background: var(--accent);
+      border: 1px solid #e6c93f;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+      white-space: nowrap;
+      color: var(--ink);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 260px minmax(520px, 1fr) 250px;
+      gap: 14px;
+      padding: 14px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(43, 85, 125, .08);
+    }
+
+    .left-panel, .right-panel { padding: 16px; }
+    .panel h2 { font-size: 16px; margin: 0 0 12px; font-weight: 900; }
+
+    .load-list { display: grid; gap: 10px; }
+    .load-card {
+      width: 100%;
+      border: 2px solid transparent;
+      background: #f8fbff;
+      border-radius: 16px;
+      padding: 10px 11px;
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      transition: .16s ease;
+      color: var(--ink);
+      text-align: left;
+      font-family: inherit;
+    }
+    .load-card:hover { transform: translateY(-1px); border-color: #b7d8ff; background: #f2f8ff; }
+    .load-card:active { transform: translateY(0); }
+    .load-card:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .load-card .icon { font-size: 28px; text-align: center; }
+    .load-card strong { display:block; font-size:14px; }
+    .load-card small { color: #66809f; }
+    .badge { min-width: 34px; padding: 5px 7px; text-align:center; border-radius:999px; font-size:12px; font-weight:900; background:#e8f2ff; }
+
+    .mini-note {
+      margin-top: 12px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      background: #f4f9ff;
+      color: #54708f;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .mode-group { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 14px; }
+    .mode-btn {
+      border: 1px solid #cddff1;
+      background: #f7fbff;
+      color: var(--ink);
+      border-radius: 14px;
+      padding: 10px 8px;
+      font-weight: 900;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .mode-btn.active { background: var(--brand); color: white; border-color: var(--brand); }
+    .mode-btn:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+
+    .canvas-panel { position: relative; overflow: hidden; min-height: 680px; background: linear-gradient(#eef8ff 0 17%, #edf1f5 17% 100%); }
+    canvas { width: 100%; height: 100%; display: block; touch-action: none; }
+
+    .canvas-overlay {
+      position: absolute;
+      left: 18px;
+      top: 18px;
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 9px 11px;
+      font-size: 13px;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(34,74,114,.08);
+      pointer-events: none;
+    }
+
+    .effort-wrap { display: grid; gap: 12px; }
+    .meter-shell { height: 250px; display: grid; grid-template-columns: 54px 1fr; align-items: stretch; gap: 10px; }
+    .faces { display:flex; flex-direction:column; justify-content:space-between; align-items:center; font-size:24px; padding:2px 0; }
+    .meter {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 3px solid #183657;
+      background: linear-gradient(to top, #ef4a4a 0 34%, #ffd54e 34% 67%, #59d26f 67% 100%);
+    }
+    .meter-cover { position:absolute; inset:0; background: rgba(255,255,255,.78); transform-origin: top; transition: transform .25s ease; }
+    .meter-marker { position:absolute; left:-7px; right:-7px; height:4px; background:var(--brand-dark); border-radius:999px; transform: translateY(-50%); transition: top .25s ease; }
+
+    .status-card {
+      padding: 12px;
+      border-radius: 16px;
+      background: #f7fbff;
+      border: 1px solid var(--line);
+      min-height: 104px;
+    }
+    .status-card strong { display:block; margin-bottom:4px; }
+    .status-card p { margin:0; color:#5f7898; font-size:13px; line-height:1.4; }
+
+    .stats { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+    .stat { background:#f7fbff; border:1px solid var(--line); border-radius:14px; padding:10px; }
+    .stat span { display:block; color:#7088a5; font-size:11px; text-transform:uppercase; letter-spacing:.07em; font-weight:900; }
+    .stat b { display:block; margin-top:3px; font-size:18px; }
+
+    .controls { display:grid; gap:9px; margin-top:10px; }
+    .primary, .secondary {
+      border:0; border-radius:14px; padding:12px 14px; font-weight:900; cursor:pointer;
+      font-family: inherit;
+    }
+    .primary { background: var(--brand); color:white; }
+    .primary:focus-visible, .secondary:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .secondary { background:#eaf4ff; color: var(--brand-dark); }
+
+    .tip {
+      margin-top:12px;
+      padding:10px;
+      border-radius:14px;
+      background:#fff7d9;
+      border:1px solid #f0d66b;
+      font-size:12px;
+      line-height:1.35;
+      color:#6b5711;
+    }
+
+    @media (max-width: 1100px) {
+      .content { grid-template-columns: 220px 1fr; }
+      .right-panel { grid-column: 1 / -1; display:grid; grid-template-columns: 240px 1fr 1fr; gap:14px; align-items:start; }
+      .meter-shell { height: 200px; }
+    }
+
+    @media (max-width: 780px) {
+      body { padding: 0; background:white; }
+      .app { border-radius: 0; min-height:100vh; }
+      .topbar { align-items:flex-start; }
+      .mission-pill { display:none; }
+      .content { grid-template-columns: 1fr; }
+      .canvas-panel { min-height: 560px; order:1; }
+      .left-panel { order:2; }
+      .right-panel { order:3; grid-column:auto; display:block; }
+      .load-list { grid-template-columns:1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>Elevator Pulley Lab</h1>
+        <p>Load it. Pull it. Change the pulley. Test again.</p>
+      </div>
+      <div class="mission-pill">Mission: Lift the robot parts to Floor 2</div>
+    </header>
+
+    <section class="content">
+      <aside class="panel left-panel">
+        <h2>1. Load the elevator</h2>
+        <div class="load-list">
+          <button class="load-card" data-load="student">
+            <span class="icon">🧒</span><span><strong>1 Student</strong><small>Light load</small></span><span class="badge">1</span>
+          </button>
+          <button class="load-card" data-load="students">
+            <span class="icon">🧒🧒</span><span><strong>2 Students</strong><small>Medium load</small></span><span class="badge">2</span>
+          </button>
+          <button class="load-card" data-load="box">
+            <span class="icon">📦</span><span><strong>Robot Parts</strong><small>Heavy load</small></span><span class="badge">3</span>
+          </button>
+          <button class="load-card" data-load="robot">
+            <span class="icon">🤖</span><span><strong>Robot + Parts</strong><small>Very heavy</small></span><span class="badge">4</span>
+          </button>
+        </div>
+
+        <div class="mini-note">Tap a load to put it in the elevator. Tap the elevator cargo to remove it.</div>
+
+        <h2 style="margin-top:18px;">2. Choose a pulley</h2>
+        <div class="mode-group">
+          <button class="mode-btn active" data-mode="1">1 Pulley</button>
+          <button class="mode-btn" data-mode="2">2 Pulleys</button>
+        </div>
+        <div class="mini-note">Use the same load with both systems. Which one feels easier?</div>
+      </aside>
+
+      <section class="panel canvas-panel" id="canvasPanel">
+        <canvas id="simCanvas" aria-label="Interactive elevator pulley simulation"></canvas>
+        <div class="canvas-overlay">Grab the red handle and pull down ↓</div>
+      </section>
+
+      <aside class="panel right-panel">
+        <div class="effort-wrap">
+          <h2>Lift effort</h2>
+          <div class="meter-shell">
+            <div class="faces"><span>🙂</span><span>😮</span><span>😣</span></div>
+            <div class="meter">
+              <div class="meter-cover" id="meterCover"></div>
+              <div class="meter-marker" id="meterMarker"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="status-card" id="statusCard">
+          <strong>Ready to test</strong>
+          <p>Add a load, then pull the rope.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><span>Load</span><b id="loadStat">0</b></div>
+          <div class="stat"><span>Pulley help</span><b id="maStat">1×</b></div>
+          <div class="stat"><span>Rope pulled</span><b id="ropeStat">0</b></div>
+          <div class="stat"><span>Elevator moved</span><b id="liftStat">0</b></div>
+        </div>
+
+        <div class="controls">
+          <button class="primary" id="resetBtn">Reset Test</button>
+          <button class="secondary" id="clearLoadBtn">Empty Elevator</button>
+        </div>
+
+        <div class="tip"><strong>Teaching prompt:</strong> Keep the load the same, switch from 1 pulley to 2 pulleys, and ask: “What changed?”</div>
+      </aside>
+    </section>
+  </main>
+
+<script>
+(() => {
+  const canvas = document.getElementById('simCanvas');
+  const ctx = canvas.getContext('2d');
+  const panel = document.getElementById('canvasPanel');
+
+  const state = {
+    load: null,
+    pulleyMode: 1,
+    ropePull: 0,
+    dragStartY: 0,
+    dragStartPull: 0,
+    dragging: false,
+    elevatorLift: 0,
+    maxPull: 255,
+    childForceCapacity: 2.55,
+    lastOutcome: 'ready'
+  };
+
+  const loads = {
+    student: { label: '1 Student', weight: 1, icon: '🧒', detail: 'Light load' },
+    students: { label: '2 Students', weight: 2, icon: '🧒🧒', detail: 'Medium load' },
+    box: { label: 'Robot Parts', weight: 3, icon: '📦', detail: 'Heavy load' },
+    robot: { label: 'Robot + Parts', weight: 4, icon: '🤖📦', detail: 'Very heavy load' }
+  };
+
+  const meterCover = document.getElementById('meterCover');
+  const meterMarker = document.getElementById('meterMarker');
+  const loadStat = document.getElementById('loadStat');
+  const maStat = document.getElementById('maStat');
+  const ropeStat = document.getElementById('ropeStat');
+  const liftStat = document.getElementById('liftStat');
+  const statusCard = document.getElementById('statusCard');
+
+  function resize() {
+    const rect = panel.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(rect.width * dpr);
+    canvas.height = Math.round(Math.max(rect.height, 620) * dpr);
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = Math.max(rect.height, 620) + 'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    draw();
+  }
+
+  function effort() {
+    const weight = state.load ? loads[state.load].weight : 0;
+    return weight / state.pulleyMode;
+  }
+
+  function effortRatio() {
+    return Math.min(effort() / state.childForceCapacity, 1.25);
+  }
+
+  function updateSimulation() {
+    const e = effort();
+    const canLift = e <= state.childForceCapacity;
+    // In a 2-pulley system, the elevator moves half the distance for the same rope pull.
+    const theoreticalLift = state.ropePull / state.pulleyMode;
+    state.elevatorLift = canLift ? theoreticalLift : Math.min(theoreticalLift * 0.14, 18);
+
+    if (!state.load) state.lastOutcome = 'empty';
+    else if (!canLift) state.lastOutcome = 'tooHeavy';
+    else if (state.ropePull > 80) state.lastOutcome = state.pulleyMode === 2 ? 'easier' : 'lifting';
+    else state.lastOutcome = 'ready';
+
+    updateUI();
+  }
+
+  function updateUI() {
+    const weight = state.load ? loads[state.load].weight : 0;
+    const ratio = effortRatio();
+    const pct = Math.min(ratio / 1.25, 1);
+    meterCover.style.transform = `scaleY(${1 - pct})`;
+    meterMarker.style.top = `${100 - pct*100}%`;
+
+    loadStat.textContent = weight ? `${weight}/4` : '0';
+    maStat.textContent = `${state.pulleyMode}×`;
+    ropeStat.textContent = `${Math.round(state.ropePull)}`;
+    liftStat.textContent = `${Math.round(state.elevatorLift)}`;
+
+    let strong = 'Ready to test';
+    let text = 'Add a load, then pull the rope.';
+    if (state.lastOutcome === 'empty') {
+      strong = 'The elevator is empty';
+      text = 'Choose a passenger or cargo first.';
+    } else if (state.lastOutcome === 'tooHeavy') {
+      strong = 'Too heavy! 😣';
+      text = 'The load needs too much effort. Try adding pulley help.';
+    } else if (state.lastOutcome === 'lifting') {
+      strong = 'It is moving!';
+      text = 'The elevator rises as you pull the rope.';
+    } else if (state.lastOutcome === 'easier') {
+      strong = 'Much easier! 🙂';
+      text = 'More pulley help means less effort — but you pull more rope for the same lift.';
+    } else if (state.load) {
+      strong = 'Make a prediction';
+      text = effort() > 2.1 ? 'Will this load be easy or hard to lift?' : 'Do you think this load will be easy to lift?';
+    }
+    statusCard.innerHTML = `<strong>${strong}</strong><p>${text}</p>`;
+    draw();
+  }
+
+  function roundRect(x,y,w,h,r,fill,stroke,lineWidth=1) {
+    ctx.beginPath();
+    ctx.roundRect(x,y,w,h,r);
+    if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+    if (stroke) { ctx.strokeStyle = stroke; ctx.lineWidth=lineWidth; ctx.stroke(); }
+  }
+
+  function line(x1,y1,x2,y2,width,stroke) {
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.lineWidth=width; ctx.strokeStyle=stroke; ctx.lineCap='round'; ctx.stroke();
+  }
+
+  function pulley(x,y,r=25) {
+    ctx.save();
+    ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fillStyle='#5b6777'; ctx.fill();
+    ctx.lineWidth=5; ctx.strokeStyle='#26384f'; ctx.stroke();
+    ctx.beginPath(); ctx.arc(x,y,r-8,0,Math.PI*2); ctx.fillStyle='#aeb8c3'; ctx.fill();
+    ctx.beginPath(); ctx.arc(x,y,5,0,Math.PI*2); ctx.fillStyle='#26384f'; ctx.fill();
+    ctx.restore();
+  }
+
+  function drawRopeSegment(x1,y1,x2,y2) {
+    line(x1,y1,x2,y2,10,'#d79224');
+    line(x1,y1,x2,y2,3,'#f7ca5c');
+  }
+
+  function drawPerson(x,y,scale=1) {
+    ctx.save(); ctx.translate(x,y); ctx.scale(scale,scale);
+    ctx.beginPath(); ctx.arc(0,-20,11,0,Math.PI*2); ctx.fillStyle='#f0b07e'; ctx.fill();
+    ctx.fillStyle='#2b5f96'; roundRect(-11,-9,22,29,7,'#2b5f96');
+    line(-7,20,-8,34,5,'#26384f'); line(7,20,8,34,5,'#26384f');
+    line(-11,-2,-18,10,5,'#f0b07e'); line(11,-2,18,10,5,'#f0b07e');
+    ctx.restore();
+  }
+
+  function drawBox(x,y,w=60,h=48) {
+    roundRect(x,y,w,h,7,'#c98a3e','#70441d',2);
+    line(x+w/2,y,x+w/2,y+h,2,'#8a5a2a');
+    ctx.fillStyle='#613d20'; ctx.font='700 11px system-ui'; ctx.textAlign='center'; ctx.fillText('ROBOT',x+w/2,y+20); ctx.fillText('PARTS',x+w/2,y+34);
+  }
+
+  function drawRobot(x,y,scale=.8) {
+    ctx.save(); ctx.translate(x,y); ctx.scale(scale,scale);
+    roundRect(-19,-26,38,36,10,'#51c1d9','#184b63',3);
+    ctx.beginPath(); ctx.arc(-7,-10,3,0,Math.PI*2); ctx.arc(7,-10,3,0,Math.PI*2); ctx.fillStyle='#17335b'; ctx.fill();
+    line(0,-26,0,-36,3,'#184b63'); ctx.beginPath(); ctx.arc(0,-39,4,0,Math.PI*2); ctx.fillStyle='#f04f52'; ctx.fill();
+    roundRect(-14,11,28,25,7,'#9b67d5','#543781',3);
+    line(-17,16,-27,29,5,'#184b63'); line(17,16,27,29,5,'#184b63');
+    line(-8,36,-10,49,5,'#184b63'); line(8,36,10,49,5,'#184b63');
+    ctx.restore();
+  }
+
+  function elevatorCargoHitbox(W,H) {
+    const shaftX = W*0.17;
+    const shaftW = W*0.60;
+    const floorY = H*0.84;
+    const carW = Math.min(270, shaftW*0.58);
+    const carH = 190;
+    const carX = shaftX + shaftW*0.42 - carW/2;
+    const carY = floorY - carH - state.elevatorLift;
+    return { x:carX, y:carY, w:carW, h:carH };
+  }
+
+  function handleHitbox(W,H) {
+    const shaftX = W*0.17;
+    const shaftW = W*0.60;
+    const handleX = shaftX + shaftW + 35;
+    const topY = H*0.16;
+    const handleY = topY + 165 + state.ropePull;
+    return {x:handleX-26,y:handleY-30,w:52,h:72,cx:handleX,cy:handleY};
+  }
+
+  function draw() {
+    const W = canvas.clientWidth;
+    const H = canvas.clientHeight;
+    ctx.clearRect(0,0,W,H);
+
+    // background wall
+    const grad = ctx.createLinearGradient(0,0,0,H);
+    grad.addColorStop(0,'#dff3ff'); grad.addColorStop(.18,'#edf3f6'); grad.addColorStop(1,'#e1e5e8');
+    ctx.fillStyle=grad; ctx.fillRect(0,0,W,H);
+
+    // floor labels
+    ctx.fillStyle='#ffffffaa'; roundRect(14,H*.22,70,34,12,'#ffffffcc','#c8d9ea');
+    ctx.fillStyle='#17335b'; ctx.font='800 13px system-ui'; ctx.textAlign='center'; ctx.fillText('FLOOR 2',49,H*.22+22);
+    roundRect(14,H*.78,70,34,12,'#ffffffcc','#c8d9ea'); ctx.fillText('FLOOR 1',49,H*.78+22);
+
+    const shaftX = W*0.17;
+    const shaftW = W*0.60;
+    const topY = H*0.10;
+    const floorY = H*0.84;
+
+    // shaft backdrop
+    roundRect(shaftX,topY,shaftW,floorY-topY+24,14,'#d1d5d8','#687481',4);
+    roundRect(shaftX+16,topY+18,shaftW-32,floorY-topY-12,8,'#eceff1','#97a2ad',2);
+    line(shaftX+28,topY+28,shaftX+28,floorY-8,5,'#8b949c');
+    line(shaftX+shaftW-28,topY+28,shaftX+shaftW-28,floorY-8,5,'#8b949c');
+
+    // ceiling beam
+    roundRect(shaftX-14,topY-15,shaftW+28,46,8,'#6f6557','#3f3a34',3);
+
+    const carW = Math.min(270, shaftW*0.58);
+    const carH = 190;
+    const carX = shaftX + shaftW*0.42 - carW/2;
+    const carY = floorY - carH - state.elevatorLift;
+    const topPulleyX = carX + carW*.5;
+    const topPulleyY = topY + 48;
+    const handleX = shaftX + shaftW + 35;
+    const handleY = topY + 165 + state.ropePull;
+
+    // Pulley geometry
+    if (state.pulleyMode === 1) {
+      // fixed pulley: car rise ~= rope pull
+      drawRopeSegment(carX+carW/2, carY, topPulleyX, topPulleyY+26);
+      drawRopeSegment(topPulleyX+24,topPulleyY+7,handleX,handleY-10);
+      pulley(topPulleyX, topPulleyY, 27);
+      line(topPulleyX,topY+5,topPulleyX,topPulleyY-28,8,'#303d4b');
+    } else {
+      // block-and-tackle simplified: rope fixed left, down around moving pulley, up over fixed pulley, free end down.
+      const fixedAnchorX = carX + carW*.18;
+      const fixedPulleyX = carX + carW*.76;
+      const movingPulleyX = carX + carW*.52;
+      const movingPulleyY = carY - 42;
+      line(fixedAnchorX,topY+5,fixedAnchorX,topY+28,8,'#303d4b');
+      drawRopeSegment(fixedAnchorX,topY+28,movingPulleyX-22,movingPulleyY);
+      drawRopeSegment(movingPulleyX+22,movingPulleyY,fixedPulleyX-22,topPulleyY);
+      drawRopeSegment(fixedPulleyX+24,topPulleyY+6,handleX,handleY-10);
+      pulley(movingPulleyX,movingPulleyY,25);
+      pulley(fixedPulleyX,topPulleyY,27);
+      line(fixedPulleyX,topY+5,fixedPulleyX,topPulleyY-28,8,'#303d4b');
+      line(movingPulleyX,movingPulleyY+25,movingPulleyX,carY,8,'#303d4b');
+
+      // supporting-rope visual cue
+      ctx.fillStyle='#17335b'; ctx.font='800 12px system-ui'; ctx.textAlign='center';
+      roundRect(carX+18,carY-92,146,30,14,'#ffffffdd','#cddff1');
+      ctx.fillStyle='#17335b'; ctx.fillText('2 rope sections help lift',carX+91,carY-72);
+    }
+
+    // elevator car
+    ctx.shadowColor='rgba(40,60,80,.18)'; ctx.shadowBlur=12; ctx.shadowOffsetY=6;
+    roundRect(carX,carY,carW,carH,13,'#8a949c','#3f4b56',4);
+    ctx.shadowColor='transparent';
+    roundRect(carX+13,carY+16,carW-26,carH-34,7,'#f2f3f5','#6f7c86',2);
+    line(carX+carW/2,carY+16,carX+carW/2,carY+carH-18,2,'#a3abb1');
+    roundRect(carX+10,carY-8,carW-20,20,6,'#d5a72f','#7e5e16',2);
+
+    // cargo
+    if (state.load) {
+      const l = loads[state.load];
+      if (state.load === 'student') {
+        drawPerson(carX+carW/2,carY+118,1.1);
+      } else if (state.load === 'students') {
+        drawPerson(carX+carW*.37,carY+118,1.0);
+        drawPerson(carX+carW*.63,carY+118,1.0);
+      } else if (state.load === 'box') {
+        drawBox(carX+carW/2-45,carY+96,90,64);
+      } else if (state.load === 'robot') {
+        drawRobot(carX+carW*.36,carY+105,.9);
+        drawBox(carX+carW*.53,carY+104,76,56);
+      }
+      roundRect(carX+14,carY+carH-32,carW-28,22,8,'#17335b');
+      ctx.fillStyle='white'; ctx.font='800 12px system-ui'; ctx.textAlign='center'; ctx.fillText(`${l.label} • load ${l.weight}/4`,carX+carW/2,carY+carH-17);
+    } else {
+      ctx.fillStyle='#718397'; ctx.font='800 16px system-ui'; ctx.textAlign='center'; ctx.fillText('EMPTY ELEVATOR',carX+carW/2,carY+carH/2);
+    }
+
+    // floor
+    roundRect(shaftX-20,floorY,shaftW+40,30,6,'#5c6267','#373d43',2);
+
+    // Handle / free end
+    ctx.save();
+    ctx.translate(handleX,handleY);
+    roundRect(-17,-25,34,56,15,'#ef5d43','#95321f',3);
+    roundRect(-26,20,52,22,11,'#ef5d43','#95321f',3);
+    ctx.restore();
+
+    // pull guide
+    ctx.strokeStyle='#17335b55'; ctx.lineWidth=2; ctx.setLineDash([5,6]);
+    line(handleX,topY+140,handleX,topY+450,2,'#17335b55');
+    ctx.setLineDash([]);
+    ctx.fillStyle='#17335b'; ctx.font='800 13px system-ui'; ctx.textAlign='center';
+    ctx.fillText('PULL',handleX,Math.min(H-40,handleY+72));
+    ctx.fillText('↓',handleX,Math.min(H-23,handleY+90));
+
+    // load/effort speech on canvas
+    if (state.load && effort() > state.childForceCapacity) {
+      const bubbleX = carX+carW/2-70, bubbleY = carY-136;
+      roundRect(bubbleX,bubbleY,140,38,18,'#fff0ef','#ed7365',2);
+      ctx.fillStyle='#9c2d26'; ctx.font='900 14px system-ui'; ctx.textAlign='center'; ctx.fillText('TOO HEAVY!',bubbleX+70,bubbleY+25);
+    } else if (state.load && state.ropePull > 100 && state.pulleyMode===2) {
+      const bubbleX = carX+carW/2-80, bubbleY = carY-136;
+      roundRect(bubbleX,bubbleY,160,38,18,'#eefbea','#77c970',2);
+      ctx.fillStyle='#2a6e2e'; ctx.font='900 14px system-ui'; ctx.textAlign='center'; ctx.fillText('EASIER TO LIFT!',bubbleX+80,bubbleY+25);
+    }
+  }
+
+  function pointerPos(ev) {
+    const r = canvas.getBoundingClientRect();
+    return { x: ev.clientX-r.left, y:ev.clientY-r.top };
+  }
+
+  canvas.addEventListener('pointerdown', ev => {
+    const p = pointerPos(ev), W=canvas.clientWidth, H=canvas.clientHeight;
+    const h = handleHitbox(W,H);
+    const c = elevatorCargoHitbox(W,H);
+    if (p.x>=h.x && p.x<=h.x+h.w && p.y>=h.y && p.y<=h.y+h.h) {
+      state.dragging = true;
+      state.dragStartY = p.y;
+      state.dragStartPull = state.ropePull;
+      canvas.setPointerCapture(ev.pointerId);
+    } else if (state.load && p.x>=c.x && p.x<=c.x+c.w && p.y>=c.y && p.y<=c.y+c.h) {
+      state.load = null; state.ropePull=0; state.elevatorLift=0; updateSimulation();
+    }
+  });
+
+  canvas.addEventListener('pointermove', ev => {
+    if (!state.dragging) return;
+    const p = pointerPos(ev);
+    const delta = p.y - state.dragStartY;
+    state.ropePull = Math.max(0, Math.min(state.maxPull, state.dragStartPull + delta));
+    updateSimulation();
+  });
+
+  function endDrag(ev) {
+    if (!state.dragging) return;
+    state.dragging=false;
+    try { canvas.releasePointerCapture(ev.pointerId); } catch(e) {}
+    updateSimulation();
+  }
+  canvas.addEventListener('pointerup', endDrag);
+  canvas.addEventListener('pointercancel', endDrag);
+
+  document.querySelectorAll('.load-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.load = btn.dataset.load;
+      state.ropePull = 0;
+      state.elevatorLift = 0;
+      updateSimulation();
+    });
+  });
+
+  document.querySelectorAll('.mode-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      state.pulleyMode = Number(btn.dataset.mode);
+      state.ropePull=0; state.elevatorLift=0;
+      document.querySelectorAll('.mode-btn').forEach(b=>b.classList.toggle('active',b===btn));
+      updateSimulation();
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    state.ropePull=0; state.elevatorLift=0; state.lastOutcome='ready'; updateSimulation();
+  });
+
+  document.getElementById('clearLoadBtn').addEventListener('click', () => {
+    state.load=null; state.ropePull=0; state.elevatorLift=0; updateSimulation();
+  });
+
+  window.addEventListener('resize', resize);
+  resize();
+  updateSimulation();
+})();
+</script>
+</body>
+</html>

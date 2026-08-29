@@ -1,4 +1,4 @@
-import React, {type ReactNode} from 'react';
+import React, {useState, type ReactNode} from 'react';
 
 export type LessonModeTab<TMode extends string> = {
   id: TMode;
@@ -181,6 +181,41 @@ export const SketchfabEmbed: React.FC<{
     </div>
   </div>
 );
+
+export const GameEmbed: React.FC<{
+  title: string;
+  src: string;
+  buttonLabel?: string;
+  onComplete?: () => void;
+  open?: boolean;
+  onOpen?: () => void;
+  onClose?: () => void;
+}> = ({title, src, buttonLabel = 'Play game', onComplete, open = false, onOpen, onClose}) => {
+  if (!open) {
+    return (
+      <button className="game-launch-btn" onClick={onOpen}>
+        🎮 {buttonLabel}
+      </button>
+    );
+  }
+
+  return (
+    <div className="golf-game-embed">
+      <iframe title={title} src={src} allow="fullscreen; autoplay; gamepad" allowFullScreen />
+      <div className="golf-game-bar">
+        {onComplete ? (
+          <button className="primary-action" onClick={onComplete}>
+            Done playing
+          </button>
+        ) : (
+          <button className="secondary-action" onClick={onClose}>
+            Close game
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export const TipCard: React.FC<{children: ReactNode}> = ({children}) => <div className="tip-card">{children}</div>;
 

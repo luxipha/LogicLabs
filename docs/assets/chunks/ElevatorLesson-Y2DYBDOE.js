@@ -1,9 +1,9 @@
 import {
   content_default
-} from "./chunk-Q2ZCSMT6.js";
+} from "./chunk-CEHWN44Z.js";
 import {
   GenericLesson
-} from "./chunk-UMMAZRAW.js";
+} from "./chunk-KUM7UDSH.js";
 import {
   Canvas,
   Color,
@@ -14,7 +14,7 @@ import {
   StoryVideoCard,
   WarmupScreen,
   useLoader
-} from "./chunk-P5CB4QJJ.js";
+} from "./chunk-YSRYPTBG.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -130,17 +130,9 @@ var ElevatorStage = ({ activePart, lastSelectedPart, identified, onSelect, mode,
     return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(StoryVideoCard, { title: content_default.title, youtubeEmbedUrl: content_default.storyVideoUrl }) });
   }
   if (mode === "activity") {
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "golf-game-embed", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
-        "iframe",
-        {
-          title: "Draw The Bridge",
-          src: "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html",
-          allow: "fullscreen; autoplay; gamepad",
-          allowFullScreen: true
-        }
-      ),
-      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "golf-game-bar", children: activityDone ? /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "bee-activity-done", children: "Nice bridges! You got the ball across." }) : /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: "primary-action", onClick: completeActivity, children: "Done playing" }) })
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: "generic-stage", children: /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)("div", { className: "elevator-stage-placeholder", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { className: "elevator-stage-icon", children: "\u{1F6D7}" }),
+      /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", { children: "Press the play button to start the game." })
     ] }) });
   }
   if (mode === "explore") {

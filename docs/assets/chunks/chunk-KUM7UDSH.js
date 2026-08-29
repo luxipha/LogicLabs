@@ -1,5 +1,6 @@
 import {
   FeedbackBanner,
+  GameEmbed,
   LessonStage,
   MissionHeader,
   ModeTabs,
@@ -8,7 +9,7 @@ import {
   QuizCard,
   TaskCard,
   TipCard
-} from "./chunk-P5CB4QJJ.js";
+} from "./chunk-YSRYPTBG.js";
 import {
   __toESM,
   require_jsx_runtime,
@@ -48,7 +49,15 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
   const [quizCorrect, setQuizCorrect] = (0, import_react.useState)(0);
   const [quizFeedback, setQuizFeedback] = (0, import_react.useState)(null);
   const [activityDone, setActivityDone] = (0, import_react.useState)(false);
+  const [openGameId, setOpenGameId] = (0, import_react.useState)(null);
   const parts = content.parts ?? [];
+  const activityGames = content.activityGames ?? (content.gameEmbedUrl ? [{
+    id: "game",
+    label: content.activityLabel,
+    title: content.activityLabel,
+    src: content.gameEmbedUrl
+  }] : []);
+  const openGame = activityGames.find((game) => game.id === openGameId) ?? null;
   const storyQuestion = content.storyQuestions[storyIndex];
   const quizQuestion = content.quiz[quizIndex];
   const identifyTarget = parts.find((part) => !identified.has(part.id)) ?? null;
@@ -70,6 +79,7 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
     setMode(next);
     setFeedback(null);
     setLastSelectedPart(null);
+    setOpenGameId(null);
     if (next === "identify") {
       setActivePart(identifyTarget?.id ?? parts[0]?.id ?? "part");
     }
@@ -132,6 +142,7 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
     setQuizCorrect(0);
     setQuizFeedback(null);
     setActivityDone(false);
+    setOpenGameId(null);
   };
   const progressDone = mode === "story" ? storyCorrect : mode === "identify" ? identified.size : mode === "quiz" ? quizCorrect : activityDone ? 1 : 0;
   const progressTotal = mode === "story" ? content.storyQuestions.length : mode === "identify" ? parts.length : mode === "quiz" ? content.quiz.length : 1;
@@ -153,7 +164,16 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "sky-layer" }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(MissionHeader, { score: 120 + identified.size * 10, onDraw, onBoard }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ModeTabs, { tabs: MODE_TABS, activeMode: mode, onSelect: selectMode }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LessonStage, { children: stage({
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(LessonStage, { children: mode === "activity" && openGame ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      GameEmbed,
+      {
+        title: openGame.title,
+        src: openGame.src,
+        open: true,
+        onClose: () => setOpenGameId(null),
+        onComplete: () => setActivityDone(true)
+      }
+    ) : stage({
       mode,
       activePart,
       lastSelectedPart,
@@ -166,7 +186,7 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", { className: "task-column", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(TaskCard, { badge: content.badge, title: taskTitle, text: taskText, feedback: feedback === "wrong" ? "wrong" : null, children: [
         mode === "story" ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "primary-action", onClick: () => selectMode("identify"), children: "Start Identifying" }) : null,
-        mode === "activity" && !activityDone ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        mode === "activity" && !activityDone && activityGames.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "button",
           {
             className: "primary-action",
@@ -188,7 +208,16 @@ var GenericLesson = ({ content, onHome, onComplete, warmupVideoUrl, onDraw, onBo
           success: storyQuestion.success,
           onAnswer: answerStory
         }
-      ) : mode === "warmup" ? null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      ) : mode === "warmup" || mode === "activity" ? mode === "activity" && activityGames.length > 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "activity-game-launchers", children: activityGames.map((game, index) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        GameEmbed,
+        {
+          title: game.title,
+          src: game.src,
+          buttonLabel: game.id === "draw-the-bridge" ? game.label : `Activity ${index}: ${game.label}`,
+          onOpen: () => setOpenGameId(game.id)
+        },
+        game.id
+      )) }) : null : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         QuizCard,
         {
           prompt: quizComplete ? "You finished all the questions." : quizQuestion.prompt,
