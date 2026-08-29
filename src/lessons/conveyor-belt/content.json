@@ -1,0 +1,114 @@
+{
+  "slug": "conveyor-belt",
+  "title": "Mission: The Conveyor Belt",
+  "subtitle": "Build the conveyor belt and move things from here to there.",
+  "summary": "Meet the conveyor belt, learn its parts, and send a box down the line.",
+  "badge": "MOVE",
+  "color": "#f4a018",
+  "activity": "convey",
+  "activityLabel": "Play Conveyor Game",
+  "activityInstruction": "Turn on the belt and watch it carry the boxes.",
+  "difficulty": 1,
+  "topics": ["conveyor parts", "belt", "roller", "motor"],
+  "classIds": ["Brickmoto"],
+  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "stageBackground": ["#fdf0dc", "#fff9ef", "#f2ddbc"],
+  "activityGames": [
+    {
+      "id": "conveyor-game",
+      "label": "Play Conveyor Game",
+      "title": "Conveyor Game",
+      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+    }
+  ],
+  "storyQuestions": [
+    {
+      "prompt": "What does a conveyor belt do?",
+      "answers": ["Carries things from one place to another", "Cooks food", "Plays music"],
+      "correctIndex": 0,
+      "success": "A conveyor belt carries things from one place to another."
+    },
+    {
+      "prompt": "What part rolls the belt?",
+      "answers": ["The rollers", "The wheels", "The gears"],
+      "correctIndex": 0,
+      "success": "The rollers turn the belt."
+    },
+    {
+      "prompt": "What makes the belt move?",
+      "answers": ["A motor", "A fan", "A spring"],
+      "correctIndex": 0,
+      "success": "A motor makes the belt move."
+    },
+    {
+      "prompt": "Where do things ride?",
+      "answers": ["On the belt", "On the wall", "On the roof"],
+      "correctIndex": 0,
+      "success": "Things ride on the belt."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which part turns the belt?",
+      "answers": ["The motor and rollers", "The handle", "The light"],
+      "correctIndex": 0,
+      "success": "The motor turns the rollers."
+    },
+    {
+      "prompt": "What carries the boxes?",
+      "answers": ["The belt", "The ladder", "The shelf"],
+      "correctIndex": 0,
+      "success": "The belt carries the boxes."
+    },
+    {
+      "prompt": "What supports the belt?",
+      "answers": ["The frame", "The roof", "The floor"],
+      "correctIndex": 0,
+      "success": "The frame supports the belt."
+    },
+    {
+      "prompt": "What controls the belt?",
+      "answers": ["A button and switch", "A lock", "A mirror"],
+      "correctIndex": 0,
+      "success": "A button and switch control the belt."
+    }
+  ],
+  "parts": [
+    {
+      "id": "belt",
+      "label": "Belt",
+      "fact": "The belt is the moving surface that carries things across.",
+      "help": "The wide band across the middle.",
+      "shape": {"kind": "rect", "x": 150, "y": 200, "width": 380, "height": 36, "rx": 10, "fill": "#5c6570", "stroke": "#343b44"}
+    },
+    {
+      "id": "roller",
+      "label": "Roller",
+      "fact": "The rollers turn underneath the belt to keep it moving.",
+      "help": "The wheels at each end of the belt.",
+      "shape": {"kind": "circle", "cx": 170, "cy": 218, "r": 26, "fill": "#8a93a0", "stroke": "#5c6570"}
+    },
+    {
+      "id": "motor",
+      "label": "Motor",
+      "fact": "The motor powers the rollers to drive the belt.",
+      "help": "The box attached to the side.",
+      "shape": {"kind": "rect", "x": 90, "y": 150, "width": 70, "height": 50, "rx": 8, "fill": "#e84a5f", "stroke": "#b22a3d"}
+    },
+    {
+      "id": "frame",
+      "label": "Frame",
+      "fact": "The frame supports the belt and holds it off the ground.",
+      "help": "The legs holding the belt up.",
+      "shape": {"kind": "path", "d": "M170 236 L150 380 M510 236 L530 380", "stroke": "#7fa8c9", "strokeWidth": 8}
+    },
+    {
+      "id": "button",
+      "label": "Switch",
+      "fact": "The switch turns the motor on and off to start and stop the belt.",
+      "help": "The small button near the motor.",
+      "shape": {"kind": "circle", "cx": 100, "cy": 120, "r": 14, "fill": "#ffcf4a", "stroke": "#e8a800"}
+    }
+  ]
+}

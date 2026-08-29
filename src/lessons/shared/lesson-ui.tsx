@@ -191,6 +191,23 @@ export const GameEmbed: React.FC<{
   onOpen?: () => void;
   onClose?: () => void;
 }> = ({title, src, buttonLabel = 'Play game', onComplete, open = false, onOpen, onClose}) => {
+  const frameRef = React.useRef<HTMLDivElement>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  React.useEffect(() => {
+    const onChange = () => setIsFullscreen(Boolean(document.fullscreenElement));
+    document.addEventListener('fullscreenchange', onChange);
+    return () => document.removeEventListener('fullscreenchange', onChange);
+  }, []);
+
+  const toggleFullscreen = () => {
+    if (document.fullscreenElement) {
+      document.exitFullscreen().catch(() => {});
+    } else if (frameRef.current) {
+      frameRef.current.requestFullscreen?.().catch(() => {});
+    }
+  };
+
   if (!open) {
     return (
       <button className="game-launch-btn" onClick={onOpen}>
@@ -200,7 +217,13 @@ export const GameEmbed: React.FC<{
   }
 
   return (
-    <div className="golf-game-embed">
+    <div className="golf-game-embed" ref={frameRef}>
+      <div className="game-frame-top">
+        <span className="game-frame-title">{title}</span>
+        <button className="game-frame-fullscreen" onClick={toggleFullscreen} title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}>
+          {isFullscreen ? '⛶ Exit fullscreen' : '⛶ Fullscreen'}
+        </button>
+      </div>
       <iframe title={title} src={src} allow="fullscreen; autoplay; gamepad" allowFullScreen />
       <div className="golf-game-bar">
         {onComplete ? (

@@ -10,7 +10,45 @@ export type GenericPart = {
   label: string;
   fact: string;
   help: string;
+  /** Optional SVG geometry used by the shared PartsStage to draw this part. */
+  shape?: PartShape;
 };
+
+export type PartShape =
+  | {
+      kind: 'circle';
+      cx: number;
+      cy: number;
+      r: number;
+      fill?: string;
+      stroke?: string;
+    }
+  | {
+      kind: 'ellipse';
+      cx: number;
+      cy: number;
+      rx: number;
+      ry: number;
+      fill?: string;
+      stroke?: string;
+    }
+  | {
+      kind: 'rect';
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+      rx?: number;
+      fill?: string;
+      stroke?: string;
+    }
+  | {
+      kind: 'path';
+      d: string;
+      fill?: string;
+      stroke?: string;
+      strokeWidth?: number;
+    };
 
 export type ActivityGame = {
   id: string;
@@ -38,5 +76,7 @@ export type LessonContent = {
   warmupVideoUrl: string;
   gameEmbedUrl?: string;
   activityGames?: ActivityGame[];
+  /** Optional gradient stops for the identify/explore stage backdrop. */
+  stageBackground?: string[];
   parts?: GenericPart[];
 };

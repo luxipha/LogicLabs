@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-QCCME3UY.js";import{a as r}from"./chunk-TAFPSQZK.js";import"./chunk-AJK47GM7.js";import"./chunk-ISZADKRW.js";import{c as o,e}from"./chunk-GE2N4OTD.js";var n=o(e()),a=i=>(0,n.jsx)(r,{content:t,...i}),p=a;export{a as FrogTadpoleLesson,p as default};

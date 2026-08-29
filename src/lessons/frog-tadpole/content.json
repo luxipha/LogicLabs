@@ -1,0 +1,114 @@
+{
+  "slug": "frog-tadpole",
+  "title": "Mission: Frog & Tadpole",
+  "subtitle": "Build the frog and see how it grows from a tadpole.",
+  "summary": "Meet the frog and tadpole, learn their parts, and see the life cycle.",
+  "badge": "FROG",
+  "color": "#3fbf3f",
+  "activity": "grow",
+  "activityLabel": "Play Frog Life Cycle",
+  "activityInstruction": "Watch the tadpole grow into a frog.",
+  "difficulty": 1,
+  "topics": ["frog parts", "tadpole", "life cycle", "jump"],
+  "classIds": ["BrickX"],
+  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "stageBackground": ["#dcf3e4", "#f2fbf4", "#bfe6cc"],
+  "activityGames": [
+    {
+      "id": "frog-game",
+      "label": "Play Frog Life Cycle",
+      "title": "Frog Life Cycle",
+      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+    }
+  ],
+  "storyQuestions": [
+    {
+      "prompt": "What does a tadpole grow into?",
+      "answers": ["A frog", "A fish", "A bird"],
+      "correctIndex": 0,
+      "success": "A tadpole grows into a frog."
+    },
+    {
+      "prompt": "What do frogs use to jump?",
+      "answers": ["Their strong back legs", "Their tongue", "Their eyes"],
+      "correctIndex": 0,
+      "success": "Frogs jump with their strong back legs."
+    },
+    {
+      "prompt": "What do tadpoles use to swim?",
+      "answers": ["Their tail", "Their arms", "Their ears"],
+      "correctIndex": 0,
+      "success": "Tadpoles swim with their tail."
+    },
+    {
+      "prompt": "Where do frogs live?",
+      "answers": ["Near water", "In the desert", "On a mountain"],
+      "correctIndex": 0,
+      "success": "Frogs live near water."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which part helps the frog jump?",
+      "answers": ["The back legs", "The eyes", "The belly"],
+      "correctIndex": 0,
+      "success": "The strong back legs help the frog jump."
+    },
+    {
+      "prompt": "What does the tadpole lose as it grows?",
+      "answers": ["Its tail", "Its head", "Its eyes"],
+      "correctIndex": 0,
+      "success": "The tadpole loses its tail as it grows."
+    },
+    {
+      "prompt": "What do frogs catch bugs with?",
+      "answers": ["Their long tongue", "Their feet", "Their nose"],
+      "correctIndex": 0,
+      "success": "Frogs catch bugs with their long tongue."
+    },
+    {
+      "prompt": "How do tadpoles breathe?",
+      "answers": ["Through gills", "Through a straw", "Through their skin only"],
+      "correctIndex": 0,
+      "success": "Tadpoles breathe through gills."
+    }
+  ],
+  "parts": [
+    {
+      "id": "body",
+      "label": "Body",
+      "fact": "The frog's body holds its organs and gives it its shape.",
+      "help": "The big round middle of the frog.",
+      "shape": {"kind": "ellipse", "cx": 340, "cy": 230, "rx": 90, "ry": 70, "fill": "#59c76a", "stroke": "#2e7d3e"}
+    },
+    {
+      "id": "back-leg",
+      "label": "Back Leg",
+      "fact": "The strong back legs push the frog into the air when it jumps.",
+      "help": "The long folded leg on the side.",
+      "shape": {"kind": "path", "d": "M280 250 C 240 280, 220 330, 250 350 M250 350 L 290 330", "stroke": "#2e7d3e", "strokeWidth": 16}
+    },
+    {
+      "id": "eye",
+      "label": "Eye",
+      "fact": "The frog's big eyes sit on top of its head so it can see while in the water.",
+      "help": "The round bump on the head.",
+      "shape": {"kind": "circle", "cx": 380, "cy": 160, "r": 16, "fill": "#ffffff", "stroke": "#2e7d3e"}
+    },
+    {
+      "id": "tadpole",
+      "label": "Tadpole",
+      "fact": "The tadpole is the baby frog that swims with a tail before it grows legs.",
+      "help": "The small swimming shape beside the frog.",
+      "shape": {"kind": "path", "d": "M130 330 q 30 -40 70 -10 q -20 30 -70 10", "fill": "#3f9e52", "stroke": "#2e7d3e"}
+    },
+    {
+      "id": "tongue",
+      "label": "Tongue",
+      "fact": "The frog's long tongue snaps out fast to catch bugs.",
+      "help": "The line coming from the mouth.",
+      "shape": {"kind": "path", "d": "M300 230 Q 240 210 200 240", "stroke": "#e84a5f", "strokeWidth": 8}
+    }
+  ]
+}

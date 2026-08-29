@@ -774,6 +774,42 @@
   background: #000;
 }
 
+.generic-app .game-frame-top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.generic-app .game-frame-title{
+  font-size: 16px;
+  font-weight: 900;
+  color: #e8f7ff;
+}
+
+.generic-app .game-frame-fullscreen{
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(3, 71, 149, 0.55);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 900;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.generic-app .game-frame-fullscreen:focus-visible{
+  outline: 3px solid #30a5ff;
+  outline-offset: 2px;
+}
+
+/* When the game container is fullscreen, fill the viewport */
+.generic-app .golf-game-embed:fullscreen{
+  inset: 0;
+  padding: 16px;
+  background: #0b1b2b;
+}
+
 .generic-app .golf-game-bar{
   display: flex;
   justify-content: center;
@@ -802,6 +838,8 @@
 .generic-app .activity-game-launchers{
   display: grid;
   gap: 10px;
+  /* Match the gap between the task card and Story/Quiz card. */
+  margin-top: 18px;
 }
 
 .generic-app .activity-game-launchers .game-launch-btn{
@@ -1390,6 +1428,10 @@
   }
 
   .generic-app .quiz-card{
+    margin-top: 8px;
+  }
+
+  .generic-app .activity-game-launchers{
     margin-top: 8px;
   }
 

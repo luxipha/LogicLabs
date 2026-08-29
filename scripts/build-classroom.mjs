@@ -33,6 +33,9 @@ await build({
   splitting: true,
   chunkNames: 'chunks/[name]-[hash]',
   jsx: 'automatic',
+  // React's package entry selects its production runtime only when this is inlined.
+  define: {'process.env.NODE_ENV': '"production"'},
+  minify: true,
   sourcemap: false,
   loader: {'.json': 'json'},
 });

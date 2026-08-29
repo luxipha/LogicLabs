@@ -1,0 +1,114 @@
+{
+  "slug": "trex-fossil",
+  "title": "Mission: The T-Rex Fossil",
+  "subtitle": "Build the T-Rex fossil and see how bones fit together.",
+  "summary": "Meet the T-Rex fossil, learn its bones, and put the skeleton together.",
+  "badge": "BONE",
+  "color": "#d62839",
+  "activity": "build",
+  "activityLabel": "Play Fossil Puzzle",
+  "activityInstruction": "Match the bones to build the T-Rex skeleton.",
+  "difficulty": 1,
+  "topics": ["fossil parts", "bone", "skeleton", "dinosaur"],
+  "classIds": ["BrickX"],
+  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "stageBackground": ["#f3e8d8", "#faf3e8", "#e3d0b4"],
+  "activityGames": [
+    {
+      "id": "fossil-game",
+      "label": "Play Fossil Puzzle",
+      "title": "Fossil Puzzle",
+      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+    }
+  ],
+  "storyQuestions": [
+    {
+      "prompt": "What is a fossil?",
+      "answers": ["A preserved bone from long ago", "A shiny rock", "A toy dinosaur"],
+      "correctIndex": 0,
+      "success": "A fossil is a preserved bone from long ago."
+    },
+    {
+      "prompt": "What animal is the skeleton from?",
+      "answers": ["A T-Rex", "A fish", "A bird"],
+      "correctIndex": 0,
+      "success": "The skeleton is from a T-Rex."
+    },
+    {
+      "prompt": "What holds the head up?",
+      "answers": ["The neck bones", "The tail", "The feet"],
+      "correctIndex": 0,
+      "success": "The neck bones hold the head up."
+    },
+    {
+      "prompt": "What do the strong back legs do?",
+      "answers": ["Carry the heavy body", "Fly", "Swim"],
+      "correctIndex": 0,
+      "success": "The strong back legs carry the heavy body."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which bone is in the T-Rex's mouth?",
+      "answers": ["The teeth", "The ribs", "The claws"],
+      "correctIndex": 0,
+      "success": "The teeth are in the T-Rex's mouth."
+    },
+    {
+      "prompt": "What protects the body?",
+      "answers": ["The ribs", "The tail", "The skull"],
+      "correctIndex": 0,
+      "success": "The ribs protect the body."
+    },
+    {
+      "prompt": "What balances the T-Rex?",
+      "answers": ["The tail", "The head", "The arms"],
+      "correctIndex": 0,
+      "success": "The tail balances the T-Rex."
+    },
+    {
+      "prompt": "What are the T-Rex's small arms used for?",
+      "answers": ["Grabbing and holding", "Flying", "Running fast"],
+      "correctIndex": 0,
+      "success": "The small arms were used for grabbing and holding."
+    }
+  ],
+  "parts": [
+    {
+      "id": "skull",
+      "label": "Skull",
+      "fact": "The skull is the big head bone with the strong jaws and teeth.",
+      "help": "The large bone at the front.",
+      "shape": {"kind": "path", "d": "M300 90 L420 110 L410 200 L330 210 Q280 190 300 90", "fill": "#e8d5b8", "stroke": "#8a6d45"}
+    },
+    {
+      "id": "neck",
+      "label": "Neck Bones",
+      "fact": "The neck bones hold the huge head and let it turn.",
+      "help": "The curved bones behind the skull.",
+      "shape": {"kind": "path", "d": "M300 200 Q 260 250 280 300", "stroke": "#a88d63", "strokeWidth": 12}
+    },
+    {
+      "id": "ribs",
+      "label": "Ribs",
+      "fact": "The ribs curve around to protect the body.",
+      "help": "The curved bones in the middle.",
+      "shape": {"kind": "path", "d": "M280 300 Q 340 260 380 300 Q 340 340 280 300", "fill": "none", "stroke": "#a88d63", "strokeWidth": 10}
+    },
+    {
+      "id": "tail",
+      "label": "Tail",
+      "fact": "The long tail balanced the T-Rex as it walked and ran.",
+      "help": "The long bones stretching back.",
+      "shape": {"kind": "path", "d": "M380 310 Q 460 340 540 300", "stroke": "#a88d63", "strokeWidth": 12}
+    },
+    {
+      "id": "leg",
+      "label": "Back Leg",
+      "fact": "The strong back legs carried the heavy T-Rex body.",
+      "help": "The thick bones under the body.",
+      "shape": {"kind": "path", "d": "M320 340 L 300 420 L 340 430", "stroke": "#a88d63", "strokeWidth": 16}
+    }
+  ]
+}

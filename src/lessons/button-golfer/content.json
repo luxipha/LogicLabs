@@ -13,6 +13,14 @@
   "classIds": ["BrickX"],
   "storyVideoUrl": "https://www.youtube.com/embed/EZ_o8zS7M_k",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "activityGames": [
+    {
+      "id": "golf-bit",
+      "label": "Play Golf Bit",
+      "title": "Golf Bit",
+      "src": "https://cloud.onlinegames.io/games/2026/construct/328/golf-bit/index.html"
+    }
+  ],
   "storyQuestions": [
     {
       "prompt": "What are we trying to move?",

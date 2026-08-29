@@ -1,0 +1,114 @@
+{
+  "slug": "fan-l4",
+  "title": "Mission: Fan L4",
+  "subtitle": "Build the L4 fan and power it with gears.",
+  "summary": "Meet the L4 fan, learn its parts, and use gears to spin the blades.",
+  "badge": "L4",
+  "color": "#3fbf3f",
+  "activity": "spin",
+  "activityLabel": "Play Gear Fan Game",
+  "activityInstruction": "Turn the gear and watch the fan blades spin.",
+  "difficulty": 1,
+  "topics": ["fan parts", "gear", "blade", "motor"],
+  "classIds": ["BrickX"],
+  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "stageBackground": ["#dcf3e4", "#f2fbf4", "#bfe6cc"],
+  "activityGames": [
+    {
+      "id": "fan-l4-game",
+      "label": "Play Gear Fan Game",
+      "title": "Gear Fan Game",
+      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+    }
+  ],
+  "storyQuestions": [
+    {
+      "prompt": "What does the L4 fan use to spin the blades?",
+      "answers": ["Gears and a motor", "A spring", "A magnet"],
+      "correctIndex": 0,
+      "success": "The L4 fan uses gears and a motor to spin the blades."
+    },
+    {
+      "prompt": "What do the gears do?",
+      "answers": ["Pass the turning from the motor to the blades", "Hold the fan up", "Cool the motor"],
+      "correctIndex": 0,
+      "success": "The gears pass the turning from the motor to the blades."
+    },
+    {
+      "prompt": "What spins to make wind?",
+      "answers": ["The blades", "The base", "The gear"],
+      "correctIndex": 0,
+      "success": "The blades spin to make wind."
+    },
+    {
+      "prompt": "What powers the L4 fan?",
+      "answers": ["A motor", "A handle", "A wheel"],
+      "correctIndex": 0,
+      "success": "A motor powers the L4 fan."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which part turns the blades?",
+      "answers": ["The gears", "The base", "The guard"],
+      "correctIndex": 0,
+      "success": "The gears turn the blades."
+    },
+    {
+      "prompt": "What carries the motor's power?",
+      "answers": ["The gear train", "The cord", "The label"],
+      "correctIndex": 0,
+      "success": "The gear train carries the motor's power."
+    },
+    {
+      "prompt": "What covers the blades for safety?",
+      "answers": ["The guard", "The base", "The switch"],
+      "correctIndex": 0,
+      "success": "The guard covers the blades for safety."
+    },
+    {
+      "prompt": "How do you turn the L4 fan on?",
+      "answers": ["Flip the switch", "Blow on it", "Shake it"],
+      "correctIndex": 0,
+      "success": "Flip the switch to turn the L4 fan on."
+    }
+  ],
+  "parts": [
+    {
+      "id": "blade",
+      "label": "Blade",
+      "fact": "The blades spin to push the air and make a breeze.",
+      "help": "The rounded blades in the middle.",
+      "shape": {"kind": "circle", "cx": 380, "cy": 190, "r": 78, "fill": "#c9e8d3", "stroke": "#4a9e63"}
+    },
+    {
+      "id": "gear",
+      "label": "Gear",
+      "fact": "The gears mesh together to pass the turning from the motor to the blades.",
+      "help": "The toothed wheel beside the motor.",
+      "shape": {"kind": "circle", "cx": 230, "cy": 200, "r": 30, "fill": "#e8b84a", "stroke": "#9e7417"}
+    },
+    {
+      "id": "motor",
+      "label": "Motor",
+      "fact": "The motor provides the power that turns the gear train.",
+      "help": "The box at the back.",
+      "shape": {"kind": "rect", "x": 130, "y": 170, "width": 70, "height": 60, "rx": 10, "fill": "#e84a5f", "stroke": "#b22a3d"}
+    },
+    {
+      "id": "guard",
+      "label": "Guard",
+      "fact": "The guard covers the blades to keep fingers safe.",
+      "help": "The ring around the blades.",
+      "shape": {"kind": "circle", "cx": 380, "cy": 190, "r": 92, "fill": "none", "stroke": "#9aa7b3"}
+    },
+    {
+      "id": "switch",
+      "label": "Switch",
+      "fact": "The switch turns the motor on and off.",
+      "help": "The small button on the base.",
+      "shape": {"kind": "rect", "x": 300, "y": 330, "width": 26, "height": 40, "rx": 8, "fill": "#ffcf4a", "stroke": "#e8a800"}
+    }
+  ]
+}
