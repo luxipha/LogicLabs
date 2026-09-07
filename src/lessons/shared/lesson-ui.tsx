@@ -158,8 +158,10 @@ export const SketchfabEmbed: React.FC<{
   embedUrl: string;
   modelName: string;
   modelPageUrl: string;
+  authorName?: string;
+  authorPageUrl?: string;
   stageClass?: string;
-}> = ({embedUrl, modelName, modelPageUrl, stageClass = 'golf-identify-stage'}) => (
+}> = ({embedUrl, modelName, modelPageUrl, authorName, authorPageUrl, stageClass = 'golf-identify-stage'}) => (
   <div className={`generic-stage ${stageClass}`}>
     <div className="sketchfab-embed-wrapper">
       <iframe
@@ -173,6 +175,14 @@ export const SketchfabEmbed: React.FC<{
         <a href={modelPageUrl} target="_blank" rel="nofollow">
           {modelName}
         </a>{' '}
+        {authorName && authorPageUrl ? (
+          <>
+            by{' '}
+            <a href={authorPageUrl} target="_blank" rel="nofollow">
+              {authorName}
+            </a>{' '}
+          </>
+        ) : null}
         on{' '}
         <a href="https://sketchfab.com" target="_blank" rel="nofollow">
           Sketchfab

@@ -12,6 +12,7 @@
     "render": "remotion render LysSonMission out/LysSonMission.mp4",
     "render:radar": "remotion render RadarMission out/RadarMission.mp4",
     "render:golf": "remotion render GolfMission out/GolfMission.mp4",
+    "render:frog": "remotion render FrogMission out/FrogMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },

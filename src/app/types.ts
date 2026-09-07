@@ -57,6 +57,13 @@ export type ActivityGame = {
   src: string;
 };
 
+export type LifeCycleStage = {
+  id: 'eggs' | 'tadpole' | 'legs' | 'froglet' | 'adult';
+  label: string;
+  shortLabel: string;
+  description: string;
+};
+
 export type LessonContent = {
   slug: string;
   title: string;
@@ -67,10 +74,18 @@ export type LessonContent = {
   activity: string;
   activityLabel: string;
   activityInstruction: string;
+  exploreTitle?: string;
+  exploreInstruction?: string;
   difficulty: number;
   topics: string[];
   classIds: string[];
   storyVideoUrl: string;
+  sketchfabEmbedUrl?: string;
+  sketchfabModelName?: string;
+  sketchfabModelPageUrl?: string;
+  sketchfabAuthorName?: string;
+  sketchfabAuthorPageUrl?: string;
+  lifeCycleStages?: LifeCycleStage[];
   storyQuestions: QuizItem[];
   quiz: QuizItem[];
   warmupVideoUrl: string;

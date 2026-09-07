@@ -201,7 +201,7 @@ export const GenericLesson: React.FC<{
             ? `Find the ${identifyTarget.label.toLowerCase()}.`
             : 'You found every part.'
           : mode === 'explore'
-            ? `Explore the ${parts.find((p) => p.id === activePart)?.label ?? activePart}.`
+            ? content.exploreTitle ?? `Explore the ${parts.find((p) => p.id === activePart)?.label ?? activePart}.`
             : mode === 'activity'
               ? content.activityLabel
               : 'Answer the check questions.';
@@ -215,7 +215,7 @@ export const GenericLesson: React.FC<{
           ? `Tap the ${identifyTarget.label.toLowerCase()} on the picture.`
           : 'Switch to Explore or Activity.'
         : mode === 'explore'
-          ? parts.find((p) => p.id === activePart)?.fact ?? ''
+          ? content.exploreInstruction ?? parts.find((p) => p.id === activePart)?.fact ?? ''
           : mode === 'activity'
             ? content.activityInstruction
             : 'You finished the questions.';

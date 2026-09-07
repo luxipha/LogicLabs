@@ -1,1 +1,0 @@
-import{a as t}from"./chunk-7CFURUKP.js";import{a as n}from"./chunk-TAFPSQZK.js";import"./chunk-AJK47GM7.js";import"./chunk-ISZADKRW.js";import{c as o,e}from"./chunk-GE2N4OTD.js";var r=o(e()),m=i=>(0,r.jsx)(n,{content:t,...i}),p=m;export{m as ConveyorBeltLesson,p as default};

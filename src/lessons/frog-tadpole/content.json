@@ -8,44 +8,119 @@
   "activity": "grow",
   "activityLabel": "Play Frog Life Cycle",
   "activityInstruction": "Watch the tadpole grow into a frog.",
+  "exploreTitle": "Explore the frog life cycle.",
+  "exploreInstruction": "Choose each stage from eggs to adult frog. Drag the 3D model to look around.",
   "difficulty": 1,
   "topics": ["frog parts", "tadpole", "life cycle", "jump"],
   "classIds": ["BrickX"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "storyVideoUrl": "https://www.youtube.com/embed/7snEGl3RZXk",
+  "sketchfabEmbedUrl": "https://sketchfab.com/models/c349129539cf45d2a76dace5a968efc4/embed",
+  "sketchfabModelName": "RANA",
+  "sketchfabModelPageUrl": "https://sketchfab.com/3d-models/rana-c349129539cf45d2a76dace5a968efc4",
+  "sketchfabAuthorName": "MAC4DM",
+  "sketchfabAuthorPageUrl": "https://sketchfab.com/MAC4DM",
+  "lifeCycleStages": [
+    {
+      "id": "eggs",
+      "label": "Frog eggs",
+      "shortLabel": "Eggs",
+      "description": "A frog lays soft, jelly-like eggs in the water. A tiny tadpole grows inside each egg."
+    },
+    {
+      "id": "tadpole",
+      "label": "Tadpole",
+      "shortLabel": "Tadpole",
+      "description": "The tadpole hatches with a long tail. It swims in the pond and breathes through gills."
+    },
+    {
+      "id": "legs",
+      "label": "Tadpole with legs",
+      "shortLabel": "Back legs",
+      "description": "Strong back legs begin to grow. The tadpole still uses its tail to swim."
+    },
+    {
+      "id": "froglet",
+      "label": "Froglet",
+      "shortLabel": "Froglet",
+      "description": "Front legs appear and the tail gets shorter. The froglet can begin leaving the water."
+    },
+    {
+      "id": "adult",
+      "label": "Adult frog",
+      "shortLabel": "Adult frog",
+      "description": "The tail is gone. The adult frog has four legs, breathes with lungs, and can jump."
+    }
+  ],
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "stageBackground": ["#dcf3e4", "#f2fbf4", "#bfe6cc"],
   "activityGames": [
     {
-      "id": "frog-game",
-      "label": "Play Frog Life Cycle",
-      "title": "Frog Life Cycle",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+      "id": "frog-life-cycle",
+      "label": "Frog Life Cycle",
+      "title": "Frog Life Cycle Game",
+      "src": "frog-activities/frog-life-cycle.html"
+    },
+    {
+      "id": "jumper-frog",
+      "label": "Jumper Frog",
+      "title": "Jumper Frog",
+      "src": "https://media.safekidgames.com/jumper-frog/index.html"
+    },
+    {
+      "id": "hungry-frog-zot",
+      "label": "Hungry Frog",
+      "title": "Hungry Frog ZOT",
+      "src": "https://games.crazygames.com/en_US/hungry-frog-zot/index.html"
     }
   ],
   "storyQuestions": [
     {
-      "prompt": "What does a tadpole grow into?",
-      "answers": ["A frog", "A fish", "A bird"],
+      "prompt": "What did the children find in the pond?",
+      "answers": ["Tiny frog eggs", "Little fish", "Water bugs"],
       "correctIndex": 0,
-      "success": "A tadpole grows into a frog."
+      "success": "The children found tiny frog eggs."
     },
     {
-      "prompt": "What do frogs use to jump?",
-      "answers": ["Their strong back legs", "Their tongue", "Their eyes"],
-      "correctIndex": 0,
-      "success": "Frogs jump with their strong back legs."
+      "prompt": "What happened after the eggs hatched?",
+      "answers": ["Adult frogs jumped out", "Tiny swimmers with long tails came out", "The eggs disappeared"],
+      "correctIndex": 1,
+      "success": "Tiny swimmers with long tails came out."
     },
     {
-      "prompt": "What do tadpoles use to swim?",
-      "answers": ["Their tail", "Their arms", "Their ears"],
-      "correctIndex": 0,
-      "success": "Tadpoles swim with their tail."
+      "prompt": "Why were the children surprised?",
+      "answers": ["The pond was empty", "The eggs were very large", "The babies did not look like frogs"],
+      "correctIndex": 2,
+      "success": "The children were surprised because the babies did not look like frogs."
     },
     {
-      "prompt": "Where do frogs live?",
-      "answers": ["Near water", "In the desert", "On a mountain"],
+      "prompt": "What are the tiny swimmers called?",
+      "answers": ["Tadpoles", "Caterpillars", "Minnows"],
       "correctIndex": 0,
-      "success": "Frogs live near water."
+      "success": "The tiny swimmers are called tadpoles."
+    },
+    {
+      "prompt": "How are tadpoles different from adult frogs?",
+      "answers": ["Tadpoles have wings", "Tadpoles have tails and live in water; adult frogs have legs and can jump", "Tadpoles and adult frogs look exactly the same"],
+      "correctIndex": 1,
+      "success": "Tadpoles have tails and live in water. Adult frogs have legs and can jump."
+    },
+    {
+      "prompt": "What do you think happens to a tadpole as it grows?",
+      "answers": ["It stays the same", "It changes into a fish", "It grows legs and slowly changes into a frog"],
+      "correctIndex": 2,
+      "success": "It grows legs and slowly changes into a frog."
+    },
+    {
+      "prompt": "Why is this called a life cycle?",
+      "answers": ["Because the frog changes through different stages as it grows", "Because frogs ride bicycles", "Because the pond is round"],
+      "correctIndex": 0,
+      "success": "It is a life cycle because the frog changes through different stages as it grows."
+    },
+    {
+      "prompt": "What is our mission in this story?",
+      "answers": ["To count every rock in the pond", "To discover how a tadpole changes into an adult frog", "To teach the frogs to swim"],
+      "correctIndex": 1,
+      "success": "Our mission is to discover how a tadpole changes into an adult frog."
     }
   ],
   "quiz": [
