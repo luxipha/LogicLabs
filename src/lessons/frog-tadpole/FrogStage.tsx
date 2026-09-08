@@ -1,9 +1,8 @@
-import React, {Component, useState, type ReactNode} from 'react';
+import React, {Component, Suspense, useState, type ReactNode} from 'react';
 import type {LessonContent, LifeCycleStage} from '../../app/types';
-import {PartsStage} from '../shared/PartsStage';
 import {SketchfabEmbed, StoryVideoCard} from '../shared/lesson-ui';
 import {WarmupScreen} from '../shared/WarmupScreen';
-import {FrogLifeCycleCanvas} from './FrogLifeCycle3D';
+import {FrogLifeCycleStage, type FrogPartId} from './FrogModel3D';
 
 const hasWebGLSupport = () => {
   if (typeof document === 'undefined') return false;
@@ -57,17 +56,42 @@ export const FrogStage: React.FC<{
     return <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />;
   }
 
-  if (mode !== 'explore') {
+  // Identify mode: the learner finds each life-cycle stage on the 3D frog.
+  if (mode === 'identify') {
+    const targetStage = content.parts?.find((part) => !identified.has(part.id))?.id ?? null;
     return (
-      <PartsStage
-        activePart={activePart}
-        identified={identified}
-        onSelect={onSelect}
-        mode={mode}
-        parts={content.parts ?? []}
-        background={content.stageBackground}
-      />
+      <div className="generic-stage frog-lifecycle-stage frog-identify-stage">
+        <div className="frog-lifecycle-heading">
+          <span>Identify each stage</span>
+          <strong>{content.parts?.find((p) => p.id === targetStage)?.label ?? 'Pick a stage'}</strong>
+        </div>
+        <div className="frog-lifecycle-canvas">
+          {webGLAvailable ? (
+            <Frog3DErrorBoundary
+              fallback={<div className="frog-3d-fallback">The 3D life cycle could not load.</div>}
+            >
+              <Suspense fallback={<div className="frog-3d-fallback">Loading frog…</div>}>
+                <FrogLifeCycleStage
+                  mode="identify"
+                  visibleStage={null}
+                  activeStage={activePart as FrogPartId | null}
+                  onStageSelect={onSelect}
+                />
+              </Suspense>
+            </Frog3DErrorBoundary>
+          ) : (
+            <div className="frog-3d-fallback">Enable graphics acceleration to view the 3D life cycle.</div>
+          )}
+        </div>
+        <p className="frog-stage-description" aria-live="polite">
+          Tap the stage that matches “{content.parts?.find((p) => p.id === targetStage)?.label ?? ''}”.
+        </p>
+      </div>
     );
+  }
+
+  if (mode !== 'explore') {
+    return null;
   }
 
   if (showAdultModel && content.sketchfabEmbedUrl) {
@@ -100,7 +124,14 @@ export const FrogStage: React.FC<{
           <Frog3DErrorBoundary
             fallback={<div className="frog-3d-fallback">The 3D life cycle could not load.</div>}
           >
-            <FrogLifeCycleCanvas stage={stage.id} />
+            <Suspense fallback={<div className="frog-3d-fallback">Loading frog…</div>}>
+              <FrogLifeCycleStage
+                mode="explore"
+                visibleStage={stage.id}
+                activeStage={null}
+                onStageSelect={() => {}}
+              />
+            </Suspense>
           </Frog3DErrorBoundary>
         ) : (
           <div className="frog-3d-fallback">Enable graphics acceleration to view the 3D life cycle.</div>

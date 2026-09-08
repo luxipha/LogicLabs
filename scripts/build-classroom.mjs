@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {execFile} from 'node:child_process';
 import {build} from 'esbuild';
 
 const root = process.cwd();
@@ -84,6 +85,24 @@ await fs.copyFile(
   path.join(modelsDir, 'radar-truck.glb'),
 );
 await fs.copyFile(path.join(root, 'public/models/bee.glb'), path.join(modelsDir, 'bee.glb'));
+// The frog model ships without a sampler array, which the standard GLTFLoader
+// cannot handle. Patch it (reproducibly) as it is copied into the output.
+const frogSrc = path.join(root, 'public/models/frog_lifecycle_stages.glb');
+const frogOut = path.join(modelsDir, 'frog.glb');
+await new Promise((resolve, reject) => {
+  execFile(
+    process.execPath,
+    [path.join(root, 'scripts/patch-frog-glb.mjs'), frogSrc, frogOut],
+    (error, stdout, stderr) => {
+      if (error) {
+        reject(new Error(stderr || error.message));
+        return;
+      }
+      process.stdout.write(`${stdout}`);
+      resolve();
+    },
+  );
+});
 await fs.copyFile(path.join(root, 'public/models/elevator.glb'), path.join(modelsDir, 'elevator.glb'));
 await fs.copyFile(
   path.join(root, 'public/models/animated_female_character_swings_golf_club.glb'),

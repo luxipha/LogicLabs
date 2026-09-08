@@ -151,39 +151,34 @@
   ],
   "parts": [
     {
-      "id": "body",
-      "label": "Body",
-      "fact": "The frog's body holds its organs and gives it its shape.",
-      "help": "The big round middle of the frog.",
-      "shape": {"kind": "ellipse", "cx": 340, "cy": 230, "rx": 90, "ry": 70, "fill": "#59c76a", "stroke": "#2e7d3e"}
-    },
-    {
-      "id": "back-leg",
-      "label": "Back Leg",
-      "fact": "The strong back legs push the frog into the air when it jumps.",
-      "help": "The long folded leg on the side.",
-      "shape": {"kind": "path", "d": "M280 250 C 240 280, 220 330, 250 350 M250 350 L 290 330", "stroke": "#2e7d3e", "strokeWidth": 16}
-    },
-    {
-      "id": "eye",
-      "label": "Eye",
-      "fact": "The frog's big eyes sit on top of its head so it can see while in the water.",
-      "help": "The round bump on the head.",
-      "shape": {"kind": "circle", "cx": 380, "cy": 160, "r": 16, "fill": "#ffffff", "stroke": "#2e7d3e"}
+      "id": "eggs",
+      "label": "Frog eggs",
+      "fact": "A frog lays soft, jelly-like eggs in the water. A tiny tadpole grows inside each egg.",
+      "help": "Tap the strip of jelly eggs."
     },
     {
       "id": "tadpole",
       "label": "Tadpole",
-      "fact": "The tadpole is the baby frog that swims with a tail before it grows legs.",
-      "help": "The small swimming shape beside the frog.",
-      "shape": {"kind": "path", "d": "M130 330 q 30 -40 70 -10 q -20 30 -70 10", "fill": "#3f9e52", "stroke": "#2e7d3e"}
+      "fact": "The tadpole hatches with a long tail. It swims in the pond and breathes through gills.",
+      "help": "Tap the swimmer with a tail."
     },
     {
-      "id": "tongue",
-      "label": "Tongue",
-      "fact": "The frog's long tongue snaps out fast to catch bugs.",
-      "help": "The line coming from the mouth.",
-      "shape": {"kind": "path", "d": "M300 230 Q 240 210 200 240", "stroke": "#e84a5f", "strokeWidth": 8}
+      "id": "legs",
+      "label": "Tadpole with legs",
+      "fact": "Strong back legs begin to grow. The tadpole still uses its tail to swim.",
+      "help": "Tap the one with growing back legs."
+    },
+    {
+      "id": "froglet",
+      "label": "Froglet",
+      "fact": "Front legs appear and the tail gets shorter. The froglet can begin leaving the water.",
+      "help": "Tap the one with a short tail."
+    },
+    {
+      "id": "adult",
+      "label": "Adult frog",
+      "fact": "The tail is gone. The adult frog has four legs, breathes with lungs, and can jump.",
+      "help": "Tap the frog with no tail."
     }
   ]
 }
