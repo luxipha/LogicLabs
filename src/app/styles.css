@@ -773,7 +773,10 @@ button {
 }
 
 .class-dialog {
+  display: flex;
+  flex-direction: column;
   width: min(100%, 900px);
+  max-height: calc(100vh - 48px);
   overflow: hidden;
   border: 3px solid #0764cf;
   border-radius: 22px;
@@ -804,16 +807,14 @@ button {
 .student-progress-dot.active { border-color: #1269d5; background: #176bd4; color: #fff; }
 .student-progress-line { width: 130px; height: 3px; background: #dfe9f5; }
 .student-progress-line.complete { background: #176bd4; }
-.student-setup-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.9fr); gap: 30px; padding: 26px 26px 28px; }
+.student-setup-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.9fr); gap: 30px; padding: 26px 26px 28px; min-height: 0; overflow-y: auto; }
 .student-setup-form { display: grid; align-content: start; gap: 12px; }
 .student-setup-form .page-kicker { justify-self: start; padding: 6px 36px; font-size: 13px; }
 
 .student-setup-list {
   display: grid;
   gap: 12px;
-  max-height: min(40vh, 310px);
-  overflow-y: auto;
-  padding: 10px 5px 0 0;
+  align-content: start;
 }
 
 .student-list-label { font-size: 16px; color: #0754ba; }
@@ -868,6 +869,7 @@ button {
   display: flex;
   justify-content: flex-end;
   gap: 16px;
+  flex-shrink: 0;
   padding: 20px 26px 24px;
   border-top: 1px solid #d9e7f7;
 }
@@ -875,7 +877,7 @@ button {
 .student-back-button { min-width: 114px; border: 2px solid #176bd4; background: #fff; color: #1262cc; }
 .student-next-button { min-width: 120px; border: 0; background: linear-gradient(180deg, #ffd253, #f8b92a); color: #0750aa; box-shadow: 0 6px 14px rgba(221, 157, 10, 0.22); }
 .student-next-button:disabled { opacity: 0.55; cursor: default; }
-.student-confirmation { display: grid; justify-items: center; gap: 14px; padding: 54px 30px; text-align: center; }
+.student-confirmation { display: grid; justify-items: center; gap: 14px; padding: 54px 30px; text-align: center; overflow-y: auto; min-height: 0; }
 .student-confirmation .page-kicker { padding-inline: 34px; }
 .student-confirmation-names { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 550px; }
 .student-confirmation-names span { padding: 7px 12px; border-radius: 999px; background: #e8f3ff; color: #0754ba; font-weight: 900; }
@@ -1165,8 +1167,7 @@ button {
   }
 
   .class-dialog {
-    max-height: calc(100vh - 32px);
-    overflow-y: auto;
+    max-height: calc(100vh - 48px);
   }
 
   .student-setup-body {
