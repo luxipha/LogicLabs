@@ -1199,6 +1199,37 @@ button {
   }
 }
 
+@media (max-width: 420px) {
+  .dialog-scrim {
+    padding: 12px;
+  }
+
+  .student-setup-body {
+    padding: 18px;
+  }
+
+  .student-name-field {
+    grid-template-columns: 36px 1fr;
+    gap: 10px;
+  }
+
+  .student-row-number {
+    width: 34px;
+    height: 34px;
+    font-size: 15px;
+  }
+
+  .student-name-field input {
+    padding: 12px 12px;
+    font-size: 15px;
+  }
+
+  .student-setup-actions {
+    padding: 14px 16px 18px;
+    gap: 10px;
+  }
+}
+
 .draw-page-sub {
   font-size: 16px;
   font-weight: 800;
