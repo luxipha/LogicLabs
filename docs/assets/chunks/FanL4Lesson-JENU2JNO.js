@@ -1,1 +1,0 @@
-import{a as t}from"./chunk-BHJGKPSE.js";import{a as e}from"./chunk-BQQR3LXS.js";import"./chunk-ISNHO2FA.js";import"./chunk-YOHO5Y4S.js";import{c as o,e as n}from"./chunk-GE2N4OTD.js";var r=o(n()),a=i=>(0,r.jsx)(e,{content:t,...i}),p=a;export{a as FanL4Lesson,p as default};

@@ -13,6 +13,9 @@
   "classIds": ["Brickmoto"],
   "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "sketchfabEmbedUrl": "https://sketchfab.com/models/4b2e5caab2034134acd917953405bc0e/embed",
+  "sketchfabModelName": "Banknote Counter",
+  "sketchfabModelPageUrl": "https://sketchfab.com/3d-models/banknote-counter-4b2e5caab2034134acd917953405bc0e",
   "stageBackground": ["#e4f2e6", "#f5fbf5", "#c9e2cd"],
   "activityGames": [
     {

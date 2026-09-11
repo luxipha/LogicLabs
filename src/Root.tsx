@@ -10,6 +10,7 @@ import {RadarMission, TOTAL_FRAMES as RADAR_FRAMES} from './scenes/RadarMission'
 import {GolfMission, TOTAL_FRAMES as GOLF_FRAMES} from './scenes/GolfMission';
 import {ElevatorMission, TOTAL_FRAMES as ELEVATOR_FRAMES} from './scenes/ElevatorMission';
 import {FrogMission, TOTAL_FRAMES as FROG_FRAMES} from './scenes/FrogMission';
+import {MonsterTruckMission, TOTAL_FRAMES as MONSTER_TRUCK_FRAMES} from './scenes/MonsterTruckMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -17,6 +18,7 @@ const RADAR_DURATION = RADAR_FRAMES;
 const GOLF_DURATION = GOLF_FRAMES;
 const ELEVATOR_DURATION = ELEVATOR_FRAMES;
 const FROG_DURATION = FROG_FRAMES;
+const MONSTER_TRUCK_DURATION = MONSTER_TRUCK_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -65,6 +67,14 @@ export const RemotionRoot: React.FC = () => {
         id="FrogMission"
         component={FrogMission}
         durationInFrames={FROG_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="MonsterTruckMission"
+        component={MonsterTruckMission}
+        durationInFrames={MONSTER_TRUCK_DURATION}
         fps={30}
         width={1920}
         height={1080}

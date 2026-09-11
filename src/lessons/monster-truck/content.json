@@ -1,0 +1,114 @@
+{
+  "slug": "monster-truck",
+  "title": "Mission: The Rough Road Challenge",
+  "subtitle": "Build the monster truck and take on the rough road.",
+  "summary": "Meet the monster truck, learn its parts, and drive it over a bumpy rough road.",
+  "badge": "4X4",
+  "color": "#f26a1b",
+  "activity": "rough-road",
+  "activityLabel": "Start the challenge.",
+  "activityInstruction": "Drive the monster truck over the rough road and reach the finish.",
+  "difficulty": 1,
+  "topics": ["monster truck", "tires", "shocks", "roll cage"],
+  "classIds": ["Brickmoto"],
+  "storyVideoUrl": "https://www.youtube.com/embed/LCjFV_ZlA-Y",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "activityGames": [
+    {
+      "id": "monster-truck-mountain-climb",
+      "label": "Monster Truck Mountain Climb",
+      "title": "Monster Truck Mountain Climb",
+      "src": "https://cloud.onlinegames.io/games/2021/2/monster-truck-mountain-climb/index-og.html"
+    }
+  ],
+  "storyQuestions": [
+    {
+      "prompt": "What is the truck carrying?",
+      "answers": ["Chairs and tables", "Rocks and sand", "Water and food"],
+      "correctIndex": 0,
+      "success": "The truck is carrying chairs and tables."
+    },
+    {
+      "prompt": "What is on the road?",
+      "answers": ["Bumps and rocks", "Water and mud", "Leaves and sticks"],
+      "correctIndex": 0,
+      "success": "The road is covered with bumps and rocks."
+    },
+    {
+      "prompt": "What happened to the truck?",
+      "answers": ["It got stuck", "It flew away", "It went home"],
+      "correctIndex": 0,
+      "success": "The truck got stuck."
+    },
+    {
+      "prompt": "Why can't the truck climb over the rocks?",
+      "answers": ["Its wheels are too small", "It has no engine", "It is too heavy"],
+      "correctIndex": 0,
+      "success": "Its wheels are too small to climb over the rocks."
+    },
+    {
+      "prompt": "What could help the truck climb over the rocks?",
+      "answers": ["Big wheels", "Small wheels", "No wheels"],
+      "correctIndex": 0,
+      "success": "Big wheels would help the truck climb over the rocks."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which part grips the ground and rolls over bumps?",
+      "answers": ["The tires", "The engine", "The roll cage"],
+      "correctIndex": 0,
+      "success": "The tires grip the ground and roll over bumps."
+    },
+    {
+      "prompt": "Which part makes the power that turns the tires?",
+      "answers": ["The engine", "The shocks", "The body"],
+      "correctIndex": 0,
+      "success": "The engine makes the power that turns the tires."
+    },
+    {
+      "prompt": "Which part keeps the driver safe if the truck flips?",
+      "answers": ["The roll cage", "The tires", "The body"],
+      "correctIndex": 0,
+      "success": "The roll cage keeps the driver safe."
+    },
+    {
+      "prompt": "Which part soaks up the bumps for a smoother ride?",
+      "answers": ["The shocks", "The engine", "The roll cage"],
+      "correctIndex": 0,
+      "success": "The shocks soak up the bumps."
+    }
+  ],
+  "parts": [
+    {
+      "id": "body",
+      "label": "Body",
+      "fact": "The body is the strong shell that holds the driver and all the parts together.",
+      "help": "The main painted shell of the truck."
+    },
+    {
+      "id": "engine",
+      "label": "Engine",
+      "fact": "The engine burns fuel to make the power that turns the tires.",
+      "help": "The block of machinery in the middle."
+    },
+    {
+      "id": "tires",
+      "label": "Tires",
+      "fact": "The huge tires grip the ground and roll over rocks and bumps.",
+      "help": "The four big round wheels."
+    },
+    {
+      "id": "roll-cage",
+      "label": "Roll Cage",
+      "fact": "The roll cage is a frame of strong tubes that protects the driver if the truck flips.",
+      "help": "The tube frame over the back of the truck."
+    },
+    {
+      "id": "shocks",
+      "label": "Shocks",
+      "fact": "The shocks use springs to soak up bumps so the ride stays smooth.",
+      "help": "The springy parts beside each tire."
+    }
+  ]
+}

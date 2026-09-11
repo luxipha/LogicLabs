@@ -13,6 +13,7 @@ import electricFanContent from '../lessons/electric-fan/content.json';
 import frogTadpoleContent from '../lessons/frog-tadpole/content.json';
 import trexFossilContent from '../lessons/trex-fossil/content.json';
 import fanL4Content from '../lessons/fan-l4/content.json';
+import monsterTruckContent from '../lessons/monster-truck/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -31,7 +32,8 @@ export type LessonId =
   | 'electric-fan'
   | 'frog-tadpole'
   | 'trex-fossil'
-  | 'fan-l4';
+  | 'fan-l4'
+  | 'monster-truck';
 
 export type LessonMeta = {
   id: LessonId;
@@ -62,6 +64,7 @@ const ElectricFanLesson = lazy(() => import('../lessons/electric-fan/ElectricFan
 const FrogTadpoleLesson = lazy(() => import('../lessons/frog-tadpole/FrogTadpoleLesson'));
 const TrexFossilLesson = lazy(() => import('../lessons/trex-fossil/TrexFossilLesson'));
 const FanL4Lesson = lazy(() => import('../lessons/fan-l4/FanL4Lesson'));
+const MonsterTruckLesson = lazy(() => import('../lessons/monster-truck/MonsterTruckLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -78,6 +81,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'frog-tadpole', content: content(frogTadpoleContent)},
   {id: 'trex-fossil', content: content(trexFossilContent)},
   {id: 'fan-l4', content: content(fanL4Content)},
+  {id: 'monster-truck', content: content(monsterTruckContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -113,5 +117,7 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return TrexFossilLesson;
     case 'fan-l4':
       return FanL4Lesson;
+    case 'monster-truck':
+      return MonsterTruckLesson;
   }
 };

@@ -1,0 +1,1 @@
+import{a as r}from"./chunk-FREVAYFK.js";import{a as t}from"./chunk-VPO6ICEX.js";import"./chunk-MCXDNIQL.js";import"./chunk-YOHO5Y4S.js";import{c as o,e}from"./chunk-GE2N4OTD.js";var n=o(e()),m=i=>(0,n.jsx)(r,{content:t,...i}),p=m;export{m as TrexFossilLesson,p as default};

@@ -27,7 +27,8 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 720px;
+  /* Let the lesson use the actual space beneath the navigation on 720p TVs. */
+  min-height: 0;
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -807,13 +808,13 @@ button {
 .student-progress-dot.active { border-color: #1269d5; background: #176bd4; color: #fff; }
 .student-progress-line { width: 130px; height: 3px; background: #dfe9f5; }
 .student-progress-line.complete { background: #176bd4; }
-.student-setup-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.9fr); gap: 30px; padding: 26px 26px 28px; min-height: 0; overflow-y: auto; }
-.student-setup-form { display: grid; align-content: start; gap: 12px; }
+.student-setup-body { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(270px, 0.9fr); gap: 22px; padding: 20px; min-height: 0; overflow-y: auto; }
+.student-setup-form { display: grid; align-content: start; gap: 9px; }
 .student-setup-form .page-kicker { justify-self: start; padding: 6px 36px; font-size: 13px; }
 
 .student-setup-list {
   display: grid;
-  gap: 12px;
+  gap: 9px;
   align-content: start;
 }
 
@@ -859,11 +860,11 @@ button {
 .student-add-button, .student-back-button, .student-next-button { border-radius: 9px; padding: 12px 22px; font-size: 16px; font-weight: 900; cursor: pointer; }
 .student-add-button { justify-self: start; border: 2px solid #176bd4; background: #fff; color: #1262cc; }
 .student-add-button span { font-size: 27px; font-weight: 500; line-height: 0; vertical-align: -2px; margin-right: 6px; }
-.student-setup-aside { display: grid; align-content: start; gap: 18px; padding: 26px 26px 12px; border: 1px solid #cfe1f7; border-radius: 14px; background: linear-gradient(145deg, #f8fbff, #eef6ff); }
+.student-setup-aside { display: grid; align-content: start; gap: 10px; padding: 16px; border: 1px solid #cfe1f7; border-radius: 14px; background: linear-gradient(145deg, #f8fbff, #eef6ff); }
 .student-setup-aside h3 { margin: 0; font-size: 20px; text-align: center; }
-.setup-benefit { display: grid; grid-template-columns: 52px 1fr; align-items: center; gap: 12px; color: #083b7d; font-size: 15px; line-height: 1.25; }
-.setup-benefit-icon { width: 52px; height: 52px; object-fit: contain; }
-.student-setup-aside img { width: min(100%, 220px); justify-self: center; margin-top: auto; }
+.setup-benefit { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 10px; color: #083b7d; font-size: 14px; line-height: 1.2; }
+.setup-benefit-icon { width: 40px; height: 40px; object-fit: contain; }
+.student-setup-aside img { width: min(100%, 120px); max-height: 120px; object-fit: contain; justify-self: center; margin-top: 2px; }
 
 .student-setup-actions {
   display: flex;
@@ -881,6 +882,22 @@ button {
 .student-confirmation .page-kicker { padding-inline: 34px; }
 .student-confirmation-names { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; max-width: 550px; }
 .student-confirmation-names span { padding: 7px 12px; border-radius: 999px; background: #e8f3ff; color: #0754ba; font-weight: 900; }
+
+/* Keep the short class-list step compact on wide landscape displays. */
+@media (min-width: 1201px) and (min-height: 721px) {
+  .student-setup-dialog { width: min(100%, 780px); max-height: min(calc(100vh - 48px), 620px); }
+  .student-setup-progress { gap: 6px; padding: 14px 20px 12px; }
+  .student-setup-body { grid-template-columns: minmax(0, 1.2fr) minmax(230px, 0.8fr); gap: 20px; padding: 20px; }
+  .student-setup-form, .student-setup-list { gap: 9px; }
+  .student-name-field input { padding: 11px 14px; }
+  .student-setup-aside { gap: 12px; padding: 18px; }
+  .student-setup-aside h3 { font-size: 18px; }
+  .setup-benefit { grid-template-columns: 40px 1fr; gap: 10px; font-size: 14px; }
+  .setup-benefit-icon { width: 40px; height: 40px; }
+  .student-setup-aside img { width: min(100%, 150px); }
+  .student-setup-actions { padding: 14px 20px 16px; }
+  .student-add-button, .student-back-button, .student-next-button { padding: 10px 18px; }
+}
 
 /* Lesson viewport hosts the scoped lesson apps */
 .lesson-viewport {

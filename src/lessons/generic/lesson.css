@@ -27,7 +27,7 @@ button {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 720px;
+  min-height: 0;
   overflow: hidden;
   color: #ffffff;
   background: #0874c9;
@@ -1360,6 +1360,95 @@ button {
   color: #e8f7ff;
 }
 
+/* Monster truck model stage (The Rough Road Challenge) */
+.generic-app .monster-truck-model-stage {
+  display: block;
+}
+
+.generic-app .monster-truck-model-stage > div {
+  width: 100%;
+  height: 100%;
+}
+
+.generic-app .monster-truck-model-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.generic-app .monster-truck-activity-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 16px;
+  padding: 24px;
+  background: rgba(3, 71, 149, 0.78);
+  text-align: center;
+}
+
+.generic-app .monster-truck-hint {
+  color: #eef7ff;
+  font-size: 22px;
+  font-weight: 900;
+}
+
+.generic-app .monster-truck-activity-overlay .primary-action {
+  width: auto;
+  padding: 12px 28px;
+}
+
+.generic-app .monster-truck-no-webgl,
+.generic-app .monster-truck-loading {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 10px;
+  padding: 24px;
+  border-radius: 12px;
+  background: rgba(4, 77, 148, 0.88);
+  border: 3px solid rgba(113, 201, 255, 0.48);
+  color: #fff;
+  text-align: center;
+}
+
+.generic-app .monster-truck-loading {
+  inset: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.generic-app .monster-truck-no-webgl strong,
+.generic-app .monster-truck-loading strong {
+  font-size: 26px;
+  font-weight: 900;
+}
+
+.generic-app .monster-truck-no-webgl span,
+.generic-app .monster-truck-loading span {
+  font-size: 18px;
+  font-weight: 800;
+  color: #e8f7ff;
+}
+
+/* Interactive Three.js garage door lesson. */
+.generic-app .garage-door-model-stage { display: block; overflow: hidden; border-radius: 14px; border: 3px solid rgba(113, 201, 255, 0.5); }
+.generic-app .garage-door-model-stage > div, .generic-app .garage-door-model-stage canvas { width: 100% !important; height: 100% !important; }
+.generic-app .garage-door-no-webgl { position: absolute; inset: 15%; display: grid; place-items: center; align-content: center; gap: 10px; padding: 24px; border-radius: 12px; background: rgba(4, 77, 148, 0.88); border: 3px solid rgba(113, 201, 255, 0.48); color: #fff; text-align: center; }
+.generic-app .garage-door-no-webgl strong { font-size: 26px; font-weight: 900; }
+.generic-app .garage-door-no-webgl span { color: #e8f7ff; font-size: 18px; font-weight: 800; }
+.generic-app .garage-door-activity-overlay { position: absolute; left: 50%; bottom: 22px; z-index: 5; display: grid; gap: 10px; width: min(620px, calc(100% - 32px)); transform: translateX(-50%); padding: 12px 16px; border: 3px solid rgba(113, 201, 255, 0.5); border-radius: 12px; background: rgba(4, 79, 151, 0.92); color: #e8f7ff; box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3); text-align: center; }
+.generic-app .garage-door-activity-overlay strong { flex: 1; font-size: 16px; }
+.generic-app .garage-door-activity-overlay .primary-action { width: auto; padding: 10px 18px; white-space: nowrap; }
+.generic-app .garage-door-controls { display: flex; justify-content: center; gap: 10px; }
+.generic-app .garage-door-controls .secondary-action { padding: 10px 14px; font-size: 15px; }
+.generic-app .garage-door-controls button:disabled { opacity: 0.5; cursor: default; }
+
 .generic-app .radar-sweep-screen {
   position: relative;
   width: 260px;
@@ -1583,27 +1672,37 @@ button {
   }
 }
 
-/* Match the responsive lesson shell used by the custom Butterfly lesson. */
-@media (min-width: 1201px) and (max-height: 760px) {
+/* Compact landscape is the default TV layout: it also covers 1366x768 and
+   lower-resolution TV browsers where the lesson sits beneath the main nav. */
+@media (min-width: 1201px) and (max-height: 820px) {
+  .generic-app .task-column,
+  .generic-app .progress-column {
+    width: clamp(220px, 23vw, 300px);
+  }
+
   .generic-app .mode-tabs {
     top: 20px;
-    width: min(960px, calc(100vw - 660px));
+    width: clamp(360px, calc(100vw - 648px), 960px);
+    min-width: 0;
   }
 
   .generic-app .mode-tab {
     height: 48px;
-    font-size: 20px;
+    margin-left: -10px;
+    padding: 0 16px 0 24px;
+    font-size: 18px;
+    white-space: nowrap;
   }
 
   .generic-app .mode-icon {
-    width: 30px;
-    height: 30px;
-    font-size: 8px;
+    display: none;
   }
 
   .generic-app .lesson-stage {
     top: 92px;
     bottom: 88px;
+    left: clamp(244px, 25vw, 324px);
+    right: clamp(244px, 25vw, 324px);
   }
 
   .generic-app .task-column {
@@ -1688,8 +1787,14 @@ button {
 
   .generic-app .parts-tray {
     bottom: 18px;
-    width: min(780px, calc(100vw - 740px));
+    width: clamp(340px, calc(100vw - 660px), 780px);
+    min-width: 0;
     padding: 10px;
+  }
+
+  .generic-app .tray-part {
+    padding: 6px;
+    font-size: 13px;
   }
 
   .generic-app .tray-thumb {
