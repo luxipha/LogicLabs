@@ -185,6 +185,13 @@
 }
 .butterfly-app .progress-column{
   right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+.butterfly-app .progress-column > .progress-card, .butterfly-app .progress-column > .watch-button{
+  flex: 0 0 auto;
 }
 .butterfly-app .task-card, .butterfly-app .quiz-card, .butterfly-app .tip-card, .butterfly-app .progress-card, .butterfly-app .parts-list-card{
   border-radius: 8px;

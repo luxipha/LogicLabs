@@ -1,4 +1,5 @@
 import React, {Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode} from 'react';
+import {LessonRailSlot} from '../../app/lessonRail';
 import {Canvas, useFrame, useLoader} from '@react-three/fiber';
 import {
   Box3,
@@ -823,6 +824,7 @@ export const ButterflyLesson: React.FC<{
           <span className="watch-play">PLAY</span>
           {flapSpeed === 'fast' ? 'Stop Wings' : 'Flap Wings'}
         </button>
+        <LessonRailSlot />
       </aside>
 
       {mode === 'story' || mode === 'warmup' ? null : <PartsTray parts={trayParts} onSelect={selectPart} />}

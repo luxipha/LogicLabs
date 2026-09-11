@@ -185,6 +185,14 @@ button{
 }
 .progress-column{
   right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+.progress-column > .progress-card,
+.progress-column > .watch-button{
+  flex: 0 0 auto;
 }
 .task-card, .quiz-card, .tip-card, .progress-card, .parts-list-card{
   border-radius: 8px;

@@ -243,6 +243,17 @@ button {
 
 .generic-app .progress-column {
   right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  /* Last-resort scroll: only engages when the cards cannot fit at all. */
+  overflow-y: auto;
+}
+
+/* The rail stacks its cards; only the last card may absorb leftover height. */
+.generic-app .progress-column > .progress-card,
+.generic-app .progress-column > .watch-button {
+  flex: 0 0 auto;
 }
 
 .generic-app .task-card,

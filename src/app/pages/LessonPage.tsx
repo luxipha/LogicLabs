@@ -4,6 +4,7 @@ import {navigate} from '../router';
 import {getCurrentClass} from '../classStore';
 import {DrawingCanvas} from '../../components/DrawingCanvas';
 import {ClassPointsCard} from '../components/ClassPointsCard';
+import {LessonRailProvider} from '../lessonRail';
 import {StudentSetupModal} from '../components/StudentSetupModal';
 import {
   clearStudentPoints,
@@ -39,37 +40,39 @@ export const LessonPage: React.FC<{id: string}> = ({id}) => {
   const warmupVideoUrl = lesson.content.warmupVideoUrl;
   const drawScope = `${cls?.name ?? 'class'}/${lesson.id}`;
 
+  // The points card is handed to the lesson so it renders inside the lesson's
+  // right rail, stacked under the progress card.
+  const railSlot = cls ? (
+    <ClassPointsCard
+      className={cls.name}
+      students={students}
+      onAddPoint={(studentId) => setStudents(incrementStudentPoints(cls.name, studentId))}
+      onClearPoints={() => setStudents(clearStudentPoints(cls.name))}
+      onManageStudents={() => setShowStudentEditor(true)}
+    />
+  ) : null;
+
   return (
     <div className="lesson-viewport">
-      <Lesson
-        warmupVideoUrl={warmupVideoUrl}
-        onHome={() => navigate('/lessons')}
-        onDraw={() => setDrawing(true)}
-        onBoard={() => navigate(`/draw/${lesson.id}`)}
-        onComplete={() => {
-          setComplete(true);
-          if (cls) {
-            const key = `classroom.progress.${cls.name}.${lesson.id}`;
-            try {
-              window.localStorage.setItem(key, 'complete');
-            } catch {
-              // storage unavailable
+      <LessonRailProvider slot={railSlot}>
+        <Lesson
+          warmupVideoUrl={warmupVideoUrl}
+          onHome={() => navigate('/lessons')}
+          onDraw={() => setDrawing(true)}
+          onBoard={() => navigate(`/draw/${lesson.id}`)}
+          onComplete={() => {
+            setComplete(true);
+            if (cls) {
+              const key = `classroom.progress.${cls.name}.${lesson.id}`;
+              try {
+                window.localStorage.setItem(key, 'complete');
+              } catch {
+                // storage unavailable
+              }
             }
-          }
-        }}
-      />
-
-      {cls ? (
-        <div className="lesson-points-panel">
-          <ClassPointsCard
-            className={cls.name}
-            students={students}
-            onAddPoint={(studentId) => setStudents(incrementStudentPoints(cls.name, studentId))}
-            onClearPoints={() => setStudents(clearStudentPoints(cls.name))}
-            onManageStudents={() => setShowStudentEditor(true)}
-          />
-        </div>
-      ) : null}
+          }}
+        />
+      </LessonRailProvider>
 
       {/* Drawing overlay on top of the lesson stage */}
       {drawing ? (

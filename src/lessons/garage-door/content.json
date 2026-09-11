@@ -6,8 +6,8 @@
   "badge": "OPEN",
   "color": "#20a7f1",
   "activity": "lift",
-  "activityLabel": "Play Garage Door Racer",
-  "activityInstruction": "Open the door, close it, and test how the parts work together.",
+  "activityLabel": "Play Draw Park",
+  "activityInstruction": "Draw a path from the car to its parking space, then watch it park.",
   "difficulty": 1,
   "topics": ["garage door parts", "chain", "motor", "sensor"],
   "classIds": ["Brickmoto"],
@@ -16,10 +16,10 @@
   "stageBackground": ["#dbe7f2", "#f4f9ff", "#c6d9ea"],
   "activityGames": [
     {
-      "id": "garage-door-game",
-      "label": "Play Garage Door Racer",
-      "title": "Garage Door Racer",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
+      "id": "draw-park",
+      "label": "Draw Park",
+      "title": "Draw Park",
+      "src": "https://media.safekidgames.com/draw-park/index.html"
     }
   ],
   "storyQuestions": [

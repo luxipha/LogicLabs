@@ -1,4 +1,5 @@
 import React, {Component, Suspense, useEffect, useMemo, useRef, useState, type ReactNode} from 'react';
+import {LessonRailSlot} from '../../app/lessonRail';
 import {Canvas, type ThreeEvent, useFrame} from '@react-three/fiber';
 import {Group, Vector3} from 'three';
 import {AirplaneLessonModel} from './AirplaneLessonModel';
@@ -779,6 +780,7 @@ export const AirplaneLesson: React.FC<{
           <span className="watch-play">PLAY</span>
           Watch It Fly
         </button>
+        <LessonRailSlot />
       </aside>
 
       <div className="lesson-callouts">

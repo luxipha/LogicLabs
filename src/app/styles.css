@@ -642,14 +642,48 @@ button {
   height: 52px;
 }
 
-.class-points-link {
-  border: 0;
-  background: transparent;
+/* Small icon-only controls for the points card (show all, edit, clear). */
+.class-points-icon-button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  padding: 0;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
   color: #fff2b2;
-  font-size: 16px;
-  font-weight: 900;
-  text-decoration: underline;
   cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.class-points-icon-button:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.class-points-icon-button:focus-visible {
+  outline: 3px solid #ffd76a;
+  outline-offset: 2px;
+}
+
+.class-points-icon-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.class-points-icon-button-danger {
+  color: #ffd9cc;
+  border-color: rgba(255, 173, 140, 0.45);
+}
+
+.class-points-chevron {
+  display: grid;
+  transition: transform 160ms ease;
+}
+
+.class-points-chevron.is-expanded {
+  transform: rotate(180deg);
 }
 
 .class-points-list {
@@ -906,35 +940,44 @@ button {
   min-height: 0;
 }
 
-.lesson-points-panel {
-  position: absolute;
-  z-index: 12;
-  top: 342px;
-  right: 24px;
-  width: 300px;
-  max-height: calc(100% - 420px);
+/* Page-provided content for the lesson's right rail (e.g. the points card).
+   The rail owns the layout, so this simply takes the leftover height and
+   scrolls internally instead of floating over the progress card. */
+.lesson-rail-slot {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  /* Floor keeps the card's header and footer visible; the list scrolls. */
+  min-height: 148px;
 }
 
-.lesson-points-panel .class-points-card {
+.lesson-rail-slot > .class-points-card {
   position: static;
-  max-height: 100%;
-  overflow-y: auto;
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
   gap: 12px;
   padding: 14px;
   border-radius: 14px;
+  min-height: 0;
 }
 
-.lesson-points-panel .class-points-title strong { font-size: 19px; }
-.lesson-points-panel .class-points-title span { font-size: 12px; }
-.lesson-points-panel .class-points-coin { width: 40px; height: 40px; font-size: 20px; }
-.lesson-points-panel .class-points-row { gap: 10px; padding: 9px 10px; border-radius: 14px; }
-.lesson-points-panel .student-badge { width: 42px; height: 42px; flex-basis: 42px; font-size: 14px; }
-.lesson-points-panel .student-points-copy strong { font-size: 18px; }
-.lesson-points-panel .student-points-copy span { font-size: 16px; gap: 6px; }
-.lesson-points-panel .inline-coin { width: 22px; height: 22px; font-size: 12px; }
-.lesson-points-panel .point-add-button { width: 42px; height: 42px; flex-basis: 42px; font-size: 28px; }
-.lesson-points-panel .class-points-more { font-size: 14px; }
-.lesson-points-panel .secondary-action { padding: 8px 10px; border-radius: 7px; font-size: 12px; }
+.lesson-rail-slot .class-points-list {
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.lesson-rail-slot .class-points-title strong { font-size: 19px; }
+.lesson-rail-slot .class-points-title span { font-size: 12px; }
+.lesson-rail-slot .class-points-coin { width: 40px; height: 40px; font-size: 20px; }
+.lesson-rail-slot .class-points-row { gap: 10px; padding: 9px 10px; border-radius: 14px; }
+.lesson-rail-slot .student-badge { width: 42px; height: 42px; flex-basis: 42px; font-size: 14px; }
+.lesson-rail-slot .student-points-copy strong { font-size: 18px; }
+.lesson-rail-slot .student-points-copy span { font-size: 16px; gap: 6px; }
+.lesson-rail-slot .inline-coin { width: 22px; height: 22px; font-size: 12px; }
+.lesson-rail-slot .point-add-button { width: 42px; height: 42px; flex-basis: 42px; font-size: 28px; }
+.lesson-rail-slot .class-points-more { font-size: 14px; }
+.lesson-rail-slot .class-points-icon-button { width: 32px; height: 32px; flex-basis: 32px; border-radius: 9px; }
 
 .generic-app .tray-part,
 .butterfly-app .tray-part,
@@ -1170,9 +1213,15 @@ button {
     align-items: stretch;
   }
 
-  .class-points-link,
   .point-add-button {
     align-self: flex-start;
+  }
+
+  /* The icon controls stay in a row so the footer never stacks vertically. */
+  .class-points-footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .student-points-copy strong {

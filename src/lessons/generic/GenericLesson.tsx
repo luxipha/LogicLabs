@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import type {LessonContent} from '../../app/types';
+import {LessonRailSlot} from '../../app/lessonRail';
 import {
   FeedbackBanner,
   GameEmbed,
@@ -362,6 +363,7 @@ export const GenericLesson: React.FC<{
         ) : (
           <ProgressCard done={progressDone} total={progressTotal} label={mode === 'identify' ? 'found' : 'done'} />
         )}
+        <LessonRailSlot />
       </aside>
 
       {mode === 'identify' ? <PartsTray parts={trayParts} onSelect={selectPart} /> : null}

@@ -11,6 +11,45 @@ type ClassPointsCardProps = {
 
 const MAX_VISIBLE_STUDENTS = 4;
 
+const Icon: React.FC<{children: React.ReactNode}> = ({children}) => (
+  <svg
+    viewBox="0 0 24 24"
+    width={18}
+    height={18}
+    fill="none"
+    stroke="currentColor"
+    strokeWidth={2.4}
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    {children}
+  </svg>
+);
+
+const ChevronIcon: React.FC<{expanded: boolean}> = ({expanded}) => (
+  <span className={`class-points-chevron${expanded ? ' is-expanded' : ''}`}>
+    <Icon>
+      <path d="M6 9l6 6 6-6" />
+    </Icon>
+  </span>
+);
+
+const EditIcon: React.FC = () => (
+  <Icon>
+    <path d="M12 20h9" />
+    <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7.5 18.5 3 20l1.5-4.5Z" />
+  </Icon>
+);
+
+const ResetIcon: React.FC = () => (
+  <Icon>
+    <path d="M3 12a9 9 0 1 0 3.2-6.9" />
+    <path d="M3 4.5V10h5.5" />
+  </Icon>
+);
+
 const getInitials = (name: string): string =>
   name
     .split(/\s+/)
@@ -48,8 +87,15 @@ export const ClassPointsCard: React.FC<ClassPointsCardProps> = ({
             <span>{className} team total: {totalPoints}</span>
           </div>
         </div>
-        <button type="button" className="class-points-link" onClick={() => setShowAll((current) => !current)}>
-          {showAll ? 'Show less' : 'All'}
+        <button
+          type="button"
+          className="class-points-icon-button"
+          onClick={() => setShowAll((current) => !current)}
+          aria-label={showAll ? 'Show fewer students' : 'Show all students'}
+          aria-expanded={showAll}
+          title={showAll ? 'Show fewer students' : 'Show all students'}
+        >
+          <ChevronIcon expanded={showAll} />
         </button>
       </div>
 
@@ -85,11 +131,23 @@ export const ClassPointsCard: React.FC<ClassPointsCardProps> = ({
       ) : null}
 
       <div className="class-points-footer">
-        <button type="button" className="secondary-action" onClick={onManageStudents}>
-          Edit students
+        <button
+          type="button"
+          className="class-points-icon-button"
+          onClick={onManageStudents}
+          aria-label="Edit students"
+          title="Edit students"
+        >
+          <EditIcon />
         </button>
-        <button type="button" className="secondary-action" onClick={onClearPoints}>
-          Clear points
+        <button
+          type="button"
+          className="class-points-icon-button class-points-icon-button-danger"
+          onClick={onClearPoints}
+          aria-label="Clear points"
+          title="Clear points"
+        >
+          <ResetIcon />
         </button>
       </div>
     </aside>

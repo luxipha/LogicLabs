@@ -317,6 +317,13 @@
 }
 .plane-app .progress-column{
   right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow-y: auto;
+}
+.plane-app .progress-column > .progress-card, .plane-app .progress-column > .watch-button{
+  flex: 0 0 auto;
 }
 .plane-app .task-card, .plane-app .quiz-card, .plane-app .tip-card, .plane-app .progress-card, .plane-app .parts-list-card{
   border-radius: 8px;
