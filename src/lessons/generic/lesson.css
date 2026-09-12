@@ -1448,17 +1448,33 @@ button {
 }
 
 /* Interactive Three.js garage door lesson. */
+.generic-app .garage-door-sketchfab-stage { display: block; overflow: hidden; border-radius: 14px; border: 3px solid rgba(113, 201, 255, 0.5); }
 .generic-app .garage-door-model-stage { display: block; overflow: hidden; border-radius: 14px; border: 3px solid rgba(113, 201, 255, 0.5); }
 .generic-app .garage-door-model-stage > div, .generic-app .garage-door-model-stage canvas { width: 100% !important; height: 100% !important; }
+.generic-app .garage-door-model-stage:fullscreen { width: 100vw; height: 100vh; border: 0; border-radius: 0; background: #082a48; }
 .generic-app .garage-door-no-webgl { position: absolute; inset: 15%; display: grid; place-items: center; align-content: center; gap: 10px; padding: 24px; border-radius: 12px; background: rgba(4, 77, 148, 0.88); border: 3px solid rgba(113, 201, 255, 0.48); color: #fff; text-align: center; }
 .generic-app .garage-door-no-webgl strong { font-size: 26px; font-weight: 900; }
 .generic-app .garage-door-no-webgl span { color: #e8f7ff; font-size: 18px; font-weight: 800; }
-.generic-app .garage-door-activity-overlay { position: absolute; left: 50%; bottom: 22px; z-index: 5; display: grid; gap: 10px; width: min(620px, calc(100% - 32px)); transform: translateX(-50%); padding: 12px 16px; border: 3px solid rgba(113, 201, 255, 0.5); border-radius: 12px; background: rgba(4, 79, 151, 0.92); color: #e8f7ff; box-shadow: 0 14px 32px rgba(0, 43, 105, 0.3); text-align: center; }
-.generic-app .garage-door-activity-overlay strong { flex: 1; font-size: 16px; }
-.generic-app .garage-door-activity-overlay .primary-action { width: auto; padding: 10px 18px; white-space: nowrap; }
-.generic-app .garage-door-controls { display: flex; justify-content: center; gap: 10px; }
-.generic-app .garage-door-controls .secondary-action { padding: 10px 14px; font-size: 15px; }
+.generic-app .garage-door-activity-overlay { position: absolute; inset: 0; z-index: 5; display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 12px; color: #fff; text-align: center; pointer-events: none; }
+.generic-app .garage-door-activity-overlay strong { padding: 5px 10px; border-radius: 7px; background: rgba(4, 49, 91, 0.68); font-size: 14px; line-height: 1.2; text-shadow: 0 2px 4px rgba(0, 24, 55, 0.8); }
+.generic-app .garage-door-controls { display: flex; justify-content: center; gap: 7px; pointer-events: auto; }
+.generic-app .garage-door-controls .primary-action, .generic-app .garage-door-controls .secondary-action, .generic-app .garage-door-controls .game-frame-fullscreen { width: auto; min-width: 0; margin: 0; padding: 7px 11px; border-radius: 7px; font-size: 13px; line-height: 1.1; white-space: nowrap; }
+.generic-app .garage-door-fullscreen { background: rgba(4, 49, 91, 0.86); }
 .generic-app .garage-door-controls button:disabled { opacity: 0.5; cursor: default; }
+
+/* Garage-door part thumbnails used in the parts list and bottom tray. */
+.generic-app .garage-part-preview { position: relative; display: block; width: 72px; height: 46px; }
+.generic-app .garage-part-preview-motor::before { content: ""; position: absolute; left: 14px; top: 9px; width: 44px; height: 27px; border: 3px solid #a8312a; border-radius: 7px; background: linear-gradient(145deg, #f36b57, #bd342d); box-shadow: inset 0 3px rgba(255,255,255,0.3), 0 4px 7px rgba(12,42,71,0.28); }
+.generic-app .garage-part-preview-motor::after { content: ""; position: absolute; left: 31px; top: 16px; width: 10px; height: 7px; border-radius: 3px; background: #ffe36c; box-shadow: 0 0 5px rgba(255,195,45,0.8); }
+.generic-app .garage-motor-rail { position: absolute; left: 34px; top: 34px; width: 5px; height: 12px; border-radius: 3px; background: #4b5964; }
+.generic-app .garage-part-preview-pulleys::before, .generic-app .garage-part-preview-pulleys::after { content: ""; position: absolute; top: 8px; width: 28px; height: 28px; border: 6px solid #647582; border-radius: 50%; background: radial-gradient(circle, #27343d 0 20%, #bac6cd 22% 35%, transparent 37%); box-shadow: 0 3px 6px rgba(12,42,71,0.28); }
+.generic-app .garage-part-preview-pulleys::before { left: 5px; }
+.generic-app .garage-part-preview-pulleys::after { right: 5px; }
+.generic-app .garage-pulley-cable { position: absolute; left: 18px; right: 18px; top: 20px; height: 4px; background: #39464f; }
+.generic-app .garage-part-preview-rails::before, .generic-app .garage-part-preview-rails::after { content: ""; position: absolute; top: 3px; width: 9px; height: 40px; border: 2px solid #536b7c; border-radius: 4px; background: linear-gradient(90deg, #8fa9ba, #d0dce3 48%, #718998); box-shadow: 0 3px 5px rgba(12,42,71,0.2); }
+.generic-app .garage-part-preview-rails::before { left: 14px; }
+.generic-app .garage-part-preview-rails::after { right: 14px; }
+.generic-app .garage-rail-crossbar { position: absolute; left: 20px; right: 20px; top: 8px; height: 5px; border-radius: 4px; background: #728b9a; }
 
 .generic-app .radar-sweep-screen {
   position: relative;

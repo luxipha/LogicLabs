@@ -43,6 +43,7 @@ export type LessonMeta = {
 export type LessonProps = {
   onHome?: () => void;
   onComplete?: () => void;
+  onReset?: () => void;
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;

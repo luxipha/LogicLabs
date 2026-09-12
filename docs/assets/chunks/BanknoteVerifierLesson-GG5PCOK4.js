@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-AN6H2K2R.js";import{a as e}from"./chunk-DRKZCMXG.js";import"./chunk-ACEBZSRH.js";import"./chunk-NC6KLTOY.js";import{c as o,e as t}from"./chunk-HLYRQ3WR.js";var r=o(t()),a=i=>(0,r.jsx)(n,{content:e,...i}),p=a;export{a as BanknoteVerifierLesson,p as default};

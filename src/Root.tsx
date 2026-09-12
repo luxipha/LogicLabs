@@ -11,6 +11,7 @@ import {GolfMission, TOTAL_FRAMES as GOLF_FRAMES} from './scenes/GolfMission';
 import {ElevatorMission, TOTAL_FRAMES as ELEVATOR_FRAMES} from './scenes/ElevatorMission';
 import {FrogMission, TOTAL_FRAMES as FROG_FRAMES} from './scenes/FrogMission';
 import {MonsterTruckMission, TOTAL_FRAMES as MONSTER_TRUCK_FRAMES} from './scenes/MonsterTruckMission';
+import {GarageDoorMission, TOTAL_FRAMES as GARAGE_DOOR_FRAMES} from './scenes/GarageDoorMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -19,6 +20,7 @@ const GOLF_DURATION = GOLF_FRAMES;
 const ELEVATOR_DURATION = ELEVATOR_FRAMES;
 const FROG_DURATION = FROG_FRAMES;
 const MONSTER_TRUCK_DURATION = MONSTER_TRUCK_FRAMES;
+const GARAGE_DOOR_DURATION = GARAGE_DOOR_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -75,6 +77,14 @@ export const RemotionRoot: React.FC = () => {
         id="MonsterTruckMission"
         component={MonsterTruckMission}
         durationInFrames={MONSTER_TRUCK_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="GarageDoorMission"
+        component={GarageDoorMission}
+        durationInFrames={GARAGE_DOOR_DURATION}
         fps={30}
         width={1920}
         height={1080}

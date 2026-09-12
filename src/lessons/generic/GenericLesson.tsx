@@ -31,6 +31,7 @@ export const GenericLesson: React.FC<{
   content: LessonContent;
   onHome: () => void;
   onComplete: () => void;
+  onReset?: () => void;
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;
@@ -43,9 +44,10 @@ export const GenericLesson: React.FC<{
     identified: Set<string>;
     activityDone: boolean;
     completeActivity: () => void;
+    resetActivity: () => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
@@ -293,6 +295,10 @@ export const GenericLesson: React.FC<{
             identified,
             activityDone,
             completeActivity: () => setActivityDone(true),
+            resetActivity: () => {
+              setActivityDone(false);
+              onReset?.();
+            },
           })
         )}
       </LessonStage>

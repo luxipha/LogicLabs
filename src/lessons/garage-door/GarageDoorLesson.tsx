@@ -8,14 +8,16 @@ import '../generic/lesson.scoped.css';
 export const GarageDoorLesson: React.FC<{
   onHome?: () => void;
   onComplete?: () => void;
+  onReset?: () => void;
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;
-}> = ({onHome, onComplete, warmupVideoUrl, onDraw, onBoard}) => (
+}> = ({onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard}) => (
   <GenericLesson
     content={content as LessonContent}
     onHome={onHome ?? (() => {})}
     onComplete={onComplete ?? (() => {})}
+    onReset={onReset}
     warmupVideoUrl={warmupVideoUrl}
     onDraw={onDraw}
     onBoard={onBoard}

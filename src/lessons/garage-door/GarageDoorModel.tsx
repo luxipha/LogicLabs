@@ -1,34 +1,54 @@
-import React, {useRef} from 'react';
+import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import {Canvas, useFrame, type ThreeEvent} from '@react-three/fiber';
-import {DoubleSide, Group, MathUtils} from 'three';
+import {DoubleSide, Group, InstancedMesh, MathUtils, Object3D} from 'three';
 import {ModelOrbitControls} from '../shared/ModelViewportControls';
 
-export type GarageDoorPartId = 'door' | 'chain' | 'motor' | 'sensor' | 'track';
+export type GarageDoorPartId = 'motor' | 'pulleys' | 'rails';
 
 const HIGHLIGHT: Record<GarageDoorPartId, string> = {
-  door: '#ffd75c',
-  chain: '#ffe38a',
   motor: '#ff8c5a',
-  sensor: '#7ff6b1',
-  track: '#78c6ff',
+  pulleys: '#ffe38a',
+  rails: '#78c6ff',
 };
 
 const CHAIN_LINKS = Array.from({length: 13}, (_, index) => -0.42 + index * 0.14);
+const CAR_START_Z = 2.9;
+const CAR_PARKED_Z = -1.85;
+
+const BRICKS = Array.from({length: 7}).flatMap((_, row) =>
+  Array.from({length: 10}).map((__, column) => ({
+    accent: (row + column) % 3 === 0,
+    position: [-2.25 + column * 0.5 + (row % 2 ? 0.25 : 0), -1.25 + row * 0.52, -0.205] as const,
+  })),
+);
+
+const BrickBatch: React.FC<{accent: boolean; color: string}> = ({accent, color}) => {
+  const mesh = useRef<InstancedMesh>(null);
+  const dummy = useMemo(() => new Object3D(), []);
+  const bricks = useMemo(() => BRICKS.filter((brick) => brick.accent === accent), [accent]);
+
+  useLayoutEffect(() => {
+    if (!mesh.current) return;
+    bricks.forEach((brick, index) => {
+      dummy.position.set(...brick.position);
+      dummy.updateMatrix();
+      mesh.current?.setMatrixAt(index, dummy.matrix);
+    });
+    mesh.current.instanceMatrix.needsUpdate = true;
+  }, [bricks, dummy]);
+
+  return (
+    <instancedMesh ref={mesh} args={[undefined, undefined, bricks.length]}>
+      <boxGeometry args={[0.47, 0.49, 0.035]} />
+      <meshStandardMaterial color={color} roughness={0.92} />
+    </instancedMesh>
+  );
+};
 
 const BrickFacade: React.FC = () => (
   <group>
-    {Array.from({length: 7}).map((_, row) =>
-      Array.from({length: 10}).map((__, column) => (
-        <mesh
-          key={`${row}-${column}`}
-          position={[-2.25 + column * 0.5 + (row % 2 ? 0.25 : 0), -1.25 + row * 0.52, -0.205]}
-          receiveShadow
-        >
-          <boxGeometry args={[0.47, 0.49, 0.035]} />
-          <meshStandardMaterial color={(row + column) % 3 === 0 ? '#b75e4d' : '#c96d57'} roughness={0.92} />
-        </mesh>
-      )),
-    )}
+    <BrickBatch accent={false} color="#c96d57" />
+    <BrickBatch accent color="#b75e4d" />
   </group>
 );
 
@@ -53,13 +73,15 @@ const GarageCar: React.FC<{position: number}> = ({position}) => {
   const car = useRef<Group>(null);
   const current = useRef(position);
 
-  useFrame((_, delta) => {
-    current.current = MathUtils.damp(current.current, position, 2.1, delta);
-    if (car.current) car.current.position.z = 2.9 - current.current * 3.05;
+  useFrame((state, delta) => {
+    const moving = Math.abs(current.current - position) > 0.001;
+    current.current = moving ? MathUtils.damp(current.current, position, 2.1, delta) : position;
+    if (car.current) car.current.position.z = MathUtils.lerp(CAR_START_Z, CAR_PARKED_Z, current.current);
+    if (moving) state.invalidate();
   });
 
   return (
-    <group ref={car} position={[0, -0.93, 2.9]}>
+    <group ref={car} position={[0, -0.93, CAR_START_Z]}>
       <mesh castShadow receiveShadow><boxGeometry args={[1.65, 0.38, 3.05]} /><meshStandardMaterial color="#c6342e" metalness={0.68} roughness={0.2} /></mesh>
       <mesh position={[0, 0.33, -0.1]} castShadow><boxGeometry args={[1.46, 0.38, 1.65]} /><meshStandardMaterial color="#b32825" metalness={0.66} roughness={0.18} /></mesh>
       <mesh position={[0, 0.35, 0.25]}><boxGeometry args={[1.38, 0.25, 0.68]} /><meshStandardMaterial color="#4d7084" metalness={0.65} roughness={0.08} transparent opacity={0.78} /></mesh>
@@ -86,16 +108,17 @@ const PartGroup: React.FC<{
     onClick={selectable ? (event: ThreeEvent<MouseEvent>) => { event.stopPropagation(); onSelect(id); } : undefined}
   >
     {children}
-    {highlighted === id ? <pointLight color={HIGHLIGHT[id]} intensity={1.5} distance={4} /> : null}
   </group>
 );
 
-const DoorPanels: React.FC<{open: boolean; highlighted: GarageDoorPartId | null; selectable: boolean; onSelect: (part: GarageDoorPartId) => void}> = ({open, highlighted, selectable, onSelect}) => {
+const DoorPanels: React.FC<{open: boolean}> = ({open}) => {
   const group = useRef<Group>(null);
   const progress = useRef(open ? 1 : 0);
 
-  useFrame((_, delta) => {
-    progress.current = MathUtils.damp(progress.current, open ? 1 : 0, 3.4, delta);
+  useFrame((state, delta) => {
+    const target = open ? 1 : 0;
+    const moving = Math.abs(progress.current - target) > 0.001;
+    progress.current = moving ? MathUtils.damp(progress.current, target, 3.4, delta) : target;
     if (!group.current) return;
     group.current.children.forEach((panel, index) => {
       const closedY = -0.95 + index * 0.55;
@@ -104,17 +127,16 @@ const DoorPanels: React.FC<{open: boolean; highlighted: GarageDoorPartId | null;
       panel.position.z = Math.sin(progress.current * Math.PI * 0.5) * (0.52 + index * 0.08);
       panel.rotation.x = -progress.current * Math.PI * 0.48;
     });
+    if (moving) state.invalidate();
   });
 
-  const accent = highlighted === 'door' ? HIGHLIGHT.door : '#dce4ea';
   return (
-    <PartGroup id="door" highlighted={highlighted} selectable={selectable} onSelect={onSelect}>
-      <group ref={group}>
+    <group ref={group}>
         {Array.from({length: 5}).map((_, index) => (
           <group key={index}>
             <mesh castShadow receiveShadow>
               <boxGeometry args={[4.15, 0.5, 0.13]} />
-              <meshStandardMaterial color={accent} metalness={0.65} roughness={0.22} />
+              <meshStandardMaterial color="#dce4ea" metalness={0.65} roughness={0.22} />
             </mesh>
             <mesh position={[0, 0, 0.078]}>
               <boxGeometry args={[3.82, 0.34, 0.022]} />
@@ -130,8 +152,7 @@ const DoorPanels: React.FC<{open: boolean; highlighted: GarageDoorPartId | null;
             )) : null}
           </group>
         ))}
-      </group>
-    </PartGroup>
+    </group>
   );
 };
 
@@ -164,19 +185,19 @@ export const GarageDoorModel: React.FC<{
         <meshStandardMaterial color="#243643" roughness={0.7} />
       </mesh>
 
-      <DoorPanels open={open} highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect} />
+      <DoorPanels open={open} />
       <GarageCar position={carPosition} />
 
-      <PartGroup id="track" highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect}>
+      <PartGroup id="rails" highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect}>
         {[-2.28, 2.28].map((x) => (
           <group key={x}>
             <mesh position={[x, 0.15, 0.05]}>
               <boxGeometry args={[0.12, 3.45, 0.14]} />
-              <meshStandardMaterial color={materialColor('track', '#697a87')} metalness={0.8} roughness={0.22} />
+              <meshStandardMaterial color={materialColor('rails', '#697a87')} metalness={0.8} roughness={0.22} />
             </mesh>
             <mesh position={[x, 1.8, 0.8]} rotation={[0.65, 0, 0]}>
               <boxGeometry args={[0.12, 1.6, 0.14]} />
-              <meshStandardMaterial color={materialColor('track', '#697a87')} metalness={0.8} roughness={0.22} />
+              <meshStandardMaterial color={materialColor('rails', '#697a87')} metalness={0.8} roughness={0.22} />
             </mesh>
             {[-0.95, -0.37, 0.21, 0.79].map((y) => <mesh key={y} position={[x, y, 0.12]} rotation={[0, Math.PI / 2, 0]}><cylinderGeometry args={[0.075, 0.075, 0.12, 14]} /><meshStandardMaterial color="#252e35" roughness={0.4} /></mesh>)}
           </group>
@@ -194,30 +215,41 @@ export const GarageDoorModel: React.FC<{
         </mesh>
       </PartGroup>
 
-      <PartGroup id="chain" highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect}>
+      <PartGroup id="pulleys" highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect}>
+        {[-1.78, 1.78].map((x) => (
+          <group key={x} position={[x, 1.48, 0.14]}>
+            <mesh castShadow>
+              <torusGeometry args={[0.22, 0.055, 12, 28]} />
+              <meshStandardMaterial color={materialColor('pulleys', '#586670')} metalness={0.88} roughness={0.2} />
+            </mesh>
+            <mesh rotation={[Math.PI / 2, 0, 0]}>
+              <cylinderGeometry args={[0.075, 0.075, 0.18, 16]} />
+              <meshStandardMaterial color="#303a42" metalness={0.92} roughness={0.18} />
+            </mesh>
+          </group>
+        ))}
         <mesh position={[0, 1.8, 0.42]} rotation={[Math.PI / 2, 0, 0]}>
           <cylinderGeometry args={[0.045, 0.045, 1.85, 10]} />
-          <meshStandardMaterial color={materialColor('chain', '#39454e')} metalness={0.9} roughness={0.2} />
+          <meshStandardMaterial color={materialColor('pulleys', '#39454e')} metalness={0.9} roughness={0.2} />
         </mesh>
         {CHAIN_LINKS.map((z) => (
           <mesh key={z} position={[0, 1.8, z]} rotation={[Math.PI / 2, 0, 0]}>
             <torusGeometry args={[0.075, 0.018, 6, 10]} />
-            <meshStandardMaterial color={materialColor('chain', '#687985')} metalness={0.85} roughness={0.25} />
+            <meshStandardMaterial color={materialColor('pulleys', '#687985')} metalness={0.85} roughness={0.25} />
           </mesh>
         ))}
       </PartGroup>
 
-      <PartGroup id="sensor" highlighted={highlightedPart} selectable={selectable} onSelect={onPartSelect}>
+      <group>
         {[-2.02, 2.02].map((x) => (
           <group key={x} position={[x, -1.23, 0.18]}>
-            <mesh><boxGeometry args={[0.22, 0.34, 0.16]} /><meshStandardMaterial color={materialColor('sensor', '#252d36')} roughness={0.35} /></mesh>
+            <mesh><boxGeometry args={[0.22, 0.34, 0.16]} /><meshStandardMaterial color="#252d36" roughness={0.35} /></mesh>
             <mesh position={[x < 0 ? 0.12 : -0.12, 0, 0]} rotation={[0, Math.PI / 2, 0]}><cylinderGeometry args={[0.055, 0.055, 0.02, 16]} /><meshStandardMaterial color="#ff6a5f" emissive="#ff2d1d" emissiveIntensity={0.9} /></mesh>
           </group>
         ))}
         <mesh position={[0, -1.23, 0.2]}><boxGeometry args={[3.85, 0.012, 0.012]} /><meshBasicMaterial color="#ff5147" transparent opacity={0.6} /></mesh>
-      </PartGroup>
-      {[-2.85, 2.85].map((x) => <group key={x} position={[x, 1.55, 0.55]}><mesh><cylinderGeometry args={[0.13, 0.16, 0.28, 18]} /><meshStandardMaterial color="#29343a" metalness={0.6} roughness={0.28} /></mesh><pointLight position={[0, -0.1, 0.16]} color="#ffe3a1" intensity={0.8} distance={2.5} /></group>)}
-      <pointLight position={[0, 1.45, 1.5]} color="#fff2cf" intensity={1.8} distance={6} />
+      </group>
+      {[-2.85, 2.85].map((x) => <group key={x} position={[x, 1.55, 0.55]}><mesh><cylinderGeometry args={[0.13, 0.16, 0.28, 18]} /><meshStandardMaterial color="#29343a" metalness={0.6} roughness={0.28} /></mesh></group>)}
     </group>
   );
 };
@@ -229,12 +261,17 @@ export const GarageDoorCanvas: React.FC<{
   carPosition: number;
   onPartSelect: (part: GarageDoorPartId) => void;
 }> = (props) => (
-  <Canvas camera={{position: [5.9, 2.8, 8.7], fov: 34, near: 0.1, far: 100}} dpr={[1, 1.5]} shadows gl={{alpha: true, antialias: true}}>
+  <Canvas
+    camera={{position: [5.9, 2.8, 8.7], fov: 34, near: 0.1, far: 100}}
+    dpr={1}
+    frameloop={props.mode === 'activity' ? 'always' : 'demand'}
+    gl={{alpha: true, antialias: false, powerPreference: 'low-power'}}
+  >
     <ambientLight intensity={0.75} />
     <hemisphereLight intensity={0.85} groundColor="#506773" />
-    <directionalLight position={[4, 6, 5]} intensity={1.7} castShadow />
+    <directionalLight position={[4, 6, 5]} intensity={1.7} />
     <directionalLight position={[-4, 2, 3]} intensity={0.55} color="#b8d8ff" />
     <GarageDoorModel {...props} />
-    <ModelOrbitControls zoomEnabled={props.mode === 'identify'} rotateEnabled={props.mode === 'identify' || props.mode === 'explore'} target={[0, 0.2, 0]} minDistance={5} maxDistance={13} />
+    <ModelOrbitControls dampingEnabled={false} zoomEnabled={props.mode === 'identify'} rotateEnabled={props.mode === 'identify' || props.mode === 'explore'} target={[0, 0.2, 0]} minDistance={5} maxDistance={13} />
   </Canvas>
 );

@@ -3,19 +3,20 @@ import {useFrame, useThree} from '@react-three/fiber';
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
 export const ModelOrbitControls: React.FC<{
+  dampingEnabled?: boolean;
   zoomEnabled: boolean;
   rotateEnabled: boolean;
   target: [number, number, number];
   minDistance: number;
   maxDistance: number;
-}> = ({zoomEnabled, rotateEnabled, target, minDistance, maxDistance}) => {
-  const {camera, gl} = useThree();
+}> = ({dampingEnabled = true, zoomEnabled, rotateEnabled, target, minDistance, maxDistance}) => {
+  const {camera, gl, invalidate} = useThree();
   const controlsRef = useRef<OrbitControls | null>(null);
   const [targetX, targetY, targetZ] = target;
 
   useEffect(() => {
     const controls = new OrbitControls(camera, gl.domElement);
-    controls.enableDamping = true;
+    controls.enableDamping = dampingEnabled;
     controls.enablePan = false;
     controls.enableZoom = zoomEnabled;
     controls.enableRotate = rotateEnabled;
@@ -24,12 +25,15 @@ export const ModelOrbitControls: React.FC<{
     controls.rotateSpeed = 0.7;
     controls.target.set(targetX, targetY, targetZ);
     controls.enabled = true;
+    const handleChange = () => invalidate();
+    controls.addEventListener('change', handleChange);
     controlsRef.current = controls;
     return () => {
+      controls.removeEventListener('change', handleChange);
       controls.dispose();
       controlsRef.current = null;
     };
-  }, [camera, gl.domElement, maxDistance, minDistance, rotateEnabled, targetX, targetY, targetZ, zoomEnabled]);
+  }, [camera, dampingEnabled, gl.domElement, invalidate, maxDistance, minDistance, rotateEnabled, targetX, targetY, targetZ, zoomEnabled]);
 
   useEffect(() => {
     if (controlsRef.current) {
@@ -39,7 +43,7 @@ export const ModelOrbitControls: React.FC<{
   }, [rotateEnabled, zoomEnabled]);
 
   useFrame(() => {
-    controlsRef.current?.update();
+    if (dampingEnabled) controlsRef.current?.update();
   });
 
   return null;

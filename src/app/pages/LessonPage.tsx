@@ -71,6 +71,17 @@ export const LessonPage: React.FC<{id: string}> = ({id}) => {
               }
             }
           }}
+          onReset={() => {
+            setComplete(false);
+            if (cls) {
+              const key = `classroom.progress.${cls.name}.${lesson.id}`;
+              try {
+                window.localStorage.removeItem(key);
+              } catch {
+                // storage unavailable
+              }
+            }
+          }}
         />
       </LessonRailProvider>
 

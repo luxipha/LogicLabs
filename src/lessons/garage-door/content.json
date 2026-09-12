@@ -11,7 +11,7 @@
   "difficulty": 1,
   "topics": ["garage door parts", "chain", "motor", "sensor"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "storyVideoUrl": "https://www.youtube.com/embed/3UxI5wh_eK8",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "stageBackground": ["#dbe7f2", "#f4f9ff", "#c6d9ea"],
   "activityGames": [
@@ -24,28 +24,40 @@
   ],
   "storyQuestions": [
     {
-      "prompt": "What does a garage door do?",
-      "answers": ["Opens and closes", "Flies in the sky", "Plays music"],
+      "prompt": "What is this?",
+      "answers": ["A car", "A truck", "A bus"],
       "correctIndex": 0,
-      "success": "A garage door opens and closes."
+      "success": "This is a car."
     },
     {
-      "prompt": "What part pulls the door up?",
-      "answers": ["The chain and motor", "The wheels", "The handle"],
+      "prompt": "Is the garage door open or closed?",
+      "answers": ["Closed", "Open", "Broken"],
       "correctIndex": 0,
-      "success": "The chain and motor pull the door up."
+      "success": "The garage door is closed."
     },
     {
-      "prompt": "What keeps the door from closing on a car?",
-      "answers": ["A sensor", "A mirror", "A lock"],
+      "prompt": "Can the car go inside?",
+      "answers": ["No", "Yes", "Only at night"],
       "correctIndex": 0,
-      "success": "A sensor stops the door if something is in the way."
+      "success": "No, the car cannot go inside."
     },
     {
-      "prompt": "Where does the door slide?",
-      "answers": ["On a track", "On a ladder", "On a ramp"],
+      "prompt": "What does Dad use to open the door?",
+      "answers": ["His hands", "A remote", "A key"],
       "correctIndex": 0,
-      "success": "The door slides along a track."
+      "success": "Dad uses his hands to open the door."
+    },
+    {
+      "prompt": "Is the door light or heavy?",
+      "answers": ["Heavy", "Light", "Soft"],
+      "correctIndex": 0,
+      "success": "The door is heavy."
+    },
+    {
+      "prompt": "Can Dad open it easily?",
+      "answers": ["No", "Yes", "Only with help"],
+      "correctIndex": 0,
+      "success": "No, Dad cannot open it easily."
     }
   ],
   "quiz": [
@@ -76,20 +88,6 @@
   ],
   "parts": [
     {
-      "id": "door",
-      "label": "Door Panel",
-      "fact": "The door panel is the big moving piece that opens and closes the entrance.",
-      "help": "The wide panel in the middle of the frame.",
-      "shape": {"kind": "rect", "x": 230, "y": 150, "width": 220, "height": 210, "rx": 10, "fill": "#c9d8e6", "stroke": "#6b7c8d"}
-    },
-    {
-      "id": "chain",
-      "label": "Chain",
-      "fact": "The chain connects the motor to the door and pulls it along the track.",
-      "help": "The line running from the motor to the door.",
-      "shape": {"kind": "path", "d": "M330 60 L330 140", "stroke": "#3a4a5c", "strokeWidth": 6}
-    },
-    {
       "id": "motor",
       "label": "Motor",
       "fact": "The motor turns the chain to lift and lower the door.",
@@ -97,17 +95,17 @@
       "shape": {"kind": "rect", "x": 290, "y": 30, "width": 90, "height": 40, "rx": 8, "fill": "#e84a5f", "stroke": "#b22a3d"}
     },
     {
-      "id": "sensor",
-      "label": "Safety Sensor",
-      "fact": "The sensor sends a beam across the doorway and stops the door if something blocks it.",
-      "help": "The small boxes at the bottom corners.",
-      "shape": {"kind": "circle", "cx": 250, "cy": 380, "r": 12, "fill": "#ffcf4a", "stroke": "#e8a800"}
+      "id": "pulleys",
+      "label": "Pulleys",
+      "fact": "The pulleys guide the lifting cable and help the motor raise the heavy door.",
+      "help": "Look near the motor and lifting mechanism above the door.",
+      "shape": {"kind": "circle", "cx": 330, "cy": 88, "r": 18, "fill": "#6f7d89", "stroke": "#354552"}
     },
     {
-      "id": "track",
-      "label": "Track",
-      "fact": "The track guides the door as it slides up and down.",
-      "help": "The rail the door slides on.",
+      "id": "rails",
+      "label": "Rails",
+      "fact": "The rails guide the garage door as it moves up and down.",
+      "help": "Look for the metal guides along both sides of the door.",
       "shape": {"kind": "path", "d": "M220 100 L220 370", "stroke": "#7fa8c9", "strokeWidth": 4}
     }
   ]
