@@ -40,7 +40,7 @@ await build({
   define: {'process.env.NODE_ENV': '"production"'},
   minify: true,
   sourcemap: false,
-  loader: {'.json': 'json'},
+  loader: {'.json': 'json', '.png': 'file', '.jpg': 'file', '.jpeg': 'file'},
 });
 
 // Lazy lesson imports produce separate CSS files. The static shell only loads
@@ -69,6 +69,7 @@ const lessonRoutes = [
   '/lessons/bee',
   '/lessons/elevator',
   '/lessons/monster-truck',
+  '/lessons/trex-fossil',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
 const routes = [...lessonRoutes, ...drawRoutes];
@@ -113,5 +114,6 @@ await fs.copyFile(
   path.join(root, 'public/models/monster_truck.glb'),
   path.join(modelsDir, 'monster-truck.glb'),
 );
+await fs.copyFile(path.join(root, 'public/models/TREX.glb'), path.join(modelsDir, 'trex.glb'));
 
 console.log('Built classroom app into docs/');

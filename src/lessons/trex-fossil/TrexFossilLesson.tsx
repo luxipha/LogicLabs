@@ -1,6 +1,8 @@
 import React from 'react';
-import {DataDrivenLesson} from '../shared/DataDrivenLesson';
+import {GenericLesson} from '../generic/GenericLesson';
+import {TrexPartPreview, TrexStage} from './TrexStage';
 import content from './content.json';
+import '../generic/lesson.scoped.css';
 
 export const TrexFossilLesson: React.FC<{
   onHome?: () => void;
@@ -8,6 +10,18 @@ export const TrexFossilLesson: React.FC<{
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;
-}> = (props) => <DataDrivenLesson content={content} {...props} />;
+}> = ({onHome, onComplete, warmupVideoUrl, onDraw, onBoard}) => (
+  <GenericLesson
+    content={content}
+    onHome={onHome ?? (() => {})}
+    onComplete={onComplete ?? (() => {})}
+    warmupVideoUrl={warmupVideoUrl}
+    onDraw={onDraw}
+    onBoard={onBoard}
+    stageCompletesActivity
+    stage={(props) => <TrexStage {...props} />}
+    partPreview={(part) => <TrexPartPreview part={part} />}
+  />
+);
 
 export default TrexFossilLesson;

@@ -35,6 +35,7 @@ export const GenericLesson: React.FC<{
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;
+  stageCompletesActivity?: boolean;
   stage: (props: {
     mode: GenericMode;
     activePart: string;
@@ -47,7 +48,7 @@ export const GenericLesson: React.FC<{
     resetActivity: () => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
@@ -310,7 +311,7 @@ export const GenericLesson: React.FC<{
               Start Identifying
             </button>
           ) : null}
-          {mode === 'activity' && !activityDone && activityGames.length === 0 ? (
+          {mode === 'activity' && !activityDone && activityGames.length === 0 && !stageCompletesActivity ? (
             <button
               className="primary-action"
               onClick={() => {

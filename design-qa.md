@@ -3,7 +3,7 @@
 ## Comparison Target
 
 - Source visual truth: User-supplied student-list modal screenshot in the current conversation. A local image path is not available.
-- Implementation: `http://127.0.0.1:4173/LogicLabs/` after selecting a class.
+- Implementation: `http://127.0.0.1:4174/LogicLabs/` after selecting a class.
 - Intended viewport/state: Desktop classroom modal, step 1 of 2.
 
 ## Evidence

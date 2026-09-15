@@ -6,46 +6,54 @@
   "badge": "BONE",
   "color": "#d62839",
   "activity": "build",
-  "activityLabel": "Play Fossil Puzzle",
-  "activityInstruction": "Match the bones to build the T-Rex skeleton.",
+  "activityLabel": "Uncover and Build the T-Rex",
+  "activityInstruction": "Brush away the dirt to uncover five fossils, then fit them together to build the T-Rex skeleton.",
   "difficulty": 1,
   "topics": ["fossil parts", "bone", "skeleton", "dinosaur"],
   "classIds": ["BrickX"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "storyVideoUrl": "https://www.youtube.com/embed/zFOMX5ZMoks",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "stageBackground": ["#f3e8d8", "#faf3e8", "#e3d0b4"],
-  "activityGames": [
-    {
-      "id": "fossil-game",
-      "label": "Play Fossil Puzzle",
-      "title": "Fossil Puzzle",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
-    }
-  ],
   "storyQuestions": [
     {
-      "prompt": "What is a fossil?",
-      "answers": ["A preserved bone from long ago", "A shiny rock", "A toy dinosaur"],
+      "prompt": "What came to the school?",
+      "answers": ["A mystery box", "A new robot", "A baby dinosaur"],
       "correctIndex": 0,
-      "success": "A fossil is a preserved bone from long ago."
+      "success": "A mystery box came to the school."
     },
     {
-      "prompt": "What animal is the skeleton from?",
-      "answers": ["A T-Rex", "A fish", "A bird"],
+      "prompt": "What was inside the box?",
+      "answers": ["Old bones", "Robot parts", "Dinosaur eggs"],
       "correctIndex": 0,
-      "success": "The skeleton is from a T-Rex."
+      "success": "Old bones were inside the box."
     },
     {
-      "prompt": "What holds the head up?",
-      "answers": ["The neck bones", "The tail", "The feet"],
+      "prompt": "Do we know what animal the bones came from?",
+      "answers": ["No", "Yes", "Only the teacher knows"],
       "correctIndex": 0,
-      "success": "The neck bones hold the head up."
+      "success": "No, we do not know yet."
     },
     {
-      "prompt": "What do the strong back legs do?",
-      "answers": ["Carry the heavy body", "Fly", "Swim"],
+      "prompt": "What are the old bones called?",
+      "answers": ["Fossils", "Crystals", "Machines"],
       "correctIndex": 0,
-      "success": "The strong back legs carry the heavy body."
+      "success": "The old bones are called fossils."
+    },
+    {
+      "prompt": "What clues did we find?",
+      "answers": [
+        "Big leg bones, tiny arm bones, and sharp teeth",
+        "Wings, feathers, and a beak",
+        "Fins, scales, and a long tail"
+      ],
+      "correctIndex": 0,
+      "success": "We found big leg bones, tiny arm bones, and sharp teeth."
+    },
+    {
+      "prompt": "What do we need to do?",
+      "answers": ["Study the fossil clues", "Put the box away", "Build a new school"],
+      "correctIndex": 0,
+      "success": "We need to study the fossil clues."
     }
   ],
   "quiz": [
@@ -79,36 +87,31 @@
       "id": "skull",
       "label": "Skull",
       "fact": "The skull is the big head bone with the strong jaws and teeth.",
-      "help": "The large bone at the front.",
-      "shape": {"kind": "path", "d": "M300 90 L420 110 L410 200 L330 210 Q280 190 300 90", "fill": "#e8d5b8", "stroke": "#8a6d45"}
+      "help": "The large bone at the front."
     },
     {
       "id": "neck",
       "label": "Neck Bones",
       "fact": "The neck bones hold the huge head and let it turn.",
-      "help": "The curved bones behind the skull.",
-      "shape": {"kind": "path", "d": "M300 200 Q 260 250 280 300", "stroke": "#a88d63", "strokeWidth": 12}
+      "help": "The curved bones behind the skull."
     },
     {
       "id": "ribs",
       "label": "Ribs",
       "fact": "The ribs curve around to protect the body.",
-      "help": "The curved bones in the middle.",
-      "shape": {"kind": "path", "d": "M280 300 Q 340 260 380 300 Q 340 340 280 300", "fill": "none", "stroke": "#a88d63", "strokeWidth": 10}
+      "help": "The curved bones in the middle."
     },
     {
       "id": "tail",
       "label": "Tail",
       "fact": "The long tail balanced the T-Rex as it walked and ran.",
-      "help": "The long bones stretching back.",
-      "shape": {"kind": "path", "d": "M380 310 Q 460 340 540 300", "stroke": "#a88d63", "strokeWidth": 12}
+      "help": "The long bones stretching back."
     },
     {
       "id": "leg",
       "label": "Back Leg",
       "fact": "The strong back legs carried the heavy T-Rex body.",
-      "help": "The thick bones under the body.",
-      "shape": {"kind": "path", "d": "M320 340 L 300 420 L 340 430", "stroke": "#a88d63", "strokeWidth": 16}
+      "help": "The thick bones under the body."
     }
   ]
 }

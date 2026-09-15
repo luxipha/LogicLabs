@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 
 const host = '127.0.0.1';
-const port = 4173;
+const port = 4174;
 const root = path.join(process.cwd(), 'docs');
 const pagesBasePath = (process.env.PUBLIC_BASE_PATH ?? '/LogicLabs/').replace(/\/$/, '');
 

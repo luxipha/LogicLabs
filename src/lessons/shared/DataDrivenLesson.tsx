@@ -1,7 +1,8 @@
 import React from 'react';
 import {GenericLesson} from '../generic/GenericLesson';
 import {PartsStage} from './PartsStage';
-import {SketchfabEmbed} from './lesson-ui';
+import {SketchfabEmbed, StoryVideoCard} from './lesson-ui';
+import {WarmupScreen} from './WarmupScreen';
 import type {LessonContent} from '../../app/types';
 import '../generic/lesson.scoped.css';
 
@@ -30,7 +31,11 @@ export const DataDrivenLesson: React.FC<{
       onDraw={onDraw}
       onBoard={onBoard}
       stage={(props) => (
-        props.mode === 'explore' && content.sketchfabEmbedUrl ? (
+        props.mode === 'warmup' ? (
+          <WarmupScreen videoUrl={props.warmupVideoUrl} />
+        ) : props.mode === 'story' ? (
+          <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />
+        ) : props.mode === 'explore' && content.sketchfabEmbedUrl ? (
           <SketchfabEmbed
             embedUrl={content.sketchfabEmbedUrl}
             modelName={content.sketchfabModelName ?? content.title}

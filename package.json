@@ -15,6 +15,7 @@
     "render:frog": "remotion render FrogMission out/FrogMission.mp4",
     "render:monster-truck": "remotion render MonsterTruckMission out/MonsterTruckMission.mp4",
     "render:garage-door": "remotion render GarageDoorMission out/GarageDoorMission.mp4",
+    "render:trex": "remotion render TrexMission out/TrexMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
