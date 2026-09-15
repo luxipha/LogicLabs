@@ -18,6 +18,7 @@ export const TrexFossilLesson: React.FC<{
     warmupVideoUrl={warmupVideoUrl}
     onDraw={onDraw}
     onBoard={onBoard}
+    codingTab
     stageCompletesActivity
     stage={(props) => <TrexStage {...props} />}
     partPreview={(part) => <TrexPartPreview part={part} />}

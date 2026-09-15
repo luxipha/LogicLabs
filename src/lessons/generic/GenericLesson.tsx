@@ -16,7 +16,7 @@ import {
 } from '../shared/lesson-ui';
 import './lesson.scoped.css';
 
-type GenericMode = 'warmup' | 'story' | 'identify' | 'explore' | 'activity' | 'quiz';
+type GenericMode = 'warmup' | 'story' | 'identify' | 'explore' | 'activity' | 'quiz' | 'coding';
 
 const MODE_TABS: LessonModeTab<GenericMode>[] = [
   {id: 'warmup', label: 'Warmup', icon: 'WU', tone: 'fly'},
@@ -36,6 +36,7 @@ export const GenericLesson: React.FC<{
   onDraw?: () => void;
   onBoard?: () => void;
   stageCompletesActivity?: boolean;
+  codingTab?: boolean;
   stage: (props: {
     mode: GenericMode;
     activePart: string;
@@ -48,10 +49,11 @@ export const GenericLesson: React.FC<{
     resetActivity: () => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
+      if (codingTab && (param === 'coding' || param === 'quiz')) return 'coding';
       if (param === 'story' || param === 'identify' || param === 'explore' || param === 'activity' || param === 'quiz') {
         return param;
       }
@@ -208,7 +210,7 @@ export const GenericLesson: React.FC<{
             ? content.exploreTitle ?? `Explore the ${parts.find((p) => p.id === activePart)?.label ?? activePart}.`
             : mode === 'activity'
               ? content.activityLabel
-              : 'Answer the check questions.';
+              : mode === 'coding' ? 'T-Rex Coding' : 'Answer the check questions.';
   const taskText =
     mode === 'warmup'
       ? 'Watch the video, then press the Story tab to begin.'
@@ -222,7 +224,7 @@ export const GenericLesson: React.FC<{
           ? content.exploreInstruction ?? parts.find((p) => p.id === activePart)?.fact ?? ''
           : mode === 'activity'
             ? content.activityInstruction
-            : 'You finished the questions.';
+            : mode === 'coding' ? 'Follow the coding images. Use Next and Previous to move through the steps, or open Fullscreen for a larger view.' : 'You finished the questions.';
 
   const bannerMessage =
     storyFeedback === 'correct'
@@ -275,7 +277,7 @@ export const GenericLesson: React.FC<{
     <div className="app-shell generic-app">
       <div className="sky-layer" />
       <MissionHeader score={120 + identified.size * 10} onDraw={onDraw} onBoard={onBoard} />
-      <ModeTabs tabs={MODE_TABS} activeMode={mode} onSelect={selectMode} />
+      <ModeTabs tabs={codingTab ? MODE_TABS.map(tab => tab.id === 'quiz' ? {id: 'coding' as const, label: 'Coding', icon: 'CODE', tone: tab.tone} : tab) : MODE_TABS} activeMode={mode} onSelect={selectMode} />
 
       <LessonStage>
         {mode === 'activity' && openGame ? (
@@ -335,7 +337,7 @@ export const GenericLesson: React.FC<{
             success={storyQuestion.success}
             onAnswer={answerStory}
           />
-        ) : mode === 'warmup' || mode === 'activity' ? (
+        ) : mode === 'warmup' || mode === 'activity' || mode === 'coding' ? (
           mode === 'activity' && activityGames.length > 0 ? (
             <div className="activity-game-launchers">
               {activityGames.map((game, index) => (
@@ -359,7 +361,7 @@ export const GenericLesson: React.FC<{
             onAnswer={answerQuiz}
           />
         )}
-        <TipCard>{mode === 'warmup' ? 'Tip: Warm bodies learn best.' : mode === 'story' ? 'Tip: Look for clues in the story.' : 'Tip: Look closely at the picture.'}</TipCard>
+        {mode !== 'coding' && <TipCard>{mode === 'warmup' ? 'Tip: Warm bodies learn best.' : mode === 'story' ? 'Tip: Look for clues in the story.' : 'Tip: Look closely at the picture.'}</TipCard>}
       </aside>
 
       <aside className="progress-column">
@@ -367,14 +369,14 @@ export const GenericLesson: React.FC<{
           <ProgressCard done={storyCorrect} total={content.storyQuestions.length} label="answered" />
         ) : mode === 'warmup' ? (
           <ProgressCard done={warmupDone ? 1 : 0} total={1} label="warmup" />
-        ) : (
+        ) : mode === 'coding' ? null : (
           <ProgressCard done={progressDone} total={progressTotal} label={mode === 'identify' ? 'found' : 'done'} />
         )}
         <LessonRailSlot />
       </aside>
 
       {mode === 'identify' ? <PartsTray parts={trayParts} onSelect={selectPart} /> : null}
-      {mode !== 'identify' || feedback ? <FeedbackBanner message={bannerMessage} state={bannerState} /> : null}
+      {mode !== 'coding' && (mode !== 'identify' || feedback) ? <FeedbackBanner message={bannerMessage} state={bannerState} /> : null}
     </div>
   );
 };

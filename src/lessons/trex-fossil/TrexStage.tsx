@@ -3,6 +3,7 @@ import {StoryVideoCard} from '../shared/lesson-ui';
 import {WarmupScreen} from '../shared/WarmupScreen';
 import content from './content.json';
 import {FossilActivity} from './FossilActivity';
+import {TrexCoding} from './TrexCoding';
 import {TrexCanvas, type TrexPartId as ModelTrexPartId} from './TrexModel';
 import './trex.scoped.css';
 
@@ -95,6 +96,9 @@ const TrexStageContent: React.FC<{
 }> = ({activePart, lastSelectedPart, onSelect, mode, warmupVideoUrl, activityDone, completeActivity, resetActivity}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
 
+  if (mode === 'coding') {
+    return <TrexCoding />;
+  }
   if (mode === 'warmup') {
     return <WarmupScreen videoUrl={warmupVideoUrl} />;
   }
