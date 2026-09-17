@@ -16,6 +16,7 @@
     "render:monster-truck": "remotion render MonsterTruckMission out/MonsterTruckMission.mp4",
     "render:garage-door": "remotion render GarageDoorMission out/GarageDoorMission.mp4",
     "render:trex": "remotion render TrexMission out/TrexMission.mp4",
+    "render:electric-tractor": "remotion render ElectricTractorMission out/ElectricTractorMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },

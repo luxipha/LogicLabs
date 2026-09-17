@@ -13,6 +13,10 @@ import {FrogMission, TOTAL_FRAMES as FROG_FRAMES} from './scenes/FrogMission';
 import {MonsterTruckMission, TOTAL_FRAMES as MONSTER_TRUCK_FRAMES} from './scenes/MonsterTruckMission';
 import {GarageDoorMission, TOTAL_FRAMES as GARAGE_DOOR_FRAMES} from './scenes/GarageDoorMission';
 import {TrexMission, TOTAL_FRAMES as TREX_FRAMES} from './scenes/TrexMission';
+import {
+  ElectricTractorMission,
+  TOTAL_FRAMES as ELECTRIC_TRACTOR_FRAMES,
+} from './scenes/ElectricTractorMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -23,6 +27,7 @@ const FROG_DURATION = FROG_FRAMES;
 const MONSTER_TRUCK_DURATION = MONSTER_TRUCK_FRAMES;
 const GARAGE_DOOR_DURATION = GARAGE_DOOR_FRAMES;
 const TREX_DURATION = TREX_FRAMES;
+const ELECTRIC_TRACTOR_DURATION = ELECTRIC_TRACTOR_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -95,6 +100,14 @@ export const RemotionRoot: React.FC = () => {
         id="TrexMission"
         component={TrexMission}
         durationInFrames={TREX_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ElectricTractorMission"
+        component={ElectricTractorMission}
+        durationInFrames={ELECTRIC_TRACTOR_DURATION}
         fps={30}
         width={1920}
         height={1080}

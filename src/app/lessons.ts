@@ -14,6 +14,8 @@ import frogTadpoleContent from '../lessons/frog-tadpole/content.json';
 import trexFossilContent from '../lessons/trex-fossil/content.json';
 import fanL4Content from '../lessons/fan-l4/content.json';
 import monsterTruckContent from '../lessons/monster-truck/content.json';
+import electricTractorContent from '../lessons/electric-tractor/content.json';
+import soccerContent from '../lessons/soccer/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -33,7 +35,9 @@ export type LessonId =
   | 'frog-tadpole'
   | 'trex-fossil'
   | 'fan-l4'
-  | 'monster-truck';
+  | 'monster-truck'
+  | 'electric-tractor'
+  | 'soccer';
 
 export type LessonMeta = {
   id: LessonId;
@@ -66,6 +70,8 @@ const FrogTadpoleLesson = lazy(() => import('../lessons/frog-tadpole/FrogTadpole
 const TrexFossilLesson = lazy(() => import('../lessons/trex-fossil/TrexFossilLesson'));
 const FanL4Lesson = lazy(() => import('../lessons/fan-l4/FanL4Lesson'));
 const MonsterTruckLesson = lazy(() => import('../lessons/monster-truck/MonsterTruckLesson'));
+const ElectricTractorLesson = lazy(() => import('../lessons/electric-tractor/ElectricTractorLesson'));
+const SoccerLesson = lazy(() => import('../lessons/soccer/SoccerLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -83,6 +89,8 @@ export const LESSONS: LessonMeta[] = [
   {id: 'trex-fossil', content: content(trexFossilContent)},
   {id: 'fan-l4', content: content(fanL4Content)},
   {id: 'monster-truck', content: content(monsterTruckContent)},
+  {id: 'electric-tractor', content: content(electricTractorContent)},
+  {id: 'soccer', content: content(soccerContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -120,5 +128,9 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return FanL4Lesson;
     case 'monster-truck':
       return MonsterTruckLesson;
+    case 'electric-tractor':
+      return ElectricTractorLesson;
+    case 'soccer':
+      return SoccerLesson;
   }
 };

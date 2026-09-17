@@ -76,6 +76,8 @@ const lessonRoutes = [
   '/lessons/elevator',
   '/lessons/monster-truck',
   '/lessons/trex-fossil',
+  '/lessons/electric-tractor',
+  '/lessons/soccer',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
 const routes = [...lessonRoutes, ...drawRoutes];
@@ -121,5 +123,6 @@ await fs.copyFile(
   path.join(modelsDir, 'monster-truck.glb'),
 );
 await fs.copyFile(path.join(root, 'public/models/TREX.glb'), path.join(modelsDir, 'trex.glb'));
+await fs.copyFile(path.join(root, 'public/models/tractor_04__trailer.glb'), path.join(modelsDir, 'electric-tractor.glb'));
 
 console.log('Built classroom app into docs/');

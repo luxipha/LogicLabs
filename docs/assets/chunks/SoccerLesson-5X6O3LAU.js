@@ -1,0 +1,1 @@
+import{a as r}from"./chunk-EWUYDUEC.js";import{a as t}from"./chunk-WGPXLRLF.js";import"./chunk-XFHDY6UJ.js";import"./chunk-RJCCTHLH.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var n=o(e()),m=i=>(0,n.jsx)(r,{content:t,...i}),p=m;export{m as SoccerLesson,p as default};
