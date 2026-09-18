@@ -17,6 +17,8 @@ import {
   ElectricTractorMission,
   TOTAL_FRAMES as ELECTRIC_TRACTOR_FRAMES,
 } from './scenes/ElectricTractorMission';
+import {SoccerMission, TOTAL_FRAMES as SOCCER_FRAMES} from './scenes/SoccerMission';
+import {SeesawMission, TOTAL_FRAMES as SEESAW_FRAMES} from './scenes/SeesawMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -28,6 +30,8 @@ const MONSTER_TRUCK_DURATION = MONSTER_TRUCK_FRAMES;
 const GARAGE_DOOR_DURATION = GARAGE_DOOR_FRAMES;
 const TREX_DURATION = TREX_FRAMES;
 const ELECTRIC_TRACTOR_DURATION = ELECTRIC_TRACTOR_FRAMES;
+const SOCCER_DURATION = SOCCER_FRAMES;
+const SEESAW_DURATION = SEESAW_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -108,6 +112,22 @@ export const RemotionRoot: React.FC = () => {
         id="ElectricTractorMission"
         component={ElectricTractorMission}
         durationInFrames={ELECTRIC_TRACTOR_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SoccerMission"
+        component={SoccerMission}
+        durationInFrames={SOCCER_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SeesawMission"
+        component={SeesawMission}
+        durationInFrames={SEESAW_DURATION}
         fps={30}
         width={1920}
         height={1080}

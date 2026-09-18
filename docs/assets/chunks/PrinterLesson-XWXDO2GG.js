@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-XSTICK3X.js";import{a as t}from"./chunk-BBDMRH3A.js";import"./chunk-72GEQRMH.js";import"./chunk-RJCCTHLH.js";import{c as o,e as r}from"./chunk-HLYRQ3WR.js";var n=o(r()),m=i=>(0,n.jsx)(e,{content:t,...i}),p=m;export{m as PrinterLesson,p as default};

@@ -3,6 +3,9 @@ out
 .DS_Store
 *.tsbuildinfo
 
+# Local source model; the classroom uses goalkeeper-optimized.glb instead.
+public/models/goalkeeper.glb
+
 # whisper.cpp — third-party speech-to-text engine (own upstream repo).
 # Fully regenerable via scripts/transcribe-narration.mjs (installWhisperCpp).
 # Keep it out of version control entirely.

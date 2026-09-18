@@ -1,113 +1,103 @@
 {
   "slug": "soccer",
-  "title": "Mission: The Soccer Kicker",
-  "subtitle": "Build the soccer machine and score a goal.",
-  "summary": "Meet the soccer kicker, learn its parts, and swing the arm to send the ball into the goal.",
+  "title": "Mission: The Soccer Goalkeeper",
+  "subtitle": "Move into position and protect the goal.",
+  "summary": "Meet the goalkeeper, learn the goal-area parts, and make a quick save.",
   "badge": "GOAL",
   "color": "#3fbf3f",
   "activity": "penalty",
-  "activityLabel": "Play Penalty Kick Game",
-  "activityInstruction": "Load the ball, spin the motor and score a goal.",
+  "activityLabel": "Block the shot",
+  "activityInstruction": "Move the goalkeeper into position to block the shot.",
   "difficulty": 1,
-  "topics": ["soccer", "motor", "gear", "kicker arm"],
+  "topics": ["soccer", "goalkeeper", "goal", "ball"],
   "classIds": ["Power Function"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "storyVideoUrl": "https://www.youtube.com/embed/OlQOAuZFppw",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "stageBackground": ["#e2f5e2", "#f4fbf4", "#c8e8c8"],
-  "activityGames": [
-    {
-      "id": "soccer-game",
-      "label": "Play Penalty Kick Game",
-      "title": "Penalty Kick Game",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
-    }
-  ],
   "storyQuestions": [
     {
-      "prompt": "What makes the kicker arm swing?",
-      "answers": ["A motor and a gear", "A strong wind", "A big hand"],
-      "correctIndex": 0,
-      "success": "A motor and a gear make the arm swing."
+      "prompt": "What are the children playing?",
+      "answers": ["Basketball", "Soccer", "Tennis"],
+      "correctIndex": 1,
+      "success": "The children are playing soccer."
     },
     {
-      "prompt": "What does the kicker arm do?",
-      "answers": ["Strikes the ball", "Catches the ball", "Washes the ball"],
+      "prompt": "What does the player kick?",
+      "answers": ["The ball", "The net", "The grass"],
       "correctIndex": 0,
-      "success": "The kicker arm strikes the ball."
+      "success": "The player kicks the ball."
     },
     {
-      "prompt": "Where does the ball go?",
-      "answers": ["Into the goal", "Into the sky", "Under the stand"],
+      "prompt": "Where is the ball going?",
+      "answers": ["Over the fence", "Toward the goal", "Into the trees"],
+      "correctIndex": 1,
+      "success": "The ball is going toward the goal."
+    },
+    {
+      "prompt": "Is anyone standing in front of the goal?",
+      "answers": ["Yes, two players", "No, nobody is there", "Yes, the coach"],
+      "correctIndex": 1,
+      "success": "No, nobody is standing in front of the goal."
+    },
+    {
+      "prompt": "What happens to the ball?",
+      "answers": ["It goes into the goal", "It stops on the grass", "It rolls away"],
       "correctIndex": 0,
       "success": "The ball goes into the goal."
     },
     {
-      "prompt": "What spins the gear?",
-      "answers": ["The motor", "The ball", "The stand"],
-      "correctIndex": 0,
-      "success": "The motor spins the gear."
+      "prompt": "What do we need to stop the ball?",
+      "answers": ["A bigger ball", "A stronger kick", "Someone to protect the goal"],
+      "correctIndex": 2,
+      "success": "We need someone to protect the goal."
     }
   ],
   "quiz": [
     {
-      "prompt": "Which part turns the power into spinning?",
-      "answers": ["The motor", "The frame", "The ball"],
+      "prompt": "Which part moves toward the goal?",
+      "answers": ["The ball", "The net", "The grass"],
       "correctIndex": 0,
-      "success": "The motor turns the power into spinning."
+      "success": "The ball moves toward the goal."
     },
     {
-      "prompt": "Which part passes the spin to the arm?",
-      "answers": ["The gear", "The leg", "The ball"],
+      "prompt": "Which part catches or blocks the ball?",
+      "answers": ["The goalkeeper", "The goal", "The field"],
       "correctIndex": 0,
-      "success": "The gear passes the spin to the arm."
+      "success": "The goalkeeper blocks the ball."
     },
     {
-      "prompt": "Which part strikes the ball?",
-      "answers": ["The kicker arm", "The frame", "The motor"],
+      "prompt": "Which part is the target behind the goalkeeper?",
+      "answers": ["The goal net", "The gloves", "The ball"],
       "correctIndex": 0,
-      "success": "The kicker arm strikes the ball."
+      "success": "The goal net is the target."
     },
     {
-      "prompt": "Which part holds everything steady?",
-      "answers": ["The frame", "The ball", "The gear"],
+      "prompt": "What should you do before a shot?",
+      "answers": ["Move into position", "Turn away", "Leave the goal"],
       "correctIndex": 0,
-      "success": "The frame holds everything steady."
+      "success": "Move into position to make a save."
     }
   ],
   "parts": [
     {
-      "id": "frame",
-      "label": "Frame",
-      "fact": "The frame is the stand that holds the motor, the gear and the arm in place.",
-      "help": "The stand with the two legs.",
-      "shape": {"kind": "path", "d": "M180 318 L500 318 M204 330 L188 404 M476 330 L492 404", "stroke": "#7fa8c9", "strokeWidth": 10}
+      "id": "goalkeeper",
+      "label": "Goalkeeper",
+      "fact": "The goalkeeper watches the ball and moves across the goal to make a save.",
+      "help": "The player standing in front of the net.",
+      "shape": {"kind": "circle", "cx": 290, "cy": 244, "r": 74, "fill": "#ffca42", "stroke": "#cc8f1d"}
     },
     {
-      "id": "motor",
-      "label": "Motor",
-      "fact": "The motor spins when power flows through it, and it turns the gear.",
-      "help": "The round metal part on the stand.",
-      "shape": {"kind": "circle", "cx": 248, "cy": 258, "r": 30, "fill": "#8a93a0", "stroke": "#5c6570"}
-    },
-    {
-      "id": "gear",
-      "label": "Gear",
-      "fact": "The gear takes the spin from the motor and passes it to the kicker arm.",
-      "help": "The gold wheel next to the motor.",
-      "shape": {"kind": "circle", "cx": 336, "cy": 258, "r": 44, "fill": "#ffcf4a", "stroke": "#e8a800"}
-    },
-    {
-      "id": "kicker",
-      "label": "Kicker Arm",
-      "fact": "The kicker arm swings around and strikes the ball to send it away.",
-      "help": "The long arm pointing at the ball.",
-      "shape": {"kind": "path", "d": "M376 258 L520 300", "stroke": "#5c6570", "strokeWidth": 16}
+      "id": "goal",
+      "label": "Goal Net",
+      "fact": "The goal net catches a ball when it gets past the goalkeeper.",
+      "help": "The net behind the player.",
+      "shape": {"kind": "path", "d": "M410 180 L570 180 L570 360 L410 360 Z M442 180 L442 360 M490 180 L490 360 M538 180 L538 360", "stroke": "#62d7ff", "strokeWidth": 10}
     },
     {
       "id": "ball",
       "label": "Ball",
-      "fact": "The ball is the round ball the kicker arm sends toward the goal.",
-      "help": "The white ball in front of the arm.",
+      "fact": "The ball travels toward the goal, and the goalkeeper tries to stop it.",
+      "help": "The round soccer ball near the goal.",
       "shape": {"kind": "circle", "cx": 562, "cy": 336, "r": 32, "fill": "#f2f5f8", "stroke": "#5c6570"}
     }
   ]

@@ -17,6 +17,8 @@
     "render:garage-door": "remotion render GarageDoorMission out/GarageDoorMission.mp4",
     "render:trex": "remotion render TrexMission out/TrexMission.mp4",
     "render:electric-tractor": "remotion render ElectricTractorMission out/ElectricTractorMission.mp4",
+    "render:soccer": "remotion render SoccerMission out/SoccerMission.mp4",
+    "render:seesaw": "remotion render SeesawMission out/SeesawMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
