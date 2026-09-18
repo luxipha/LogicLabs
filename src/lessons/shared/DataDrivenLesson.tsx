@@ -20,7 +20,8 @@ export const DataDrivenLesson: React.FC<{
   warmupVideoUrl?: string;
   onDraw?: () => void;
   onBoard?: () => void;
-}> = ({content: rawContent, onHome, onComplete, warmupVideoUrl, onDraw, onBoard}) => {
+  activityStage?: (props: {activityDone: boolean; completeActivity: () => void; resetActivity: () => void}) => React.ReactNode;
+}> = ({content: rawContent, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, activityStage}) => {
   const content = asContent(rawContent);
   return (
     <GenericLesson
@@ -35,6 +36,12 @@ export const DataDrivenLesson: React.FC<{
           <WarmupScreen videoUrl={props.warmupVideoUrl} />
         ) : props.mode === 'story' ? (
           <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />
+        ) : props.mode === 'activity' && activityStage ? (
+          activityStage({
+            activityDone: props.activityDone,
+            completeActivity: props.completeActivity,
+            resetActivity: props.resetActivity,
+          })
         ) : props.mode === 'explore' && content.sketchfabEmbedUrl ? (
           <SketchfabEmbed
             embedUrl={content.sketchfabEmbedUrl}

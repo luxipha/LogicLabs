@@ -8,6 +8,7 @@ const outdir = path.join(root, 'docs');
 const assetsDir = path.join(outdir, 'assets');
 const modelsDir = path.join(outdir, 'models');
 const publicAssetsDir = path.join(root, 'public/assets');
+const banknoteActivitiesDir = path.join(root, 'public/banknote-activities');
 const elevatorActivitiesDir = path.join(root, 'public/elevator-activities');
 const frogActivitiesDir = path.join(root, 'public/frog-activities');
 const publicBasePath = (process.env.PUBLIC_BASE_PATH ?? '/LogicLabs/').replace(/\/?$/, '/');
@@ -30,6 +31,7 @@ for (let step = 1; step <= 14; step++) {
 }
 await fs.cp(elevatorActivitiesDir, path.join(outdir, 'elevator-activities'), {recursive: true});
 await fs.cp(frogActivitiesDir, path.join(outdir, 'frog-activities'), {recursive: true});
+await fs.cp(banknoteActivitiesDir, path.join(outdir, 'banknote-activities'), {recursive: true});
 
 await build({
   entryPoints: [path.join(root, 'src/app/index.tsx')],
@@ -77,6 +79,7 @@ const lessonRoutes = [
   '/lessons/monster-truck',
   '/lessons/trex-fossil',
   '/lessons/electric-tractor',
+  '/lessons/banknote-verifier',
   '/lessons/soccer',
   '/lessons/seesaw',
 ];

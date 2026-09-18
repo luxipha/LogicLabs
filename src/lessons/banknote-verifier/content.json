@@ -11,44 +11,54 @@
   "difficulty": 1,
   "topics": ["money checker parts", "sensor", "light", "roller"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "storyVideoUrl": "https://www.youtube.com/embed/TBh0scG2804",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
-  "sketchfabEmbedUrl": "https://sketchfab.com/models/4b2e5caab2034134acd917953405bc0e/embed",
-  "sketchfabModelName": "Banknote Counter",
-  "sketchfabModelPageUrl": "https://sketchfab.com/3d-models/banknote-counter-4b2e5caab2034134acd917953405bc0e",
+  "sketchfabEmbedUrl": "https://sketchfab.com/models/1b0ff7e17b0b460ead723839ff1f99b4/embed",
+  "sketchfabModelName": "Money Counter w/ Geometry Nodes Animation",
+  "sketchfabModelPageUrl": "https://sketchfab.com/3d-models/money-counter-w-geometry-nodes-animation-1b0ff7e17b0b460ead723839ff1f99b4",
+  "sketchfabAuthorName": "Unreal Designer",
+  "sketchfabAuthorPageUrl": "https://sketchfab.com/unrealdesigner.ig",
   "stageBackground": ["#e4f2e6", "#f5fbf5", "#c9e2cd"],
-  "activityGames": [
-    {
-      "id": "banknote-game",
-      "label": "Play Money Verifier",
-      "title": "Money Verifier",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
-    }
-  ],
   "storyQuestions": [
     {
-      "prompt": "What does a money checker do?",
-      "answers": ["Checks if money is real", "Counts coins", "Stores money"],
+      "prompt": "Who has a lot of money to check?",
+      "answers": ["A bank worker", "A shopkeeper", "A bus driver"],
       "correctIndex": 0,
-      "success": "A money checker checks if a note is real."
+      "success": "A bank worker has a lot of money to check."
     },
     {
-      "prompt": "Where does the note go in?",
-      "answers": ["Into the slot", "Into the pocket", "Under the desk"],
+      "prompt": "What does she need to do with the money?",
+      "answers": ["Count it", "Spend it", "Hide it"],
       "correctIndex": 0,
-      "success": "The note goes into the slot."
+      "success": "She needs to count the money."
     },
     {
-      "prompt": "What part rolls the note through?",
-      "answers": ["The rollers", "The wheels", "The levers"],
+      "prompt": "What else does she need to check?",
+      "answers": ["If the money is real", "If the money is wet", "If the money is old"],
       "correctIndex": 0,
-      "success": "The rollers pull the note through."
+      "success": "She also needs to check if the money is real."
     },
     {
-      "prompt": "What checks the note for marks?",
-      "answers": ["A sensor and light", "A mirror", "A magnet"],
+      "prompt": "Is there a little money or a lot of money?",
+      "answers": ["A little money", "A lot of money", "No money at all"],
+      "correctIndex": 1,
+      "success": "There is a lot of money."
+    },
+    {
+      "prompt": "Is checking the money one by one fast or slow?",
+      "answers": ["Fast", "Slow", "It takes no time"],
+      "correctIndex": 1,
+      "success": "Checking the money one by one is slow."
+    },
+    {
+      "prompt": "What does the bank worker need?",
+      "answers": [
+        "A faster way to count and check the money",
+        "A bigger desk",
+        "A longer break"
+      ],
       "correctIndex": 0,
-      "success": "A sensor and light check the note."
+      "success": "She needs a faster way to count and check the money."
     }
   ],
   "quiz": [
