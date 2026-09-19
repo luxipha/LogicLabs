@@ -21,7 +21,8 @@ export const DataDrivenLesson: React.FC<{
   onDraw?: () => void;
   onBoard?: () => void;
   activityStage?: (props: {activityDone: boolean; completeActivity: () => void; resetActivity: () => void}) => React.ReactNode;
-}> = ({content: rawContent, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, activityStage}) => {
+  identifyStage?: (props: {activePart: string; lastSelectedPart: string | null; identified: Set<string>; onSelect: (part: string) => void}) => React.ReactNode;
+}> = ({content: rawContent, onHome, onComplete, warmupVideoUrl, onDraw, onBoard, activityStage, identifyStage}) => {
   const content = asContent(rawContent);
   return (
     <GenericLesson
@@ -41,6 +42,13 @@ export const DataDrivenLesson: React.FC<{
             activityDone: props.activityDone,
             completeActivity: props.completeActivity,
             resetActivity: props.resetActivity,
+          })
+        ) : props.mode === 'identify' && identifyStage ? (
+          identifyStage({
+            activePart: props.activePart,
+            lastSelectedPart: props.lastSelectedPart,
+            identified: props.identified,
+            onSelect: props.onSelect,
           })
         ) : props.mode === 'explore' && content.sketchfabEmbedUrl ? (
           <SketchfabEmbed
