@@ -1,15 +1,17 @@
 import React, {useEffect, useRef, useState} from 'react';
 
 type ScratchPart = {
-  id: 'legs' | 'arms' | 'tail' | 'pouch';
+  id: 'head' | 'legs' | 'arms' | 'tail' | 'pouch';
   label: string;
   fact: string;
   position: string;
 };
 
 const PUZZLE_IMAGE = 'assets/Kangaroo/Puzzle.png';
+const ACTIVITY_IMAGE = 'assets/Kangaroo/Activity2.png';
 const PUZZLE_ORDER = [2, 7, 0, 8, 4, 1, 6, 3, 5];
 const SCRATCH_PARTS: ScratchPart[] = [
+  {id: 'head', label: 'Head', fact: 'The kangaroo has a head with big ears and bright eyes.', position: '33% 17%'},
   {id: 'legs', label: 'Big legs', fact: 'Big, strong legs help a kangaroo jump high.', position: '82% 86%'},
   {id: 'arms', label: 'Small arms', fact: 'The kangaroo has small arms near its chest.', position: '66% 42%'},
   {id: 'tail', label: 'Long tail', fact: 'The long tail helps the kangaroo balance.', position: '92% 76%'},
@@ -78,7 +80,7 @@ const ScratchCard: React.FC<{
 
   return (
     <article className={`kangaroo-scratch-card ${found ? 'found' : ''}`}>
-      <div className="kangaroo-scratch-window" style={{backgroundImage: `url(${PUZZLE_IMAGE})`, backgroundPosition: part.position}}>
+      <div className="kangaroo-scratch-window" style={{backgroundImage: `url(${ACTIVITY_IMAGE})`, backgroundPosition: part.position}}>
         {!found && (
           <canvas
             key={`${part.id}-${round}`}

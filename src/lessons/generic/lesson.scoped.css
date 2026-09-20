@@ -1985,7 +1985,10 @@
 .generic-app .kangaroo-puzzle-board{ flex: 1; min-height: 0; width: min(58vh, 520px); max-width: 100%; aspect-ratio: 1; align-self: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 6px; border: 3px solid #c99b45; border-radius: 15px; background: #f8e8b1; box-shadow: 0 8px 20px rgba(65, 89, 31, .18); }
 .generic-app .kangaroo-puzzle-tile{ min-width: 0; min-height: 0; border: 3px solid #fff; border-radius: 8px; background-size: 300% 300%; background-repeat: no-repeat; cursor: pointer; touch-action: manipulation; transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
 .generic-app .kangaroo-puzzle-tile:hover, .generic-app .kangaroo-puzzle-tile:focus-visible, .generic-app .kangaroo-puzzle-tile.selected{ z-index: 1; border-color: #ffca3a; outline: none; box-shadow: 0 0 0 3px rgba(255, 202, 58, .4); transform: scale(1.03); }
-.generic-app .kangaroo-scratch-grid{ flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-content: center; gap: 9px; }
+.generic-app .kangaroo-scratch-grid{ flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-content: center; gap: 9px; }
+.generic-app .kangaroo-scratch-card{ grid-column: span 2; }
+.generic-app .kangaroo-scratch-card:nth-child(4){ grid-column: 2 / span 2; }
+.generic-app .kangaroo-scratch-card:nth-child(5){ grid-column: 4 / span 2; }
 .generic-app .kangaroo-scratch-card{ min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 7px; border: 2px solid #d5b26c; border-radius: 12px; background: rgba(255, 255, 255, .82); text-align: center; }
 .generic-app .kangaroo-scratch-card.found{ border-color: #55a664; background: #f0f9e9; }
 .generic-app .kangaroo-scratch-window{ position: relative; width: 100%; aspect-ratio: 240 / 132; overflow: hidden; border-radius: 8px; background-repeat: no-repeat; background-size: 250% auto; background-color: #d9efc8; }
@@ -2010,5 +2013,6 @@
 }
 @media (max-width: 800px) {
   .generic-app .kangaroo-scratch-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: auto; }
+  .generic-app .kangaroo-scratch-card, .generic-app .kangaroo-scratch-card:nth-child(4), .generic-app .kangaroo-scratch-card:nth-child(5){ grid-column: auto; }
   .generic-app .kangaroo-puzzle-board{ width: min(68vw, 420px); }
 }
