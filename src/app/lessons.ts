@@ -17,6 +17,7 @@ import monsterTruckContent from '../lessons/monster-truck/content.json';
 import electricTractorContent from '../lessons/electric-tractor/content.json';
 import soccerContent from '../lessons/soccer/content.json';
 import seesawContent from '../lessons/seesaw/content.json';
+import kangarooContent from '../lessons/kangaroo/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -39,7 +40,8 @@ export type LessonId =
   | 'monster-truck'
   | 'electric-tractor'
   | 'soccer'
-  | 'seesaw';
+  | 'seesaw'
+  | 'kangaroo';
 
 export type LessonMeta = {
   id: LessonId;
@@ -75,6 +77,7 @@ const MonsterTruckLesson = lazy(() => import('../lessons/monster-truck/MonsterTr
 const ElectricTractorLesson = lazy(() => import('../lessons/electric-tractor/ElectricTractorLesson'));
 const SoccerLesson = lazy(() => import('../lessons/soccer/SoccerLesson'));
 const SeesawLesson = lazy(() => import('../lessons/seesaw/SeesawLesson'));
+const KangarooLesson = lazy(() => import('../lessons/kangaroo/KangarooLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -95,6 +98,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'electric-tractor', content: content(electricTractorContent)},
   {id: 'soccer', content: content(soccerContent)},
   {id: 'seesaw', content: content(seesawContent)},
+  {id: 'kangaroo', content: content(kangarooContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -138,5 +142,7 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return SoccerLesson;
     case 'seesaw':
       return SeesawLesson;
+    case 'kangaroo':
+      return KangarooLesson;
   }
 };

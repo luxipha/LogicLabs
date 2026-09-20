@@ -1050,6 +1050,9 @@ button {
   margin-top: 0;
   text-align: left;
 }
+.generic-app .activity-tab-launchers { display: grid; gap: 10px; }
+.generic-app .activity-tab-launchers .game-launch-btn { margin-top: 0; text-align: left; }
+.generic-app .activity-tab-launchers .game-launch-btn.active { border: 3px solid #ffcf48; padding: 13px 15px; box-shadow: 0 0 0 2px rgba(255, 207, 72, .25), 0 8px 18px rgba(0, 64, 136, .22); }
 
 .generic-app .elevator-stage-placeholder {
   position: absolute;
@@ -2003,4 +2006,56 @@ button {
   .seesaw-drag-block-10 { height: 40px; }
   .seesaw-drag-block-20 { height: 46px; }
   .seesaw-weight-readout { gap: 6px; font-size: 12px; }
+}
+
+/* Kangaroo lesson: the supplied GLB is used only for the selectable Identify view. */
+.kangaroo-model-stage { overflow: hidden; background: #fff7df; }
+.kangaroo-model-stage canvas { display: block; width: 100% !important; height: 100% !important; }
+.kangaroo-story-stage { display: grid; place-items: center; padding: 14px; background: #fff7df; }
+.kangaroo-story-stage video { width: 100%; height: 100%; object-fit: contain; border-radius: 16px; background: #152231; }
+.kangaroo-loading, .kangaroo-no-webgl { display: grid; place-items: center; height: 100%; padding: 24px; color: #65421f; text-align: center; font-weight: 800; background: #fff7df; }
+.kangaroo-no-webgl span { display: block; margin-top: 8px; font-weight: 700; }
+.kangaroo-part-preview { display: grid; place-items: center; font-size: 29px; }
+
+/* Kangaroo Activity: a two-step, touch-friendly puzzle and scratch reveal. */
+.kangaroo-activity { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 8px; padding: 12px; overflow: hidden; color: #173d64; background: linear-gradient(145deg, #fff8df, #dff3d0); border-radius: 18px; }
+.generic-app .kangaroo-activity:fullscreen { width: 100vw; height: 100vh; inset: auto; border: 0; border-radius: 0; }
+.kangaroo-activity-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-shrink: 0; }
+.kangaroo-activity-heading > div { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.kangaroo-activity-heading strong { font-size: clamp(17px, 1.9vw, 26px); }
+.kangaroo-activity-heading span { white-space: nowrap; padding: 5px 10px; border-radius: 999px; background: #fff; font-size: 13px; font-weight: 850; }
+.kangaroo-activity-message { min-height: 1.4em; margin: 0; font-size: clamp(13px, 1.15vw, 17px); font-weight: 750; }
+.kangaroo-activity-nav { display: flex; gap: 7px; flex-shrink: 0; }
+.kangaroo-activity-nav button { display: flex; align-items: center; gap: 6px; padding: 6px 11px; border: 2px solid #b8d19b; border-radius: 9px; color: #315d39; background: rgba(255, 255, 255, .74); font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; }
+.kangaroo-activity-nav button span { font-size: 10px; color: #6a7f4d; text-transform: uppercase; }
+.kangaroo-activity-nav button.active { border-color: #c48f2c; color: #5d421a; background: #fff3bd; box-shadow: 0 0 0 2px rgba(196, 143, 44, .15); }
+.kangaroo-puzzle-board { flex: 1; min-height: 0; width: min(58vh, 520px); max-width: 100%; aspect-ratio: 1; align-self: center; display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 6px; border: 3px solid #c99b45; border-radius: 15px; background: #f8e8b1; box-shadow: 0 8px 20px rgba(65, 89, 31, .18); }
+.kangaroo-puzzle-tile { min-width: 0; min-height: 0; border: 3px solid #fff; border-radius: 8px; background-size: 300% 300%; background-repeat: no-repeat; cursor: pointer; touch-action: manipulation; transition: transform .14s ease, border-color .14s ease, box-shadow .14s ease; }
+.kangaroo-puzzle-tile:hover, .kangaroo-puzzle-tile:focus-visible, .kangaroo-puzzle-tile.selected { z-index: 1; border-color: #ffca3a; outline: none; box-shadow: 0 0 0 3px rgba(255, 202, 58, .4); transform: scale(1.03); }
+.kangaroo-scratch-grid { flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); align-content: center; gap: 9px; }
+.kangaroo-scratch-card { min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 7px; border: 2px solid #d5b26c; border-radius: 12px; background: rgba(255, 255, 255, .82); text-align: center; }
+.kangaroo-scratch-card.found { border-color: #55a664; background: #f0f9e9; }
+.kangaroo-scratch-window { position: relative; width: 100%; aspect-ratio: 240 / 132; overflow: hidden; border-radius: 8px; background-repeat: no-repeat; background-size: 250% auto; background-color: #d9efc8; }
+.kangaroo-scratch-window canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: crosshair; }
+.kangaroo-scratch-card strong { font-size: clamp(12px, 1.05vw, 16px); }
+.kangaroo-scratch-card > span { min-height: 2.4em; font-size: 11px; font-weight: 700; }
+.kangaroo-scratch-card progress { width: 100%; height: 6px; accent-color: #57a15c; }
+.kangaroo-reveal-button, .kangaroo-try-again, .kangaroo-activity-footer button { align-self: center; padding: 5px 10px; border: 2px solid #4d8c56; border-radius: 8px; color: #1f5a35; background: #fff; font: inherit; font-size: 12px; font-weight: 850; cursor: pointer; }
+.kangaroo-activity-footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-shrink: 0; font-size: 12px; font-weight: 750; }
+.kangaroo-activity-actions { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+.kangaroo-fullscreen { min-height: 30px; margin: 0; padding: 5px 9px; border-radius: 8px; font-size: 12px; line-height: 1.1; white-space: nowrap; }
+.kangaroo-try-again { flex-shrink: 0; }
+@media (max-height: 760px) and (min-width: 900px) {
+  .kangaroo-activity { gap: 5px; padding: 8px; }
+  .kangaroo-activity-message { font-size: 13px; }
+  .kangaroo-activity-nav button { padding: 4px 8px; }
+  .kangaroo-puzzle-board { width: min(48vh, 390px); }
+  .kangaroo-scratch-grid { gap: 6px; }
+  .kangaroo-scratch-card { padding: 5px; }
+  .kangaroo-scratch-card > span { font-size: 10px; }
+  .kangaroo-activity-footer { font-size: 11px; }
+}
+@media (max-width: 800px) {
+  .kangaroo-scratch-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); overflow: auto; }
+  .kangaroo-puzzle-board { width: min(68vw, 420px); }
 }

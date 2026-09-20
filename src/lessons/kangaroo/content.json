@@ -1,0 +1,42 @@
+{
+  "slug": "kangaroo",
+  "title": "Mission: Something Is Moving in the Grass — Kangaroo",
+  "subtitle": "Look closely, think, and discover the mystery animal.",
+  "summary": "Follow the clues in the tall grass and learn about a kangaroo's big legs, small arms, long tail, and pouch.",
+  "badge": "JUMP",
+  "color": "#e98b35",
+  "activity": "discover",
+  "activityLabel": "Discover the kangaroo",
+  "activityInstruction": "Look closely at the kangaroo and find each body part.",
+  "difficulty": 1,
+  "topics": ["kangaroo", "grass", "jumping", "pouch"],
+  "classIds": ["Preschool"],
+  "storyVideoUrl": "https://www.youtube.com/embed/t9D0Pm_BqQc",
+  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
+  "sketchfabEmbedUrl": "https://sketchfab.com/models/3f00780cb67c4f0686476587c3adce3c/embed",
+  "sketchfabModelName": "Kangaroo",
+  "sketchfabModelPageUrl": "https://sketchfab.com/3d-models/kangaroo-3f00780cb67c4f0686476587c3adce3c",
+  "sketchfabAuthorName": "mcnhel",
+  "sketchfabAuthorPageUrl": "https://sketchfab.com/mcnhel",
+  "stageBackground": ["#f7e0a3", "#fff5d6", "#d5e9bd"],
+  "storyQuestions": [
+    {"prompt": "Where are the children walking?", "answers": ["Near the tall golden grass", "Inside a house", "At the beach"], "correctIndex": 0, "success": "The children are walking near the tall golden grass."},
+    {"prompt": "What starts to move?", "answers": ["The grass", "A cloud", "A tree"], "correctIndex": 0, "success": "The grass starts to move."},
+    {"prompt": "What does the mystery animal do?", "answers": ["It jumps", "It swims", "It flies"], "correctIndex": 0, "success": "The mystery animal jumps."},
+    {"prompt": "Does it jump low or high?", "answers": ["High", "Low", "It does not jump"], "correctIndex": 0, "success": "It jumps high."},
+    {"prompt": "What body parts can the children see?", "answers": ["Big legs, small arms, and a long tail", "Wings and fins", "Three heads"], "correctIndex": 0, "success": "They see big legs, small arms, and a long tail."},
+    {"prompt": "What do they notice on its tummy?", "answers": ["A pocket or pouch", "A backpack", "A shell"], "correctIndex": 0, "success": "They notice a pocket, called a pouch."},
+    {"prompt": "Is something inside the pouch?", "answers": ["Yes", "No", "They cannot see the kangaroo"], "correctIndex": 0, "success": "Yes, something is inside the pouch."},
+    {"prompt": "What could be inside?", "answers": ["A baby kangaroo, or joey", "A fish", "A flower"], "correctIndex": 0, "success": "A baby kangaroo is called a joey."}
+  ],
+  "quiz": [
+    {"prompt": "Which part helps a kangaroo balance while it jumps?", "answers": ["Its long tail", "Its ears", "Its nose"], "correctIndex": 0, "success": "The long tail helps the kangaroo balance."},
+    {"prompt": "What is a baby kangaroo called?", "answers": ["A joey", "A cub", "A chick"], "correctIndex": 0, "success": "A baby kangaroo is called a joey."}
+  ],
+  "parts": [
+    {"id": "legs", "label": "Big Legs", "fact": "Big, strong legs help the kangaroo jump high.", "help": "Look at the long powerful legs."},
+    {"id": "arms", "label": "Small Arms", "fact": "The kangaroo's arms are small compared with its legs.", "help": "Look near the front of the body."},
+    {"id": "tail", "label": "Long Tail", "fact": "The long tail helps the kangaroo balance.", "help": "Look behind the body."},
+    {"id": "pouch", "label": "Pouch", "fact": "The pouch is a pocket where a joey can grow safely.", "help": "Look at the front of the tummy."}
+  ]
+}

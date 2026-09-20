@@ -37,6 +37,7 @@ export const GenericLesson: React.FC<{
   onBoard?: () => void;
   stageCompletesActivity?: boolean;
   codingTab?: boolean;
+  activityTabs?: (props: {activeId: string; onSelect: (id: string) => void}) => React.ReactNode;
   stage: (props: {
     mode: GenericMode;
     activePart: string;
@@ -47,9 +48,11 @@ export const GenericLesson: React.FC<{
     activityDone: boolean;
     completeActivity: () => void;
     resetActivity: () => void;
+    activityStep: string;
+    setActivityStep: (id: string) => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, activityTabs, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
@@ -72,6 +75,7 @@ export const GenericLesson: React.FC<{
   const [quizCorrect, setQuizCorrect] = useState(0);
   const [quizFeedback, setQuizFeedback] = useState<'correct' | 'wrong' | null>(null);
   const [activityDone, setActivityDone] = useState(false);
+  const [activityStep, setActivityStep] = useState('puzzle');
   const [openGameId, setOpenGameId] = useState<string | null>(null);
   const parts = content.parts ?? [];
   const activityGames = content.activityGames ?? (content.gameEmbedUrl ? [{
@@ -175,6 +179,7 @@ export const GenericLesson: React.FC<{
     setQuizCorrect(0);
     setQuizFeedback(null);
     setActivityDone(false);
+    setActivityStep('puzzle');
     setOpenGameId(null);
   };
 
@@ -302,6 +307,8 @@ export const GenericLesson: React.FC<{
               setActivityDone(false);
               onReset?.();
             },
+            activityStep,
+            setActivityStep,
           })
         )}
       </LessonStage>
@@ -350,6 +357,8 @@ export const GenericLesson: React.FC<{
                 />
               ))}
             </div>
+          ) : mode === 'activity' && activityTabs ? (
+            <div className="activity-game-launchers">{activityTabs({activeId: activityStep, onSelect: setActivityStep})}</div>
           ) : null
         ) : (
           <QuizCard

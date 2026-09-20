@@ -192,6 +192,25 @@ export const SketchfabEmbed: React.FC<{
   </div>
 );
 
+export const ActivityTabs: React.FC<{
+  items: Array<{id: string; label: string}>;
+  activeId: string;
+  onSelect: (id: string) => void;
+}> = ({items, activeId, onSelect}) => (
+  <div className="activity-tab-launchers" aria-label="Activities">
+    {items.map((item, index) => (
+      <button
+        key={item.id}
+        type="button"
+        className={`game-launch-btn ${activeId === item.id ? 'active' : ''}`}
+        onClick={() => onSelect(item.id)}
+      >
+        Activity {index + 1}: {item.label}
+      </button>
+    ))}
+  </div>
+);
+
 export const GameEmbed: React.FC<{
   title: string;
   src: string;

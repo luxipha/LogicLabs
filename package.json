@@ -20,6 +20,7 @@
     "render:soccer": "remotion render SoccerMission out/SoccerMission.mp4",
     "render:seesaw": "remotion render SeesawMission out/SeesawMission.mp4",
     "render:banknote-verifier": "remotion render BanknoteVerifierMission out/BanknoteVerifierMission.mp4",
+    "render:kangaroo": "remotion render KangarooMission out/KangarooMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
