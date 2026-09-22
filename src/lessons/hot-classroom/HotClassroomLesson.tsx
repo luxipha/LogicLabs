@@ -21,6 +21,7 @@ export const HotClassroomLesson: React.FC<{
     warmupVideoUrl={warmupVideoUrl}
     onDraw={onDraw}
     onBoard={onBoard}
+    codingTab
     stageCompletesActivity
     stage={({mode, warmupVideoUrl: stageWarmupVideoUrl, activePart, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity}) => (
       <HotClassroomStage

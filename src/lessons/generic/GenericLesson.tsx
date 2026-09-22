@@ -226,7 +226,7 @@ export const GenericLesson: React.FC<{
             ? content.exploreTitle ?? `Explore the ${parts.find((p) => p.id === activePart)?.label ?? activePart}.`
             : mode === 'activity'
               ? content.activityLabel
-              : mode === 'coding' ? 'T-Rex Coding' : 'Answer the check questions.';
+              : mode === 'coding' ? `${content.title} Coding` : 'Answer the check questions.';
   const taskText =
     !hasLessonContent
       ? 'Add the lesson materials when they are ready. The shared classroom UI is already connected.'

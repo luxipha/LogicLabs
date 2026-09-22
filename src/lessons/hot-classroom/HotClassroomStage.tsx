@@ -3,6 +3,7 @@ import {HotClassroomFanCanvas, HotClassroomIdentifyCanvas, type FanPartId} from 
 import {WarmupScreen} from '../shared/WarmupScreen';
 import {StoryVideoCard} from '../shared/lesson-ui';
 import {HotClassroomActivity} from './HotClassroomActivity';
+import {HotClassroomCoding} from './HotClassroomCoding';
 import content from './content.json';
 
 const hasWebGLSupport = () => {
@@ -46,6 +47,7 @@ export const HotClassroomStage: React.FC<{
 
   if (mode === 'warmup') return <WarmupScreen videoUrl={warmupVideoUrl} />;
   if (mode === 'story') return <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />;
+  if (mode === 'coding') return <HotClassroomCoding />;
   if (mode === 'activity') {
     return <HotClassroomActivity activityDone={activityDone} completeActivity={completeActivity} resetActivity={resetActivity} />;
   }

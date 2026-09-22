@@ -230,9 +230,69 @@
 
 .hot-classroom-try-again { justify-self: center; width: auto; margin: 0; padding: 7px 14px; font-size: 14px; }
 
+.hot-classroom-coding-viewer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  padding: 12px;
+  border-radius: 18px;
+  background: #f2f7fc;
+  color: #17335b;
+}
+
+.hot-classroom-coding-toolbar,
+.hot-classroom-coding-navigation {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.hot-classroom-coding-toolbar strong { font-size: 20px; }
+
+.hot-classroom-coding-viewer button {
+  padding: 9px 14px;
+  border: 2px solid #b7d1e8;
+  border-radius: 10px;
+  background: #fff;
+  color: #17335b;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.hot-classroom-coding-viewer button:disabled { opacity: 0.45; cursor: default; }
+.hot-classroom-coding-viewer button:focus-visible { outline: 3px solid #ffcf36; outline-offset: 2px; }
+
+.hot-classroom-coding-image {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.hot-classroom-coding-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.hot-classroom-coding-navigation span { font-weight: 850; white-space: nowrap; }
+.hot-classroom-coding-viewer:fullscreen { width: 100vw; height: 100vh; padding: 16px; border-radius: 0; }
+.hot-classroom-coding-viewer.expanded { position: fixed; inset: 0; z-index: 2000; border-radius: 0; }
+
 @media (max-height: 760px) and (min-width: 900px) {
   .hot-classroom-activity { gap: 6px; padding: 7px; }
   .hot-classroom-assembly-part { grid-template-columns: 42px minmax(0, 1fr); padding: 3px; font-size: 11px; }
   .hot-classroom-assembly-part .hot-classroom-part-preview { transform: scale(0.64); }
   .hot-classroom-assembly-status { min-height: 0; padding: 5px 9px; font-size: 11px; }
+}
+
+@media (max-width: 700px) {
+  .hot-classroom-coding-viewer { padding: 8px; }
+  .hot-classroom-coding-viewer button { padding: 8px; font-size: 12px; }
+  .hot-classroom-coding-toolbar strong { font-size: 17px; }
 }
