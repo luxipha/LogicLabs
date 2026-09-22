@@ -27,6 +27,10 @@ import {
   KangarooMission,
   TOTAL_FRAMES as KANGAROO_FRAMES,
 } from './scenes/KangarooMission';
+import {
+  HotClassroomMission,
+  TOTAL_FRAMES as HOT_CLASSROOM_FRAMES,
+} from './scenes/HotClassroomMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -42,6 +46,7 @@ const SOCCER_DURATION = SOCCER_FRAMES;
 const SEESAW_DURATION = SEESAW_FRAMES;
 const BANKNOTE_DURATION = BANKNOTE_FRAMES;
 const KANGAROO_DURATION = KANGAROO_FRAMES;
+const HOT_CLASSROOM_DURATION = HOT_CLASSROOM_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -154,6 +159,14 @@ export const RemotionRoot: React.FC = () => {
         id="KangarooMission"
         component={KangarooMission}
         durationInFrames={KANGAROO_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="HotClassroomMission"
+        component={HotClassroomMission}
+        durationInFrames={HOT_CLASSROOM_DURATION}
         fps={30}
         width={1920}
         height={1080}

@@ -88,6 +88,15 @@ export const GenericLesson: React.FC<{
 
   const storyQuestion = content.storyQuestions[storyIndex];
   const quizQuestion = content.quiz[quizIndex];
+  const hasLessonContent = Boolean(
+    content.warmupVideoUrl ||
+    content.storyVideoUrl ||
+    content.storyQuestions.length ||
+    content.quiz.length ||
+    parts.length ||
+    content.activityInstruction ||
+    activityGames.length,
+  );
   const identifyTarget = parts.find((part) => !identified.has(part.id)) ?? null;
   const quizComplete = quizCorrect === content.quiz.length;
 
@@ -136,7 +145,7 @@ export const GenericLesson: React.FC<{
   };
 
   const answerStory = (index: number) => {
-    if (storyFeedback || storyCorrect === content.storyQuestions.length) {
+    if (!storyQuestion || storyFeedback || storyCorrect === content.storyQuestions.length) {
       return;
     }
     const correct = index === storyQuestion.correctIndex;
@@ -151,7 +160,7 @@ export const GenericLesson: React.FC<{
   };
 
   const answerQuiz = (index: number) => {
-    if (quizFeedback || quizComplete) {
+    if (!quizQuestion || quizFeedback || quizComplete) {
       return;
     }
     const correct = index === quizQuestion.correctIndex;
@@ -203,7 +212,9 @@ export const GenericLesson: React.FC<{
           : 1;
 
   const taskTitle =
-    mode === 'warmup'
+    !hasLessonContent
+      ? 'Lesson setup is ready.'
+      : mode === 'warmup'
       ? 'Watch the warmup video.'
       : mode === 'story'
         ? 'Watch the mission story.'
@@ -217,7 +228,9 @@ export const GenericLesson: React.FC<{
               ? content.activityLabel
               : mode === 'coding' ? 'T-Rex Coding' : 'Answer the check questions.';
   const taskText =
-    mode === 'warmup'
+    !hasLessonContent
+      ? 'Add the lesson materials when they are ready. The shared classroom UI is already connected.'
+      : mode === 'warmup'
       ? 'Watch the video, then press the Story tab to begin.'
       : mode === 'story'
         ? 'Watch the video, then answer the story questions.'
@@ -315,7 +328,7 @@ export const GenericLesson: React.FC<{
 
       <aside className="task-column">
         <TaskCard badge={content.badge} title={taskTitle} text={taskText} feedback={feedback === 'wrong' ? 'wrong' : null}>
-          {mode === 'story' ? (
+          {mode === 'story' && storyQuestion ? (
             <button className="primary-action" onClick={() => selectMode('identify')}>
               Start Identifying
             </button>
@@ -335,7 +348,7 @@ export const GenericLesson: React.FC<{
           ) : null}
         </TaskCard>
 
-        {mode === 'story' ? (
+        {mode === 'story' && storyQuestion ? (
           <QuizCard
             prompt={storyQuestion.prompt}
             answers={storyQuestion.answers}
@@ -360,7 +373,7 @@ export const GenericLesson: React.FC<{
           ) : mode === 'activity' && activityTabs ? (
             <div className="activity-game-launchers">{activityTabs({activeId: activityStep, onSelect: setActivityStep})}</div>
           ) : null
-        ) : (
+        ) : quizQuestion ? (
           <QuizCard
             prompt={quizComplete ? 'You finished all the questions.' : quizQuestion.prompt}
             answers={quizComplete ? [] : quizQuestion.answers}
@@ -369,7 +382,7 @@ export const GenericLesson: React.FC<{
             success={quizQuestion?.success}
             onAnswer={answerQuiz}
           />
-        )}
+        ) : null}
         {mode !== 'coding' && <TipCard>{mode === 'warmup' ? 'Tip: Warm bodies learn best.' : mode === 'story' ? 'Tip: Look for clues in the story.' : 'Tip: Look closely at the picture.'}</TipCard>}
       </aside>
 

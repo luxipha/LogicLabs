@@ -1,0 +1,238 @@
+.hot-classroom-stage {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border: 3px solid rgba(113, 201, 255, 0.5);
+  border-radius: 14px;
+  background: #a8d9f3;
+}
+
+.hot-classroom-stage__card {
+  position: absolute;
+  inset: 15%;
+  display: grid;
+  place-content: center;
+  z-index: 1;
+  padding: clamp(1.25rem, 3vw, 2.5rem);
+  border: 3px solid rgba(128, 62, 23, 0.18);
+  border-radius: 1.5rem;
+  background: rgba(255, 253, 244, 0.9);
+  box-shadow: 0 1rem 2rem rgba(128, 62, 23, 0.18);
+  color: #6b351b;
+  text-align: center;
+}
+
+.hot-classroom-stage__model {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.hot-classroom-stage__model canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hot-classroom-stage__fallback,
+.hot-classroom-stage__loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 0.4rem;
+  padding: 2rem;
+  color: #6b351b;
+  text-align: center;
+}
+
+.hot-classroom-stage__fallback strong,
+.hot-classroom-stage__loading {
+  font-size: clamp(1rem, 2vw, 1.35rem);
+}
+
+.hot-classroom-stage__fallback span {
+  font-size: 0.88rem;
+}
+
+.hot-classroom-stage__card span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: #c45d24;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.hot-classroom-stage__card strong {
+  display: block;
+  font-size: clamp(1.35rem, 3vw, 2.2rem);
+}
+
+.hot-classroom-stage__card p {
+  margin: 0.7rem 0 0;
+  font-size: clamp(0.88rem, 1.5vw, 1.05rem);
+  line-height: 1.5;
+}
+
+.hot-classroom-part-preview {
+  position: relative;
+  display: block;
+  width: 62px;
+  height: 48px;
+  margin: auto;
+}
+
+.hot-classroom-part-preview--blade::before {
+  content: '';
+  position: absolute;
+  inset: 7px 11px;
+  border-radius: 50%;
+  background: repeating-conic-gradient(#ef772e 0 26deg, #ffd5a8 28deg 44deg);
+}
+
+.hot-classroom-part-preview--motor::before {
+  content: '';
+  position: absolute;
+  inset: 10px 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 36% 32%, #f5f7fb, #aeb7c7 68%);
+}
+
+.hot-classroom-part-preview--stand::before {
+  content: '';
+  position: absolute;
+  left: 26px;
+  bottom: 4px;
+  width: 10px;
+  height: 39px;
+  border-radius: 6px 6px 3px 3px;
+  background: #bdc7d7;
+}
+
+.hot-classroom-part-preview--guard::before {
+  content: '';
+  position: absolute;
+  inset: 4px 8px;
+  border: 5px solid #bdc7d7;
+  border-radius: 50%;
+  background: repeating-conic-gradient(transparent 0 12deg, #d7dee9 13deg 15deg, transparent 16deg 24deg);
+}
+
+.hot-classroom-part-preview--base::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 4px;
+  height: 17px;
+  border-radius: 8px 8px 11px 11px;
+  background: #aeb7c7;
+}
+
+.hot-classroom-part-preview--base::after {
+  content: '';
+  position: absolute;
+  left: 27px;
+  bottom: 18px;
+  width: 9px;
+  height: 20px;
+  border-radius: 5px 5px 2px 2px;
+  background: #bdc7d7;
+}
+
+.hot-classroom-activity {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto auto;
+  gap: 9px;
+  padding: 10px;
+  overflow: hidden;
+  background: #a8d9f3;
+}
+
+.hot-classroom-assembly-zone {
+  position: relative;
+  min-height: 0;
+  overflow: hidden;
+  border: 3px dashed rgba(19, 96, 161, 0.45);
+  border-radius: 14px;
+  background: #a8d9f3;
+}
+
+.hot-classroom-assembly-zone > .hot-classroom-assembly-canvas,
+.hot-classroom-assembly-zone > .hot-classroom-assembly-canvas canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hot-classroom-assembly-empty,
+.hot-classroom-assembly-complete {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 7px 12px;
+  border-radius: 999px;
+  color: #123e69;
+  font-size: 13px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+.hot-classroom-assembly-empty { top: 14px; background: rgba(244, 250, 255, 0.9); }
+.hot-classroom-assembly-complete { top: 14px; background: #e8ffc8; color: #276c1d; }
+
+.hot-classroom-parts-tray {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.hot-classroom-assembly-part {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  padding: 6px;
+  border: 2px solid rgba(19, 96, 161, 0.3);
+  border-radius: 10px;
+  color: #123e69;
+  background: rgba(255, 255, 255, 0.93);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 850;
+  text-align: left;
+  cursor: grab;
+}
+
+.hot-classroom-assembly-part:active { cursor: grabbing; }
+.hot-classroom-assembly-part.is-dragging { opacity: 0.55; }
+.hot-classroom-assembly-part.is-placed { color: #4f8c2d; border-color: #78b75b; background: #f0fae8; cursor: default; }
+.hot-classroom-assembly-part .hot-classroom-part-preview { transform: scale(0.82); transform-origin: center; }
+
+.hot-classroom-assembly-status {
+  min-height: 2.4em;
+  padding: 7px 11px;
+  border-radius: 9px;
+  color: #123e69;
+  background: rgba(244, 250, 255, 0.9);
+  font-size: 13px;
+  font-weight: 750;
+  line-height: 1.3;
+  text-align: center;
+}
+
+.hot-classroom-try-again { justify-self: center; width: auto; margin: 0; padding: 7px 14px; font-size: 14px; }
+
+@media (max-height: 760px) and (min-width: 900px) {
+  .hot-classroom-activity { gap: 6px; padding: 7px; }
+  .hot-classroom-assembly-part { grid-template-columns: 42px minmax(0, 1fr); padding: 3px; font-size: 11px; }
+  .hot-classroom-assembly-part .hot-classroom-part-preview { transform: scale(0.64); }
+  .hot-classroom-assembly-status { min-height: 0; padding: 5px 9px; font-size: 11px; }
+}

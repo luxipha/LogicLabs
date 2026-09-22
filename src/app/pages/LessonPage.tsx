@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getLesson, getLessonComponent} from '../lessons';
 import {navigate} from '../router';
-import {getCurrentClass} from '../classStore';
+import {getCurrentClass, getPresetClass} from '../classStore';
 import {DrawingCanvas} from '../../components/DrawingCanvas';
 import {ClassPointsCard} from '../components/ClassPointsCard';
 import {LessonRailProvider} from '../lessonRail';
@@ -36,8 +36,9 @@ export const LessonPage: React.FC<{id: string}> = ({id}) => {
   }
 
   const Lesson = getLessonComponent(lesson.id);
-  // Warmup comes from the lesson's own content JSON.
-  const warmupVideoUrl = lesson.content.warmupVideoUrl;
+  // Lessons can override the class warmup. An empty lesson value intentionally
+  // inherits the selected class's default video.
+  const warmupVideoUrl = lesson.content.warmupVideoUrl || getPresetClass(cls?.name ?? '')?.warmupVideoUrl || '';
   const drawScope = `${cls?.name ?? 'class'}/${lesson.id}`;
 
   // The points card is handed to the lesson so it renders inside the lesson's

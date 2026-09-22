@@ -82,7 +82,12 @@ const KangarooModel: React.FC<{
 
   const select = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
-    const part = (event.object as Mesh).userData.part as KangarooPartId | null;
+    // Small decorative meshes (nails, eyes, ears) can sit in front of a
+    // target mesh. Walk every raycast hit so a click on a detail still finds
+    // the intended underlying body part.
+    const part = event.intersections
+      .map(({object}) => (object as Mesh).userData.part as KangarooPartId | null)
+      .find((candidate): candidate is KangarooPartId => Boolean(candidate && PARTS.includes(candidate))) ?? null;
     if (part && PARTS.includes(part)) onPartSelect(part);
   };
 

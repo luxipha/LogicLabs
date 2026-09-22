@@ -1,0 +1,130 @@
+{
+  "slug": "hot-classroom",
+  "title": "The Hot Classroom",
+  "subtitle": "",
+  "summary": "",
+  "badge": "HOT",
+  "color": "#f18b36",
+  "activity": "build-fan",
+  "activityLabel": "Build the fan",
+  "activityInstruction": "Drag each fan part into the build zone. It will snap into place with a fact.",
+  "difficulty": 1,
+  "topics": [],
+  "classIds": ["Brickmoto"],
+  "storyVideoUrl": "https://www.youtube.com/embed/-XGJri9rj44",
+  "warmupVideoUrl": "",
+  "storyQuestions": [
+    {
+      "prompt": "How is the classroom?",
+      "answers": ["Hot.", "Cold.", "Windy."],
+      "correctIndex": 0,
+      "success": "The classroom is hot."
+    },
+    {
+      "prompt": "How do the children feel?",
+      "answers": ["Hot.", "Sleepy.", "Hungry."],
+      "correctIndex": 0,
+      "success": "The children feel hot."
+    },
+    {
+      "prompt": "What does one child use?",
+      "answers": ["A book.", "A cup.", "A ball."],
+      "correctIndex": 0,
+      "success": "One child uses a book."
+    },
+    {
+      "prompt": "What happens when the child waves the book?",
+      "answers": ["The air moves.", "The lights go out.", "The door opens."],
+      "correctIndex": 0,
+      "success": "The air moves when the child waves the book."
+    },
+    {
+      "prompt": "Does the moving air feel good?",
+      "answers": ["Yes.", "No.", "It makes them colder."],
+      "correctIndex": 0,
+      "success": "Yes, the moving air feels good."
+    },
+    {
+      "prompt": "Why does the child stop?",
+      "answers": ["Their arm gets tired.", "They are sleepy.", "The book is lost."],
+      "correctIndex": 0,
+      "success": "The child stops because their arm gets tired."
+    },
+    {
+      "prompt": "What do the children want to do?",
+      "answers": ["Make the air move.", "Close the window.", "Leave the room."],
+      "correctIndex": 0,
+      "success": "The children want to make the air move."
+    },
+    {
+      "prompt": "Do they want to keep using their hands?",
+      "answers": ["No.", "Yes.", "Sometimes."],
+      "correctIndex": 0,
+      "success": "No, they do not want to keep using their hands."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "Which part spins around to move the air?",
+      "answers": ["The blade.", "The base.", "The cord."],
+      "correctIndex": 0,
+      "success": "The blade spins around to move the air."
+    },
+    {
+      "prompt": "Which part turns the blade?",
+      "answers": ["The motor.", "The guard.", "The base."],
+      "correctIndex": 0,
+      "success": "The motor turns the blade."
+    },
+    {
+      "prompt": "Which part keeps your fingers away from the blade?",
+      "answers": ["The guard.", "The motor.", "The base."],
+      "correctIndex": 0,
+      "success": "The guard keeps your fingers away from the blade."
+    },
+    {
+      "prompt": "Which part holds the fan steady so it does not tip over?",
+      "answers": ["The base.", "The blade.", "The guard."],
+      "correctIndex": 0,
+      "success": "The base holds the fan steady."
+    },
+    {
+      "prompt": "Where is the motor on this fan?",
+      "answers": ["In the middle, behind the blade.", "On the floor.", "Under the base."],
+      "correctIndex": 0,
+      "success": "The motor sits in the middle, behind the blade."
+    },
+    {
+      "prompt": "What makes the air move?",
+      "answers": ["The spinning blade.", "The base.", "The guard."],
+      "correctIndex": 0,
+      "success": "The spinning blade makes the air move."
+    }
+  ],
+  "parts": [
+    {
+      "id": "blade",
+      "label": "Blade",
+      "fact": "The blades spin around to push the air and make a breeze.",
+      "help": "The orange shapes behind the fan guard."
+    },
+    {
+      "id": "motor",
+      "label": "Motor",
+      "fact": "The motor turns the blades when the fan is switched on.",
+      "help": "The round hub in the middle of the fan."
+    },
+    {
+      "id": "stand",
+      "label": "Stand",
+      "fact": "The stand holds the motor and blades above the base.",
+      "help": "The upright part between the base and motor."
+    },
+    {
+      "id": "base",
+      "label": "Base",
+      "fact": "The base holds the fan steady so it does not tip over.",
+      "help": "The stand at the bottom of the fan."
+    }
+  ]
+}
