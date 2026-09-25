@@ -31,6 +31,11 @@ import {
   HotClassroomMission,
   TOTAL_FRAMES as HOT_CLASSROOM_FRAMES,
 } from './scenes/HotClassroomMission';
+import {
+  WaterwheelMission,
+  TOTAL_FRAMES as WATERWHEEL_FRAMES,
+} from './scenes/WaterwheelMission';
+import {PrinterMission, TOTAL_FRAMES as PRINTER_FRAMES} from './scenes/PrinterMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -47,6 +52,8 @@ const SEESAW_DURATION = SEESAW_FRAMES;
 const BANKNOTE_DURATION = BANKNOTE_FRAMES;
 const KANGAROO_DURATION = KANGAROO_FRAMES;
 const HOT_CLASSROOM_DURATION = HOT_CLASSROOM_FRAMES;
+const WATERWHEEL_DURATION = WATERWHEEL_FRAMES;
+const PRINTER_DURATION = PRINTER_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -167,6 +174,22 @@ export const RemotionRoot: React.FC = () => {
         id="HotClassroomMission"
         component={HotClassroomMission}
         durationInFrames={HOT_CLASSROOM_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="WaterwheelMission"
+        component={WaterwheelMission}
+        durationInFrames={WATERWHEEL_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="PrinterMission"
+        component={PrinterMission}
+        durationInFrames={PRINTER_DURATION}
         fps={30}
         width={1920}
         height={1080}
