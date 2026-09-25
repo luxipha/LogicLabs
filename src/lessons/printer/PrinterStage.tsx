@@ -1,7 +1,9 @@
 import React, {Component, Suspense, useEffect, useRef, useState, type ReactNode} from 'react';
 import {WarmupScreen} from '../shared/WarmupScreen';
+import {StoryVideoCard} from '../shared/lesson-ui';
 import {PrinterActivity} from './PrinterActivity';
 import {PrinterCanvas, type PrinterPartId} from './PrinterModel';
+import content from './content.json';
 
 const hasWebGLSupport = () => {
   if (typeof document === 'undefined') return false;
@@ -14,29 +16,6 @@ class PrinterErrorBoundary extends Component<{children: ReactNode; fallback: Rea
   static getDerivedStateFromError() { return {hasError: true}; }
   render() { return this.state.hasError ? this.props.fallback : this.props.children; }
 }
-
-const PrinterStory: React.FC = () => (
-  <div className="printer-story" aria-label="How a printer makes a page">
-    <div className="printer-story__intro">
-      <span>HOW PRINTING WORKS</span>
-      <strong>A picture travels from the printer to the page.</strong>
-    </div>
-    <div className="printer-story__steps">
-      {[
-        ['1', 'Load paper', 'The paper tray holds a blank sheet.'],
-        ['2', 'Pull it through', 'Rollers move the sheet inside the printer.'],
-        ['3', 'Add the picture', 'The printer places colored ink on the page.'],
-        ['4', 'Collect the page', 'The output tray catches the finished print.'],
-      ].map(([number, title, body]) => (
-        <article key={number}>
-          <span>{number}</span>
-          <strong>{title}</strong>
-          <p>{body}</p>
-        </article>
-      ))}
-    </div>
-  </div>
-);
 
 export const PrinterStage: React.FC<{
   mode: string;
@@ -58,7 +37,7 @@ export const PrinterStage: React.FC<{
   }, []);
 
   if (mode === 'warmup') return <WarmupScreen videoUrl={warmupVideoUrl} />;
-  if (mode === 'story') return <PrinterStory />;
+  if (mode === 'story') return <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />;
   if (mode === 'activity') return <PrinterActivity activityDone={activityDone} completeActivity={completeActivity} resetActivity={resetActivity} />;
 
   const identify = mode === 'identify';

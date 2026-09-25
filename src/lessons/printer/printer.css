@@ -1,6 +1,5 @@
 .printer-stage,
-.printer-activity,
-.printer-story {
+.printer-activity {
   position: relative;
   width: 100%;
   height: 100%;
@@ -53,47 +52,6 @@
 }
 .printer-stage:fullscreen,
 .printer-activity:fullscreen { width: 100vw; height: 100vh; border-radius: 0; }
-
-.printer-story {
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 18px;
-  padding: clamp(18px, 3vw, 36px);
-  color: #30205a;
-}
-.printer-story__intro span {
-  display: block;
-  margin-bottom: 7px;
-  color: #7a55c9;
-  font-size: 12px;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-}
-.printer-story__intro strong { font-size: clamp(20px, 2.5vw, 34px); line-height: 1.05; }
-.printer-story__steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; min-height: 0; }
-.printer-story__steps article {
-  display: grid;
-  align-content: center;
-  gap: 8px;
-  min-width: 0;
-  padding: 16px;
-  border: 2px solid rgba(126, 88, 202, 0.22);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 8px 18px rgba(72, 47, 124, 0.08);
-}
-.printer-story__steps article > span {
-  display: grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border-radius: 50%;
-  background: #8f42f3;
-  color: #fff;
-  font-weight: 950;
-}
-.printer-story__steps strong { font-size: 17px; }
-.printer-story__steps p { margin: 0; color: #5e5279; font-size: 13px; font-weight: 700; line-height: 1.35; }
 
 .printer-activity-overlay {
   position: absolute;
@@ -168,18 +126,7 @@
 .printer-part-preview--output::after { left: 19px; right: 19px; bottom: 14px; height: 17px; background: #fffdf3; }
 
 @media (max-height: 760px) and (min-width: 900px) {
-  .printer-story { gap: 10px; padding: 14px 18px; }
-  .printer-story__intro strong { font-size: 20px; }
-  .printer-story__steps article { padding: 10px; gap: 5px; }
-  .printer-story__steps article > span { width: 28px; height: 28px; }
-  .printer-story__steps strong { font-size: 14px; }
-  .printer-story__steps p { font-size: 11px; }
   .printer-activity-overlay { padding: 8px; }
   .printer-activity-panel p { padding: 5px 10px; font-size: 11px; }
   .printer-activity-controls button { padding: 6px 10px; font-size: 12px; }
-}
-
-@media (max-width: 760px) {
-  .printer-story__steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .printer-story__steps article { padding: 10px; }
 }

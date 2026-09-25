@@ -16,28 +16,60 @@
   "stageBackground": ["#eae2f6", "#f7f3fc", "#d3c6ea"],
   "storyQuestions": [
     {
-      "prompt": "What does a printer do?",
-      "answers": ["Puts ink on paper", "Cuts paper", "Folds paper"],
+      "prompt": "Where is the picture?",
+      "answers": ["Inside the computer", "On the wall", "In a book"],
       "correctIndex": 0,
-      "success": "A printer puts ink on paper."
+      "success": "The picture is inside the computer."
     },
     {
-      "prompt": "Where does the paper go in?",
-      "answers": ["Into the tray", "Into the lid", "Into the screen"],
+      "prompt": "What are the children making?",
+      "answers": ["A picture", "A song", "A cake"],
       "correctIndex": 0,
-      "success": "The paper goes into the tray."
+      "success": "The children are making a picture."
     },
     {
-      "prompt": "What pulls the paper through?",
-      "answers": ["The rollers", "The magnets", "The springs"],
+      "prompt": "What do they add to the picture?",
+      "answers": ["Bright colors and shapes", "Glitter and glue", "Stickers and tape"],
       "correctIndex": 0,
-      "success": "The rollers pull the paper through."
+      "success": "They add bright colors, shapes and details."
     },
     {
-      "prompt": "What makes the colors on the page?",
-      "answers": ["The ink cartridges", "The buttons", "The lights"],
+      "prompt": "How does the finished picture look?",
+      "answers": ["Amazing", "Messy", "Empty"],
       "correctIndex": 0,
-      "success": "The ink cartridges make the colors."
+      "success": "The finished picture looks amazing."
+    },
+    {
+      "prompt": "What does the child want to do?",
+      "answers": ["Take the picture home", "Wipe the picture away", "Draw a new picture"],
+      "correctIndex": 0,
+      "success": "The child wants to take the picture home."
+    },
+    {
+      "prompt": "What is the problem?",
+      "answers": [
+        "The picture is stuck inside the screen",
+        "The computer is broken",
+        "The paper is too small"
+      ],
+      "correctIndex": 0,
+      "success": "The picture is stuck inside the computer screen."
+    },
+    {
+      "prompt": "What do the children want the picture on?",
+      "answers": ["Paper", "The screen", "The wall"],
+      "correctIndex": 0,
+      "success": "They want the picture on paper."
+    },
+    {
+      "prompt": "What is the mission?",
+      "answers": [
+        "Find a way to put the picture onto paper",
+        "Buy a new computer",
+        "Draw a bigger picture"
+      ],
+      "correctIndex": 0,
+      "success": "The mission is to put the picture onto paper."
     }
   ],
   "quiz": [
