@@ -11,7 +11,7 @@
   "difficulty": 1,
   "topics": ["printer parts", "paper path", "ink", "output"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "",
+  "storyVideoUrl": "https://www.youtube.com/embed/3IaFhsm2imo",
   "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
   "stageBackground": ["#eae2f6", "#f7f3fc", "#d3c6ea"],
   "storyQuestions": [
