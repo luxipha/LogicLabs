@@ -36,6 +36,10 @@ import {
   TOTAL_FRAMES as WATERWHEEL_FRAMES,
 } from './scenes/WaterwheelMission';
 import {PrinterMission, TOTAL_FRAMES as PRINTER_FRAMES} from './scenes/PrinterMission';
+import {
+  AlligatorMission,
+  TOTAL_FRAMES as ALLIGATOR_FRAMES,
+} from './scenes/AlligatorMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -54,6 +58,7 @@ const KANGAROO_DURATION = KANGAROO_FRAMES;
 const HOT_CLASSROOM_DURATION = HOT_CLASSROOM_FRAMES;
 const WATERWHEEL_DURATION = WATERWHEEL_FRAMES;
 const PRINTER_DURATION = PRINTER_FRAMES;
+const ALLIGATOR_DURATION = ALLIGATOR_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -190,6 +195,14 @@ export const RemotionRoot: React.FC = () => {
         id="PrinterMission"
         component={PrinterMission}
         durationInFrames={PRINTER_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="AlligatorMission"
+        component={AlligatorMission}
+        durationInFrames={ALLIGATOR_DURATION}
         fps={30}
         width={1920}
         height={1080}

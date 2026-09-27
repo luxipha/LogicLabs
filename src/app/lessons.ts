@@ -20,6 +20,7 @@ import seesawContent from '../lessons/seesaw/content.json';
 import kangarooContent from '../lessons/kangaroo/content.json';
 import hotClassroomContent from '../lessons/hot-classroom/content.json';
 import waterwheelContent from '../lessons/waterwheel/content.json';
+import alligatorContent from '../lessons/alligator/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -45,7 +46,8 @@ export type LessonId =
   | 'seesaw'
   | 'kangaroo'
   | 'hot-classroom'
-  | 'waterwheel';
+  | 'waterwheel'
+  | 'alligator';
 
 export type LessonMeta = {
   id: LessonId;
@@ -84,6 +86,7 @@ const SeesawLesson = lazy(() => import('../lessons/seesaw/SeesawLesson'));
 const KangarooLesson = lazy(() => import('../lessons/kangaroo/KangarooLesson'));
 const HotClassroomLesson = lazy(() => import('../lessons/hot-classroom/HotClassroomLesson'));
 const WaterwheelLesson = lazy(() => import('../lessons/waterwheel/WaterwheelLesson'));
+const AlligatorLesson = lazy(() => import('../lessons/alligator/AlligatorLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -107,6 +110,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'kangaroo', content: content(kangarooContent)},
   {id: 'hot-classroom', content: content(hotClassroomContent)},
   {id: 'waterwheel', content: content(waterwheelContent)},
+  {id: 'alligator', content: content(alligatorContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -156,5 +160,7 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return HotClassroomLesson;
     case 'waterwheel':
       return WaterwheelLesson;
+    case 'alligator':
+      return AlligatorLesson;
   }
 };

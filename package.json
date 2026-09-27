@@ -24,6 +24,7 @@
     "render:hot-classroom": "remotion render HotClassroomMission out/HotClassroomMission.mp4",
     "render:waterwheel": "remotion render WaterwheelMission out/WaterwheelMission.mp4",
     "render:printer": "remotion render PrinterMission out/PrinterMission.mp4",
+    "render:alligator": "remotion render AlligatorMission out/AlligatorMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },

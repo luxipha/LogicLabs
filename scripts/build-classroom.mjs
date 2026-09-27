@@ -91,6 +91,7 @@ const lessonRoutes = [
   '/lessons/kangaroo',
   '/lessons/hot-classroom',
   '/lessons/waterwheel',
+  '/lessons/alligator',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
 const routes = [...lessonRoutes, ...drawRoutes];
@@ -142,6 +143,10 @@ await fs.copyFile(path.join(root, 'public/models/seesaw_from_poly_by_google.glb'
 await fs.copyFile(path.join(root, 'public/models/kangaroo.glb'), path.join(modelsDir, 'kangaroo.glb'));
 await fs.copyFile(path.join(root, 'public/models/waterwheel.glb'), path.join(modelsDir, 'waterwheel.glb'));
 await fs.copyFile(path.join(root, 'public/models/canon_desktop_printer.glb'), path.join(modelsDir, 'printer.glb'));
+await fs.copyFile(
+  path.join(root, 'public/models/alligator_with_animations_granny_3.glb'),
+  path.join(modelsDir, 'alligator.glb'),
+);
 await fs.copyFile(
   path.join(root, 'public/models/electric_fan.glb'),
   path.join(modelsDir, 'electric_fan.glb'),
