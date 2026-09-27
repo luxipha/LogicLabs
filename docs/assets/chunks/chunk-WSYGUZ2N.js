@@ -1,0 +1,1 @@
+var o={slug:"field-goal",title:"Mission: The Field Goal",subtitle:"",summary:"",badge:"GOAL",color:"#e98b35",activity:"discover",activityLabel:"Discover the field goal",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{o as a};

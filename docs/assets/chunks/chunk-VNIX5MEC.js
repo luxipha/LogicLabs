@@ -1,0 +1,1 @@
+var t={slug:"compass",title:"Mission: The Compass",subtitle:"",summary:"",badge:"NORTH",color:"#8f42f3",activity:"discover",activityLabel:"Discover the compass",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{t as a};

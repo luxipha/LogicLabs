@@ -21,6 +21,12 @@ import kangarooContent from '../lessons/kangaroo/content.json';
 import hotClassroomContent from '../lessons/hot-classroom/content.json';
 import waterwheelContent from '../lessons/waterwheel/content.json';
 import alligatorContent from '../lessons/alligator/content.json';
+import salmonContent from '../lessons/salmon/content.json';
+import compassContent from '../lessons/compass/content.json';
+import ultrasonicContent from '../lessons/ultrasonic/content.json';
+import earthquakeContent from '../lessons/earth-quake/content.json';
+import fieldGoalContent from '../lessons/field-goal/content.json';
+import sunflowerContent from '../lessons/sunflower/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -47,7 +53,13 @@ export type LessonId =
   | 'kangaroo'
   | 'hot-classroom'
   | 'waterwheel'
-  | 'alligator';
+  | 'alligator'
+  | 'salmon'
+  | 'compass'
+  | 'ultrasonic'
+  | 'earth-quake'
+  | 'field-goal'
+  | 'sunflower';
 
 export type LessonMeta = {
   id: LessonId;
@@ -87,6 +99,12 @@ const KangarooLesson = lazy(() => import('../lessons/kangaroo/KangarooLesson'));
 const HotClassroomLesson = lazy(() => import('../lessons/hot-classroom/HotClassroomLesson'));
 const WaterwheelLesson = lazy(() => import('../lessons/waterwheel/WaterwheelLesson'));
 const AlligatorLesson = lazy(() => import('../lessons/alligator/AlligatorLesson'));
+const SalmonLesson = lazy(() => import('../lessons/salmon/SalmonLesson'));
+const CompassLesson = lazy(() => import('../lessons/compass/CompassLesson'));
+const UltrasonicLesson = lazy(() => import('../lessons/ultrasonic/UltrasonicLesson'));
+const EarthquakeLesson = lazy(() => import('../lessons/earth-quake/EarthquakeLesson'));
+const FieldGoalLesson = lazy(() => import('../lessons/field-goal/FieldGoalLesson'));
+const SunflowerLesson = lazy(() => import('../lessons/sunflower/SunflowerLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -111,6 +129,12 @@ export const LESSONS: LessonMeta[] = [
   {id: 'hot-classroom', content: content(hotClassroomContent)},
   {id: 'waterwheel', content: content(waterwheelContent)},
   {id: 'alligator', content: content(alligatorContent)},
+  {id: 'salmon', content: content(salmonContent)},
+  {id: 'compass', content: content(compassContent)},
+  {id: 'ultrasonic', content: content(ultrasonicContent)},
+  {id: 'earth-quake', content: content(earthquakeContent)},
+  {id: 'field-goal', content: content(fieldGoalContent)},
+  {id: 'sunflower', content: content(sunflowerContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -162,5 +186,17 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return WaterwheelLesson;
     case 'alligator':
       return AlligatorLesson;
+    case 'salmon':
+      return SalmonLesson;
+    case 'compass':
+      return CompassLesson;
+    case 'ultrasonic':
+      return UltrasonicLesson;
+    case 'earth-quake':
+      return EarthquakeLesson;
+    case 'field-goal':
+      return FieldGoalLesson;
+    case 'sunflower':
+      return SunflowerLesson;
   }
 };
