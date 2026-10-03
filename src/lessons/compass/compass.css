@@ -139,6 +139,21 @@
 .compass-activity-feedback { margin: 0; padding: 7px 12px; border-radius: 9px; background: rgba(255, 255, 255, 0.88); font-weight: 800; text-align: center; }
 .compass-try-again { width: auto; margin: 0; padding: 8px 14px; }
 
+.compass-coding-viewer { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 12px; padding: 18px; border: 3px solid rgba(42, 113, 151, 0.35); border-radius: 14px; background: #f2f7fc; color: #17335b; overflow: hidden; }
+.compass-coding-toolbar, .compass-coding-navigation { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-shrink: 0; }
+.compass-coding-toolbar strong { font-size: 22px; }
+.compass-coding-viewer button { border: 2px solid #b7d1e8; border-radius: 10px; background: #fff; color: #17335b; padding: 9px 14px; font: inherit; font-weight: 800; cursor: pointer; }
+.compass-coding-viewer button:disabled { opacity: 0.45; cursor: default; }
+.compass-coding-image { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; border-radius: 10px; background: #fff; }
+.compass-coding-image img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.compass-coding-navigation span { font-weight: 850; }
+.compass-coding-viewer:fullscreen { width: 100vw; height: 100vh; border-radius: 0; padding: 16px; }
+
+@media (max-width: 700px) {
+  .compass-coding-viewer { padding: 8px; }
+  .compass-coding-viewer button { padding: 8px; font-size: 12px; }
+}
+
 .compass-direction-lab { display: grid; place-content: center; justify-items: center; gap: 12px; padding: 18px; }
 .compass-modal-launch { display: grid; width: min(260px, 70%); min-height: 150px; place-items: center; align-content: center; gap: 5px; border: 8px solid #bb8b36; border-radius: 50%; background: radial-gradient(circle, #fffdf5 0 48%, #f0d79d 49% 58%, #fff 59%); color: #17335b; cursor: pointer; box-shadow: 0 8px 18px rgba(27, 79, 114, 0.18); font: inherit; }
 .compass-modal-launch:hover { transform: scale(1.03); }

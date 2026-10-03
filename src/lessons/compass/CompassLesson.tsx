@@ -23,6 +23,7 @@ export const CompassLesson: React.FC<{
     onDraw={onDraw}
     onBoard={onBoard}
     stageCompletesActivity
+    codingTab
     activityTabs={({activeId, onSelect}) => <ActivityTabs items={[{id: 'directions', label: 'Activity 1'}, {id: 'person', label: 'Activity 2'}]} activeId={activeId === 'person' ? 'person' : 'directions'} onSelect={onSelect} />}
     stage={({mode, warmupVideoUrl: stageWarmupVideoUrl, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity, activityStep, setActivityStep}) =>
       mode === 'story' ? (

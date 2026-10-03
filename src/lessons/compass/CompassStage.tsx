@@ -2,6 +2,7 @@ import React, {Component, Suspense, useState, type ReactNode} from 'react';
 import {WarmupScreen} from '../shared/WarmupScreen';
 import {CompassActivity} from './CompassActivity';
 import {CompassCanvas, type CompassPartId} from './CompassModel';
+import {CompassCoding} from './CompassCoding';
 
 const hasWebGLSupport = () => {
   if (typeof document === 'undefined') return false;
@@ -18,6 +19,7 @@ class CompassErrorBoundary extends Component<{children: ReactNode; fallback: Rea
 export const CompassStage: React.FC<{mode: string; warmupVideoUrl: string; lastSelectedPart: string | null; onSelect: (part: string) => void; activityDone: boolean; completeActivity: () => void; resetActivity: () => void; activityStep: string; setActivityStep: (step: string) => void}> = ({mode, warmupVideoUrl, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity, activityStep, setActivityStep}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
   if (mode === 'warmup') return <WarmupScreen videoUrl={warmupVideoUrl} />;
+  if (mode === 'coding') return <CompassCoding />;
   if (mode === 'activity') return <CompassActivity activityDone={activityDone} completeActivity={completeActivity} resetActivity={resetActivity} activityStep={activityStep} />;
   return <div className="generic-stage compass-stage" aria-label="3D compass">
     {!webGLAvailable ? <div className="compass-message"><strong>The compass needs WebGL.</strong><span>Enable graphics acceleration, then refresh the lesson.</span></div> :
