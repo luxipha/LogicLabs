@@ -157,5 +157,6 @@ await fs.copyFile(
   path.join(root, 'public/models/electric_fan.glb'),
   path.join(modelsDir, 'electric_fan.glb'),
 );
+await fs.copyFile(path.join(root, 'public/models/compass.glb'), path.join(modelsDir, 'compass.glb'));
 
 console.log('Built classroom app into docs/');

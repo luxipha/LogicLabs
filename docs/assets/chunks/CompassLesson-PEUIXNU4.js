@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-L4EJGFQC.js";import{a as t}from"./chunk-VNIX5MEC.js";import"./chunk-JQVZQDAT.js";import"./chunk-QLOSNYKF.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),m=i=>(0,r.jsx)(n,{content:t,...i}),d=m;export{m as CompassLesson,d as default};

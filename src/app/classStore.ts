@@ -88,6 +88,15 @@ export const PRESET_CLASSES: PresetClass[] = [
     createdAt: '',
   },
   {
+    name: 'Microbit',
+    grade: 'Microbit',
+    tagline: 'Tiny computers, sensors, and code.',
+    color: '#00a6a6',
+    art: 'robot',
+    warmupVideoUrl: 'https://www.youtube.com/embed/pn1qJET81a4',
+    createdAt: '',
+  },
+  {
     name: 'BrickX',
     grade: 'BrickX',
     tagline: 'Advanced builds and challenges.',

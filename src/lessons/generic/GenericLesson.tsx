@@ -292,7 +292,7 @@ export const GenericLesson: React.FC<{
   const trayParts = partRows;
 
   return (
-    <div className="app-shell generic-app">
+    <div className={`app-shell generic-app generic-app--${content.slug} generic-app--mode-${mode}`}>
       <div className="sky-layer" />
       <MissionHeader score={120 + identified.size * 10} onDraw={onDraw} onBoard={onBoard} />
       <ModeTabs tabs={codingTab ? MODE_TABS.map(tab => tab.id === 'quiz' ? {id: 'coding' as const, label: 'Coding', icon: 'CODE', tone: tab.tone} : tab) : MODE_TABS} activeMode={mode} onSelect={selectMode} />

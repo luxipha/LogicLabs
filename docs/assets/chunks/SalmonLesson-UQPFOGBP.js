@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-YOI2M4XA.js";import{a as t}from"./chunk-XGOPFQN4.js";import"./chunk-4VBQTXU6.js";import"./chunk-QLOSNYKF.js";import{c as o,e as n}from"./chunk-HLYRQ3WR.js";var r=o(n()),m=i=>(0,r.jsx)(e,{content:t,...i}),p=m;export{m as SalmonLesson,p as default};
