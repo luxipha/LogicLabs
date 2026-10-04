@@ -27,6 +27,7 @@ import ultrasonicContent from '../lessons/ultrasonic/content.json';
 import earthquakeContent from '../lessons/earth-quake/content.json';
 import fieldGoalContent from '../lessons/field-goal/content.json';
 import sunflowerContent from '../lessons/sunflower/content.json';
+import reviewContent from '../lessons/review/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -59,7 +60,8 @@ export type LessonId =
   | 'ultrasonic'
   | 'earth-quake'
   | 'field-goal'
-  | 'sunflower';
+  | 'sunflower'
+  | 'review';
 
 export type LessonMeta = {
   id: LessonId;
@@ -105,6 +107,7 @@ const UltrasonicLesson = lazy(() => import('../lessons/ultrasonic/UltrasonicLess
 const EarthquakeLesson = lazy(() => import('../lessons/earth-quake/EarthquakeLesson'));
 const FieldGoalLesson = lazy(() => import('../lessons/field-goal/FieldGoalLesson'));
 const SunflowerLesson = lazy(() => import('../lessons/sunflower/SunflowerLesson'));
+const ReviewLesson = lazy(() => import('../lessons/review/ReviewLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -135,6 +138,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'earth-quake', content: content(earthquakeContent)},
   {id: 'field-goal', content: content(fieldGoalContent)},
   {id: 'sunflower', content: content(sunflowerContent)},
+  {id: 'review', content: content(reviewContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -198,5 +202,7 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return FieldGoalLesson;
     case 'sunflower':
       return SunflowerLesson;
+    case 'review':
+      return ReviewLesson;
   }
 };

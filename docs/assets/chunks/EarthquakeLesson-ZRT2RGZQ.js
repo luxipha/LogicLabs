@@ -1,1 +1,0 @@
-import{a as r}from"./chunk-YOI2M4XA.js";import{a as t}from"./chunk-KX6R4DIW.js";import"./chunk-4VBQTXU6.js";import"./chunk-QLOSNYKF.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var n=o(e()),i=a=>(0,n.jsx)(r,{content:t,...a}),p=i;export{i as EarthquakeLesson,p as default};

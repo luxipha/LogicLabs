@@ -1,0 +1,19 @@
+{
+  "slug": "review",
+  "title": "Review",
+  "subtitle": "",
+  "summary": "",
+  "badge": "REVIEW",
+  "color": "#ff8d1f",
+  "activity": "review",
+  "activityLabel": "Letter Challenge",
+  "activityInstruction": "Choose the picture that starts with the letter. Get all six right to finish.",
+  "difficulty": 1,
+  "topics": [],
+  "classIds": ["Preschool"],
+  "storyVideoUrl": "",
+  "warmupVideoUrl": "https://www.youtube.com/embed/fTZp053gGt4?si=jCYGZIpnKY0cJD9Z",
+  "storyQuestions": [],
+  "quiz": [],
+  "parts": []
+}
