@@ -39,6 +39,11 @@ await fs.mkdir(path.join(assetsDir, 'compass-code'), {recursive: true});
 for (let step = 1; step <= 6; step++) {
   await fs.copyFile(path.join(compassCodeDir, `${step}.png`), path.join(assetsDir, 'compass-code', `${step}.png`));
 }
+const salmonCodeDir = path.join(root, 'src/assets/salmon/code');
+await fs.mkdir(path.join(assetsDir, 'salmon-code'), {recursive: true});
+for (let step = 1; step <= 11; step++) {
+  await fs.copyFile(path.join(salmonCodeDir, `${step}.png`), path.join(assetsDir, 'salmon-code', `${step}.png`));
+}
 await fs.cp(elevatorActivitiesDir, path.join(outdir, 'elevator-activities'), {recursive: true});
 await fs.cp(frogActivitiesDir, path.join(outdir, 'frog-activities'), {recursive: true});
 await fs.cp(banknoteActivitiesDir, path.join(outdir, 'banknote-activities'), {recursive: true});

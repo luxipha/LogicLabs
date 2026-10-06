@@ -21,6 +21,7 @@ export const SalmonLesson: React.FC<{
     warmupVideoUrl={warmupVideoUrl}
     onDraw={onDraw}
     onBoard={onBoard}
+    codingTab
     stage={({mode, warmupVideoUrl, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity}) => <SalmonStage mode={mode} warmupVideoUrl={warmupVideoUrl} lastSelectedPart={lastSelectedPart} onSelect={onSelect} activityDone={activityDone} completeActivity={completeActivity} resetActivity={resetActivity} />}
     partPreview={(part) => <span className={`salmon-part-preview salmon-part-preview--${part}`} aria-hidden="true" />}
   />

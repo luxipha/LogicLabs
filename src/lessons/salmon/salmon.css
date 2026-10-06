@@ -9,5 +9,11 @@
 .salmon-stage__buttons button.is-selected, .salmon-stage__buttons button.is-found { background: #20a7f1; color: #fff; }
 .salmon-stage__buttons button:disabled { cursor: default; opacity: .9; }
 .salmon-stage__retry { margin-top: .65rem; background: #ffdf46; color: #4d3b00; }
+.salmon-coding-viewer { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; height: 100%; min-height: 0; background: #102e46; color: #fff; }
+.salmon-coding-toolbar, .salmon-coding-navigation { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .7rem 1rem; background: rgba(5,25,42,.9); }
+.salmon-coding-toolbar button, .salmon-coding-navigation button { border: 0; border-radius: .55rem; padding: .5rem .8rem; background: #20a7f1; color: #fff; font-weight: 700; cursor: pointer; }
+.salmon-coding-navigation button:disabled { opacity: .45; cursor: default; }
+.salmon-coding-image { min-height: 0; display: grid; place-items: center; padding: .75rem; background: #dff5ff; }
+.salmon-coding-image img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .salmon-part-preview { display: block; width: 2.7rem; height: 2rem; border-radius: .6rem; background: linear-gradient(135deg, #20a7f1, #f7a45b); }
 @media (max-height: 620px) { .salmon-stage__model { min-height: 180px; } .salmon-stage__tray { padding: .45rem .7rem; } }
