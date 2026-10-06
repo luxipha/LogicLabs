@@ -1,1 +1,0 @@
-var s={slug:"salmon",title:"Mission: The Salmon",subtitle:"",summary:"",badge:"SWIM",color:"#20a7f1",activity:"discover",activityLabel:"Discover the salmon",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

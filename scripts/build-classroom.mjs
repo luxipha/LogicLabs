@@ -154,6 +154,7 @@ await fs.copyFile(path.join(root, 'public/models/goalkeeper-optimized.glb'), pat
 await fs.copyFile(path.join(root, 'public/models/seesaw_from_poly_by_google.glb'), path.join(modelsDir, 'seesaw.glb'));
 await fs.copyFile(path.join(root, 'public/models/kangaroo.glb'), path.join(modelsDir, 'kangaroo.glb'));
 await fs.copyFile(path.join(root, 'public/models/waterwheel.glb'), path.join(modelsDir, 'waterwheel.glb'));
+await fs.copyFile(path.join(root, 'public/models/salmon.glb'), path.join(modelsDir, 'salmon.glb'));
 await fs.copyFile(path.join(root, 'public/models/canon_desktop_printer.glb'), path.join(modelsDir, 'printer.glb'));
 await fs.copyFile(
   path.join(root, 'public/models/alligator_with_animations_granny_3.glb'),

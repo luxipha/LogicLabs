@@ -41,6 +41,7 @@ import {
   TOTAL_FRAMES as ALLIGATOR_FRAMES,
 } from './scenes/AlligatorMission';
 import {CompassMission, TOTAL_FRAMES as COMPASS_FRAMES} from './scenes/CompassMission';
+import {SalmonMission, TOTAL_FRAMES as SALMON_FRAMES} from './scenes/SalmonMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -61,6 +62,7 @@ const WATERWHEEL_DURATION = WATERWHEEL_FRAMES;
 const PRINTER_DURATION = PRINTER_FRAMES;
 const ALLIGATOR_DURATION = ALLIGATOR_FRAMES;
 const COMPASS_DURATION = COMPASS_FRAMES;
+const SALMON_DURATION = SALMON_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -213,6 +215,14 @@ export const RemotionRoot: React.FC = () => {
         id="CompassMission"
         component={CompassMission}
         durationInFrames={COMPASS_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SalmonMission"
+        component={SalmonMission}
+        durationInFrames={SALMON_DURATION}
         fps={30}
         width={1920}
         height={1080}

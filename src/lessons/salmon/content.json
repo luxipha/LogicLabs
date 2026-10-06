@@ -1,19 +1,83 @@
 {
   "slug": "salmon",
   "title": "Mission: The Salmon",
-  "subtitle": "",
-  "summary": "",
+  "subtitle": "Follow a salmon built for life in moving water.",
+  "summary": "Explore an animated salmon, find its body parts, and discover how its shape helps it swim.",
   "badge": "SWIM",
   "color": "#20a7f1",
   "activity": "discover",
   "activityLabel": "Discover the salmon",
-  "activityInstruction": "",
+  "activityInstruction": "Find the head, fins, body, and tail on the salmon.",
+  "exploreTitle": "Explore the salmon.",
+  "exploreInstruction": "Rotate and zoom the animated salmon to see how it moves.",
   "difficulty": 1,
-  "topics": [],
+  "topics": ["salmon body", "fish", "rivers", "swimming"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "",
+  "storyVideoUrl": "https://www.youtube.com/embed/n60NZ_qG-S4",
   "warmupVideoUrl": "",
-  "storyQuestions": [],
-  "quiz": [],
-  "parts": []
+  "storyQuestions": [
+    {
+      "prompt": "Where is the salmon born?",
+      "answers": ["In a river", "In the ocean", "On a beach"],
+      "correctIndex": 0,
+      "success": "A young salmon is born in a river."
+    },
+    {
+      "prompt": "Where does it swim when it grows bigger?",
+      "answers": ["To the ocean", "To a pond", "Up a mountain"],
+      "correctIndex": 0,
+      "success": "When it grows bigger, it swims out to the big ocean."
+    },
+    {
+      "prompt": "Is the ocean small or big?",
+      "answers": ["Big", "Small", "It is tiny"],
+      "correctIndex": 0,
+      "success": "The ocean is huge."
+    },
+    {
+      "prompt": "Does the salmon stay close to home?",
+      "answers": ["No", "Yes", "It never leaves"],
+      "correctIndex": 0,
+      "success": "No — it swims far, very far from home."
+    },
+    {
+      "prompt": "Where does it want to go later?",
+      "answers": ["Back home to the river", "Deeper into the ocean", "To a new river"],
+      "correctIndex": 0,
+      "success": "One day it is time to go back home to the river."
+    },
+    {
+      "prompt": "Are there many rivers?",
+      "answers": ["Yes", "No", "Only one"],
+      "correctIndex": 0,
+      "success": "Yes, there are many rivers."
+    },
+    {
+      "prompt": "Can the salmon read a map?",
+      "answers": ["No", "Yes", "Only at night"],
+      "correctIndex": 0,
+      "success": "No — the salmon cannot read a map."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "What helps a salmon move through water?",
+      "answers": ["Its fins and tail", "Its feathers", "Its wheels"],
+      "correctIndex": 0,
+      "success": "The fins steer and the tail pushes the salmon through water."
+    },
+    {
+      "prompt": "What kind of animal is a salmon?",
+      "answers": ["A fish", "A reptile", "A bird"],
+      "correctIndex": 0,
+      "success": "A salmon is a fish that lives in water."
+    }
+  ],
+  "parts": [
+    {"id": "head", "label": "Head", "fact": "The head leads the salmon through the water.", "help": "Find the front of the salmon."},
+    {"id": "pectoral-fins", "label": "Pectoral fins", "fact": "The side fins help the salmon steer and balance.", "help": "Find the fins near the head."},
+    {"id": "dorsal-fin", "label": "Dorsal fin", "fact": "The dorsal fin helps the salmon stay steady.", "help": "Find the fin along the top of the body."},
+    {"id": "body", "label": "Body", "fact": "The streamlined body helps water flow around the salmon.", "help": "Find the long middle section."},
+    {"id": "tail", "label": "Tail", "fact": "The tail pushes the salmon forward with strong side-to-side strokes.", "help": "Find the fin at the back."}
+  ]
 }
