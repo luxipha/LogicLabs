@@ -12,7 +12,7 @@
   "exploreInstruction": "Rotate and zoom the animated salmon to see how it moves.",
   "difficulty": 1,
   "topics": ["salmon body", "fish", "rivers", "swimming"],
-  "classIds": ["Brickmoto"],
+  "classIds": ["BrickX"],
   "storyVideoUrl": "https://www.youtube.com/embed/n60NZ_qG-S4",
   "warmupVideoUrl": "",
   "storyQuestions": [

@@ -1,0 +1,1 @@
+import{a as r}from"./chunk-TBKGG6OE.js";import{a as t}from"./chunk-ZAIQMX4T.js";import"./chunk-DBINSG7B.js";import"./chunk-2ZK7HCOQ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var n=o(e()),m=i=>(0,n.jsx)(r,{content:t,...i}),p=m;export{m as TrolleyLesson,p as default};

@@ -1,0 +1,1 @@
+var r={slug:"firetruck",title:"Mission: The Firetruck",subtitle:"",summary:"",badge:"RESCUE",color:"#d62839",activity:"discover",activityLabel:"Discover the firetruck",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{r as a};

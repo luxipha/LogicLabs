@@ -27,6 +27,15 @@ import ultrasonicContent from '../lessons/ultrasonic/content.json';
 import earthquakeContent from '../lessons/earth-quake/content.json';
 import fieldGoalContent from '../lessons/field-goal/content.json';
 import sunflowerContent from '../lessons/sunflower/content.json';
+import firetruckContent from '../lessons/firetruck/content.json';
+import trolleyContent from '../lessons/trolley/content.json';
+import chainsawContent from '../lessons/chainsaw/content.json';
+import bicycleContent from '../lessons/bicycle/content.json';
+import snowPlowContent from '../lessons/snow-plow/content.json';
+import motobikeContent from '../lessons/motobike/content.json';
+import mudslideContent from '../lessons/mudslide/content.json';
+import volcanoEruptionContent from '../lessons/volcano-eruption/content.json';
+import anemometerContent from '../lessons/anemometer/content.json';
 import reviewContent from '../lessons/review/content.json';
 import type {LessonContent} from './types';
 
@@ -61,6 +70,15 @@ export type LessonId =
   | 'earth-quake'
   | 'field-goal'
   | 'sunflower'
+  | 'firetruck'
+  | 'trolley'
+  | 'chainsaw'
+  | 'bicycle'
+  | 'snow-plow'
+  | 'motobike'
+  | 'mudslide'
+  | 'volcano-eruption'
+  | 'anemometer'
   | 'review';
 
 export type LessonMeta = {
@@ -107,6 +125,15 @@ const UltrasonicLesson = lazy(() => import('../lessons/ultrasonic/UltrasonicLess
 const EarthquakeLesson = lazy(() => import('../lessons/earth-quake/EarthquakeLesson'));
 const FieldGoalLesson = lazy(() => import('../lessons/field-goal/FieldGoalLesson'));
 const SunflowerLesson = lazy(() => import('../lessons/sunflower/SunflowerLesson'));
+const FiretruckLesson = lazy(() => import('../lessons/firetruck/FiretruckLesson'));
+const TrolleyLesson = lazy(() => import('../lessons/trolley/TrolleyLesson'));
+const ChainsawLesson = lazy(() => import('../lessons/chainsaw/ChainsawLesson'));
+const BicycleLesson = lazy(() => import('../lessons/bicycle/BicycleLesson'));
+const SnowPlowLesson = lazy(() => import('../lessons/snow-plow/SnowPlowLesson'));
+const MotobikeLesson = lazy(() => import('../lessons/motobike/MotobikeLesson'));
+const MudslideLesson = lazy(() => import('../lessons/mudslide/MudslideLesson'));
+const VolcanoEruptionLesson = lazy(() => import('../lessons/volcano-eruption/VolcanoEruptionLesson'));
+const AnemometerLesson = lazy(() => import('../lessons/anemometer/AnemometerLesson'));
 const ReviewLesson = lazy(() => import('../lessons/review/ReviewLesson'));
 
 export const LESSONS: LessonMeta[] = [
@@ -138,6 +165,15 @@ export const LESSONS: LessonMeta[] = [
   {id: 'earth-quake', content: content(earthquakeContent)},
   {id: 'field-goal', content: content(fieldGoalContent)},
   {id: 'sunflower', content: content(sunflowerContent)},
+  {id: 'firetruck', content: content(firetruckContent)},
+  {id: 'trolley', content: content(trolleyContent)},
+  {id: 'chainsaw', content: content(chainsawContent)},
+  {id: 'bicycle', content: content(bicycleContent)},
+  {id: 'snow-plow', content: content(snowPlowContent)},
+  {id: 'motobike', content: content(motobikeContent)},
+  {id: 'mudslide', content: content(mudslideContent)},
+  {id: 'volcano-eruption', content: content(volcanoEruptionContent)},
+  {id: 'anemometer', content: content(anemometerContent)},
   {id: 'review', content: content(reviewContent)},
 ];
 
@@ -202,6 +238,24 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return FieldGoalLesson;
     case 'sunflower':
       return SunflowerLesson;
+    case 'firetruck':
+      return FiretruckLesson;
+    case 'trolley':
+      return TrolleyLesson;
+    case 'chainsaw':
+      return ChainsawLesson;
+    case 'bicycle':
+      return BicycleLesson;
+    case 'snow-plow':
+      return SnowPlowLesson;
+    case 'motobike':
+      return MotobikeLesson;
+    case 'mudslide':
+      return MudslideLesson;
+    case 'volcano-eruption':
+      return VolcanoEruptionLesson;
+    case 'anemometer':
+      return AnemometerLesson;
     case 'review':
       return ReviewLesson;
   }

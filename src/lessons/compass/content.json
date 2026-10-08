@@ -10,7 +10,7 @@
   "activityInstruction": "Use the compass rose to find north, east, south, and west.",
   "difficulty": 1,
   "topics": [],
-  "classIds": ["Microbit"],
+  "classIds": ["BrickX"],
   "storyVideoUrl": "https://www.youtube.com/embed/kYV4TXz72Dk",
   "warmupVideoUrl": "",
   "storyQuestions": [

@@ -1,1 +1,0 @@
-var s={slug:"ultrasonic",title:"Mission: The Ultrasonic",subtitle:"",summary:"",badge:"PING",color:"#3fbf3f",activity:"discover",activityLabel:"Discover the ultrasonic",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

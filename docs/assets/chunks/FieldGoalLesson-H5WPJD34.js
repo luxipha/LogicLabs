@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-TBKGG6OE.js";import{a as t}from"./chunk-X2RTUZEU.js";import"./chunk-DBINSG7B.js";import"./chunk-2ZK7HCOQ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),a=i=>(0,r.jsx)(n,{content:t,...i}),p=a;export{a as FieldGoalLesson,p as default};

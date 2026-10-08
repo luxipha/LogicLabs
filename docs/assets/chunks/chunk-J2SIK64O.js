@@ -1,0 +1,1 @@
+var s={slug:"earth-quake",title:"Mission: The Earthquake",subtitle:"",summary:"",badge:"SHAKE",color:"#d62839",activity:"discover",activityLabel:"Discover the earthquake",activityInstruction:"",difficulty:1,topics:[],classIds:["BrickX"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

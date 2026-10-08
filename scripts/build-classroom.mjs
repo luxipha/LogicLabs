@@ -108,6 +108,15 @@ const lessonRoutes = [
   '/lessons/earth-quake',
   '/lessons/field-goal',
   '/lessons/sunflower',
+  '/lessons/firetruck',
+  '/lessons/trolley',
+  '/lessons/chainsaw',
+  '/lessons/bicycle',
+  '/lessons/snow-plow',
+  '/lessons/motobike',
+  '/lessons/mudslide',
+  '/lessons/volcano-eruption',
+  '/lessons/anemometer',
   '/lessons/review',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);

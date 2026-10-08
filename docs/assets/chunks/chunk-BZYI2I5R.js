@@ -1,0 +1,1 @@
+var t={slug:"mudslide",title:"Mission: The Mudslide",subtitle:"",summary:"",badge:"MUD",color:"#8a6d3b",activity:"discover",activityLabel:"Discover the mudslide",activityInstruction:"",difficulty:1,topics:[],classIds:["BrickX"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{t as a};

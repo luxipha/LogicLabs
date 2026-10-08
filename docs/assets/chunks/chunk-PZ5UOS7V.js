@@ -1,0 +1,1 @@
+var t={slug:"chainsaw",title:"Mission: The Chainsaw",subtitle:"",summary:"",badge:"CUT",color:"#e98b35",activity:"discover",activityLabel:"Discover the chainsaw",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{t as a};

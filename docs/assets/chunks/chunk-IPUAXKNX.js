@@ -1,0 +1,1 @@
+var o={slug:"volcano-eruption",title:"Mission: The Volcano Eruption",subtitle:"",summary:"",badge:"ERUPT",color:"#d62839",activity:"discover",activityLabel:"Discover the volcano",activityInstruction:"",difficulty:1,topics:[],classIds:["BrickX"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{o as a};
