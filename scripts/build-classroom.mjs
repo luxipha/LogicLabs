@@ -118,6 +118,7 @@ const lessonRoutes = [
   '/lessons/volcano-eruption',
   '/lessons/anemometer',
   '/lessons/review',
+  '/lessons/clock',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
 const routes = [...lessonRoutes, ...drawRoutes];
@@ -179,5 +180,9 @@ await fs.copyFile(
   path.join(modelsDir, 'electric_fan.glb'),
 );
 await fs.copyFile(path.join(root, 'public/models/compass.glb'), path.join(modelsDir, 'compass.glb'));
+await fs.copyFile(
+  path.join(root, 'public/models/modern_digital_table_clock___alarm_clock.glb'),
+  path.join(modelsDir, 'modern_digital_table_clock___alarm_clock.glb'),
+);
 
 console.log('Built classroom app into docs/');

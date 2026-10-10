@@ -61,6 +61,7 @@ export const ModeTabs = <TMode extends string>({
   <nav className="mode-tabs" aria-label="Lesson modes">
     {tabs.map((tab) => (
       <button
+        type="button"
         key={tab.id}
         className={activeMode === tab.id ? `mode-tab ${tab.tone} active` : `mode-tab ${tab.tone}`}
         onClick={() => onSelect(tab.id)}

@@ -1,0 +1,41 @@
+{
+  "slug": "clock",
+  "title": "Mission: The Clock",
+  "subtitle": "",
+  "summary": "",
+  "badge": "TIME",
+  "color": "#00a6a6",
+  "activity": "read-the-clock",
+  "activityLabel": "Read the clock",
+  "activityInstruction": "Look at the digital display and tell the time.",
+  "exploreTitle": "Explore the clock",
+  "exploreInstruction": "Tap a part of the clock to learn what it does.",
+  "difficulty": 1,
+  "topics": [],
+  "classIds": ["Microbit"],
+  "storyVideoUrl": "https://www.youtube.com/embed/yCJVhLBm3Lo",
+  "warmupVideoUrl": "",
+  "stageBackground": ["#eaf8ff", "#f7fcff", "#d3eff9"],
+  "storyQuestions": [
+    {"prompt": "What did the children see?", "answers": ["A clock", "A radio", "A phone"], "correctIndex": 0, "success": "The children saw a clock."},
+    {"prompt": "What does a clock tell us?", "answers": ["The weather", "The time", "The date"], "correctIndex": 1, "success": "A clock tells us the time."},
+    {"prompt": "Can an electric clock show more than time?", "answers": ["Yes", "No", "Only at night"], "correctIndex": 0, "success": "Yes, an electric clock can show more than time."},
+    {"prompt": "What else can an electric clock show?", "answers": ["Date, temperature, alarm", "Only the time", "Only music"], "correctIndex": 0, "success": "It can show the date, temperature, and alarm."},
+    {"prompt": "What tells us if it is hot or cold?", "answers": ["The alarm", "Temperature", "The clock face"], "correctIndex": 1, "success": "Temperature tells us if it is hot or cold."},
+    {"prompt": "Can our micro:bit check temperature?", "answers": ["No", "Only outside", "Yes"], "correctIndex": 2, "success": "Yes, our micro:bit can check temperature."},
+    {"prompt": "What can we build?", "answers": ["An electric clock", "A television", "A radio"], "correctIndex": 0, "success": "We can build an electric clock."},
+    {"prompt": "Can our clock show the time?", "answers": ["Yes", "No", "Only the date"], "correctIndex": 0, "success": "Yes, our clock can show the time."},
+    {"prompt": "Can our clock show the temperature too?", "answers": ["Only when it rains", "No", "Yes"], "correctIndex": 2, "success": "Yes, our clock can show the temperature too."}
+  ],
+  "quiz": [
+    {"prompt": "What does the digital display show?", "answers": ["The time in numbers", "Only a picture", "The weather only"], "correctIndex": 0, "success": "The digital display shows the time in numbers."},
+    {"prompt": "What can an electric clock show besides time?", "answers": ["Date, temperature, and alarm", "Only colours", "Only music"], "correctIndex": 0, "success": "An electric clock can also show the date, temperature, and alarm."},
+    {"prompt": "Which tool can check temperature in our project?", "answers": ["The micro:bit", "A pencil", "A clock stand"], "correctIndex": 0, "success": "The micro:bit can check temperature."}
+  ],
+  "parts": [
+    {"id": "display", "label": "Digital display", "fact": "The display shows the time in numbers.", "help": "The bright screen on the front of the clock."},
+    {"id": "buttons", "label": "Buttons", "fact": "The buttons help set the alarm and time.", "help": "The small controls on the clock."},
+    {"id": "stand", "label": "Stand", "fact": "The stand holds the clock upright.", "help": "The support underneath the clock."},
+    {"id": "body", "label": "Clock body", "fact": "The clock body protects the display and controls.", "help": "The main case of the clock."}
+  ]
+}

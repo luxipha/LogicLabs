@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-XI2J6S7I.js";import{a as t}from"./chunk-XW3RNJZ4.js";import"./chunk-VARGO6QS.js";import"./chunk-W7CONZIZ.js";import{c as o,e as n}from"./chunk-HLYRQ3WR.js";var r=o(n()),m=i=>(0,r.jsx)(e,{content:t,...i}),p=m;export{m as SnowPlowLesson,p as default};

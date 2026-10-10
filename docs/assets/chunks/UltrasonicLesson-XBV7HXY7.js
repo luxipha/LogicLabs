@@ -1,0 +1,1 @@
+import{a as r}from"./chunk-XI2J6S7I.js";import{a as t}from"./chunk-4YDWHQ7C.js";import"./chunk-VARGO6QS.js";import"./chunk-W7CONZIZ.js";import{c as o,e as n}from"./chunk-HLYRQ3WR.js";var e=o(n()),a=i=>(0,e.jsx)(r,{content:t,...i}),p=a;export{a as UltrasonicLesson,p as default};

@@ -42,6 +42,10 @@ import {
 } from './scenes/AlligatorMission';
 import {CompassMission, TOTAL_FRAMES as COMPASS_FRAMES} from './scenes/CompassMission';
 import {SalmonMission, TOTAL_FRAMES as SALMON_FRAMES} from './scenes/SalmonMission';
+import {
+  ThermometerMission,
+  TOTAL_FRAMES as THERMOMETER_FRAMES,
+} from './scenes/ThermometerMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -63,6 +67,7 @@ const PRINTER_DURATION = PRINTER_FRAMES;
 const ALLIGATOR_DURATION = ALLIGATOR_FRAMES;
 const COMPASS_DURATION = COMPASS_FRAMES;
 const SALMON_DURATION = SALMON_FRAMES;
+const THERMOMETER_DURATION = THERMOMETER_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -223,6 +228,14 @@ export const RemotionRoot: React.FC = () => {
         id="SalmonMission"
         component={SalmonMission}
         durationInFrames={SALMON_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ThermometerMission"
+        component={ThermometerMission}
+        durationInFrames={THERMOMETER_DURATION}
         fps={30}
         width={1920}
         height={1080}

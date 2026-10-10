@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-XI2J6S7I.js";import{a as t}from"./chunk-GT4STZER.js";import"./chunk-VARGO6QS.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),m=i=>(0,r.jsx)(n,{content:t,...i}),p=m;export{m as SunflowerLesson,p as default};

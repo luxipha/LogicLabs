@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-XI2J6S7I.js";import{a as t}from"./chunk-6NLE353C.js";import"./chunk-VARGO6QS.js";import"./chunk-W7CONZIZ.js";import{c as o,e as r}from"./chunk-HLYRQ3WR.js";var n=o(r()),m=i=>(0,n.jsx)(e,{content:t,...i}),p=m;export{m as FiretruckLesson,p as default};

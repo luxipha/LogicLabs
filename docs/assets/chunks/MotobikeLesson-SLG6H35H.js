@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-TBKGG6OE.js";import{a as t}from"./chunk-KHGSD42U.js";import"./chunk-DBINSG7B.js";import"./chunk-2ZK7HCOQ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),m=i=>(0,r.jsx)(n,{content:t,...i}),p=m;export{m as MotobikeLesson,p as default};

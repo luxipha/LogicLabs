@@ -37,6 +37,7 @@ import mudslideContent from '../lessons/mudslide/content.json';
 import volcanoEruptionContent from '../lessons/volcano-eruption/content.json';
 import anemometerContent from '../lessons/anemometer/content.json';
 import reviewContent from '../lessons/review/content.json';
+import clockContent from '../lessons/clock/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -79,7 +80,8 @@ export type LessonId =
   | 'mudslide'
   | 'volcano-eruption'
   | 'anemometer'
-  | 'review';
+  | 'review'
+  | 'clock';
 
 export type LessonMeta = {
   id: LessonId;
@@ -135,6 +137,7 @@ const MudslideLesson = lazy(() => import('../lessons/mudslide/MudslideLesson'));
 const VolcanoEruptionLesson = lazy(() => import('../lessons/volcano-eruption/VolcanoEruptionLesson'));
 const AnemometerLesson = lazy(() => import('../lessons/anemometer/AnemometerLesson'));
 const ReviewLesson = lazy(() => import('../lessons/review/ReviewLesson'));
+const ClockLesson = lazy(() => import('../lessons/clock/ClockLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -175,6 +178,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'volcano-eruption', content: content(volcanoEruptionContent)},
   {id: 'anemometer', content: content(anemometerContent)},
   {id: 'review', content: content(reviewContent)},
+  {id: 'clock', content: content(clockContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -258,5 +262,7 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return AnemometerLesson;
     case 'review':
       return ReviewLesson;
+    case 'clock':
+      return ClockLesson;
   }
 };

@@ -27,6 +27,7 @@
     "render:alligator": "remotion render AlligatorMission out/AlligatorMission.mp4",
     "render:compass": "remotion render CompassMission out/CompassMission.mp4",
     "render:salmon": "remotion render SalmonMission out/SalmonMission.mp4",
+    "render:thermometer": "remotion render ThermometerMission out/ThermometerMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
