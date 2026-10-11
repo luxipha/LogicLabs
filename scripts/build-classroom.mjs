@@ -180,6 +180,7 @@ await fs.copyFile(
   path.join(modelsDir, 'electric_fan.glb'),
 );
 await fs.copyFile(path.join(root, 'public/models/compass.glb'), path.join(modelsDir, 'compass.glb'));
+await fs.copyFile(path.join(root, 'public/models/kite_animation.glb'), path.join(modelsDir, 'kite_animation.glb'));
 await fs.copyFile(
   path.join(root, 'public/models/modern_digital_table_clock___alarm_clock.glb'),
   path.join(modelsDir, 'modern_digital_table_clock___alarm_clock.glb'),

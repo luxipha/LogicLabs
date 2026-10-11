@@ -1,0 +1,22 @@
+.conveyor-stage { overflow: hidden; border: 3px solid rgba(244, 160, 24, .45); border-radius: 14px; background: #d9edf7; }
+.conveyor-stage__model, .conveyor-activity { position: absolute; inset: 0; width: 100%; height: 100%; }
+.conveyor-canvas, .conveyor-canvas canvas { display: block; width: 100% !important; height: 100% !important; }
+.conveyor-loading, .conveyor-fallback { position: absolute; inset: 0; display: grid; place-content: center; gap: 6px; padding: 24px; background: #d9edf7; color: #17335b; text-align: center; font-weight: 800; z-index: 2; }
+.conveyor-fallback { margin: 15%; border-radius: 14px; background: rgba(18, 67, 104, .88); color: #fff; }
+.conveyor-fallback span { color: #e3f4ff; font-size: .9rem; }
+.conveyor-activity__overlay { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: end; gap: 8px; padding: 12px; pointer-events: none; z-index: 2; }
+.conveyor-status, .conveyor-controls { pointer-events: auto; }
+.conveyor-status { max-width: min(520px, 95%); padding: 7px 13px; border-radius: 9px; background: rgba(12, 46, 71, .76); color: #fff; font-weight: 800; font-size: 13px; text-align: center; }
+.conveyor-status.is-running { background: rgba(31, 119, 79, .86); }
+.conveyor-controls { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
+.conveyor-controls button { width: auto; min-width: 0; margin: 0; padding: 7px 12px; border-radius: 8px; font-size: 13px; }
+.conveyor-controls .game-frame-fullscreen { background: rgba(12, 46, 71, .9); color: #fff; }
+.conveyor-controls button:disabled { opacity: .5; cursor: default; }
+.conveyor-activity:fullscreen { width: 100vw; height: 100vh; background: #d9edf7; }
+.conveyor-part-preview { position: relative; display: block; width: 58px; height: 42px; margin: auto; border-radius: 7px; background: linear-gradient(#c9d4dc 0 28%, #424e58 28% 62%, #8d9ba5 62%); }
+.conveyor-part-preview--motor { background: radial-gradient(circle at 22% 50%, #384654 0 13%, #697d8e 14% 37%, transparent 38%), #647786; }
+.conveyor-part-preview--button { background: radial-gradient(circle at 50% 28%, #ffcf3d 0 18%, #ad8420 19% 28%, transparent 29%), #8e9ba7; }
+.conveyor-part-preview--belt { background: repeating-linear-gradient(90deg, #343e48 0 8px, #5b6872 8px 10px); }
+.conveyor-part-preview--box { background: linear-gradient(135deg, #e9ad63 0 49%, #c88137 50%); }
+.conveyor-part-preview--roller { border-radius: 50%; background: radial-gradient(circle, #697784 0 19%, #c3ccd4 20% 52%, #71808c 53%); }
+@media (max-height: 760px) and (min-width: 900px) { .conveyor-activity__overlay { padding: 8px; gap: 5px; } .conveyor-status { padding: 5px 10px; font-size: 11px; } .conveyor-controls button { padding: 6px 10px; font-size: 12px; } }

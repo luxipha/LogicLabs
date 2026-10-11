@@ -22,6 +22,7 @@ export const ClockLesson: React.FC<{
     onDraw={onDraw}
     onBoard={onBoard}
     stageCompletesActivity
+    codingTab
     activityTabs={({activeId, onSelect}) => <ActivityTabs activeId={activeId} onSelect={onSelect} items={[{id: 'puzzle', label: 'Read the clock'}, {id: 'temperature', label: 'Temperature explorer'}]} />}
     stage={(props) => <ClockStage {...props} />}
     partPreview={(part) => <ClockPartPreview part={part} />}

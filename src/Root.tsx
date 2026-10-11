@@ -46,6 +46,11 @@ import {
   ThermometerMission,
   TOTAL_FRAMES as THERMOMETER_FRAMES,
 } from './scenes/ThermometerMission';
+import {
+  ConveyorMission,
+  TOTAL_FRAMES as CONVEYOR_FRAMES,
+} from './scenes/ConveyorMission';
+import {KiteMission, TOTAL_FRAMES as KITE_FRAMES} from './scenes/KiteMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -68,6 +73,8 @@ const ALLIGATOR_DURATION = ALLIGATOR_FRAMES;
 const COMPASS_DURATION = COMPASS_FRAMES;
 const SALMON_DURATION = SALMON_FRAMES;
 const THERMOMETER_DURATION = THERMOMETER_FRAMES;
+const CONVEYOR_DURATION = CONVEYOR_FRAMES;
+const KITE_DURATION = KITE_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -236,6 +243,22 @@ export const RemotionRoot: React.FC = () => {
         id="ThermometerMission"
         component={ThermometerMission}
         durationInFrames={THERMOMETER_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ConveyorMission"
+        component={ConveyorMission}
+        durationInFrames={CONVEYOR_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="KiteMission"
+        component={KiteMission}
+        durationInFrames={KITE_DURATION}
         fps={30}
         width={1920}
         height={1080}

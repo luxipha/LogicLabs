@@ -1,0 +1,11 @@
+import React, {useEffect, useRef, useState} from 'react';
+import {Canvas} from '@react-three/fiber';
+import {ConveyorLights, MovingConveyorCanvas} from './ConveyorBeltModel';
+
+export const ConveyorBeltActivity: React.FC<{activityDone: boolean; completeActivity: () => void; resetActivity: () => void}> = ({activityDone, completeActivity, resetActivity}) => {
+  const [running, setRunning] = useState(false); const [attempt, setAttempt] = useState(0); const [fullscreen, setFullscreen] = useState(false); const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => { const change = () => setFullscreen(document.fullscreenElement === ref.current); document.addEventListener('fullscreenchange', change); return () => document.removeEventListener('fullscreenchange', change); }, []);
+  const retry = () => { setRunning(false); setAttempt((value) => value + 1); resetActivity(); };
+  const toggleFullscreen = () => document.fullscreenElement ? document.exitFullscreen().catch(() => {}) : ref.current?.requestFullscreen?.().catch(() => {});
+  return <div className="conveyor-activity" ref={ref}><Canvas key={attempt} className="conveyor-canvas" camera={{position: [7.4, 4.4, 7.2], fov: 34}} dpr={1} frameloop={running && !activityDone ? 'always' : 'demand'} gl={{alpha: true, antialias: false, powerPreference: 'low-power'}}><color attach="background" args={['#d9edf7']} /><ConveyorLights /><MovingConveyorCanvas running={running} onDelivered={completeActivity} /></Canvas><div className="conveyor-activity__overlay"><div className={`conveyor-status${running ? ' is-running' : ''}`}>{activityDone ? 'Delivery complete! The box reached the end.' : running ? 'The motor is running. Watch the box travel!' : 'Press the yellow start button to move the box.'}</div><div className="conveyor-controls"><button type="button" className="primary-action" onClick={() => setRunning(true)} disabled={running || activityDone}>Start belt</button><button type="button" className="secondary-action" onClick={() => setRunning(false)} disabled={!running || activityDone}>Stop belt</button>{activityDone ? <button type="button" className="primary-action" onClick={retry}>↻ Try again</button> : null}<button type="button" className="game-frame-fullscreen" onClick={toggleFullscreen}>{fullscreen ? '⛶ Exit' : '⛶ Fullscreen'}</button></div></div></div>;
+};

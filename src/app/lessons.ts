@@ -27,6 +27,7 @@ import ultrasonicContent from '../lessons/ultrasonic/content.json';
 import earthquakeContent from '../lessons/earth-quake/content.json';
 import fieldGoalContent from '../lessons/field-goal/content.json';
 import sunflowerContent from '../lessons/sunflower/content.json';
+import kiteContent from '../lessons/kite/content.json';
 import firetruckContent from '../lessons/firetruck/content.json';
 import trolleyContent from '../lessons/trolley/content.json';
 import chainsawContent from '../lessons/chainsaw/content.json';
@@ -71,6 +72,7 @@ export type LessonId =
   | 'earth-quake'
   | 'field-goal'
   | 'sunflower'
+  | 'kite'
   | 'firetruck'
   | 'trolley'
   | 'chainsaw'
@@ -127,6 +129,7 @@ const UltrasonicLesson = lazy(() => import('../lessons/ultrasonic/UltrasonicLess
 const EarthquakeLesson = lazy(() => import('../lessons/earth-quake/EarthquakeLesson'));
 const FieldGoalLesson = lazy(() => import('../lessons/field-goal/FieldGoalLesson'));
 const SunflowerLesson = lazy(() => import('../lessons/sunflower/SunflowerLesson'));
+const KiteLesson = lazy(() => import('../lessons/kite/KiteLesson'));
 const FiretruckLesson = lazy(() => import('../lessons/firetruck/FiretruckLesson'));
 const TrolleyLesson = lazy(() => import('../lessons/trolley/TrolleyLesson'));
 const ChainsawLesson = lazy(() => import('../lessons/chainsaw/ChainsawLesson'));
@@ -168,6 +171,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'earth-quake', content: content(earthquakeContent)},
   {id: 'field-goal', content: content(fieldGoalContent)},
   {id: 'sunflower', content: content(sunflowerContent)},
+  {id: 'kite', content: content(kiteContent)},
   {id: 'firetruck', content: content(firetruckContent)},
   {id: 'trolley', content: content(trolleyContent)},
   {id: 'chainsaw', content: content(chainsawContent)},
@@ -242,6 +246,8 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return FieldGoalLesson;
     case 'sunflower':
       return SunflowerLesson;
+    case 'kite':
+      return KiteLesson;
     case 'firetruck':
       return FiretruckLesson;
     case 'trolley':

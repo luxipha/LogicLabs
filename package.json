@@ -28,6 +28,8 @@
     "render:compass": "remotion render CompassMission out/CompassMission.mp4",
     "render:salmon": "remotion render SalmonMission out/SalmonMission.mp4",
     "render:thermometer": "remotion render ThermometerMission out/ThermometerMission.mp4",
+    "render:conveyor": "remotion render ConveyorMission out/ConveyorMission.mp4",
+    "render:kite": "remotion render KiteMission out/KiteMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
