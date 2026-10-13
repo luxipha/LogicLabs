@@ -104,6 +104,7 @@ const lessonRoutes = [
   '/lessons/alligator',
   '/lessons/salmon',
   '/lessons/compass',
+  '/lessons/advance-compass',
   '/lessons/ultrasonic',
   '/lessons/earth-quake',
   '/lessons/field-goal',
