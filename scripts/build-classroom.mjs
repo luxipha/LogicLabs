@@ -36,7 +36,7 @@ for (let step = 1; step <= 15; step++) {
 }
 const compassCodeDir = path.join(root, 'src/assets/compass/code');
 await fs.mkdir(path.join(assetsDir, 'compass-code'), {recursive: true});
-for (let step = 1; step <= 6; step++) {
+for (let step = 1; step <= 13; step++) {
   await fs.copyFile(path.join(compassCodeDir, `${step}.png`), path.join(assetsDir, 'compass-code', `${step}.png`));
 }
 const salmonCodeDir = path.join(root, 'src/assets/salmon/code');
