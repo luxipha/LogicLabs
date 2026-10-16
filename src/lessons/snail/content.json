@@ -1,0 +1,176 @@
+{
+  "slug": "snail",
+  "title": "Mission: The Snail",
+  "subtitle": "A little crawler with a spiral shell",
+  "summary": "Meet a snail in 3D, find its shell, tentacles and foot, then help it crawl along a damp garden path.",
+  "badge": "CRAWL",
+  "color": "#7a9e3f",
+  "activity": "crawl",
+  "activityLabel": "Crawl and build the snail picture",
+  "activityInstruction": "Activity 1: Choose the damp path, crawl five steps, then Rest. Activity 2: Tap two picture tiles to swap them and rebuild the snail.",
+  "exploreTitle": "How does a snail move?",
+  "exploreInstruction": "Turn and zoom the snail. Play its movement, then pause to look closely at its spiral shell, tentacles and broad foot.",
+  "difficulty": 1,
+  "topics": [
+    "Living things",
+    "Animal parts",
+    "Counting to five",
+    "Habitats"
+  ],
+  "classIds": [
+    "Preschool"
+  ],
+  "storyVideoUrl": "https://www.youtube.com/embed/EvX0al0j8Fc",
+  "warmupVideoUrl": "",
+  "storyQuestions": [
+    {
+      "prompt": "Where are the children?",
+      "answers": [
+        "In the garden.",
+        "At the beach.",
+        "Inside a classroom."
+      ],
+      "correctIndex": 0,
+      "success": "In the garden."
+    },
+    {
+      "prompt": "What did they see moving?",
+      "answers": [
+        "A tiny round “house.”",
+        "A toy car.",
+        "A flower."
+      ],
+      "correctIndex": 0,
+      "success": "A tiny round “house.”"
+    },
+    {
+      "prompt": "Can a house really move?",
+      "answers": [
+        "No.",
+        "Yes."
+      ],
+      "correctIndex": 0,
+      "success": "No."
+    },
+    {
+      "prompt": "What came out first?",
+      "answers": [
+        "A tiny head.",
+        "A wing.",
+        "A long tail."
+      ],
+      "correctIndex": 0,
+      "success": "A tiny head."
+    },
+    {
+      "prompt": "What appeared next?",
+      "answers": [
+        "Two feelers.",
+        "Two wings.",
+        "Four legs."
+      ],
+      "correctIndex": 0,
+      "success": "Two feelers."
+    },
+    {
+      "prompt": "Does the animal move fast or slow?",
+      "answers": [
+        "Slow.",
+        "Fast."
+      ],
+      "correctIndex": 0,
+      "success": "Slow."
+    },
+    {
+      "prompt": "Does it walk with legs?",
+      "answers": [
+        "No.",
+        "Yes."
+      ],
+      "correctIndex": 0,
+      "success": "No."
+    },
+    {
+      "prompt": "What is on its back?",
+      "answers": [
+        "A shell.",
+        "A backpack.",
+        "A leaf."
+      ],
+      "correctIndex": 0,
+      "success": "A shell."
+    }
+  ],
+  "parts": [
+    {
+      "id": "shell",
+      "label": "Shell",
+      "fact": "The hard spiral shell helps protect the snail's soft body.",
+      "help": "Find the large spiral on the snail's back. Tap it or its green marker."
+    },
+    {
+      "id": "tentacles",
+      "label": "Tentacles",
+      "fact": "The tentacles help a snail sense the world around it.",
+      "help": "Find the long feelers on the snail's head. Tap them or their green marker."
+    },
+    {
+      "id": "foot",
+      "label": "Foot",
+      "fact": "A snail glides on one broad, muscular foot underneath its body.",
+      "help": "Find the broad part touching the ground. Tap it or its green marker."
+    }
+  ],
+  "quiz": [
+    {
+      "prompt": "What protects the snail's soft body?",
+      "answers": [
+        "Its shell",
+        "A wheel",
+        "A wing"
+      ],
+      "correctIndex": 0,
+      "success": "The hard shell helps protect its soft body."
+    },
+    {
+      "prompt": "What helps a snail sense its surroundings?",
+      "answers": [
+        "A handle",
+        "Its tentacles",
+        "A button"
+      ],
+      "correctIndex": 1,
+      "success": "The tentacles are the feelers on its head."
+    },
+    {
+      "prompt": "How does our snail travel?",
+      "answers": [
+        "It flies",
+        "It rolls on wheels",
+        "It glides on its foot"
+      ],
+      "correctIndex": 2,
+      "success": "A snail glides along on its broad foot."
+    },
+    {
+      "prompt": "Which path did our garden snail choose?",
+      "answers": [
+        "The damp path",
+        "The hot, dry path",
+        "A path in the sky"
+      ],
+      "correctIndex": 0,
+      "success": "Garden snails are often active in damp places."
+    },
+    {
+      "prompt": "How many crawl steps reached the leaf?",
+      "answers": [
+        "Two",
+        "Five",
+        "Ten"
+      ],
+      "correctIndex": 1,
+      "success": "We counted five crawl steps in our game."
+    }
+  ]
+}

@@ -51,6 +51,15 @@ import {
   TOTAL_FRAMES as CONVEYOR_FRAMES,
 } from './scenes/ConveyorMission';
 import {KiteMission, TOTAL_FRAMES as KITE_FRAMES} from './scenes/KiteMission';
+import {
+  FiretruckMission,
+  TOTAL_FRAMES as FIRETRUCK_FRAMES,
+} from './scenes/FiretruckMission';
+import {
+  ElectricBeaterMission,
+  TOTAL_FRAMES as ELECTRIC_BEATER_FRAMES,
+} from './scenes/ElectricBeaterMission';
+import {SnailMission, TOTAL_FRAMES as SNAIL_FRAMES} from './scenes/SnailMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -75,6 +84,9 @@ const SALMON_DURATION = SALMON_FRAMES;
 const THERMOMETER_DURATION = THERMOMETER_FRAMES;
 const CONVEYOR_DURATION = CONVEYOR_FRAMES;
 const KITE_DURATION = KITE_FRAMES;
+const FIRETRUCK_DURATION = FIRETRUCK_FRAMES;
+const ELECTRIC_BEATER_DURATION = ELECTRIC_BEATER_FRAMES;
+const SNAIL_DURATION = SNAIL_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -259,6 +271,30 @@ export const RemotionRoot: React.FC = () => {
         id="KiteMission"
         component={KiteMission}
         durationInFrames={KITE_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="FiretruckMission"
+        component={FiretruckMission}
+        durationInFrames={FIRETRUCK_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ElectricBeaterMission"
+        component={ElectricBeaterMission}
+        durationInFrames={ELECTRIC_BEATER_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SnailMission"
+        component={SnailMission}
+        durationInFrames={SNAIL_DURATION}
         fps={30}
         width={1920}
         height={1080}

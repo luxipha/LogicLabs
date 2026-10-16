@@ -40,6 +40,26 @@ import volcanoEruptionContent from '../lessons/volcano-eruption/content.json';
 import anemometerContent from '../lessons/anemometer/content.json';
 import reviewContent from '../lessons/review/content.json';
 import clockContent from '../lessons/clock/content.json';
+import electricBeaterContent from '../lessons/electric-beater/content.json';
+import trencherContent from '../lessons/trencher/content.json';
+import largeTruckContent from '../lessons/large-truck/content.json';
+import submarineContent from '../lessons/submarine/content.json';
+import containerCraneContent from '../lessons/container-crane/content.json';
+import paperCrinklerContent from '../lessons/paper-crinkler/content.json';
+import snailContent from '../lessons/snail/content.json';
+import noteContent from '../lessons/note/content.json';
+import wagonContent from '../lessons/wagon/content.json';
+import pyramidContent from '../lessons/pyramid/content.json';
+import iceCreamContent from '../lessons/ice-cream/content.json';
+import gardenContent from '../lessons/garden/content.json';
+import cactusContent from '../lessons/cactus/content.json';
+import volcanoContent from '../lessons/volcano/content.json';
+import faceContent from '../lessons/face/content.json';
+import smartLightContent from '../lessons/smart-light/content.json';
+import robotArmContent from '../lessons/robot-arm/content.json';
+import elephantContent from '../lessons/elephant/content.json';
+import fanContent from '../lessons/fan/content.json';
+import dragsterContent from '../lessons/dragster/content.json';
 import type {LessonContent} from './types';
 
 const content = (json: unknown): LessonContent => json as LessonContent;
@@ -85,7 +105,27 @@ export type LessonId =
   | 'volcano-eruption'
   | 'anemometer'
   | 'review'
-  | 'clock';
+  | 'clock'
+  | 'electric-beater'
+  | 'trencher'
+  | 'large-truck'
+  | 'submarine'
+  | 'container-crane'
+  | 'paper-crinkler'
+  | 'snail'
+  | 'note'
+  | 'wagon'
+  | 'pyramid'
+  | 'ice-cream'
+  | 'garden'
+  | 'cactus'
+  | 'volcano'
+  | 'face'
+  | 'smart-light'
+  | 'robot-arm'
+  | 'elephant'
+  | 'fan'
+  | 'dragster';
 
 export type LessonMeta = {
   id: LessonId;
@@ -144,6 +184,26 @@ const VolcanoEruptionLesson = lazy(() => import('../lessons/volcano-eruption/Vol
 const AnemometerLesson = lazy(() => import('../lessons/anemometer/AnemometerLesson'));
 const ReviewLesson = lazy(() => import('../lessons/review/ReviewLesson'));
 const ClockLesson = lazy(() => import('../lessons/clock/ClockLesson'));
+const ElectricBeaterLesson = lazy(() => import('../lessons/electric-beater/ElectricBeaterLesson'));
+const TrencherLesson = lazy(() => import('../lessons/trencher/TrencherLesson'));
+const LargeTruckLesson = lazy(() => import('../lessons/large-truck/LargeTruckLesson'));
+const SubmarineLesson = lazy(() => import('../lessons/submarine/SubmarineLesson'));
+const ContainerCraneLesson = lazy(() => import('../lessons/container-crane/ContainerCraneLesson'));
+const PaperCrinklerLesson = lazy(() => import('../lessons/paper-crinkler/PaperCrinklerLesson'));
+const SnailLesson = lazy(() => import('../lessons/snail/SnailLesson'));
+const NoteLesson = lazy(() => import('../lessons/note/NoteLesson'));
+const WagonLesson = lazy(() => import('../lessons/wagon/WagonLesson'));
+const PyramidLesson = lazy(() => import('../lessons/pyramid/PyramidLesson'));
+const IceCreamLesson = lazy(() => import('../lessons/ice-cream/IceCreamLesson'));
+const GardenLesson = lazy(() => import('../lessons/garden/GardenLesson'));
+const CactusLesson = lazy(() => import('../lessons/cactus/CactusLesson'));
+const VolcanoLesson = lazy(() => import('../lessons/volcano/VolcanoLesson'));
+const FaceLesson = lazy(() => import('../lessons/face/FaceLesson'));
+const SmartLightLesson = lazy(() => import('../lessons/smart-light/SmartLightLesson'));
+const RobotArmLesson = lazy(() => import('../lessons/robot-arm/RobotArmLesson'));
+const ElephantLesson = lazy(() => import('../lessons/elephant/ElephantLesson'));
+const FanLesson = lazy(() => import('../lessons/fan/FanLesson'));
+const DragsterLesson = lazy(() => import('../lessons/dragster/DragsterLesson'));
 
 export const LESSONS: LessonMeta[] = [
   {id: 'airplane', content: content(airplaneContent)},
@@ -187,6 +247,26 @@ export const LESSONS: LessonMeta[] = [
   {id: 'anemometer', content: content(anemometerContent)},
   {id: 'review', content: content(reviewContent)},
   {id: 'clock', content: content(clockContent)},
+  {id: 'electric-beater', content: content(electricBeaterContent)},
+  {id: 'trencher', content: content(trencherContent)},
+  {id: 'large-truck', content: content(largeTruckContent)},
+  {id: 'submarine', content: content(submarineContent)},
+  {id: 'container-crane', content: content(containerCraneContent)},
+  {id: 'paper-crinkler', content: content(paperCrinklerContent)},
+  {id: 'snail', content: content(snailContent)},
+  {id: 'note', content: content(noteContent)},
+  {id: 'wagon', content: content(wagonContent)},
+  {id: 'pyramid', content: content(pyramidContent)},
+  {id: 'ice-cream', content: content(iceCreamContent)},
+  {id: 'garden', content: content(gardenContent)},
+  {id: 'cactus', content: content(cactusContent)},
+  {id: 'volcano', content: content(volcanoContent)},
+  {id: 'face', content: content(faceContent)},
+  {id: 'smart-light', content: content(smartLightContent)},
+  {id: 'robot-arm', content: content(robotArmContent)},
+  {id: 'elephant', content: content(elephantContent)},
+  {id: 'fan', content: content(fanContent)},
+  {id: 'dragster', content: content(dragsterContent)},
 ];
 
 export const getLesson = (id: string | undefined): LessonMeta | undefined =>
@@ -276,5 +356,45 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return ReviewLesson;
     case 'clock':
       return ClockLesson;
+    case 'electric-beater':
+      return ElectricBeaterLesson;
+    case 'trencher':
+      return TrencherLesson;
+    case 'large-truck':
+      return LargeTruckLesson;
+    case 'submarine':
+      return SubmarineLesson;
+    case 'container-crane':
+      return ContainerCraneLesson;
+    case 'paper-crinkler':
+      return PaperCrinklerLesson;
+    case 'snail':
+      return SnailLesson;
+    case 'note':
+      return NoteLesson;
+    case 'wagon':
+      return WagonLesson;
+    case 'pyramid':
+      return PyramidLesson;
+    case 'ice-cream':
+      return IceCreamLesson;
+    case 'garden':
+      return GardenLesson;
+    case 'cactus':
+      return CactusLesson;
+    case 'volcano':
+      return VolcanoLesson;
+    case 'face':
+      return FaceLesson;
+    case 'smart-light':
+      return SmartLightLesson;
+    case 'robot-arm':
+      return RobotArmLesson;
+    case 'elephant':
+      return ElephantLesson;
+    case 'fan':
+      return FanLesson;
+    case 'dragster':
+      return DragsterLesson;
   }
 };

@@ -1,0 +1,19 @@
+{
+  "slug": "fan",
+  "title": "Mission: The Fan",
+  "subtitle": "",
+  "summary": "",
+  "badge": "FAN",
+  "color": "#3fbf3f",
+  "activity": "discover",
+  "activityLabel": "Discover the fan",
+  "activityInstruction": "",
+  "difficulty": 1,
+  "topics": [],
+  "classIds": ["Microbit"],
+  "storyVideoUrl": "",
+  "warmupVideoUrl": "",
+  "storyQuestions": [],
+  "quiz": [],
+  "parts": []
+}

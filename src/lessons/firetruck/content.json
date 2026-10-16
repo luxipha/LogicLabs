@@ -1,19 +1,91 @@
 {
   "slug": "firetruck",
   "title": "Mission: The Firetruck",
-  "subtitle": "",
-  "summary": "",
+  "subtitle": "Meet the rescue team and control the water hose",
+  "summary": "Explore a real firetruck in 3D, discover its parts, and aim a hose in a firefighter training yard.",
   "badge": "RESCUE",
   "color": "#d62839",
-  "activity": "discover",
-  "activityLabel": "Discover the firetruck",
-  "activityInstruction": "",
+  "activity": "rescue",
+  "activityLabel": "Aim, spray, switch off",
+  "activityInstruction": "Turn on the pump. Aim the blue circle at each practice flame and spray. Clear all three, then switch the pump off. Refill the tank if needed.",
+  "exploreTitle": "Look around the real firetruck.",
+  "exploreInstruction": "Drag to turn the firetruck. Zoom in to look closely at its equipment. In Identify, find the cab, wheels, coiled water hose and rear ladder on the truck.",
   "difficulty": 1,
-  "topics": [],
+  "topics": ["Transport", "Community helpers", "Water", "Cause and effect"],
   "classIds": ["Brickmoto"],
-  "storyVideoUrl": "",
+  "storyVideoUrl": "https://www.youtube.com/embed/BSWa0M3mTVk",
   "warmupVideoUrl": "",
-  "storyQuestions": [],
-  "quiz": [],
-  "parts": []
+  "storyQuestions": [
+    {
+      "prompt": "What did the student smell?",
+      "answers": ["Fresh bread", "Smoke", "Flowers"],
+      "correctIndex": 1,
+      "success": "The student smelled smoke."
+    },
+    {
+      "prompt": "What did the children see?",
+      "answers": ["A cat in the tree", "Rain on the windows", "Smoke near the school"],
+      "correctIndex": 2,
+      "success": "They saw smoke near the school."
+    },
+    {
+      "prompt": "What did the student press?",
+      "answers": ["The fire alarm", "The doorbell", "The light switch"],
+      "correctIndex": 0,
+      "success": "The student pressed the fire alarm."
+    },
+    {
+      "prompt": "What did everyone do next?",
+      "answers": ["They hid under the table", "They left the classroom", "They went back to work"],
+      "correctIndex": 1,
+      "success": "Everyone left the classroom."
+    },
+    {
+      "prompt": "Where did they go?",
+      "answers": ["To the roof", "To the office", "Outside"],
+      "correctIndex": 2,
+      "success": "They went outside."
+    },
+    {
+      "prompt": "Was the school safe yet?",
+      "answers": ["No", "Yes", "Only upstairs"],
+      "correctIndex": 0,
+      "success": "No, the school was not safe yet."
+    },
+    {
+      "prompt": "Who can help when there is a fire?",
+      "answers": ["The postman", "Firefighters", "A farmer"],
+      "correctIndex": 1,
+      "success": "Firefighters help put out fires."
+    },
+    {
+      "prompt": "What number should we call for help?",
+      "answers": ["1234", "The post office", "112 or 999"],
+      "correctIndex": 2,
+      "success": "Call the emergency number — 112 or 999."
+    },
+    {
+      "prompt": "What kind of vehicle can come quickly to help?",
+      "answers": ["A firetruck", "A bicycle", "A boat"],
+      "correctIndex": 0,
+      "success": "A firetruck comes quickly to help."
+    },
+    {
+      "prompt": "What should that vehicle be able to do?",
+      "answers": ["Drive very slowly", "Carry lots of passengers", "Move quickly and put out the fire"],
+      "correctIndex": 2,
+      "success": "The firetruck moves quickly and helps put out the fire."
+    }
+  ],
+  "quiz": [
+    {"prompt": "Which parts help the firetruck roll along the road?", "answers": ["The wheels", "The hose", "The ladder"], "correctIndex": 0, "success": "The wheels turn so the truck can travel."},
+    {"prompt": "Your water misses the practice flame. What can you change?", "answers": ["The truck's colour", "The hose angle", "The number of seats"], "correctIndex": 1, "success": "Changing the angle changes where the water goes."},
+    {"prompt": "All the practice flames are out. What finishes the mission?", "answers": ["Keep spraying", "Empty the tank", "Switch off the pump"], "correctIndex": 2, "success": "Switch off the pump when the practice job is done."}
+  ],
+  "parts": [
+    {"id": "cab", "label": "Crew cab", "fact": "The crew cab carries the firefighters to their job.", "help": "Find the front section with windows and seats."},
+    {"id": "wheels", "label": "Wheels", "fact": "The wheels turn to help the firetruck travel along the road.", "help": "Find the round parts underneath the truck."},
+    {"id": "hose", "label": "Water hose", "fact": "The hose carries water from the pump to the nozzle. It coils up for storage on the truck.", "help": "Find the yellow coiled hose and nozzle on the side, behind the crew cab."},
+    {"id": "ladder", "label": "Ladder", "fact": "The ladder at the back helps firefighters climb up to the equipment.", "help": "Turn the truck and find the narrow ladder with rungs at the back."}
+  ]
 }

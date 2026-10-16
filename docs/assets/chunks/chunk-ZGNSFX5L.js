@@ -1,0 +1,1 @@
+var t={slug:"volcano",title:"Mission: The Volcano",subtitle:"",summary:"",badge:"ERUPT",color:"#e03131",activity:"discover",activityLabel:"Discover the volcano",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{t as a};

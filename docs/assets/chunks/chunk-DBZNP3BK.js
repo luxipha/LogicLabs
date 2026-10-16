@@ -1,0 +1,1 @@
+var r={slug:"large-truck",title:"Mission: The Large Truck",subtitle:"",summary:"",badge:"HAUL",color:"#2f6fed",activity:"discover",activityLabel:"Discover the large truck",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{r as a};

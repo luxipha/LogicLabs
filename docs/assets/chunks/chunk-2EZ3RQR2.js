@@ -1,0 +1,1 @@
+var s={slug:"garden",title:"Mission: The Garden",subtitle:"",summary:"",badge:"GROW",color:"#2f9e44",activity:"discover",activityLabel:"Discover the garden",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

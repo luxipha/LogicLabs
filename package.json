@@ -30,6 +30,9 @@
     "render:thermometer": "remotion render ThermometerMission out/ThermometerMission.mp4",
     "render:conveyor": "remotion render ConveyorMission out/ConveyorMission.mp4",
     "render:kite": "remotion render KiteMission out/KiteMission.mp4",
+    "render:firetruck": "remotion render FiretruckMission out/FiretruckMission.mp4",
+    "render:electric-beater": "remotion render ElectricBeaterMission out/ElectricBeaterMission.mp4",
+    "render:snail": "remotion render SnailMission out/SnailMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
@@ -47,6 +50,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@types/three": "^0.185.4",
+    "meshoptimizer": "1.1.1",
     "sharp": "^0.35.4",
     "typescript": "^5.9.3"
   }

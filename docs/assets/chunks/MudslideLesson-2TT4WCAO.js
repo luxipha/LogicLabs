@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-35AFBB2T.js";import{a as t}from"./chunk-BZYI2I5R.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),d=i=>(0,r.jsx)(n,{content:t,...i}),p=d;export{d as MudslideLesson,p as default};

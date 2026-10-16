@@ -1,0 +1,1 @@
+var s={slug:"note",title:"Mission: The Note",subtitle:"",summary:"",badge:"NOTE",color:"#f06595",activity:"discover",activityLabel:"Discover the note",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-35AFBB2T.js";import{a as t}from"./chunk-KR732BDU.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e as r}from"./chunk-HLYRQ3WR.js";var n=o(r()),a=i=>(0,n.jsx)(e,{content:t,...i}),p=a;export{a as DragsterLesson,p as default};

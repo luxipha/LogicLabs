@@ -37,6 +37,7 @@ export const GenericLesson: React.FC<{
   onBoard?: () => void;
   stageCompletesActivity?: boolean;
   codingTab?: boolean;
+  storyPresentation?: 'video' | 'reading';
   activityTabs?: (props: {activeId: string; onSelect: (id: string) => void}) => React.ReactNode;
   stage: (props: {
     mode: GenericMode;
@@ -52,7 +53,7 @@ export const GenericLesson: React.FC<{
     setActivityStep: (id: string) => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, activityTabs, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, storyPresentation = 'video', activityTabs, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
@@ -217,7 +218,7 @@ export const GenericLesson: React.FC<{
       : mode === 'warmup'
       ? 'Watch the warmup video.'
       : mode === 'story'
-        ? 'Watch the mission story.'
+        ? storyPresentation === 'reading' ? 'Read the mission story.' : 'Watch the mission story.'
         : mode === 'identify'
           ? identifyTarget
             ? `Find the ${identifyTarget.label.toLowerCase()}.`
@@ -233,7 +234,7 @@ export const GenericLesson: React.FC<{
       : mode === 'warmup'
       ? 'Watch the video, then press the Story tab to begin.'
       : mode === 'story'
-        ? 'Watch the video, then answer the story questions.'
+        ? storyPresentation === 'reading' ? 'Read the story cards, then answer the story questions.' : 'Watch the video, then answer the story questions.'
         : mode === 'identify'
         ? identifyTarget
           ? `Tap the ${identifyTarget.label.toLowerCase()} on the picture.`
@@ -262,7 +263,7 @@ export const GenericLesson: React.FC<{
                     ? 'Activity complete!'
                     : content.activityInstruction
                   : mode === 'story'
-                    ? 'Watch the story and look for clues.'
+                    ? storyPresentation === 'reading' ? 'Read the story and look for clues.' : 'Watch the story and look for clues.'
                     : mode === 'warmup'
                       ? 'Watch the warmup video to get ready.'
                       : parts.find((p) => p.id === activePart)?.fact ?? '';

@@ -1,0 +1,19 @@
+{
+  "slug": "paper-crinkler",
+  "title": "Mission: The Paper Crinkler",
+  "subtitle": "",
+  "summary": "",
+  "badge": "CRINKLE",
+  "color": "#9c36b5",
+  "activity": "discover",
+  "activityLabel": "Discover the paper crinkler",
+  "activityInstruction": "",
+  "difficulty": 1,
+  "topics": [],
+  "classIds": ["Brickmoto"],
+  "storyVideoUrl": "",
+  "warmupVideoUrl": "",
+  "storyQuestions": [],
+  "quiz": [],
+  "parts": []
+}

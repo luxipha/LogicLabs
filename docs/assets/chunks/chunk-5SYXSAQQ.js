@@ -1,0 +1,1 @@
+var r={slug:"trencher",title:"Mission: The Trencher",subtitle:"",summary:"",badge:"DIG",color:"#b07a2b",activity:"discover",activityLabel:"Discover the trencher",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{r as a};

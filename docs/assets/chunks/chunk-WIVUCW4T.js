@@ -1,0 +1,1 @@
+var s={slug:"submarine",title:"Mission: The Submarine",subtitle:"",summary:"",badge:"DIVE",color:"#0b7285",activity:"discover",activityLabel:"Discover the submarine",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};
