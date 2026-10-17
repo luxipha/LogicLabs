@@ -1,19 +1,95 @@
 {
   "slug": "robot-arm",
   "title": "Mission: The Robot Arm",
-  "subtitle": "",
-  "summary": "",
+  "subtitle": "Reach. Grip. Lift. Move.",
+  "summary": "Explore the supplied animated robotic arm, identify its parts, and plan a pick-and-place sequence.",
   "badge": "ARM",
   "color": "#5f6b7a",
   "activity": "discover",
-  "activityLabel": "Discover the robot arm",
-  "activityInstruction": "",
+  "activityLabel": "Try a robot plan",
+  "activityInstruction": "Choose six instructions and run them in any order. Watch the load tracker. Fix mistakes until the load reaches delivery safely.",
   "difficulty": 1,
-  "topics": [],
-  "classIds": ["Microbit"],
-  "storyVideoUrl": "",
+  "topics": [
+    "Robot arms",
+    "Servo motors",
+    "Joints",
+    "Grippers",
+    "Sequence"
+  ],
+  "classIds": [
+    "Microbit"
+  ],
+  "storyVideoUrl": "https://www.youtube.com/embed/cj4i9fMffwE",
   "warmupVideoUrl": "",
   "storyQuestions": [],
-  "quiz": [],
-  "parts": []
+  "quiz": [
+    {
+      "prompt": "Which part holds the load?",
+      "answers": [
+        "Base",
+        "Gripper",
+        "Controller"
+      ],
+      "correctIndex": 1,
+      "success": "The gripper closes around the load."
+    },
+    {
+      "prompt": "What moves a joint?",
+      "answers": [
+        "A servo motor",
+        "The floor",
+        "A shell"
+      ],
+      "correctIndex": 0,
+      "success": "The servo motor turns the joint."
+    },
+    {
+      "prompt": "What should the arm do before turning with a load?",
+      "answers": [
+        "Drop it",
+        "Open the claw",
+        "Lift it clear"
+      ],
+      "correctIndex": 2,
+      "success": "Lift the load so it clears the table."
+    },
+    {
+      "prompt": "Which action puts the load down?",
+      "answers": [
+        "Open the lowered gripper",
+        "Close the claw again",
+        "Raise the base"
+      ],
+      "correctIndex": 0,
+      "success": "Lower the load to the pad, then open the gripper."
+    }
+  ],
+  "parts": [
+    {
+      "id": "base",
+      "label": "Base",
+      "fact": "The mounting base supports the arm and stays fixed while the arm moves.",
+      "help": "Tap the black mounting foot at the bottom."
+    },
+    {
+      "id": "joints",
+      "label": "Joints",
+      "fact": "Motor-driven joints let the arm bend and turn. The motor mechanisms are enclosed by these housings.",
+      "help": "Tap a rounded joint housing or circular joint cover."
+    },
+    {
+      "id": "arm",
+      "label": "Arm links",
+      "fact": "The rigid links connect the joints and carry the gripper toward its target.",
+      "help": "Tap a long black or orange section between the joints."
+    },
+    {
+      "id": "gripper",
+      "label": "Gripper",
+      "fact": "The two-finger gripper closes to hold a load and opens to let it go.",
+      "help": "Tap the metal claw at the end of the arm."
+    }
+  ],
+  "exploreTitle": "How does the arm move?",
+  "exploreInstruction": "Play, pause or scrub the supplied animation. Watch the arm bend, the wrist turn and the gripper open."
 }

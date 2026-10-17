@@ -122,6 +122,7 @@ const lessonRoutes = [
   '/lessons/clock',
   '/lessons/electric-beater',
   '/lessons/snail',
+  '/lessons/robot-arm',
   '/lessons/smart-light',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
@@ -133,6 +134,7 @@ for (const route of routes) {
 }
 
 // Static lesson models.
+await fs.copyFile(path.join(root, 'public/models/robotic-arm-classroom.glb'), path.join(modelsDir, 'robotic-arm-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/hand-mixer-classroom.glb'), path.join(modelsDir, 'hand-mixer-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/snail-classroom.glb'), path.join(modelsDir, 'snail-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/firetruck-with-hose.glb'), path.join(modelsDir, 'firetruck-with-hose.glb'));

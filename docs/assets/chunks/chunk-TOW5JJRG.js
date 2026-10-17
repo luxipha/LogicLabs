@@ -1,1 +1,0 @@
-var o={slug:"robot-arm",title:"Mission: The Robot Arm",subtitle:"",summary:"",badge:"ARM",color:"#5f6b7a",activity:"discover",activityLabel:"Discover the robot arm",activityInstruction:"",difficulty:1,topics:[],classIds:["Microbit"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{o as a};

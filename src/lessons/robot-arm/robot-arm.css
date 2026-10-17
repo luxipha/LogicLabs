@@ -1,0 +1,81 @@
+.ra-stage{display:flex;flex-direction:column;gap:10px;padding:14px;background:#e9f3f5;min-height:0;height:100%;overflow:hidden}
+.ra-toolbar,.ra-panel-title{display:flex;align-items:center;justify-content:space-between;gap:8px}.ra-toolbar>div{display:flex;gap:6px}.ra-toolbar strong{font-size:17px;color:#254a5d}
+.generic-app--robot-arm .ra-stage button{border:2px solid #98b8c4;border-radius:9px;padding:8px 10px;background:white;color:#254a5d;font:inherit;font-size:13px;font-weight:800;cursor:pointer}.generic-app--robot-arm .ra-stage button:hover{background:#e2f1f3}.generic-app--robot-arm .ra-stage button:focus-visible{outline:3px solid #eaa32c;outline-offset:2px}
+.ra-workspace{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:12px;flex:1;min-height:0}.ra-workspace.ra-identify{grid-template-columns:1fr}
+.ra-world{position:relative;min-width:0;min-height:0;border-radius:15px;overflow:hidden;background:#dcebf0}.ra-world>div{position:absolute!important;inset:0}.ra-orbit,.ra-pad-key{position:absolute;left:10px;bottom:10px;pointer-events:none;font-size:10px;padding:5px 8px;border-radius:8px;background:#243f51;color:white}.ra-pad-key{top:10px;bottom:auto;font-size:12px}
+.ra-panel{display:flex;flex-direction:column;gap:10px;padding:12px;min-height:0;background:white;border-radius:15px;color:#254a5d}.ra-panel h3{font-size:17px;margin:0}.ra-panel p{font-size:13px;line-height:1.4;margin:0}.ra-slider{display:grid;grid-template-columns:1fr auto;gap:5px;font-size:13px;font-weight:800}.ra-slider input{grid-column:1/-1;width:100%;margin:0;accent-color:#168d9b}.ra-actions{display:grid;gap:8px}.ra-actions fieldset{display:grid;grid-template-columns:1fr 1fr;gap:5px;border:1px solid #ccdde1;border-radius:9px;padding:7px;margin:0}.ra-actions legend{font-size:12px;font-weight:800}.ra-progress{display:flex;justify-content:space-between;gap:5px;font-size:12px;font-weight:800}.ra-feedback{padding:9px;border-radius:9px;background:#e7f1f5}.ra-feedback--error{background:#fff0dd;color:#844323}.ra-feedback--success{background:#e3f3df;color:#2e6139}.ra-panel .ra-note{font-size:11px}.ra-stage:fullscreen{height:100vh;width:100vw}
+@media(min-width:1201px) and (max-height:720px){.ra-stage{padding:10px;gap:6px}.ra-workspace{grid-template-columns:minmax(0,1fr) 410px;gap:8px}.ra-panel{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:6px;padding:9px}.ra-panel h3{font-size:14px}.ra-panel>p:first-of-type,.ra-panel-title,.ra-actions,.ra-feedback,.ra-progress,.ra-panel>.ra-note{grid-column:1/-1}.ra-panel p{font-size:10px}.ra-actions{grid-template-columns:1fr 1fr 1fr;gap:4px}.ra-actions fieldset{grid-template-columns:1fr;padding:4px;gap:3px}.ra-actions legend{font-size:10px}.generic-app--robot-arm .ra-stage button{font-size:10px;padding:4px 6px}.ra-slider{font-size:11px}.ra-progress{font-size:10px}.ra-feedback{padding:5px}.ra-panel .ra-note{font-size:10px}}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){.ra-stage{padding:8px;gap:5px}.ra-toolbar strong{font-size:12px}.ra-workspace{grid-template-columns:minmax(0,1fr) 270px;gap:6px}.ra-panel{gap:4px;padding:7px}.ra-panel h3{font-size:12px}.ra-panel p,.ra-panel .ra-note,.ra-actions legend,.ra-slider,.ra-progress{font-size:10px}.ra-actions{gap:3px}.ra-actions fieldset{padding:3px;gap:3px}.generic-app--robot-arm .ra-stage button{font-size:10px;padding:3px 5px}.ra-feedback{padding:5px}.ra-orbit{font-size:8px}.ra-pad-key{font-size:10px}.ra-slider{gap:2px}}
+@media(max-width:899px),(min-width:900px) and (max-width:1200px) and (min-height:651px){.ra-workspace{display:flex;flex-direction:column;gap:10px}.ra-world{flex:1;min-height:290px}.ra-panel{flex:0 0 auto;gap:8px}.ra-toolbar strong{font-size:13px}.generic-app--robot-arm .ra-stage button{font-size:11px;padding:7px}.generic-app--robot-arm.generic-app--mode-explore .lesson-stage{height:850px;flex-basis:850px}.generic-app--robot-arm.generic-app--mode-activity .lesson-stage{height:900px;flex-basis:900px}.ra-panel h3{font-size:15px}.ra-panel p{font-size:12px}}
+.generic-app--robot-arm .ra-stage button:disabled{opacity:.45;cursor:default}
+/* Keep the custom workspace stretched inside the shared lesson stage. */
+.generic-app.generic-app--robot-arm{position:relative;width:100%;height:100%;min-height:0}
+.generic-app.generic-app--robot-arm .ra-stage{display:flex;align-items:stretch;box-sizing:border-box;border-radius:20px}
+.ra-toolbar{flex-shrink:0}
+.generic-app.generic-app--robot-arm .parts-tray{grid-template-columns:repeat(5,minmax(0,1fr))}
+.generic-app--robot-arm .tray-thumb{min-width:0;width:100%}
+@media(min-width:1201px){.generic-app--robot-arm .encouragement{width:calc(100% - 700px);font-size:13px;padding:10px}.ra-stage--identify .ra-workspace{padding-bottom:60px}}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){
+ .generic-app.generic-app--robot-arm .lesson-stage{top:84px;bottom:82px;left:200px;right:200px;height:auto}
+ .generic-app.generic-app--robot-arm .task-column{top:18px;bottom:12px;left:12px;width:172px;max-height:none;overflow:auto}
+ .generic-app.generic-app--robot-arm .progress-column{top:84px;bottom:12px;right:12px;width:172px;max-height:none;overflow:auto}
+ .generic-app.generic-app--robot-arm .mode-tabs{top:12px;width:calc(100% - 400px);min-width:0}
+ .generic-app.generic-app--robot-arm .mode-tab{font-size:13px;padding:0 8px;margin-left:-8px;height:42px}
+ .generic-app.generic-app--robot-arm .task-body,.generic-app.generic-app--robot-arm .quiz-body{padding:10px}
+ .generic-app.generic-app--robot-arm .task-body h2,.generic-app.generic-app--robot-arm .quiz-body h3{font-size:15px}
+ .generic-app.generic-app--robot-arm .task-body p{font-size:13px}
+ .generic-app.generic-app--robot-arm .encouragement{bottom:10px;width:calc(100% - 400px);padding:9px;font-size:12px}
+ .generic-app.generic-app--robot-arm .parts-tray{bottom:82px;width:calc(100% - 400px);min-width:0;padding:6px;gap:5px}
+ .generic-app.generic-app--robot-arm .tray-part{padding:4px;font-size:10px}.generic-app--robot-arm .tray-thumb{height:28px;margin-bottom:4px}.generic-app--robot-arm .tray-part-status{font-size:9px}
+ .ra-stage--identify .ra-workspace{padding-bottom:60px}
+}
+@media(max-width:899px),(min-width:900px) and (max-width:1200px) and (min-height:651px){
+ .generic-app.generic-app--robot-arm{display:flex;flex-direction:column;gap:14px;padding:12px;overflow-y:auto}
+ .generic-app.generic-app--robot-arm .mission-header{position:static;display:flex;justify-content:flex-end;flex-shrink:0}
+ .generic-app.generic-app--robot-arm .mode-tabs{position:static;transform:none;width:100%;min-width:0;flex-wrap:wrap;gap:4px;flex-shrink:0}
+ .generic-app.generic-app--robot-arm .mode-tab{clip-path:none;border-radius:7px;margin:0;padding:0 10px;flex:1 1 28%;height:40px;font-size:14px}
+ .generic-app.generic-app--robot-arm .lesson-stage{position:relative;inset:auto;width:100%;height:470px;flex:0 0 470px}
+ .generic-app.generic-app--robot-arm.generic-app--mode-explore .lesson-stage{height:850px;flex-basis:850px}
+ .generic-app.generic-app--robot-arm.generic-app--mode-activity .lesson-stage{height:900px;flex-basis:900px}
+ .generic-app.generic-app--robot-arm .task-column,.generic-app.generic-app--robot-arm .progress-column{position:relative;inset:auto;width:100%;max-height:none;overflow:visible;flex:0 0 auto;order:2}
+ .generic-app.generic-app--robot-arm .progress-column{order:3}
+ .generic-app.generic-app--robot-arm .parts-tray{position:relative;inset:auto;transform:none;width:100%;min-width:0;flex-shrink:0;order:1;gap:5px;padding:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
+ .generic-app.generic-app--robot-arm .encouragement{position:relative;inset:auto;transform:none;width:100%;font-size:14px;flex-shrink:0;order:4}
+}
+@media(min-width:1201px) and (min-height:721px){.ra-stage--activity .ra-panel{gap:9px}}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){
+ .ra-stage--activity .ra-actions{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .ra-stage--activity .ra-actions fieldset{grid-template-columns:1fr;min-width:0}
+ .ra-stage--activity .ra-actions legend{font-size:9px}
+ .generic-app--robot-arm .ra-stage--activity .ra-actions button{font-size:9px;padding:4px 2px}
+}
+.ra-credit{flex:0 0 auto;font-size:9px;color:#395d70;text-align:center}.ra-loading{position:absolute;inset:0;display:grid;place-items:center;background:#dcebf0;color:#254a5d;font-weight:800}
+.ra-command-options,.ra-pose-buttons{display:grid;grid-template-columns:1fr 1fr;gap:5px}.ra-plan{margin:0;padding-left:24px;font-size:12px;line-height:1.65}.ra-plan-actions{display:flex;gap:6px}.ra-plan-actions button{flex:1}.ra-command-options button{min-width:0}
+.generic-app.generic-app--robot-arm .parts-tray{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(min-width:1201px) and (max-height:720px){.ra-stage--activity .ra-panel{grid-template-columns:1fr 1fr}.ra-stage--activity .ra-panel>p:first-of-type{grid-column:1/-1}.ra-command-options{grid-column:1;grid-row:3/5}.ra-plan{grid-column:2;grid-row:3;font-size:10px;line-height:1.5}.ra-plan-actions{grid-column:2;grid-row:4}.ra-pose-buttons{grid-column:1/-1}.ra-stage--activity .ra-plan-actions button{font-size:9px}.ra-credit{font-size:8px}}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){.ra-stage--activity .ra-panel{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:4px}.ra-stage--activity .ra-panel-title,.ra-stage--activity .ra-panel>p{grid-column:1/-1}.ra-stage--activity .ra-command-options{grid-column:1;grid-row:3/5;grid-template-columns:1fr}.ra-stage--activity .ra-plan{grid-column:2;grid-row:3;font-size:9px;line-height:1.4}.ra-stage--activity .ra-plan-actions{grid-column:2;grid-row:4;flex-direction:column;gap:3px}.ra-credit{font-size:7px}.ra-stage--activity .ra-note{font-size:9px}.generic-app--robot-arm .ra-command-options button{font-size:9px;padding:3px}.ra-stage--activity .ra-feedback{font-size:9px;line-height:1.25}}
+@media(max-width:899px),(min-width:900px) and (max-width:1200px) and (min-height:651px){.ra-plan{font-size:12px}.generic-app.generic-app--robot-arm.generic-app--mode-activity .lesson-stage{height:1050px;flex-basis:1050px}}
+/* Put the choices and the growing plan side by side at landscape heights. */
+@media(min-width:900px){
+ .ra-stage--activity .ra-panel{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:6px}
+ .ra-stage--activity .ra-panel-title,.ra-stage--activity .ra-panel>p{grid-column:1/-1}
+ .ra-stage--activity .ra-command-options{grid-column:1;grid-row:3;grid-template-columns:1fr 1fr;align-content:start}
+ .ra-stage--activity .ra-plan{grid-column:2;grid-row:3;line-height:1.5;font-size:11px}
+ .ra-stage--activity .ra-plan-actions{grid-column:1/-1;grid-row:4;flex-direction:row}
+ .generic-app--robot-arm .ra-stage--activity .ra-command-options button{font-size:11px;padding:6px 3px}
+ .ra-stage--activity .ra-panel-title h3{font-size:15px}
+}
+@media(min-width:1201px) and (max-height:720px){.ra-stage--activity .ra-plan{font-size:10px}.generic-app--robot-arm .ra-stage--activity .ra-command-options button{font-size:10px;padding:4px 3px}.ra-stage--activity .ra-panel-title h3{font-size:13px}}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){
+ .ra-stage--activity .ra-panel{gap:3px}.ra-stage--activity .ra-panel-title h3{font-size:11px}.ra-stage--activity .ra-panel>p{font-size:9px;line-height:1.25}.ra-stage--activity .ra-plan{font-size:9px;line-height:1.3;padding-left:18px}.generic-app--robot-arm .ra-stage--activity .ra-command-options button{font-size:9px;padding:3px 1px}.ra-stage--activity .ra-command-options{gap:3px}.ra-stage--activity .ra-plan-actions{gap:3px}.ra-stage--activity .ra-feedback{padding:4px}
+}
+.ra-playback-status{grid-column:1/-1;font-size:11px;font-weight:800;color:#24586a}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){.ra-playback-status{font-size:9px}}
+.ra-load-tracker{position:absolute;top:10px;left:10px;width:170px;padding:7px;border-radius:10px;background:#ffffffed;color:#254a5d;pointer-events:none}.ra-load-tracker strong{font-size:10px}.ra-load-tracker svg{width:100%;height:75px!important;display:block}.ra-load-tracker text{font-size:10px;fill:#254a5d}.ra-load-tracker--dropped{background:#fff0e5ed}.ra-load-tracker--delivered{background:#e2f4dfed}.ra-plan li{border-radius:4px}.ra-plan .ra-step-current{background:#fff0ae;outline:2px solid #d6a83b}.ra-plan .ra-step-ok{color:#287044}.ra-plan .ra-step-error{color:#a63627;text-decoration:underline;text-decoration-style:dotted}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){.ra-load-tracker{width:130px;top:6px;left:6px;padding:5px}.ra-load-tracker strong{font-size:8px}.ra-load-tracker svg{height:53px!important}}
+.ra-world>.ra-load-tracker{inset:10px auto auto 10px}
+@media(min-width:900px) and (max-width:1200px) and (max-height:650px){.ra-world>.ra-load-tracker{inset:6px auto auto 6px}}
+.ra-coding-content{flex:1;min-height:0;overflow:auto;padding:16px;border-radius:14px;background:white;color:#254a5d}.ra-coding-content h3{margin:0 0 10px;font-size:20px}.ra-coding-content p{font-size:14px;line-height:1.5}.ra-coding-content pre{padding:14px;background:#edf5f8;border-radius:10px;white-space:pre-wrap;font-size:15px;line-height:1.65}.ra-coding-content small{font-size:11px}
+@media(max-height:650px) and (min-width:900px){.ra-coding-content{padding:10px}.ra-coding-content h3{font-size:14px;margin-bottom:5px}.ra-coding-content p{font-size:10px;margin:5px 0}.ra-coding-content pre{font-size:10px;line-height:1.3;padding:8px;margin:6px 0}.ra-coding-content small{font-size:9px}}
+.ra-code-review{display:flex;flex-direction:column;flex:1;min-height:0;gap:8px;color:#254a5d}.ra-code-review h3{margin:0;font-size:17px}.ra-code-review p{margin:5px 0 0;font-size:12px;line-height:1.4}.ra-code-review-image{flex:1;min-height:0;display:flex;justify-content:center;background:white;border-radius:12px;overflow:hidden}.ra-code-review-image img{width:100%;height:100%;object-fit:contain}.ra-coding-nav{display:flex;flex:0 0 auto;align-items:center;justify-content:center;gap:14px;font-size:12px;color:#254a5d}
+@media(max-height:650px) and (min-width:900px){.ra-code-review h3{font-size:12px}.ra-code-review p{font-size:10px;margin-top:3px}.ra-code-review{gap:5px}.ra-coding-nav{gap:8px;font-size:10px}}

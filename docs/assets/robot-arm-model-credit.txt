@@ -1,0 +1,7 @@
+Black Honey - Robotic Arm
+Author: re1monsen (https://sketchfab.com/re1monsen)
+Source: https://sketchfab.com/3d-models/black-honey-robotic-arm-c50671f2a8e74de2a2e687103fdc93ab
+License: Creative Commons Attribution 4.0
+https://creativecommons.org/licenses/by/4.0/
+Classroom derivative: textures resized and unused tangent data removed.
+Original authorship and license metadata are retained in the GLB.

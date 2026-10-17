@@ -34,6 +34,7 @@
     "render:electric-beater": "remotion render ElectricBeaterMission out/ElectricBeaterMission.mp4",
     "render:snail": "remotion render SnailMission out/SnailMission.mp4",
     "render:smart-light": "remotion render SmartLightMission out/SmartLightMission.mp4",
+    "render:robot-arm": "remotion render RobotArmMission out/RobotArmMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },
