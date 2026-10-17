@@ -33,6 +33,7 @@
     "render:firetruck": "remotion render FiretruckMission out/FiretruckMission.mp4",
     "render:electric-beater": "remotion render ElectricBeaterMission out/ElectricBeaterMission.mp4",
     "render:snail": "remotion render SnailMission out/SnailMission.mp4",
+    "render:smart-light": "remotion render SmartLightMission out/SmartLightMission.mp4",
     "still": "remotion still",
     "upgrade": "remotion upgrade"
   },

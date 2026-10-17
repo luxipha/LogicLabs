@@ -60,6 +60,10 @@ import {
   TOTAL_FRAMES as ELECTRIC_BEATER_FRAMES,
 } from './scenes/ElectricBeaterMission';
 import {SnailMission, TOTAL_FRAMES as SNAIL_FRAMES} from './scenes/SnailMission';
+import {
+  SmartLightMission,
+  TOTAL_FRAMES as SMART_LIGHT_FRAMES,
+} from './scenes/SmartLightMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -87,6 +91,7 @@ const KITE_DURATION = KITE_FRAMES;
 const FIRETRUCK_DURATION = FIRETRUCK_FRAMES;
 const ELECTRIC_BEATER_DURATION = ELECTRIC_BEATER_FRAMES;
 const SNAIL_DURATION = SNAIL_FRAMES;
+const SMART_LIGHT_DURATION = SMART_LIGHT_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -295,6 +300,14 @@ export const RemotionRoot: React.FC = () => {
         id="SnailMission"
         component={SnailMission}
         durationInFrames={SNAIL_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="SmartLightMission"
+        component={SmartLightMission}
+        durationInFrames={SMART_LIGHT_DURATION}
         fps={30}
         width={1920}
         height={1080}

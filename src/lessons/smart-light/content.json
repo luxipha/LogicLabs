@@ -2,14 +2,14 @@
   "slug": "smart-light",
   "title": "Mission: The Smart Light",
   "subtitle": "Sense the light. Make the right decision.",
-  "summary": "Discover how a micro:bit senses light and controls eight NeoPixels automatically. Build a rule, test day and night, and follow the MakeCode guide.",
+  "summary": "Explore a 3D dusk-to-dawn lamp, identify its parts, and program it to stay on overnight and switch off at dawn. Connect the idea to a micro:bit and NeoPixel classroom build.",
   "badge": "GLOW",
   "color": "#22b8cf",
   "activity": "smart-light",
-  "activityLabel": "Build and test an automatic light",
-  "activityInstruction": "Set pin P16 and 8 LEDs. Choose what happens below 128 and at 128 or above. Test a dark reading and a bright reading, then present your smart light.",
-  "exploreTitle": "Can a light switch itself?",
-  "exploreInstruction": "Change the light level and threshold. Watch the NeoPixels turn on below the threshold and off at or above it.",
+  "activityLabel": "Keep the garden lit overnight",
+  "activityInstruction": "Choose the lamp action for darkness and daylight. Test your rule at dusk, at night and at dawn. Pass all three scenes.",
+  "exploreTitle": "What happens from dusk to dawn?",
+  "exploreInstruction": "Choose Day, Dusk, Night or Dawn. Change the light reading and threshold. Watch the 3D lamp respond automatically.",
   "difficulty": 1,
   "topics": [
     "Light sensing",
@@ -21,68 +21,98 @@
   "classIds": [
     "Microbit"
   ],
-  "storyVideoUrl": "",
+  "storyVideoUrl": "https://www.youtube.com/embed/4WOeBSl4Yl8",
   "warmupVideoUrl": "",
   "storyQuestions": [
     {
-      "prompt": "What do we need when it is dark?",
+      "prompt": "How was the classroom in the morning?",
       "answers": [
-        "A light",
-        "More darkness",
-        "A louder sound"
+        "Dark",
+        "Very bright",
+        "Full of smoke"
       ],
       "correctIndex": 0,
-      "success": "We turn on a light so we can see."
+      "success": "The classroom was dark in the morning."
     },
     {
-      "prompt": "What makes an automatic light different?",
+      "prompt": "What did the teacher do?",
       "answers": [
-        "It never turns off",
-        "It can switch without a person using a switch",
-        "It has no power"
+        "Opened a window",
+        "Turned on the light",
+        "Left the room"
       ],
       "correctIndex": 1,
-      "success": "A sensor and a controller help it switch automatically."
+      "success": "The teacher turned on the light."
     },
     {
-      "prompt": "When should our smart light turn on?",
+      "prompt": "What happened later?",
       "answers": [
-        "When it is bright",
-        "Only at lunchtime",
-        "When it is dark"
+        "It started to rain",
+        "The bell rang",
+        "The sun came out"
       ],
       "correctIndex": 2,
-      "success": "Our smart light turns on when it is dark."
+      "success": "Later, the sun came out."
     },
     {
-      "prompt": "Where might we see automatic lights?",
+      "prompt": "Was the classroom still dark?",
       "answers": [
-        "Street lights and smart homes",
-        "Only underwater",
-        "Only inside a pencil"
+        "No. It was bright",
+        "Yes. It stayed dark",
+        "It was dark again at noon"
       ],
       "correctIndex": 0,
-      "success": "Automatic lights can be used in streets and smart homes."
+      "success": "No, the classroom was bright."
+    },
+    {
+      "prompt": "Was the light still on?",
+      "answers": [
+        "No, it was off",
+        "Only one lamp",
+        "Yes"
+      ],
+      "correctIndex": 2,
+      "success": "Yes, the light was still on."
+    },
+    {
+      "prompt": "What did the children forget to do?",
+      "answers": [
+        "Turn off the light",
+        "Close the door",
+        "Tidy the table"
+      ],
+      "correctIndex": 0,
+      "success": "They forgot to turn off the light."
+    },
+    {
+      "prompt": "Did the same thing happen again?",
+      "answers": [
+        "No, never again",
+        "Yes",
+        "Only once"
+      ],
+      "correctIndex": 1,
+      "success": "Yes, the same thing happened again."
     }
   ],
   "parts": [
     {
-      "id": "controller",
-      "label": "micro:bit",
-      "fact": "The micro:bit runs the program. It compares the light reading with a threshold and decides what the light should do.",
-      "help": "Tap the micro:bit board around the LED display."
+      "id": "housing",
+      "label": "Lamp housing",
+      "fact": "The housing protects the light and the parts inside. This outdoor lamp is a real-world example of automatic lighting.",
+      "help": "Turn the lamp and tap its dark outer body or mounting bracket."
     },
     {
-      "id": "sensor",
-      "label": "Light sensing",
-      "fact": "Some LEDs in the micro:bit display also sense light. The reading goes from 0 (dark) to 255 (bright).",
-      "help": "Tap the 5 by 5 LED display in the middle of the board."
+      "id": "photocell",
+      "label": "Light sensor",
+      "fact": "The light sensor detects how bright or dark it is outside. In our classroom build, the micro:bit senses the light.",
+      "help": "Find the small blue sensor on top of the lamp."
     },
     {
-      "id": "neopixel",
-      "label": "NeoPixel light",
-      "fact": "The eight NeoPixels are the output. The program can turn their colored lights on or off.",
-      "help": "Tap the ring of eight lights on the right."
+      "id": "led-lamp",
+      "label": "LED light",
+      "fact": "The LEDs give us light when it gets dark. The sensor helps the lamp turn off again when daylight returns.",
+      "help": "Tap the round light at the front of the lamp."
     }
   ],
   "quiz": [
