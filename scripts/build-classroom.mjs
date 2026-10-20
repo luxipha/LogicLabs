@@ -24,6 +24,11 @@ await fs.mkdir(modelsDir, {recursive: true});
 // Classroom illustrations are referenced as app-relative static assets.
 await fs.cp(publicAssetsDir, assetsDir, {recursive: true});
 // Keep the supplied coding images in numeric order at stable public URLs.
+const ultrasonicCodeDir = path.join(root, 'public/ultrasonic_code');
+await fs.mkdir(path.join(assetsDir, 'ultrasonic-code'), {recursive: true});
+for (let step = 1; step <= 5; step++) {
+  await fs.copyFile(path.join(ultrasonicCodeDir, `${step}.png`), path.join(assetsDir, 'ultrasonic-code', `${step}.png`));
+}
 const trexCodeDir = path.join(root, 'src/assets/trex/code');
 await fs.mkdir(path.join(assetsDir, 'trex-code'), {recursive: true});
 for (let step = 1; step <= 14; step++) {
