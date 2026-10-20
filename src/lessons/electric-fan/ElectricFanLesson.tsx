@@ -1,13 +1,10 @@
 import React from 'react';
-import {DataDrivenLesson} from '../shared/DataDrivenLesson';
+import {HotClassroomLesson} from '../hot-classroom/HotClassroomLesson';
+import type {LessonContent} from '../../app/types';
 import content from './content.json';
 
-export const ElectricFanLesson: React.FC<{
-  onHome?: () => void;
-  onComplete?: () => void;
-  warmupVideoUrl?: string;
-  onDraw?: () => void;
-  onBoard?: () => void;
-}> = (props) => <DataDrivenLesson content={content} {...props} />;
+export const ElectricFanLesson: React.FC<Omit<React.ComponentProps<typeof HotClassroomLesson>, 'lessonContent' | 'codingTab'>> = (props) => (
+  <HotClassroomLesson {...props} lessonContent={content as LessonContent} codingTab={false} />
+);
 
 export default ElectricFanLesson;

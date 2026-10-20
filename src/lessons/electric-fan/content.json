@@ -1,77 +1,162 @@
 {
   "slug": "electric-fan",
-  "title": "Mission: The Electric Fan",
-  "subtitle": "Build the electric fan and make a breeze.",
-  "summary": "Meet the electric fan, learn its parts, and spin the blades with the motor.",
+  "title": "Electric Fan",
+  "subtitle": "",
+  "summary": "",
   "badge": "FAN",
-  "color": "#3fbf3f",
-  "activity": "spin",
-  "activityLabel": "Play Fan Spin Game",
-  "activityInstruction": "Turn on the fan and watch the blades spin.",
+  "color": "#f18b36",
+  "activity": "build-fan",
+  "activityLabel": "Build the fan",
+  "activityInstruction": "Drag each fan part into the build zone. It will snap into place with a fact.",
   "difficulty": 1,
-  "topics": ["fan parts", "blade", "motor", "switch"],
-  "classIds": ["Brickmoto"],
-  "storyVideoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  "warmupVideoUrl": "https://www.youtube.com/embed/pn1qJET81a4",
-  "stageBackground": ["#dcf3e4", "#f2fbf4", "#bfe6cc"],
-  "activityGames": [
-    {
-      "id": "fan-game",
-      "label": "Play Fan Spin Game",
-      "title": "Fan Spin Game",
-      "src": "https://www.onlinegames.io/games/2021/4/draw-the-bridge/index.html"
-    }
+  "topics": [],
+  "classIds": [
+    "Brickmoto"
   ],
+  "storyVideoUrl": "https://www.youtube.com/embed/-XGJri9rj44",
+  "warmupVideoUrl": "",
   "storyQuestions": [
     {
-      "prompt": "What does a fan do?",
-      "answers": ["Moves air to make a breeze", "Makes ice", "Plays music"],
+      "prompt": "How is the classroom?",
+      "answers": [
+        "Hot.",
+        "Cold.",
+        "Windy."
+      ],
       "correctIndex": 0,
-      "success": "A fan moves air to make a breeze."
+      "success": "The classroom is hot."
     },
     {
-      "prompt": "What part spins to move the air?",
-      "answers": ["The blades", "The base", "The cord"],
+      "prompt": "How do the children feel?",
+      "answers": [
+        "Hot.",
+        "Sleepy.",
+        "Hungry."
+      ],
       "correctIndex": 0,
-      "success": "The blades spin to move the air."
+      "success": "The children feel hot."
     },
     {
-      "prompt": "What makes the blades spin?",
-      "answers": ["A motor", "A spring", "A magnet"],
+      "prompt": "What does one child use?",
+      "answers": [
+        "A book.",
+        "A cup.",
+        "A ball."
+      ],
       "correctIndex": 0,
-      "success": "A motor makes the blades spin."
+      "success": "One child uses a book."
     },
     {
-      "prompt": "How do you turn the fan on?",
-      "answers": ["Flip the switch", "Blow on it", "Shake it"],
+      "prompt": "What happens when the child waves the book?",
+      "answers": [
+        "The air moves.",
+        "The lights go out.",
+        "The door opens."
+      ],
       "correctIndex": 0,
-      "success": "Flip the switch to turn the fan on."
+      "success": "The air moves when the child waves the book."
+    },
+    {
+      "prompt": "Does the moving air feel good?",
+      "answers": [
+        "Yes.",
+        "No.",
+        "It makes them colder."
+      ],
+      "correctIndex": 0,
+      "success": "Yes, the moving air feels good."
+    },
+    {
+      "prompt": "Why does the child stop?",
+      "answers": [
+        "Their arm gets tired.",
+        "They are sleepy.",
+        "The book is lost."
+      ],
+      "correctIndex": 0,
+      "success": "The child stops because their arm gets tired."
+    },
+    {
+      "prompt": "What do the children want to do?",
+      "answers": [
+        "Make the air move.",
+        "Close the window.",
+        "Leave the room."
+      ],
+      "correctIndex": 0,
+      "success": "The children want to make the air move."
+    },
+    {
+      "prompt": "Do they want to keep using their hands?",
+      "answers": [
+        "No.",
+        "Yes.",
+        "Sometimes."
+      ],
+      "correctIndex": 0,
+      "success": "No, they do not want to keep using their hands."
     }
   ],
   "quiz": [
     {
-      "prompt": "Which part spins?",
-      "answers": ["The blades", "The base", "The guard"],
+      "prompt": "Which part spins around to move the air?",
+      "answers": [
+        "The blade.",
+        "The base.",
+        "The cord."
+      ],
       "correctIndex": 0,
-      "success": "The blades spin."
+      "success": "The blade spins around to move the air."
     },
     {
-      "prompt": "What powers the fan?",
-      "answers": ["The motor", "The handle", "The lamp"],
+      "prompt": "Which part turns the blade?",
+      "answers": [
+        "The motor.",
+        "The guard.",
+        "The base."
+      ],
       "correctIndex": 0,
-      "success": "The motor powers the fan."
+      "success": "The motor turns the blade."
     },
     {
-      "prompt": "What keeps fingers safe?",
-      "answers": ["The guard", "The cord", "The label"],
+      "prompt": "Which part keeps your fingers away from the blade?",
+      "answers": [
+        "The guard.",
+        "The motor.",
+        "The base."
+      ],
       "correctIndex": 0,
-      "success": "The guard keeps fingers away from the blades."
+      "success": "The guard keeps your fingers away from the blade."
     },
     {
-      "prompt": "What holds the fan steady?",
-      "answers": ["The base", "The wall", "The ceiling"],
+      "prompt": "Which part holds the fan steady so it does not tip over?",
+      "answers": [
+        "The base.",
+        "The blade.",
+        "The guard."
+      ],
       "correctIndex": 0,
       "success": "The base holds the fan steady."
+    },
+    {
+      "prompt": "Where is the motor on this fan?",
+      "answers": [
+        "In the middle, behind the blade.",
+        "On the floor.",
+        "Under the base."
+      ],
+      "correctIndex": 0,
+      "success": "The motor sits in the middle, behind the blade."
+    },
+    {
+      "prompt": "What makes the air move?",
+      "answers": [
+        "The spinning blade.",
+        "The base.",
+        "The guard."
+      ],
+      "correctIndex": 0,
+      "success": "The spinning blade makes the air move."
     }
   ],
   "parts": [
@@ -79,36 +164,25 @@
       "id": "blade",
       "label": "Blade",
       "fact": "The blades spin around to push the air and make a breeze.",
-      "help": "The three rounded blades in the middle.",
-      "shape": {"kind": "circle", "cx": 340, "cy": 190, "r": 80, "fill": "#c9e8d3", "stroke": "#4a9e63"}
+      "help": "The orange shapes behind the fan guard."
     },
     {
       "id": "motor",
       "label": "Motor",
       "fact": "The motor turns the blades when the fan is switched on.",
-      "help": "The round hub in the center of the blades.",
-      "shape": {"kind": "circle", "cx": 340, "cy": 190, "r": 26, "fill": "#8a93a0", "stroke": "#5c6570"}
+      "help": "The round hub in the middle of the fan."
     },
     {
-      "id": "guard",
-      "label": "Guard",
-      "fact": "The guard covers the blades to keep fingers safe.",
-      "help": "The ring around the blades.",
-      "shape": {"kind": "circle", "cx": 340, "cy": 190, "r": 96, "fill": "none", "stroke": "#9aa7b3"}
+      "id": "stand",
+      "label": "Stand",
+      "fact": "The stand holds the motor and blades above the base.",
+      "help": "The upright part between the base and motor."
     },
     {
       "id": "base",
       "label": "Base",
       "fact": "The base holds the fan steady so it does not tip over.",
-      "help": "The stand at the bottom of the fan.",
-      "shape": {"kind": "rect", "x": 250, "y": 330, "width": 180, "height": 40, "rx": 14, "fill": "#8f9aa4", "stroke": "#5c6570"}
-    },
-    {
-      "id": "switch",
-      "label": "Switch",
-      "fact": "The switch turns the motor on and off.",
-      "help": "The small button on the base.",
-      "shape": {"kind": "rect", "x": 330, "y": 300, "width": 20, "height": 34, "rx": 6, "fill": "#ffcf4a", "stroke": "#e8a800"}
+      "help": "The stand at the bottom of the fan."
     }
   ]
 }

@@ -10,7 +10,7 @@
   "activityInstruction": "Drag each fan part into the build zone. It will snap into place with a fact.",
   "difficulty": 1,
   "topics": [],
-  "classIds": ["Brickmoto"],
+  "classIds": ["BrickX"],
   "storyVideoUrl": "https://www.youtube.com/embed/-XGJri9rj44",
   "warmupVideoUrl": "",
   "storyQuestions": [

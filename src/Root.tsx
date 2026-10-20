@@ -65,6 +65,10 @@ import {
   TOTAL_FRAMES as SMART_LIGHT_FRAMES,
 } from './scenes/SmartLightMission';
 import {RobotArmMission, TOTAL_FRAMES as ROBOT_ARM_FRAMES} from './scenes/RobotArmMission';
+import {
+  UltrasonicMission,
+  TOTAL_FRAMES as ULTRASONIC_FRAMES,
+} from './scenes/UltrasonicMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -94,6 +98,7 @@ const ELECTRIC_BEATER_DURATION = ELECTRIC_BEATER_FRAMES;
 const SNAIL_DURATION = SNAIL_FRAMES;
 const SMART_LIGHT_DURATION = SMART_LIGHT_FRAMES;
 const ROBOT_ARM_DURATION = ROBOT_ARM_FRAMES;
+const ULTRASONIC_DURATION = ULTRASONIC_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -318,6 +323,14 @@ export const RemotionRoot: React.FC = () => {
         id="RobotArmMission"
         component={RobotArmMission}
         durationInFrames={ROBOT_ARM_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="UltrasonicMission"
+        component={UltrasonicMission}
+        durationInFrames={ULTRASONIC_DURATION}
         fps={30}
         width={1920}
         height={1080}

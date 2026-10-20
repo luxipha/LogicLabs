@@ -33,6 +33,8 @@ const SetupCard: React.FC<{mode: string}> = ({mode}) => (
 );
 
 export const HotClassroomStage: React.FC<{
+  title?: string;
+  storyVideoUrl?: string;
   mode: string;
   warmupVideoUrl: string;
   activePart: string;
@@ -41,19 +43,19 @@ export const HotClassroomStage: React.FC<{
   activityDone: boolean;
   completeActivity: () => void;
   resetActivity: () => void;
-}> = ({mode, warmupVideoUrl, activePart, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity}) => {
+}> = ({title = content.title, storyVideoUrl = content.storyVideoUrl, mode, warmupVideoUrl, activePart, lastSelectedPart, onSelect, activityDone, completeActivity, resetActivity}) => {
   const [webGLAvailable] = useState(hasWebGLSupport);
-  const isModelMode = mode === 'identify' || mode === 'explore';
+  const isModelMode = mode === 'identify' || mode === 'explore' || mode === 'quiz';
 
   if (mode === 'warmup') return <WarmupScreen videoUrl={warmupVideoUrl} />;
-  if (mode === 'story') return <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />;
+  if (mode === 'story') return <StoryVideoCard title={title} youtubeEmbedUrl={storyVideoUrl} />;
   if (mode === 'coding') return <HotClassroomCoding />;
   if (mode === 'activity') {
     return <HotClassroomActivity activityDone={activityDone} completeActivity={completeActivity} resetActivity={resetActivity} />;
   }
 
   return (
-    <div className="generic-stage hot-classroom-stage" aria-label="The Hot Classroom lesson setup">
+    <div className="generic-stage hot-classroom-stage" aria-label={`${title} lesson setup`}>
       {!isModelMode ? <SetupCard mode={mode} /> : !webGLAvailable ? (
         <div className="hot-classroom-stage__fallback">
           <strong>The electric fan needs WebGL.</strong>
