@@ -76,18 +76,9 @@ export const RobotArmStage:React.FC<{
   <header className="ra-toolbar"><strong>Robot Arm · Coding</strong><button type="button" onClick={toggleFullscreen}>{fullscreen?'Exit fullscreen':'Fullscreen'}</button></header>
   {codingStep===0?<section className="ra-code-review">
    <div><h3>1. Review last class: Smart Light</h3><p>Read the program together. What happens when the light level is below 128? What does the else branch do?</p></div>
-   <div className="ra-code-review-image"><img src="assets/smart-light-code/6.png" alt="Smart Light MakeCode program: initialize eight NeoPixels on P2; below light level 128 call TurnOn, otherwise call TurnOff."/></div>
-  </section>:<section className="ra-coding-content"><h3>2. Program the moves in order</h3><p>This is an algorithm: a clear list of instructions for the robot to follow.</p>
-   <pre aria-label="Robot arm sequence pseudocode">{`WHEN the start button is pressed:
-  reach the load
-  close the gripper
-  lift the load
-  turn toward delivery
-  lower the load
-  open the gripper`}</pre>
-   <p>Test a different order in Activity. What happens when the gripper closes before the arm reaches the load?</p><small>Algorithm example. Class MakeCode images have not been added yet.</small>
-  </section>}
-  <nav className="ra-coding-nav" aria-label="Coding steps"><button type="button" disabled={codingStep===0} onClick={()=>setCodingStep(0)}>← Previous</button><span role="status">Step {codingStep+1} of 2</span><button type="button" disabled={codingStep===1} onClick={()=>setCodingStep(1)}>Next →</button></nav>
+   <div className="ra-code-review-image"><img src="assets/robot-arm-code/0.png" alt="Smart Light MakeCode program reviewed at the start of the Robot Arm coding lesson."/></div>
+  </section>:<section className="ra-code-view"><img src={`assets/robot-arm-code/${codingStep}.png`} alt={`Robot Arm class coding slide ${codingStep}.`}/></section>}
+  <nav className="ra-coding-nav" aria-label="Coding steps"><button type="button" disabled={codingStep===0} onClick={()=>setCodingStep(v=>v-1)}>← Previous</button><span role="status">Step {codingStep+1} of 9</span><button type="button" disabled={codingStep===8} onClick={()=>setCodingStep(v=>v+1)}>Next →</button></nav>
  </div>;
  if(mode==='warmup')return <WarmupScreen videoUrl={warmupVideoUrl}/>;
  if(mode==='story')return <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl}/>;
