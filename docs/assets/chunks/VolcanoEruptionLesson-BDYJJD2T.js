@@ -1,0 +1,1 @@
+import{a as r}from"./chunk-ENUW633T.js";import{a as t}from"./chunk-IPUAXKNX.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e as n}from"./chunk-HLYRQ3WR.js";var e=o(n()),a=i=>(0,e.jsx)(r,{content:t,...i}),d=a;export{a as VolcanoEruptionLesson,d as default};

@@ -1,1 +1,0 @@
-import{a as e}from"./chunk-35AFBB2T.js";import{a as r}from"./chunk-DBZNP3BK.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e as t}from"./chunk-HLYRQ3WR.js";var n=o(t()),a=i=>(0,n.jsx)(e,{content:r,...i}),p=a;export{a as LargeTruckLesson,p as default};

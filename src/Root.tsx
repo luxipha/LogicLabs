@@ -69,6 +69,10 @@ import {
   UltrasonicMission,
   TOTAL_FRAMES as ULTRASONIC_FRAMES,
 } from './scenes/UltrasonicMission';
+import {
+  EarthquakeMission,
+  TOTAL_FRAMES as EARTHQUAKE_FRAMES,
+} from './scenes/EarthquakeMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -99,6 +103,7 @@ const SNAIL_DURATION = SNAIL_FRAMES;
 const SMART_LIGHT_DURATION = SMART_LIGHT_FRAMES;
 const ROBOT_ARM_DURATION = ROBOT_ARM_FRAMES;
 const ULTRASONIC_DURATION = ULTRASONIC_FRAMES;
+const EARTHQUAKE_DURATION = EARTHQUAKE_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -331,6 +336,14 @@ export const RemotionRoot: React.FC = () => {
         id="UltrasonicMission"
         component={UltrasonicMission}
         durationInFrames={ULTRASONIC_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="EarthquakeMission"
+        component={EarthquakeMission}
+        durationInFrames={EARTHQUAKE_DURATION}
         fps={30}
         width={1920}
         height={1080}

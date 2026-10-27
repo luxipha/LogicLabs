@@ -1,1 +1,0 @@
-import{a as r}from"./chunk-35AFBB2T.js";import{a as e}from"./chunk-GKBLDAJ6.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e as t}from"./chunk-HLYRQ3WR.js";var n=o(t()),m=i=>(0,n.jsx)(r,{content:e,...i}),p=m;export{m as IceCreamLesson,p as default};
