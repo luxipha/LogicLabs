@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {EarthquakeExperience, type EarthquakeProgress} from './EarthquakeExperience';
 import {EarthquakeIdentify, EarthquakePartPreview} from './EarthquakeIdentify';
+import {EarthquakeCoding} from './EarthquakeCoding';
 import {EarthquakeExplore} from './EarthquakeExplore';
 import {DataDrivenLesson} from '../shared/DataDrivenLesson';
 import content from './content.json';
@@ -26,6 +27,7 @@ export const EarthquakeLesson: React.FC<{
     activityTabs={({activeId, onSelect}) => <ActivityTabs items={activities} activeId={activeId} onSelect={onSelect} />}
     identifyStage={props => <EarthquakeIdentify {...props} />}
     partPreview={part => <EarthquakePartPreview part={part} />}
+    codingStage={() => <EarthquakeCoding />}
     exploreStage={() => <EarthquakeExplore />}
     activityStage={({completeActivity, resetActivity, activityStep, setActivityStep}) => <EarthquakeExperience key="activity" view={Math.max(0, activities.findIndex(activity => activity.id === activityStep))} onSelectView={index => setActivityStep(activities[index].id)} progress={progress} setProgress={setProgress} completeActivity={completeActivity} resetActivity={resetActivity} />}
   />;

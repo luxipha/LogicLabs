@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-7653QGSE.js";import{a as e}from"./chunk-5SYXSAQQ.js";import"./chunk-72IDAISC.js";import"./chunk-W7CONZIZ.js";import{c as o,e as r}from"./chunk-HLYRQ3WR.js";var n=o(r()),m=i=>(0,n.jsx)(t,{content:e,...i}),p=m;export{m as TrencherLesson,p as default};

@@ -1,0 +1,8 @@
+let Running = false
+if (Running == false) {
+Running = true
+let ShakeDuration = 5000
+nezhaV2.stop(nezhaV2.MotorPostion.M1)
+basic.showIcon(IconNames.Yes)
+Running = false
+}

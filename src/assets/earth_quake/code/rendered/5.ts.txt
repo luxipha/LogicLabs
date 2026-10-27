@@ -1,0 +1,3 @@
+let ShakingLevel = 9
+ShakingLevel += -1
+basic.showNumber(ShakingLevel)

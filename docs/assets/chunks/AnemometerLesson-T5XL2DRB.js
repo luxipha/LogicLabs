@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-ENUW633T.js";import{a as e}from"./chunk-VOTCFZ6O.js";import"./chunk-CWOXSPQK.js";import"./chunk-W7CONZIZ.js";import{c as o,e as t}from"./chunk-HLYRQ3WR.js";var r=o(t()),i=m=>(0,r.jsx)(n,{content:e,...m}),p=i;export{i as AnemometerLesson,p as default};

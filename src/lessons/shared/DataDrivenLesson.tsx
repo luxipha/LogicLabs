@@ -24,10 +24,11 @@ export const DataDrivenLesson: React.FC<{
   activityStage?: (props: {activityDone: boolean; completeActivity: () => void; resetActivity: () => void; activityStep: string; setActivityStep: (id: string) => void}) => React.ReactNode;
   activityTabs?: (props: {activeId: string; onSelect: (id: string) => void}) => React.ReactNode;
   partPreview?: (part: string) => React.ReactNode;
+  codingStage?: () => React.ReactNode;
   exploreStage?: () => React.ReactNode;
   stageCompletesActivity?: boolean;
   identifyStage?: (props: {activePart: string; lastSelectedPart: string | null; identified: Set<string>; onSelect: (part: string) => void}) => React.ReactNode;
-}> = ({content: rawContent, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, activityStage, identifyStage, exploreStage, stageCompletesActivity, activityTabs, partPreview}) => {
+}> = ({content: rawContent, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, activityStage, identifyStage, exploreStage, stageCompletesActivity, activityTabs, partPreview, codingStage}) => {
   const content = asContent(rawContent);
   return (
     <GenericLesson
@@ -40,11 +41,14 @@ export const DataDrivenLesson: React.FC<{
       onBoard={onBoard}
       stageCompletesActivity={stageCompletesActivity}
       activityTabs={activityTabs}
+      codingTab={Boolean(codingStage)}
       stage={(props) => (
         props.mode === 'warmup' ? (
           <WarmupScreen videoUrl={props.warmupVideoUrl} />
         ) : props.mode === 'story' ? (
           <StoryVideoCard title={content.title} youtubeEmbedUrl={content.storyVideoUrl} />
+        ) : props.mode === 'coding' && codingStage ? (
+          codingStage()
         ) : props.mode === 'activity' && activityStage ? (
           activityStage({
             activityDone: props.activityDone,

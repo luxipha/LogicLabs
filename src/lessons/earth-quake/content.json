@@ -203,5 +203,6 @@
     }
   ],
   "exploreTitle": "Explore the shaking platform",
-  "exploreInstruction": "Rotate and zoom to inspect the model. Use Reset view to return to the starting angle."
+  "exploreInstruction": "Rotate and zoom to inspect the model. Use Reset view to return to the starting angle.",
+  "codingInstruction": "Build the blocks in each stage, run your machine, then discuss the observations. Use Previous and Next to move through all seven stages."
 }

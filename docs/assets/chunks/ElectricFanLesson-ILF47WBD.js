@@ -1,1 +1,0 @@
-import{a as n}from"./chunk-VAKJZ66P.js";import{a as t}from"./chunk-UY7RX4EW.js";import"./chunk-TFGSTWUZ.js";import"./chunk-KTOBOHQX.js";import"./chunk-CWOXSPQK.js";import"./chunk-X3OBIZGU.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var s=o(e()),r=p=>(0,s.jsx)(n,{...p,lessonContent:t,codingTab:!1}),c=r;export{r as ElectricFanLesson,c as default};

@@ -1,0 +1,1 @@
+import{a as t}from"./chunk-7653QGSE.js";import{a as r}from"./chunk-C7OPFCV4.js";import"./chunk-72IDAISC.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var n=o(e()),a=i=>(0,n.jsx)(t,{content:r,...i}),d=a;export{a as PaperCrinklerLesson,d as default};

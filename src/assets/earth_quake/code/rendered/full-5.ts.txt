@@ -1,0 +1,16 @@
+input.onButtonPressed(Button.A, function () {
+for (let index = 0; index < 3; index++) {
+basic.showIcon(IconNames.Surprised)
+music.playTone(523, music.beat(BeatFraction.Half))
+basic.clearScreen()
+basic.pause(200)
+}
+let ShakingLevel = 9
+basic.showNumber(ShakingLevel)
+basic.pause(1000)
+nezhaV2.start(nezhaV2.MotorPostion.M1, ShakingLevel * 10)
+basic.pause(2000)
+nezhaV2.stop(nezhaV2.MotorPostion.M1)
+ShakingLevel += -1
+basic.showNumber(ShakingLevel)
+})

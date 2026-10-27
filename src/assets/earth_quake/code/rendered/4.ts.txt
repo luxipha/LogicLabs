@@ -1,0 +1,3 @@
+let ShakingLevel = 5
+basic.showNumber(ShakingLevel)
+nezhaV2.start(nezhaV2.MotorPostion.M1, ShakingLevel * 10)

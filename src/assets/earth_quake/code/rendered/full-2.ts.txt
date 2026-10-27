@@ -1,0 +1,8 @@
+input.onButtonPressed(Button.A, function () {
+for (let index = 0; index < 3; index++) {
+basic.showIcon(IconNames.Surprised)
+music.playTone(523, music.beat(BeatFraction.Half))
+basic.clearScreen()
+basic.pause(200)
+}
+})

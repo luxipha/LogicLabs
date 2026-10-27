@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-7653QGSE.js";import{a as t}from"./chunk-WIVUCW4T.js";import"./chunk-72IDAISC.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),m=i=>(0,r.jsx)(n,{content:t,...i}),p=m;export{m as SubmarineLesson,p as default};

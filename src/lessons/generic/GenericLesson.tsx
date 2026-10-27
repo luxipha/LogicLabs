@@ -243,7 +243,7 @@ export const GenericLesson: React.FC<{
           ? content.exploreInstruction ?? parts.find((p) => p.id === activePart)?.fact ?? ''
           : mode === 'activity'
             ? content.activityInstruction
-            : mode === 'coding' ? 'Follow the coding images. Use Next and Previous to move through the steps, or open Fullscreen for a larger view.' : 'You finished the questions.';
+            : mode === 'coding' ? content.codingInstruction ?? 'Follow the coding images. Use Next and Previous to move through the steps, or open Fullscreen for a larger view.' : 'You finished the questions.';
 
   const bannerMessage =
     storyFeedback === 'correct'
