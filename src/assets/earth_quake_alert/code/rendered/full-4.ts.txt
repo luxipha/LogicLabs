@@ -1,0 +1,17 @@
+input.onGesture(Gesture.ThreeG, function () {
+    basic.showString("Minor Quake")
+})
+
+input.onGesture(Gesture.SixG, function () {
+    basic.showIcon(IconNames.Happy)
+    music.playTone(262, music.beat(BeatFraction.Half))
+})
+
+input.onGesture(Gesture.EightG, function () {
+    for (let index = 0; index < 3; index++) {
+        basic.showIcon(IconNames.No)
+        music.playMelody("C5 G C5 G C5 G C5 G ", 120)
+        basic.clearScreen()
+        basic.pause(100)
+    }
+})

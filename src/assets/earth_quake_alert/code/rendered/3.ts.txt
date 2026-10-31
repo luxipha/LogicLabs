@@ -1,0 +1,9 @@
+input.onGesture(Gesture.SixG, function () {
+    basic.showIcon(IconNames.Happy)
+    music.playTone(262, music.beat(BeatFraction.Half))
+})
+
+input.onGesture(Gesture.EightG, function () {
+    basic.showIcon(IconNames.No)
+    music.playMelody("C5 G C5 G C5 G C5 G ", 120)
+})

@@ -12,7 +12,7 @@ export function EarthquakeScene({view, cutaway, stress, amount, released, tick, 
 }) {
   const displacement = amount / 100;
   const jitter = Math.sin(tick * 1.8) * shaking * 0.018;
-  return <Canvas aria-label={view === 0 ? 'Rotatable Earth layer diagram' : view === 3 ? 'PDF-based earthquake machine' : 'Interactive rock and fault diagram'} frameloop="demand" dpr={1} gl={{antialias: false, powerPreference: 'low-power'}} camera={{position: [5, 3.8, 6], fov: 40}}>
+  return <Canvas aria-label={view === 0 ? 'Rotatable Earth layer diagram' : view >= 3 ? 'PDF-based earthquake machine' : 'Interactive rock and fault diagram'} frameloop="demand" dpr={1} gl={{antialias: false, powerPreference: 'low-power'}} camera={{position: [5, 3.8, 6], fov: 40}}>
     <color attach="background" args={['#eaf5fa']} /><ambientLight intensity={1.5} /><directionalLight position={[4, 7, 6]} intensity={2} />
     {view === 0 ? <group rotation={[0, -0.45, 0]}>
       {[
@@ -33,7 +33,7 @@ export function EarthquakeScene({view, cutaway, stress, amount, released, tick, 
             : <meshStandardMaterial color={color} side={DoubleSide} polygonOffset polygonOffsetFactor={-1} />}
         </mesh>)}
       </group>)}
-    </group> : view === 3 ? <EarthquakeMachine tick={tick} shaking={shaking} /> : <group>
+    </group> : view >= 3 ? <EarthquakeMachine tick={tick} shaking={shaking} /> : <group>
       {[-1, 1].map(side => {
         const faultView = view === 2;
         const x = side * (1.08 + (!faultView && stress === 'tension' ? displacement * 0.8 : !faultView && stress === 'compression' ? -displacement * 0.28 : 0));

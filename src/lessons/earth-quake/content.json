@@ -7,7 +7,7 @@
   "color": "#d62839",
   "activity": "discover",
   "activityLabel": "Earthquake science lab",
-  "activityInstruction": "Discover the crust, investigate three stress types, release a fault, then program the shaking platform.",
+  "activityInstruction": "Discover the crust, investigate three stress types, release a fault, program the shaking platform, then shake and measure its movement.",
   "difficulty": 1,
   "topics": [
     "Earth’s crust",

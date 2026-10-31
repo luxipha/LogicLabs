@@ -1,0 +1,158 @@
+{
+  "renderer": "https://makecode.microbit.org/",
+  "extension": "",
+  "renderedAt": "2026-10-31T06:58:51.868Z",
+  "manifest": {
+    "title": "Earth Quake Alert",
+    "renderer": "https://makecode.microbit.org/",
+    "extension": "",
+    "footnote": "3g/6g/8g are acceleration thresholds, not earthquake magnitude. Peak Force is the reference label: this program stores the highest triggered threshold, not a precise peak-force measurement. Test gestures in MakeCode; speaker audio depends on board hardware.",
+    "stages": [
+      {
+        "title": "Show an X when shaken",
+        "concept": "An event runs when a gesture is detected.",
+        "adds": "Add on shake. Put show icon X inside it.",
+        "predict": "What will appear when you shake the board?",
+        "observe": [
+          "Shake the simulator: an X appears.",
+          "The X stays on until the display changes."
+        ],
+        "question": "Which block detects the shake?",
+        "code": "input.onGesture(Gesture.Shake, function () {\n    basic.showIcon(IconNames.No)\n})"
+      },
+      {
+        "title": "Choose the shaking levels",
+        "concept": "Gesture dropdowns choose acceleration thresholds.",
+        "adds": "Replace on shake with 3g. Add separate 6g and 8g events.",
+        "predict": "Will 3g and 8g show the same response?",
+        "observe": [
+          "Trigger 3g: Minor Quake scrolls.",
+          "Trigger 6g: a happy face.",
+          "Trigger 8g: an X."
+        ],
+        "question": "Which event gives the strongest warning?",
+        "code": "input.onGesture(Gesture.ThreeG, function () {\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    basic.showIcon(IconNames.Happy)\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    basic.showIcon(IconNames.No)\n})"
+      },
+      {
+        "title": "Add warning sounds",
+        "concept": "Sound makes an alert easier to notice.",
+        "adds": "Keep the displays. Add a tone at 6g and a melody at 8g.",
+        "predict": "Which alert will play the longer sound?",
+        "observe": [
+          "6g: happy face and a short tone.",
+          "8g: X and an eight-note melody.",
+          "3g still scrolls Minor Quake."
+        ],
+        "question": "How can sound help us notice an alert?",
+        "code": "input.onGesture(Gesture.ThreeG, function () {\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    basic.showIcon(IconNames.No)\n    music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n})",
+        "focusCode": "input.onGesture(Gesture.SixG, function () {\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    basic.showIcon(IconNames.No)\n    music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n})",
+        "focusNote": "Replace the 6g and 8g handlers as shown. Keep the 3g handler unchanged."
+      },
+      {
+        "title": "Repeat the strong warning",
+        "concept": "A repeat loop runs the enclosed blocks several times.",
+        "adds": "Wrap the 8g alert in repeat 3. Clear the LEDs and pause after each melody.",
+        "predict": "How many times will the 8g melody play?",
+        "observe": [
+          "8g: X and melody repeat 3 times.",
+          "LEDs clear after each melody.",
+          "6g still plays one short tone."
+        ],
+        "question": "Which blocks are inside the repeat loop?",
+        "code": "input.onGesture(Gesture.ThreeG, function () {\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})",
+        "focusCode": "input.onGesture(Gesture.EightG, function () {\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})",
+        "focusNote": "Replace only the 8g handler. Keep 3g and 6g unchanged. One melody now repeats three times."
+      },
+      {
+        "title": "Store the detected level",
+        "concept": "A variable stores a value for later use.",
+        "adds": "Create MaxShake. Set it to 3000, 6000 or 8000 in the events. B displays it.",
+        "predict": "After 8g then 3g, what will B show?",
+        "observe": [
+          "Start: happy face and MaxShake = 0.",
+          "8g then 3g: B shows 3000.",
+          "This version stores the latest level."
+        ],
+        "question": "Why did 3000 replace 8000?",
+        "code": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\n\ninput.onGesture(Gesture.ThreeG, function () {\n    MaxShake = 3000\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    MaxShake = 6000\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    MaxShake = 8000\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showNumber(MaxShake)\n})",
+        "focusCode": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\ninput.onGesture(Gesture.ThreeG, function () {\n    MaxShake = 3000\n    basic.showString(\"Minor Quake\")\n})\ninput.onButtonPressed(Button.B, function () {\n    basic.showNumber(MaxShake)\n})",
+        "focusNote": "Add the variable and B readout. Set 3000, 6000 and 8000 at the start of the matching handlers; 3g is shown."
+      },
+      {
+        "title": "Keep only the highest level",
+        "concept": "An if condition chooses whether to replace a value.",
+        "adds": "Only set MaxShake when the new level is greater than the stored value.",
+        "predict": "After 8g then 3g, what will B show now?",
+        "observe": [
+          "8g then 3g: B shows 8000.",
+          "A smaller level cannot lower the record.",
+          "Restart resets the stored value to 0."
+        ],
+        "question": "What does greater than protect?",
+        "code": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\n\ninput.onGesture(Gesture.ThreeG, function () {\n    if (3000 > MaxShake) {\n        MaxShake = 3000\n    }\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    if (6000 > MaxShake) {\n        MaxShake = 6000\n    }\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    if (8000 > MaxShake) {\n        MaxShake = 8000\n    }\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showNumber(MaxShake)\n})",
+        "focusCode": "let MaxShake = 0\ninput.onGesture(Gesture.ThreeG, function () {\n    if (3000 > MaxShake) {\n        MaxShake = 3000\n    }\n    basic.showString(\"Minor Quake\")\n})",
+        "focusNote": "Replace each direct assignment with an if comparison. The 3g change is shown; use 6000 for 6g and 8000 for 8g."
+      },
+      {
+        "title": "Reuse the comparison",
+        "concept": "A function packages code that several events share.",
+        "adds": "Move the comparison into updateMax(currentG). Call it with each level.",
+        "predict": "Will the highest reading change after this edit?",
+        "observe": [
+          "3g calls updateMax with 3000.",
+          "6g uses 6000; 8g uses 8000.",
+          "B still shows the highest saved level."
+        ],
+        "question": "Why use one function in three events?",
+        "code": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.ThreeG, function () {\n    updateMax(3000)\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    updateMax(6000)\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    updateMax(8000)\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showNumber(MaxShake)\n})",
+        "focusCode": "let MaxShake = 0\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.ThreeG, function () {\n    updateMax(3000)\n    basic.showString(\"Minor Quake\")\n})",
+        "focusNote": "Create updateMax and replace each repeated comparison with a call. This excerpt shows the 3g change."
+      },
+      {
+        "title": "Reset for a new test",
+        "concept": "A button event can reset the stored result.",
+        "adds": "Add Button A: set MaxShake to 0, clear screen, show the ready face.",
+        "predict": "After A, what will B show?",
+        "observe": [
+          "A clears the saved level to 0.",
+          "A shows the ready face.",
+          "New events begin a fresh record."
+        ],
+        "question": "Why reset before a new test?",
+        "code": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.ThreeG, function () {\n    updateMax(3000)\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    updateMax(6000)\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    updateMax(8000)\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showNumber(MaxShake)\n})\n\ninput.onButtonPressed(Button.A, function () {\n    MaxShake = 0\n    basic.clearScreen()\n    basic.showIcon(IconNames.Happy)\n})",
+        "focusCode": "let MaxShake = 0\n\ninput.onButtonPressed(Button.A, function () {\n    MaxShake = 0\n    basic.clearScreen()\n    basic.showIcon(IconNames.Happy)\n})",
+        "focusNote": "Add this Button A handler. Keep the startup, gestures, updateMax function and Button B."
+      },
+      {
+        "title": "Read the result in g",
+        "concept": "Dividing milli-g by 1000 converts it to g.",
+        "adds": "Change B to show Peak Force, rounded MaxShake / 1000, then g.",
+        "predict": "What will B show when MaxShake is 6000?",
+        "observe": [
+          "6g then B: Peak Force, 6, g.",
+          "8g then 3g: B still reports 8g.",
+          "A then B: the saved level is 0g."
+        ],
+        "question": "Why do we divide by 1000?",
+        "code": "let MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.ThreeG, function () {\n    updateMax(3000)\n    basic.showString(\"Minor Quake\")\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    updateMax(6000)\n    basic.showIcon(IconNames.Happy)\n    music.playTone(262, music.beat(BeatFraction.Half))\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    updateMax(8000)\n    for (let index = 0; index < 3; index++) {\n        basic.showIcon(IconNames.No)\n        music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n        basic.clearScreen()\n        basic.pause(100)\n    }\n})\n\ninput.onButtonPressed(Button.A, function () {\n    MaxShake = 0\n    basic.clearScreen()\n    basic.showIcon(IconNames.Happy)\n})\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showString(\"Peak Force:\")\n    basic.showNumber(Math.round(MaxShake / 1000))\n    basic.showString(\"g\")\n})",
+        "focusCode": "let MaxShake = 0\n\ninput.onButtonPressed(Button.B, function () {\n    basic.showString(\"Peak Force:\")\n    basic.showNumber(Math.round(MaxShake / 1000))\n    basic.showString(\"g\")\n})",
+        "focusNote": "Replace the old Button B handler. Keep everything else. The result is the highest threshold, not exact force."
+      },
+      {
+        "title": "Complete the earthquake alert",
+        "concept": "A busy flag prevents overlapping display and sound sequences.",
+        "adds": "Set busy before an alert or readout; clear it afterwards. Press A or B after the alert finishes.",
+        "predict": "Will another alert interrupt the melody?",
+        "observe": [
+          "One alert sequence plays at a time.",
+          "New thresholds still update MaxShake.",
+          "When finished, A resets; B reports g."
+        ],
+        "question": "Why update the record before checking busy?",
+        "code": "let busy = false\nlet MaxShake = 0\nbasic.showIcon(IconNames.Happy)\nMaxShake = 0\nbusy = false\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.ThreeG, function () {\n    updateMax(3000)\n    if (!(busy)) {\n        busy = true\n        basic.showString(\"Minor Quake\")\n        busy = false\n    }\n})\n\ninput.onGesture(Gesture.SixG, function () {\n    updateMax(6000)\n    if (!(busy)) {\n        busy = true\n        basic.showIcon(IconNames.Happy)\n        music.playTone(262, music.beat(BeatFraction.Half))\n        busy = false\n    }\n})\n\ninput.onGesture(Gesture.EightG, function () {\n    updateMax(8000)\n    if (!(busy)) {\n        busy = true\n        for (let index = 0; index < 3; index++) {\n            basic.showIcon(IconNames.No)\n            music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n            basic.clearScreen()\n            basic.pause(100)\n        }\n        busy = false\n    }\n})\n\ninput.onButtonPressed(Button.A, function () {\n    if (!(busy)) {\n        busy = true\n        MaxShake = 0\n        basic.clearScreen()\n        basic.showIcon(IconNames.Happy)\n        busy = false\n    }\n})\n\ninput.onButtonPressed(Button.B, function () {\n    if (!(busy)) {\n        busy = true\n        basic.showString(\"Peak Force:\")\n        basic.showNumber(Math.round(MaxShake / 1000))\n        basic.showString(\"g\")\n        busy = false\n    }\n})",
+        "focusCode": "let busy = false\nlet MaxShake = 0\n\nfunction updateMax(currentG: number) {\n    if (currentG > MaxShake) {\n        MaxShake = currentG\n    }\n}\n\ninput.onGesture(Gesture.EightG, function () {\n    updateMax(8000)\n    if (!(busy)) {\n        busy = true\n        for (let index = 0; index < 3; index++) {\n            basic.showIcon(IconNames.No)\n            music.playMelody(\"C5 G C5 G C5 G C5 G \", 120)\n            basic.clearScreen()\n            basic.pause(100)\n        }\n        busy = false\n    }\n})",
+        "focusNote": "Final addition: guard each display/sound handler with busy. Full program shows all events and both buttons."
+      }
+    ]
+  }
+}

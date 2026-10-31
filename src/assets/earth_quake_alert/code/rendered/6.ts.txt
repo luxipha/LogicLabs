@@ -1,0 +1,7 @@
+let MaxShake = 0
+input.onGesture(Gesture.ThreeG, function () {
+    if (3000 > MaxShake) {
+        MaxShake = 3000
+    }
+    basic.showString("Minor Quake")
+})

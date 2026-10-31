@@ -1,0 +1,11 @@
+input.onGesture(Gesture.ThreeG, function () {
+    basic.showString("Minor Quake")
+})
+
+input.onGesture(Gesture.SixG, function () {
+    basic.showIcon(IconNames.Happy)
+})
+
+input.onGesture(Gesture.EightG, function () {
+    basic.showIcon(IconNames.No)
+})

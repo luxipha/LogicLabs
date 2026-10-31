@@ -1,0 +1,7 @@
+let MaxShake = 0
+
+input.onButtonPressed(Button.A, function () {
+    MaxShake = 0
+    basic.clearScreen()
+    basic.showIcon(IconNames.Happy)
+})

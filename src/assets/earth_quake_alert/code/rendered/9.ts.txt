@@ -1,0 +1,7 @@
+let MaxShake = 0
+
+input.onButtonPressed(Button.B, function () {
+    basic.showString("Peak Force:")
+    basic.showNumber(Math.round(MaxShake / 1000))
+    basic.showString("g")
+})

@@ -30,6 +30,15 @@ for (let step = 1; step <= 7; step++) {
     await fs.copyFile(path.join(root, 'src/assets/earth_quake/code', `${prefix}${step}.png`), path.join(assetsDir, 'earthquake-code', `${prefix}${step}.png`));
   }
 }
+// Microbit Earth Quake Alert: cached, authentic MakeCode teaching cards.
+const alertStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/earth-quake-alert/coding-stages.json'), 'utf8'));
+await fs.mkdir(path.join(assetsDir, 'earthquake-alert-code'), {recursive: true});
+for (let step = 1; step <= alertStages.stages.length; step++) {
+  for (const prefix of ['', 'full-']) {
+    const filename = `${prefix}${step}.png`;
+    await fs.copyFile(path.join(root, 'src/assets/earth_quake_alert/code', filename), path.join(assetsDir, 'earthquake-alert-code', filename));
+  }
+}
 // Keep the supplied coding images in numeric order at stable public URLs.
 const ultrasonicCodeDir = path.join(root, 'public/ultrasonic_code');
 await fs.mkdir(path.join(assetsDir, 'ultrasonic-code'), {recursive: true});
@@ -120,6 +129,7 @@ const lessonRoutes = [
   '/lessons/advance-compass',
   '/lessons/ultrasonic',
   '/lessons/earth-quake',
+  '/lessons/earth-quake-alert',
   '/lessons/field-goal',
   '/lessons/sunflower',
   '/lessons/firetruck',

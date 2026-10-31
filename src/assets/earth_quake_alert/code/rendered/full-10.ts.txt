@@ -1,0 +1,64 @@
+let busy = false
+let MaxShake = 0
+basic.showIcon(IconNames.Happy)
+MaxShake = 0
+busy = false
+
+function updateMax(currentG: number) {
+    if (currentG > MaxShake) {
+        MaxShake = currentG
+    }
+}
+
+input.onGesture(Gesture.ThreeG, function () {
+    updateMax(3000)
+    if (!(busy)) {
+        busy = true
+        basic.showString("Minor Quake")
+        busy = false
+    }
+})
+
+input.onGesture(Gesture.SixG, function () {
+    updateMax(6000)
+    if (!(busy)) {
+        busy = true
+        basic.showIcon(IconNames.Happy)
+        music.playTone(262, music.beat(BeatFraction.Half))
+        busy = false
+    }
+})
+
+input.onGesture(Gesture.EightG, function () {
+    updateMax(8000)
+    if (!(busy)) {
+        busy = true
+        for (let index = 0; index < 3; index++) {
+            basic.showIcon(IconNames.No)
+            music.playMelody("C5 G C5 G C5 G C5 G ", 120)
+            basic.clearScreen()
+            basic.pause(100)
+        }
+        busy = false
+    }
+})
+
+input.onButtonPressed(Button.A, function () {
+    if (!(busy)) {
+        busy = true
+        MaxShake = 0
+        basic.clearScreen()
+        basic.showIcon(IconNames.Happy)
+        busy = false
+    }
+})
+
+input.onButtonPressed(Button.B, function () {
+    if (!(busy)) {
+        busy = true
+        basic.showString("Peak Force:")
+        basic.showNumber(Math.round(MaxShake / 1000))
+        basic.showString("g")
+        busy = false
+    }
+})

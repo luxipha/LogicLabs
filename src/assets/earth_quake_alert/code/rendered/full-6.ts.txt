@@ -1,0 +1,34 @@
+let MaxShake = 0
+basic.showIcon(IconNames.Happy)
+MaxShake = 0
+
+input.onGesture(Gesture.ThreeG, function () {
+    if (3000 > MaxShake) {
+        MaxShake = 3000
+    }
+    basic.showString("Minor Quake")
+})
+
+input.onGesture(Gesture.SixG, function () {
+    if (6000 > MaxShake) {
+        MaxShake = 6000
+    }
+    basic.showIcon(IconNames.Happy)
+    music.playTone(262, music.beat(BeatFraction.Half))
+})
+
+input.onGesture(Gesture.EightG, function () {
+    if (8000 > MaxShake) {
+        MaxShake = 8000
+    }
+    for (let index = 0; index < 3; index++) {
+        basic.showIcon(IconNames.No)
+        music.playMelody("C5 G C5 G C5 G C5 G ", 120)
+        basic.clearScreen()
+        basic.pause(100)
+    }
+})
+
+input.onButtonPressed(Button.B, function () {
+    basic.showNumber(MaxShake)
+})

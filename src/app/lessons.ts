@@ -26,6 +26,7 @@ import compassContent from '../lessons/compass/content.json';
 import advanceCompassContent from '../lessons/advance-compass/content.json';
 import ultrasonicContent from '../lessons/ultrasonic/content.json';
 import earthquakeContent from '../lessons/earth-quake/content.json';
+import earthquakeAlertContent from '../lessons/earth-quake-alert/content.json';
 import fieldGoalContent from '../lessons/field-goal/content.json';
 import sunflowerContent from '../lessons/sunflower/content.json';
 import kiteContent from '../lessons/kite/content.json';
@@ -92,6 +93,7 @@ export type LessonId =
   | 'advance-compass'
   | 'ultrasonic'
   | 'earth-quake'
+  | 'earth-quake-alert'
   | 'field-goal'
   | 'sunflower'
   | 'kite'
@@ -170,6 +172,7 @@ const CompassLesson = lazy(() => import('../lessons/compass/CompassLesson'));
 const AdvanceCompassLesson = lazy(() => import('../lessons/advance-compass/AdvanceCompassLesson'));
 const UltrasonicLesson = lazy(() => import('../lessons/ultrasonic/UltrasonicLesson'));
 const EarthquakeLesson = lazy(() => import('../lessons/earth-quake/EarthquakeLesson'));
+const EarthquakeAlertLesson = lazy(() => import('../lessons/earth-quake-alert/EarthquakeAlertLesson'));
 const FieldGoalLesson = lazy(() => import('../lessons/field-goal/FieldGoalLesson'));
 const SunflowerLesson = lazy(() => import('../lessons/sunflower/SunflowerLesson'));
 const KiteLesson = lazy(() => import('../lessons/kite/KiteLesson'));
@@ -233,6 +236,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'advance-compass', content: content(advanceCompassContent)},
   {id: 'ultrasonic', content: content(ultrasonicContent)},
   {id: 'earth-quake', content: content(earthquakeContent)},
+  {id: 'earth-quake-alert', content: content(earthquakeAlertContent)},
   {id: 'field-goal', content: content(fieldGoalContent)},
   {id: 'sunflower', content: content(sunflowerContent)},
   {id: 'kite', content: content(kiteContent)},
@@ -328,6 +332,8 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return UltrasonicLesson;
     case 'earth-quake':
       return EarthquakeLesson;
+    case 'earth-quake-alert':
+      return EarthquakeAlertLesson;
     case 'field-goal':
       return FieldGoalLesson;
     case 'sunflower':

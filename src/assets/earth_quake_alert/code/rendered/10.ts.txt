@@ -1,0 +1,22 @@
+let busy = false
+let MaxShake = 0
+
+function updateMax(currentG: number) {
+    if (currentG > MaxShake) {
+        MaxShake = currentG
+    }
+}
+
+input.onGesture(Gesture.EightG, function () {
+    updateMax(8000)
+    if (!(busy)) {
+        busy = true
+        for (let index = 0; index < 3; index++) {
+            basic.showIcon(IconNames.No)
+            music.playMelody("C5 G C5 G C5 G C5 G ", 120)
+            basic.clearScreen()
+            basic.pause(100)
+        }
+        busy = false
+    }
+})
