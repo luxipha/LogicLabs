@@ -23,6 +23,11 @@ await fs.mkdir(modelsDir, {recursive: true});
 
 // Classroom illustrations are referenced as app-relative static assets.
 await fs.cp(publicAssetsDir, assetsDir, {recursive: true});
+const mudslideCodeDir = path.join(root, 'src/assets/mudslide/code');
+await fs.mkdir(path.join(assetsDir, 'mudslide-code'), {recursive: true});
+for (let step = 1; step <= 8; step++) {
+  await fs.copyFile(path.join(mudslideCodeDir, `${step}.png`), path.join(assetsDir, 'mudslide-code', `${step}.png`));
+}
 // Earthquake's seven progressive coding images.
 await fs.mkdir(path.join(assetsDir, 'earthquake-code'), {recursive: true});
 for (let step = 1; step <= 7; step++) {
