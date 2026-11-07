@@ -1,5 +1,5 @@
 input.onLogoEvent(TouchButtonEvent.Touched, function () {
-    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)
+    bricks4kidz.servo3602(180)
     basic.pause(500)
-    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)
+    bricks4kidz.servo3602(0)
 })

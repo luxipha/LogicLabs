@@ -8,7 +8,7 @@
   "activity": "discover",
   "activityLabel": "An elephant’s day",
   "activityInstruction": "Choose Walk, Eat, then Rest. Watch each movement finish before choosing the next action.",
-  "codingInstruction": "Build the logo-touch program with Nezha and a 360-degree positional servo on S2. Follow Predict, Build, Run, Observe, and Explain. Use Previous/Next and Full program for the cumulative code.",
+  "codingInstruction": "Use the blue Bricks4Kidz 360 servo 2 angle blocks. Build toward the supplied logo-touch program: repeat 10, angle 180, pause 500 ms, angle 0. Use Previous/Next and Full program.",
   "exploreTitle": "How does an elephant move?",
   "exploreInstruction": "Choose a motion, then play or pause it. Watch the legs and trunk. Turn the elephant to compare both sides.",
   "difficulty": 1,
