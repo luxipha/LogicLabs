@@ -1,1 +1,0 @@
-var e={slug:"elephant",title:"Mission: The Elephant",subtitle:"",summary:"",badge:"TRUNK",color:"#8e9aaf",activity:"discover",activityLabel:"Discover the elephant",activityInstruction:"",difficulty:1,topics:[],classIds:["Microbit"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{e as a};

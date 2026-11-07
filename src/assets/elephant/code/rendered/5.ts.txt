@@ -1,0 +1,8 @@
+let Running = false
+basic.showIcon(IconNames.Yes)
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    Running = true
+    basic.showIcon(IconNames.SmallDiamond)
+    basic.showIcon(IconNames.Yes)
+    Running = false
+})

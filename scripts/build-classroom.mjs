@@ -37,6 +37,15 @@ for (let step = 1; step <= 7; step++) {
 }
 // Microbit Earth Quake Alert: cached, authentic MakeCode teaching cards.
 const alertStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/earth-quake-alert/coding-stages.json'), 'utf8'));
+// Cached official MakeCode/Nezha exports: no network needed for classroom builds.
+const elephantStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/elephant/coding-stages.json'), 'utf8'));
+await fs.mkdir(path.join(assetsDir, 'elephant-code'), {recursive: true});
+for (let step = 1; step <= elephantStages.stages.length; step++) {
+  for (const prefix of ['', 'full-']) {
+    await fs.copyFile(path.join(root, 'src/assets/elephant/code', `${prefix}${step}.png`), path.join(assetsDir, 'elephant-code', `${prefix}${step}.png`));
+  }
+  await fs.copyFile(path.join(root, 'src/assets/elephant/code/rendered', `${step}.png`), path.join(assetsDir, 'elephant-code', `blocks-${step}.png`));
+}
 await fs.mkdir(path.join(assetsDir, 'earthquake-alert-code'), {recursive: true});
 for (let step = 1; step <= alertStages.stages.length; step++) {
   for (const prefix of ['', 'full-']) {
@@ -151,6 +160,7 @@ const lessonRoutes = [
   '/lessons/electric-beater',
   '/lessons/snail',
   '/lessons/robot-arm',
+  '/lessons/elephant',
   '/lessons/smart-light',
 ];
 const drawRoutes = lessonRoutes.map((route) => `/draw${route.slice('/lessons'.length)}`);
@@ -162,6 +172,7 @@ for (const route of routes) {
 }
 
 // Static lesson models.
+await fs.copyFile(path.join(root, 'public/models/elephant-classroom.glb'), path.join(modelsDir, 'elephant-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/ultrasonic-classroom.glb'), path.join(modelsDir, 'ultrasonic-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/robotic-arm-classroom.glb'), path.join(modelsDir, 'robotic-arm-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/hand-mixer-classroom.glb'), path.join(modelsDir, 'hand-mixer-classroom.glb'));

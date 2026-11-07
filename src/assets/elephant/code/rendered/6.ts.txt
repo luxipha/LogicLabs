@@ -1,0 +1,7 @@
+let Running = false
+input.onLogoEvent(TouchButtonEvent.Touched, function () {
+    if (!(Running)) {
+        Running = true
+        Running = false
+    }
+})

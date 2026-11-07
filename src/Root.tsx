@@ -72,6 +72,7 @@ import {
 // EarthquakeMission is temporarily unregistered because its Remotion story
 // assets are not present. Restore the import and composition with those assets.
 import {MudslideMission, TOTAL_FRAMES as MUDSLIDE_FRAMES} from './scenes/MudslideMission';
+import {ElephantMission, TOTAL_FRAMES as ELEPHANT_FRAMES} from './scenes/ElephantMission';
 
 const LYS_DURATION = TOTAL_FRAMES;
 const APPLE_DURATION = APPLE_FRAMES;
@@ -103,6 +104,7 @@ const SMART_LIGHT_DURATION = SMART_LIGHT_FRAMES;
 const ROBOT_ARM_DURATION = ROBOT_ARM_FRAMES;
 const ULTRASONIC_DURATION = ULTRASONIC_FRAMES;
 const MUDSLIDE_DURATION = MUDSLIDE_FRAMES;
+const ELEPHANT_DURATION = ELEPHANT_FRAMES;
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -343,6 +345,14 @@ export const RemotionRoot: React.FC = () => {
         id="MudslideMission"
         component={MudslideMission}
         durationInFrames={MUDSLIDE_DURATION}
+        fps={30}
+        width={1920}
+        height={1080}
+      />
+      <Composition
+        id="ElephantMission"
+        component={ElephantMission}
+        durationInFrames={ELEPHANT_DURATION}
         fps={30}
         width={1920}
         height={1080}

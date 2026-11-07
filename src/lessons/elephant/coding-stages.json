@@ -1,0 +1,100 @@
+{
+  "title": "Elephant: Touch to wave",
+  "renderer": "https://makecode.microbit.org/",
+  "extension": "nezha=github:elecfreaks/pxt-nezha#v1.3.10",
+  "footnote": "Use a micro:bit V2 and a 360-degree positional servo on Nezha S2. The simulator can show events and LEDs; confirm movement on the physical build. Adjust the linkage to its working range.",
+  "reference": {
+    "source": "User-supplied image: on logo touched; repeat 10; 360 servo 2 angle 180; pause 500 ms; angle 0.",
+    "extensionSource": "https://github.com/elecfreaks/pxt-nezha/blob/v1.3.10/main.ts",
+    "logoSource": "https://makecode.microbit.org/reference/input/on-logo-event",
+    "changes": [
+      "Add a second 500 ms pause after angle 0 so the servo has time to return before the next command.",
+      "Introduce Running and an if guard to ignore touches during a wave sequence.",
+      "Show a diamond while running and a tick after the sequence finishes."
+    ]
+  },
+  "stages": [
+    {
+      "title": "Touch to move the servo",
+      "concept": "A touch event starts a servo command.",
+      "adds": "Add on logo touched. Inside it, set the 360-degree servo on S2 to 180 degrees.",
+      "predict": "What happens when you touch the logo?",
+      "observe": [
+        "Touch the logo on micro:bit V2.",
+        "Physical build: S2 moves toward 180 degrees.",
+        "Touch again: the same target is sent."
+      ],
+      "question": "Which block starts the movement?",
+      "code": "input.onLogoEvent(TouchButtonEvent.Touched, function () {\n    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n})"
+    },
+    {
+      "title": "Move out and return",
+      "concept": "Commands run in order; a pause gives movement time.",
+      "adds": "Keep angle 180. Add pause 500 ms, then set the same S2 servo to angle 0.",
+      "predict": "Which angle is sent after the pause?",
+      "observe": [
+        "S2 is commanded to 180 degrees.",
+        "After 500 ms, its target becomes 0.",
+        "Physical build: watch one outward-and-return motion."
+      ],
+      "question": "Why is the pause between the angles?",
+      "code": "input.onLogoEvent(TouchButtonEvent.Touched, function () {\n    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n    basic.pause(500)\n    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)\n})"
+    },
+    {
+      "title": "Give the return time",
+      "concept": "The return movement also needs a pause.",
+      "adds": "Add another pause 500 ms after angle 0. Keep both pauses for the next step.",
+      "predict": "Where should the second pause go?",
+      "observe": [
+        "180 degrees: wait 500 ms.",
+        "0 degrees: wait another 500 ms.",
+        "One cycle now has 1000 ms of pauses."
+      ],
+      "question": "What could happen without return time?",
+      "code": "input.onLogoEvent(TouchButtonEvent.Touched, function () {\n    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n    basic.pause(500)\n    neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)\n    basic.pause(500)\n})"
+    },
+    {
+      "title": "Repeat ten waves",
+      "concept": "A repeat loop runs a whole movement cycle.",
+      "adds": "Put both servo commands and both pauses inside repeat 10. Touch once; wait for it to finish.",
+      "predict": "How many outward movements will run?",
+      "observe": [
+        "One touch starts ten cycles.",
+        "Each cycle sends 180, then 0.",
+        "Wait until all ten finish before touching again."
+      ],
+      "question": "Which four blocks must repeat together?",
+      "code": "input.onLogoEvent(TouchButtonEvent.Touched, function () {\n    for (let index = 0; index < 10; index++) {\n        neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n        basic.pause(500)\n        neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)\n        basic.pause(500)\n    }\n})"
+    },
+    {
+      "title": "Remember when it is running",
+      "concept": "A Boolean variable stores the busy state.",
+      "adds": "Create Running (false by default). Show a tick on start. Set true before waving and false after the final tick.",
+      "predict": "When should Running change to false?",
+      "observe": [
+        "On start: tick means ready.",
+        "Touch: diamond, then ten waves.",
+        "After the waves: tick returns."
+      ],
+      "question": "Does storing Running block extra touches yet?",
+      "code": "let Running = false\nbasic.showIcon(IconNames.Yes)\ninput.onLogoEvent(TouchButtonEvent.Touched, function () {\n    Running = true\n    basic.showIcon(IconNames.SmallDiamond)\n    for (let index = 0; index < 10; index++) {\n        neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n        basic.pause(500)\n        neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)\n        basic.pause(500)\n    }\n    basic.showIcon(IconNames.Yes)\n    Running = false\n})",
+      "focusCode": "let Running = false\nbasic.showIcon(IconNames.Yes)\ninput.onLogoEvent(TouchButtonEvent.Touched, function () {\n    Running = true\n    basic.showIcon(IconNames.SmallDiamond)\n    basic.showIcon(IconNames.Yes)\n    Running = false\n})",
+      "focusNote": "State/display excerpt. Insert the retained ten-wave loop between the diamond and the final tick. See Full program."
+    },
+    {
+      "title": "Ignore touches while busy",
+      "concept": "A condition uses Running to prevent overlapping sequences.",
+      "adds": "Wrap the existing handler body in if not Running. Set true before waving and false after the final tick.",
+      "predict": "Will touching during a wave start more waves?",
+      "observe": [
+        "Touch once: ten cycles begin.",
+        "Touch while busy: no extra cycle starts.",
+        "After the tick, touch to run ten again."
+      ],
+      "question": "Why must Running become false at the end?",
+      "code": "let Running = false\nbasic.showIcon(IconNames.Yes)\ninput.onLogoEvent(TouchButtonEvent.Touched, function () {\n    if (!(Running)) {\n        Running = true\n        basic.showIcon(IconNames.SmallDiamond)\n        for (let index = 0; index < 10; index++) {\n            neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 180)\n            basic.pause(500)\n            neZha.setServoAngel(neZha.ServoTypeList._360, neZha.ServoList.S2, 0)\n            basic.pause(500)\n        }\n        basic.showIcon(IconNames.Yes)\n        Running = false\n    }\n})",
+      "focusCode": "let Running = false\ninput.onLogoEvent(TouchButtonEvent.Touched, function () {\n    if (!(Running)) {\n        Running = true\n        Running = false\n    }\n})",
+      "focusNote": "Guard excerpt. Keep the diamond, ten-wave loop, and tick between the two assignments. See Full program for placement."
+    }
+  ]
+}
