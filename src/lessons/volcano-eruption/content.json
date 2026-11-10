@@ -11,9 +11,22 @@
   "difficulty": 1,
   "topics": [],
   "classIds": ["BrickX"],
-  "storyVideoUrl": "",
+  "storyVideoUrl": "https://www.youtube.com/embed/FeR0MnBhMSo",
   "warmupVideoUrl": "",
-  "storyQuestions": [],
+  "storyQuestions": [
+    {"prompt": "Where did the children go?", "answers": ["Island", "Desert", "City"], "correctIndex": 0, "success": "The children went to an island."},
+    {"prompt": "What did they see?", "answers": ["Mountain", "River", "Beach"], "correctIndex": 0, "success": "They saw a mountain."},
+    {"prompt": "What sound did they hear?", "answers": ["Rumble! Rumble!", "Beep! Beep!", "Moo! Moo!"], "correctIndex": 0, "success": "They heard a Rumble! Rumble!"},
+    {"prompt": "What started shaking?", "answers": ["The ground", "The sky", "The sea"], "correctIndex": 0, "success": "The ground started shaking."},
+    {"prompt": "What came out of the mountain first?", "answers": ["Steam", "Water", "Sand"], "correctIndex": 0, "success": "Steam came out of the mountain first."},
+    {"prompt": "What happened next?", "answers": ["BOOM!", "Splash!", "Crash!"], "correctIndex": 0, "success": "Next came a big BOOM!"},
+    {"prompt": "What went into the sky?", "answers": ["Ash", "Birds", "Clouds"], "correctIndex": 0, "success": "Ash went into the sky."},
+    {"prompt": "What do we call this mountain?", "answers": ["Volcano", "Hill", "Cliff"], "correctIndex": 0, "success": "We call this mountain a volcano."},
+    {"prompt": "What is the hot melted rock called?", "answers": ["Lava", "Water", "Mud"], "correctIndex": 0, "success": "The hot melted rock is called lava."},
+    {"prompt": "Is a real eruption dangerous?", "answers": ["Yes", "No", "Only at night"], "correctIndex": 0, "success": "Yes, a real eruption is dangerous."},
+    {"prompt": "Where did the teacher take the children?", "answers": ["Safe place", "The mountain", "The sea"], "correctIndex": 0, "success": "The teacher took the children to a safe place."},
+    {"prompt": "Can eruptions have different strengths?", "answers": ["Yes", "No", "Only at night"], "correctIndex": 0, "success": "Yes, eruptions can have different strengths."}
+  ],
   "quiz": [],
   "parts": []
 }

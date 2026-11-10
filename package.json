@@ -37,6 +37,7 @@
     "render:earth-quake": "remotion render EarthquakeMission out/EarthquakeMission.mp4",
     "render:mudslide": "remotion render MudslideMission out/MudslideMission.mp4",
     "render:elephant": "remotion render ElephantMission out/ElephantMission.mp4",
+    "render:volcano-eruption": "remotion render VolcanoEruptionMission out/VolcanoEruptionMission.mp4",
     "render:robot-arm": "remotion render RobotArmMission out/RobotArmMission.mp4",
     "render:ultrasonic": "remotion render UltrasonicMission out/UltrasonicMission.mp4",
     "still": "remotion still",
