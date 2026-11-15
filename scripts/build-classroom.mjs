@@ -172,6 +172,7 @@ for (const route of routes) {
 }
 
 // Static lesson models.
+await fs.copyFile(path.join(root, 'public/models/low_poly_kids_tricycle.glb'), path.join(modelsDir, 'low_poly_kids_tricycle.glb'));
 await fs.copyFile(path.join(root, 'public/models/elephant-classroom.glb'), path.join(modelsDir, 'elephant-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/ultrasonic-classroom.glb'), path.join(modelsDir, 'ultrasonic-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/robotic-arm-classroom.glb'), path.join(modelsDir, 'robotic-arm-classroom.glb'));

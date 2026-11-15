@@ -42,7 +42,7 @@ import anemometerContent from '../lessons/anemometer/content.json';
 import reviewContent from '../lessons/review/content.json';
 import clockContent from '../lessons/clock/content.json';
 import electricBeaterContent from '../lessons/electric-beater/content.json';
-import trencherContent from '../lessons/trencher/content.json';
+import tricycleContent from '../lessons/tricycle/content.json';
 import largeTruckContent from '../lessons/large-truck/content.json';
 import submarineContent from '../lessons/submarine/content.json';
 import containerCraneContent from '../lessons/container-crane/content.json';
@@ -109,7 +109,7 @@ export type LessonId =
   | 'review'
   | 'clock'
   | 'electric-beater'
-  | 'trencher'
+  | 'tricycle'
   | 'large-truck'
   | 'submarine'
   | 'container-crane'
@@ -188,7 +188,7 @@ const AnemometerLesson = lazy(() => import('../lessons/anemometer/AnemometerLess
 const ReviewLesson = lazy(() => import('../lessons/review/ReviewLesson'));
 const ClockLesson = lazy(() => import('../lessons/clock/ClockLesson'));
 const ElectricBeaterLesson = lazy(() => import('../lessons/electric-beater/ElectricBeaterLesson'));
-const TrencherLesson = lazy(() => import('../lessons/trencher/TrencherLesson'));
+const TricycleLesson = lazy(() => import('../lessons/tricycle/TricycleLesson'));
 const LargeTruckLesson = lazy(() => import('../lessons/large-truck/LargeTruckLesson'));
 const SubmarineLesson = lazy(() => import('../lessons/submarine/SubmarineLesson'));
 const ContainerCraneLesson = lazy(() => import('../lessons/container-crane/ContainerCraneLesson'));
@@ -252,7 +252,7 @@ export const LESSONS: LessonMeta[] = [
   {id: 'review', content: content(reviewContent)},
   {id: 'clock', content: content(clockContent)},
   {id: 'electric-beater', content: content(electricBeaterContent)},
-  {id: 'trencher', content: content(trencherContent)},
+  {id: 'tricycle', content: content(tricycleContent)},
   {id: 'large-truck', content: content(largeTruckContent)},
   {id: 'submarine', content: content(submarineContent)},
   {id: 'container-crane', content: content(containerCraneContent)},
@@ -364,8 +364,8 @@ export const getLessonComponent = (id: LessonId): ComponentType<LessonProps> => 
       return ClockLesson;
     case 'electric-beater':
       return ElectricBeaterLesson;
-    case 'trencher':
-      return TrencherLesson;
+    case 'tricycle':
+      return TricycleLesson;
     case 'large-truck':
       return LargeTruckLesson;
     case 'submarine':
