@@ -1,0 +1,1 @@
+var e={slug:"ice-cream",title:"Mission: The Ice Cream",subtitle:"",summary:"",badge:"SCOOP",color:"#f783ac",activity:"discover",activityLabel:"Discover the ice cream",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{e as a};

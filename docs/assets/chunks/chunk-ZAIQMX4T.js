@@ -1,0 +1,1 @@
+var o={slug:"trolley",title:"Mission: The Trolley",subtitle:"",summary:"",badge:"TRACK",color:"#20a7f1",activity:"discover",activityLabel:"Discover the trolley",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{o as a};

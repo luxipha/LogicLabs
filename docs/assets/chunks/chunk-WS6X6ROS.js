@@ -1,0 +1,1 @@
+var s={slug:"pyramid",title:"Mission: The Pyramid",subtitle:"",summary:"",badge:"BUILD",color:"#c9a227",activity:"discover",activityLabel:"Discover the pyramid",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

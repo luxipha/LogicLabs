@@ -1,0 +1,1 @@
+var r={slug:"container-crane",title:"Mission: The Container Crane",subtitle:"",summary:"",badge:"LIFT",color:"#f59f00",activity:"discover",activityLabel:"Discover the container crane",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{r as a};

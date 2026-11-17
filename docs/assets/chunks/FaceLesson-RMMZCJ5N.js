@@ -1,0 +1,1 @@
+import{a as n}from"./chunk-7653QGSE.js";import{a as t}from"./chunk-X64XUH3B.js";import"./chunk-72IDAISC.js";import"./chunk-W7CONZIZ.js";import{c as o,e}from"./chunk-HLYRQ3WR.js";var r=o(e()),a=i=>(0,r.jsx)(n,{content:t,...i}),p=a;export{a as FaceLesson,p as default};

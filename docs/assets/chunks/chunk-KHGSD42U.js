@@ -1,0 +1,1 @@
+var o={slug:"motobike",title:"Mission: The Motobike",subtitle:"",summary:"",badge:"MOTO",color:"#8f42f3",activity:"discover",activityLabel:"Discover the motobike",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{o as a};

@@ -1,0 +1,1 @@
+var i={slug:"cactus",title:"Mission: The Cactus",subtitle:"",summary:"",badge:"SPIKY",color:"#37b24d",activity:"discover",activityLabel:"Discover the cactus",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{i as a};

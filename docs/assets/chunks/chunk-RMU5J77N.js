@@ -1,0 +1,1 @@
+var c={slug:"bicycle",title:"Mission: The Bicycle",subtitle:"",summary:"",badge:"PEDAL",color:"#3fbf3f",activity:"discover",activityLabel:"Discover the bicycle",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{c as a};

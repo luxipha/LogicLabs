@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Frog Life Cycle Game</title>
+  <style>
+    :root {
+      --ink: #1d3a22;
+      --panel: #ffffff;
+      --line: #cfe5cc;
+      --soft: #e9f6e6;
+      --brand: #2e9e4f;
+      --brand-dark: #1d5a30;
+      --accent: #ffd94f;
+      --shadow: 0 14px 35px rgba(36, 90, 46, .14);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; font-family: "Nunito", "Avenir Next", Avenir, "Segoe UI", sans-serif; color: var(--ink); background: linear-gradient(180deg, #bfe6cc 0%, #dcf3e4 55%, #f2fbf4 100%); }
+    body { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 18px; }
+
+    .app {
+      width: min(1150px, 100%);
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(255,255,255,.92);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      overflow: hidden;
+    }
+
+    .controls { padding: 14px 20px 0; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .hint-line { flex: 1; min-width: 200px; font-size: 13px; font-weight: 800; color: #5d7a5d; }
+    .btn {
+      border: 0; border-radius: 14px; padding: 11px 16px; font-weight: 900; cursor: pointer;
+      font-family: inherit; font-size: 14px;
+    }
+    .btn:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+    .btn-primary { background: var(--brand); color: white; }
+    .btn-secondary { background: #eaf4ea; color: var(--brand-dark); }
+
+    .board {
+      display: grid;
+      grid-template-columns: minmax(190px, 260px) 1fr;
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(43, 85, 60, .08);
+      padding: 14px;
+    }
+    .panel h2 { font-size: 16px; margin: 0 0 12px; font-weight: 900; }
+
+    /* ---- Tray of stage cards (well-illustrated) ---- */
+    .tray { display: grid; gap: 10px; }
+    .stage-card {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      align-items: center;
+      gap: 12px;
+      background: var(--soft);
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      padding: 8px 12px;
+      cursor: grab;
+      user-select: none;
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      touch-action: none;
+    }
+    .stage-card:hover { transform: translateY(-1px); border-color: #a8d4a0; }
+    .stage-card:active { cursor: grabbing; }
+    .stage-card.dragging { opacity: .5; box-shadow: var(--shadow); }
+    .stage-card.placed { cursor: default; opacity: .6; }
+    .stage-art { width: 60px; height: 60px; border-radius: 14px; background: #fff; border: 2px solid var(--line); padding: 3px; }
+    .stage-art .art-img { width: 100%; height: 100%; object-fit: cover; border-radius: 11px; display: block; }
+    .stage-card strong { display: block; font-size: 14px; line-height: 1.1; }
+    .stage-card small { color: #6b8a68; }
+
+    /* ---- Circular wheel ---- */
+    .wheel-wrap { display: flex; align-items: center; justify-content: center; padding: 6px; }
+    .wheel {
+      position: relative;
+      width: min(560px, 100%);
+      aspect-ratio: 1 / 1;
+      margin: auto;
+    }
+    .wheel-ring { position: absolute; inset: 0; border-radius: 50%; }
+    .arrows { position: absolute; inset: 0; pointer-events: none; }
+    .node {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 138px; height: 138px;
+      transform: translate(-50%, -50%);
+    }
+    .node .node-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      border: 3px dashed #c7dec2;
+      background: #f7fcf5;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; padding: 8px;
+      text-align: center;
+      transition: background .16s ease, border-color .16s ease;
+      cursor: pointer;
+    }
+    .node .node-num {
+      position: absolute; top: -11px; left: 50%; transform: translateX(-50%);
+      background: #dbeed7; color: var(--brand-dark); font-weight: 900; font-size: 12px;
+      border-radius: 999px; padding: 3px 11px; border: 2px solid #fff; white-space: nowrap;
+      z-index: 2;
+    }
+    .node .node-label { font-size: 11px; font-weight: 800; color: #9bbb95; }
+    .node.hover .node-inner { background: #eaf6e7; border-color: var(--brand); }
+    .node.wrong .node-inner { background: #fdecea; border-color: #d9534f; animation: shake .3s; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-6px); }
+      75% { transform: translateX(6px); }
+    }
+    .node.filled { cursor: default; }
+    .node.filled .node-inner { border-style: solid; border-color: var(--brand); background: #eef8ec; }
+    .node.filled .node-label { color: var(--brand-dark); }
+    .node .node-art { width: 58px; height: 58px; border-radius: 50%; overflow: hidden; }
+    .node .node-art .art-img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 50%; }
+    .node .node-name { font-size: 12px; font-weight: 900; line-height: 1.05; }
+    .wheel-center {
+      position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+      width: 150px; height: 150px; border-radius: 50%;
+      background: #dff2dd; border: 3px solid var(--brand);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 10px; box-shadow: var(--shadow); z-index: 3;
+    }
+    .wheel-center svg { width: 62px; height: 62px; }
+    .wheel-center strong { font-size: 13px; display: block; }
+    .wheel-center span { font-size: 11px; color: #5d7a5d; font-weight: 800; }
+
+    .feedback {
+      margin: 14px;
+      border-radius: 16px;
+      padding: 12px;
+      font-weight: 800;
+      font-size: 14px;
+      min-height: 20px;
+    }
+    .feedback.hidden { color: transparent; }
+    .feedback.good { background: #e6f7e2; color: #2a6e2e; }
+    .feedback.bad { background: #fdecea; color: #9c2d26; }
+    .feedback.win { background: #fff7cf; color: #7a5d00; }
+
+    @media (max-width: 820px) {
+      body { padding: 0; background: white; align-items: flex-start; }
+      .app { border-radius: 0; min-height: 100vh; }
+      .board { grid-template-columns: 1fr; }
+      .tray { grid-template-columns: 1fr 1fr; }
+      .node { width: 106px; height: 106px; }
+      .node .node-art { width: 46px; height: 46px; }
+      .wheel-center { width: 104px; height: 104px; }
+      .wheel-center svg { width: 44px; height: 44px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="controls">
+      <button class="btn btn-secondary" id="resetBtn">↺ Reset</button>
+      <span class="hint-line" id="hintLine">Tap or drag each frog into its correct spot on the circle.</span>
+    </div>
+
+    <section class="board">
+      <aside class="panel">
+        <h2>Frogs</h2>
+        <div class="tray" id="tray"></div>
+      </aside>
+
+      <section class="panel">
+        <h2>The life cycle</h2>
+        <div class="wheel-wrap">
+          <div class="wheel" id="wheel">
+            <svg class="wheel-ring" viewBox="-0.5 -0.5 1 1" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <circle cx="0" cy="0" r="0.5" fill="none" stroke="#bfe6cc" stroke-width="0.012" />
+            </svg>
+            <svg class="arrows" viewBox="0 -14 100 114" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+              <path d="M50 30 C 56 16 72 15 82 24" fill="none" stroke="#56a06d" stroke-width="3" stroke-linecap="round" />
+              <path d="M84 25 L 82 15 L 75 22" fill="#56a06d" />
+              <text x="50" y="10" text-anchor="middle" font-size="9" font-family="Nunito,sans-serif" font-weight="800" fill="#56a06d">grows &amp; changes</text>
+            </svg>
+            <div class="wheel-center">
+              <svg viewBox="0 0 62 62" aria-hidden="true">
+                <ellipse cx="31" cy="44" rx="16" ry="12" fill="#59c76a"/>
+                <circle cx="31" cy="26" r="9" fill="#83aa58"/>
+                <circle cx="28.6" cy="22.5" r="3.2" fill="#fff"/>
+                <circle cx="33.8" cy="22.5" r="3.2" fill="#fff"/>
+                <circle cx="31" cy="22.5" r="1.4" fill="#111"/>
+              </svg>
+              <strong>Frog</strong>
+              <span>life cycle</span>
+            </div>
+            <div class="slots" id="slots"></div>
+          </div>
+        </div>
+        <div class="feedback hidden" id="feedback" aria-live="polite"></div>
+      </section>
+    </section>
+  </main>
+
+<script>
+(() => {
+  // ---- Frog-stage art: real photos from the lesson ----
+  const ART = {
+    eggs:    `<img class="art-img" src="img/eggs.png" alt="Frog eggs" />`,
+    tadpole: `<img class="art-img" src="img/tadpole.png" alt="Tadpole" />`,
+    legs:    `<img class="art-img" src="img/legs.png" alt="Tadpole with legs" />`,
+    froglet: `<img class="art-img" src="img/froglet.png" alt="Froglet with a tail" />`,
+    adult:   `<img class="art-img" src="img/adult.png" alt="Adult frog" />`
+  };
+
+  const STAGES = [
+    { id: 'eggs',    label: 'Frog eggs',      extra: 'Jelly eggs', name: 'Frog eggs' },
+    { id: 'tadpole', label: 'Tadpole',        extra: 'Swims with tail', name: 'Tadpole' },
+    { id: 'legs',    label: 'Tadpole + legs', extra: 'Back legs grow', name: 'Tadpole + legs' },
+    { id: 'froglet', label: 'Froglet',        extra: 'Front legs', name: 'Froglet' },
+    { id: 'adult',   label: 'Adult frog',     extra: 'Four legs', name: 'Adult frog' }
+  ];
+  const order = STAGES.map(s => s.id);
+  const N = order.length;
+
+  const tray = document.getElementById('tray');
+  const slots = document.getElementById('slots');
+  const feedback = document.getElementById('feedback');
+  const hintLine = document.getElementById('hintLine');
+  const resetBtn = document.getElementById('resetBtn');
+
+  let placed = {};       // nodeIndex -> stageId
+  let draggingId = null;
+  let selectedId = null;
+
+  // Arrange the nodes evenly in a circle.
+  function placeNodes() {
+    const radiusPct = 42;
+    for (let i = 0; i < N; i++) {
+      const node = document.createElement('div');
+      node.className = 'node';
+      node.dataset.index = i;
+      const angle = (i / N) * 2 * Math.PI - Math.PI / 2; // start at the top
+      const x = 50 + radiusPct * Math.cos(angle);
+      const y = 50 + radiusPct * Math.sin(angle);
+      node.style.left = x + '%';
+      node.style.top = y + '%';
+      node.innerHTML = `
+        <span class="node-num">${i + 1}</span>
+        <div class="node-inner">
+          <span class="node-art" data-empty="1"></span>
+          <span class="node-label">Tap here</span>
+          <span class="node-name" data-name="1"></span>
+        </div>`;
+      slots.appendChild(node);
+    }
+  }
+
+  function cardHTML(s) {
+    return `
+      <div class="stage-card" data-id="${s.id}" draggable="true">
+        <span class="stage-art">${ART[s.id]}</span>
+        <span><strong>${s.label}</strong><small>${s.extra}</small></span>
+      </div>`;
+  }
+
+  function renderTray() {
+    const placedIds = Object.values(placed);
+    const free = STAGES.filter(s => !placedIds.includes(s.id));
+    tray.innerHTML = free.map(cardHTML).join('');
+    if (!free.length) {
+      tray.innerHTML = '<div style="color:#9bbb95;font-weight:800;text-align:center;padding:10px;">All frogs placed! Great job.</div>';
+    }
+  }
+
+  function renderSlots() {
+    slots.querySelectorAll('.node').forEach(nodeEl => {
+      const index = Number(nodeEl.dataset.index);
+      const id = placed[index];
+      const art = nodeEl.querySelector('.node-art');
+      const label = nodeEl.querySelector('.node-label');
+      const nameEl = nodeEl.querySelector('.node-name');
+      if (id) {
+        const s = STAGES.find(x => x.id === id);
+        nodeEl.classList.add('filled');
+        nodeEl.classList.remove('hover');
+        art.dataset.empty = '';
+        art.innerHTML = ART[s.id];
+        label.textContent = '';
+        nameEl.textContent = s.name;
+      } else {
+        nodeEl.classList.remove('filled');
+        art.innerHTML = '';
+        art.dataset.empty = '1';
+        label.textContent = 'Tap here';
+        nameEl.textContent = '';
+      }
+    });
+  }
+
+  function render() {
+    renderTray();
+    renderSlots();
+    checkWin();
+  }
+
+  // Return true if the placement was accepted, false if it was rejected.
+  function setPlaced(index, id) {
+    if (id !== order[index]) {
+      rejectNode(slots.querySelector(`.node[data-index="${index}"]`));
+      return false;
+    }
+    placed[index] = id;
+    render();
+    return true;
+  }
+
+  function rejectNode(nodeEl) {
+    if (!nodeEl) return;
+    nodeEl.classList.add('wrong');
+    const label = nodeEl.querySelector('.node-label');
+    if (label) {
+      const id = order[Number(nodeEl.dataset.index)];
+      const s = STAGES.find(x => x.id === id);
+      label.textContent = `✕ needs "${s.name}"`;
+    }
+    hintLine.textContent = `Not quite — that frog goes in a different spot. Try the ${STAGES.find(x => x.id === order[Number(nodeEl.dataset.index)]).name} one here.`;
+    setTimeout(() => {
+      nodeEl.classList.remove('wrong');
+      renderSlots();
+    }, 900);
+  }
+
+  function checkWin() {
+    if (Object.keys(placed).length !== N) {
+      feedback.className = 'feedback hidden';
+      return;
+    }
+    // Placement is validated on every drop, so reaching all 5 means correct.
+    feedback.className = 'feedback win';
+    feedback.textContent = '🎉 Perfect! That is the correct frog life cycle!';
+  }
+
+  // --- Drag & drop (HTML5) ---
+  tray.addEventListener('dragstart', (e) => {
+    const card = e.target.closest('.stage-card');
+    if (!card) return;
+    draggingId = card.dataset.id;
+    card.classList.add('dragging');
+    e.dataTransfer.setData('text/plain', draggingId);
+    e.dataTransfer.effectAllowed = 'move';
+  });
+  tray.addEventListener('dragend', (e) => {
+    const card = e.target.closest('.stage-card');
+    if (card) card.classList.remove('dragging');
+    draggingId = null;
+  });
+
+  slots.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const node = e.target.closest('.node');
+    if (node && !node.classList.contains('filled')) node.classList.add('hover');
+  });
+  slots.addEventListener('dragleave', (e) => {
+    const node = e.target.closest('.node');
+    if (node) node.classList.remove('hover');
+  });
+  slots.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const node = e.target.closest('.node');
+    if (!node) return;
+    node.classList.remove('hover');
+    const index = Number(node.dataset.index);
+    const id = draggingId || e.dataTransfer.getData('text/plain');
+    if (!id) return;
+    // Filled nodes already hold the correct stage — do not overwrite.
+    if (placed[index]) {
+      hintLine.textContent = 'That spot is already filled. Tap it to remove it first.';
+      return;
+    }
+    setPlaced(index, id);
+  });
+
+  // --- Tap-to-place fallback (touch) ---
+  tray.addEventListener('click', (e) => {
+    const card = e.target.closest('.stage-card');
+    if (!card) return;
+    const id = card.dataset.id;
+    if (selectedId === id) {
+      selectedId = null;
+      hintLine.textContent = 'Tap or drag each frog into its correct spot on the circle.';
+      return;
+    }
+    selectedId = id;
+    hintLine.textContent = `Tap the empty circle node where "${card.querySelector('strong').textContent}" goes.`;
+  });
+  slots.addEventListener('click', (e) => {
+    const node = e.target.closest('.node');
+    if (!node) return;
+    const index = Number(node.dataset.index);
+    if (!selectedId) {
+      if (placed[index]) {
+        delete placed[index];
+        selectedId = null;
+        render();
+        hintLine.textContent = 'Removed. Tap a frog, then tap its empty spot.';
+      }
+      return;
+    }
+    const accepted = setPlaced(index, selectedId);
+    if (accepted) {
+      selectedId = null;
+      hintLine.textContent = 'Tap or drag each frog into its correct spot on the circle.';
+    }
+  });
+
+  resetBtn.addEventListener('click', () => {
+    placed = {};
+    selectedId = null;
+    hintLine.textContent = 'Tap or drag each frog into its correct spot on the circle.';
+    render();
+  });
+
+  placeNodes();
+  render();
+})();
+</script>
+</body>
+</html>

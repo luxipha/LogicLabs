@@ -1,0 +1,1 @@
+var s={slug:"wagon",title:"Mission: The Wagon",subtitle:"",summary:"",badge:"ROLL",color:"#e8590c",activity:"discover",activityLabel:"Discover the wagon",activityInstruction:"",difficulty:1,topics:[],classIds:["Preschool"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

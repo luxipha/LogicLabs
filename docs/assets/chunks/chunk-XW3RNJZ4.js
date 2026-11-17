@@ -1,0 +1,1 @@
+var t={slug:"snow-plow",title:"Mission: The Snow Plow",subtitle:"",summary:"",badge:"PLOW",color:"#00a6a6",activity:"discover",activityLabel:"Discover the snow plow",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{t as a};
