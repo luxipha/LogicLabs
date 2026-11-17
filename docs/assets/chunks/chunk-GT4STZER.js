@@ -1,1 +1,0 @@
-var s={slug:"sunflower",title:"Mission: The Sunflower",subtitle:"",summary:"",badge:"BLOOM",color:"#f2b705",activity:"discover",activityLabel:"Discover the sunflower",activityInstruction:"",difficulty:1,topics:[],classIds:["Brickmoto"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

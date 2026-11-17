@@ -1,1 +1,0 @@
-var e={slug:"anemometer",title:"Mission: The Anemometer",subtitle:"",summary:"",badge:"WIND",color:"#00a6a6",activity:"discover",activityLabel:"Discover the anemometer",activityInstruction:"",difficulty:1,topics:[],classIds:["BrickX"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{e as a};

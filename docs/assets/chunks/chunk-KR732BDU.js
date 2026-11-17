@@ -1,1 +1,0 @@
-var s={slug:"dragster",title:"Mission: The Dragster",subtitle:"",summary:"",badge:"ZOOM",color:"#f76707",activity:"discover",activityLabel:"Discover the dragster",activityInstruction:"",difficulty:1,topics:[],classIds:["Microbit"],storyVideoUrl:"",warmupVideoUrl:"",storyQuestions:[],quiz:[],parts:[]};export{s as a};

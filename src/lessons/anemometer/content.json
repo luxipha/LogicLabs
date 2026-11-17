@@ -1,19 +1,205 @@
 {
   "slug": "anemometer",
   "title": "Mission: The Anemometer",
-  "subtitle": "",
-  "summary": "",
+  "subtitle": "Catch the wind",
+  "summary": "Discover how moving air turns an anemometer and compare gentle and strong wind.",
   "badge": "WIND",
   "color": "#00a6a6",
   "activity": "discover",
-  "activityLabel": "Discover the anemometer",
-  "activityInstruction": "",
+  "activityLabel": "Wind detective",
+  "activityInstruction": "Predict which wind makes the cups spin fastest. Test calm, gentle and strong wind, record each observation, then compare.",
   "difficulty": 1,
-  "topics": [],
-  "classIds": ["BrickX"],
-  "storyVideoUrl": "",
+  "topics": [
+    "Wind",
+    "Weather instruments",
+    "Rotation",
+    "Fair tests"
+  ],
+  "classIds": [
+    "BrickX"
+  ],
+  "storyVideoUrl": "https://www.youtube.com/embed/Tj2Rqp0m-Jo",
   "warmupVideoUrl": "",
-  "storyQuestions": [],
+  "storyQuestions": [
+    {
+      "prompt": "Where did the children go?",
+      "answers": [
+        "Park",
+        "Beach",
+        "City"
+      ],
+      "correctIndex": 0,
+      "success": "The children went to the park."
+    },
+    {
+      "prompt": "What did they go there for?",
+      "answers": [
+        "Picnic",
+        "Fishing",
+        "Football"
+      ],
+      "correctIndex": 0,
+      "success": "They went to the park for a picnic."
+    },
+    {
+      "prompt": "What was the weather like at first?",
+      "answers": [
+        "Sunny",
+        "Rainy",
+        "Snowy"
+      ],
+      "correctIndex": 0,
+      "success": "At first the weather was sunny."
+    },
+    {
+      "prompt": "What sound did they hear?",
+      "answers": [
+        "WHOOSH!",
+        "Splash!",
+        "Beep!"
+      ],
+      "correctIndex": 0,
+      "success": "They heard a WHOOSH! sound."
+    },
+    {
+      "prompt": "What started shaking?",
+      "answers": [
+        "Leaves",
+        "Cars",
+        "Windows"
+      ],
+      "correctIndex": 0,
+      "success": "The leaves started shaking."
+    },
+    {
+      "prompt": "What happened to their hair?",
+      "answers": [
+        "It blew",
+        "It got wet",
+        "It stayed still"
+      ],
+      "correctIndex": 0,
+      "success": "Their hair blew in the wind."
+    },
+    {
+      "prompt": "What flew away?",
+      "answers": [
+        "Napkin",
+        "Hat",
+        "Balloon"
+      ],
+      "correctIndex": 0,
+      "success": "The napkin flew away."
+    },
+    {
+      "prompt": "What made the napkin fly?",
+      "answers": [
+        "Wind",
+        "A bird",
+        "A hand"
+      ],
+      "correctIndex": 0,
+      "success": "The wind made the napkin fly."
+    },
+    {
+      "prompt": "Was the wind strong or gentle at first?",
+      "answers": [
+        "Strong",
+        "Gentle",
+        "Warm"
+      ],
+      "correctIndex": 0,
+      "success": "At first the wind was strong."
+    },
+    {
+      "prompt": "What happened to the wind later?",
+      "answers": [
+        "It became gentle",
+        "It got stronger",
+        "It stopped"
+      ],
+      "correctIndex": 0,
+      "success": "Later the wind became gentle."
+    },
+    {
+      "prompt": "What do we call moving air?",
+      "answers": [
+        "Wind",
+        "Rain",
+        "Cloud"
+      ],
+      "correctIndex": 0,
+      "success": "We call moving air wind."
+    },
+    {
+      "prompt": "Can we see the wind itself?",
+      "answers": [
+        "No",
+        "Yes",
+        "Sometimes"
+      ],
+      "correctIndex": 0,
+      "success": "No, we cannot see the wind itself."
+    },
+    {
+      "prompt": "Can we see things move in the wind?",
+      "answers": [
+        "Yes",
+        "No",
+        "Never"
+      ],
+      "correctIndex": 0,
+      "success": "Yes, we can see things move in the wind."
+    },
+    {
+      "prompt": "What might the wind make our model do?",
+      "answers": [
+        "Spin",
+        "Jump",
+        "Slide"
+      ],
+      "correctIndex": 0,
+      "success": "The wind might make our model spin."
+    },
+    {
+      "prompt": "What might happen when the wind gets stronger?",
+      "answers": [
+        "Spin faster",
+        "Spin slower",
+        "Stop"
+      ],
+      "correctIndex": 0,
+      "success": "When the wind gets stronger, our model spins faster."
+    }
+  ],
   "quiz": [],
-  "parts": []
+  "parts": [
+    {
+      "id": "cups",
+      "label": "Cups",
+      "fact": "The wind pushes the cups and makes the rotor turn.",
+      "help": "Find the three curved cups around the top."
+    },
+    {
+      "id": "arms",
+      "label": "Arms",
+      "fact": "The arms hold the cups away from the shaft and turn with them.",
+      "help": "Find the three bars joining the cups to the centre."
+    },
+    {
+      "id": "shaft",
+      "label": "Shaft",
+      "fact": "The rotor turns around the upright shaft.",
+      "help": "Find the upright pole beneath the cups."
+    },
+    {
+      "id": "vane",
+      "label": "Wind vane",
+      "fact": "The wind vane points into the wind and shows where the wind comes from. The cups measure wind speed.",
+      "help": "Find the arrow below the cups."
+    }
+  ],
+  "exploreTitle": "How does an anemometer work?",
+  "exploreInstruction": "Change the wind. Watch the cups and arms turn around the shaft. Faster spinning means stronger wind; this model does not give a calibrated wind speed.",
+  "codingInstruction": "Plan a wind experiment: choose a setting, observe, record and repeat. Coding instructions for the classroom hardware can be added here."
 }

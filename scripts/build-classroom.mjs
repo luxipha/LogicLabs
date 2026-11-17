@@ -20,6 +20,9 @@ await runScoping();
 await fs.rm(outdir, {recursive: true, force: true});
 await fs.mkdir(assetsDir, {recursive: true});
 await fs.mkdir(modelsDir, {recursive: true});
+await fs.copyFile(path.join(root, 'public/models/cup_anemometer_and_wind_vane.glb'), path.join(modelsDir, 'cup_anemometer_and_wind_vane.glb'));
+await fs.mkdir(path.join(assetsDir, 'anemometer-code'), {recursive: true});
+for (let step = 1; step <= 7; step++) for (const prefix of ['', 'full-']) await fs.copyFile(path.join(root, 'src/assets/anemometer/code', `${prefix}${step}.png`), path.join(assetsDir, 'anemometer-code', `${prefix}${step}.png`));
 
 // Classroom illustrations are referenced as app-relative static assets.
 await fs.cp(publicAssetsDir, assetsDir, {recursive: true});
