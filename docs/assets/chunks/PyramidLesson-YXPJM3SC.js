@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-IYMEYG2N.js";import{a as t}from"./chunk-WS6X6ROS.js";import"./chunk-W6AJZAGH.js";import"./chunk-W7CONZIZ.js";import{c as o,e as r}from"./chunk-HLYRQ3WR.js";var n=o(r()),m=i=>(0,n.jsx)(e,{content:t,...i}),p=m;export{m as PyramidLesson,p as default};

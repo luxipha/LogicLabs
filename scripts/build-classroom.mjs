@@ -38,6 +38,16 @@ for (let step = 1; step <= 7; step++) {
 }
 // Microbit Earth Quake Alert: cached, authentic MakeCode teaching cards.
 const alertStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/earth-quake-alert/coding-stages.json'), 'utf8'));
+// Dragster: cached authentic Bricks4Kidz + NeoPixel progressive cards.
+const dragsterStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/dragster/coding-stages.json'), 'utf8'));
+await fs.mkdir(path.join(assetsDir, 'dragster-code'), {recursive: true});
+for (let step = 1; step <= dragsterStages.stages.length; step++) {
+  for (const prefix of ['', 'full-']) {
+    await fs.copyFile(path.join(root, 'src/assets/dragster/code', `${prefix}${step}.png`), path.join(assetsDir, 'dragster-code', `${prefix}${step}.png`));
+  }
+  await fs.copyFile(path.join(root, 'src/assets/dragster/code/rendered', `${step}.png`), path.join(assetsDir, 'dragster-code', `blocks-${step}.png`));
+  await fs.copyFile(path.join(root, 'src/assets/dragster/code/rendered', `full-${step}.png`), path.join(assetsDir, 'dragster-code', `full-blocks-${step}.png`));
+}
 // Cached official MakeCode/Nezha exports: no network needed for classroom builds.
 const elephantStages = JSON.parse(await fs.readFile(path.join(root, 'src/lessons/elephant/coding-stages.json'), 'utf8'));
 await fs.mkdir(path.join(assetsDir, 'elephant-code'), {recursive: true});
@@ -156,6 +166,7 @@ const lessonRoutes = [
   '/lessons/mudslide',
   '/lessons/volcano-eruption',
   '/lessons/anemometer',
+  '/lessons/dragster',
   '/lessons/review',
   '/lessons/clock',
   '/lessons/electric-beater',
@@ -173,6 +184,8 @@ for (const route of routes) {
 }
 
 // Static lesson models.
+// Derivative: node scripts/optimize-trex-glb.mjs public/models/top_fuel_dragster.glb public/models/dragster-classroom.glb
+await fs.copyFile(path.join(root, 'public/models/dragster-classroom.glb'), path.join(modelsDir, 'dragster-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/low_poly_kids_tricycle.glb'), path.join(modelsDir, 'low_poly_kids_tricycle.glb'));
 await fs.copyFile(path.join(root, 'public/models/elephant-classroom.glb'), path.join(modelsDir, 'elephant-classroom.glb'));
 await fs.copyFile(path.join(root, 'public/models/ultrasonic-classroom.glb'), path.join(modelsDir, 'ultrasonic-classroom.glb'));

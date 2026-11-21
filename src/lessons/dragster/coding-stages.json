@@ -1,0 +1,176 @@
+{
+  "title": "Dragster: Drive and light the way",
+  "classIds": [
+    "Microbit"
+  ],
+  "renderer": "https://makecode.microbit.org/",
+  "extension": "bricks4kidz=github:softsmyth/lectrify-b4k#v1.4.1,neopixel=github:microsoft/pxt-neopixel#v0.7.6",
+  "footnote": "Use Bricks4Kidz motors and an eight-LED NeoPixel strip on P16 in RGB (GRB) mode. Lift the wheels for bench tests. The basic driving program has no stop button.",
+  "reference": {
+    "source": "Session 30. Dragster.pdf, physical PDF pages 15-18. Motor code on page 15; matching light code on page 18. Combined without added commands.",
+    "motorCode": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})",
+    "lightCode": "let strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+    "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+    "changes": [],
+    "extensionSources": [
+      "https://github.com/softsmyth/lectrify-b4k/blob/v1.4.1/main.ts",
+      "https://github.com/microsoft/pxt-neopixel/blob/v0.7.6/neopixel.ts"
+    ],
+    "notes": [
+      "Retain both explicit strip.show() calls from the PDF, even though showColor also sends the strip data.",
+      "The reference has no pause, motor stop, or running guard. Repeated A presses send the same two motor values again.",
+      "Light level exactly 100 uses the else branch (white). On first use the light API returns 0 before the sensor is ready."
+    ]
+  },
+  "stages": [
+    {
+      "title": "Button A controls one motor",
+      "concept": "A button event sends a motor command.",
+      "adds": "Intermediate: add on button A pressed and DC motor A power 100.",
+      "predict": "Which motor will start when A is pressed?",
+      "observe": [
+        "Press A: motor A is commanded to 100.",
+        "Motor B has no command yet.",
+        "Another press sends 100 again."
+      ],
+      "question": "Does this program ever tell motor A to stop?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n})",
+      "run": "Download this intermediate program. Lift the wheels, press A briefly, then disconnect motor power before changing the build.",
+      "kind": "guided"
+    },
+    {
+      "title": "Drive both wheels forward",
+      "concept": "Opposite motor signs suit motors facing opposite directions.",
+      "adds": "Keep motor A at 100. Add motor B at -100 inside the same Button A event.",
+      "predict": "Will opposite signs move the car forward?",
+      "observe": [
+        "A sends 100 to A and -100 to B.",
+        "Both wheels drive the car forward.",
+        "There is still no stop command."
+      ],
+      "question": "Why does motor B need the opposite sign?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})",
+      "run": "Download and lift the wheels first. Press A and check both wheel directions; then test forward motion in a clear area. Disconnect motor power to stop the car.",
+      "kind": "guided"
+    },
+    {
+      "title": "Connect the eight lights",
+      "concept": "A variable stores the NeoPixel strip connection.",
+      "adds": "Keep Button A. In on start, set strip to P16, 8 LEDs, RGB (GRB), then show white.",
+      "predict": "Will the lights wait for Button A?",
+      "observe": [
+        "At startup the eight LEDs show white.",
+        "A still sends the two motor commands.",
+        "The lights are not light-controlled yet."
+      ],
+      "question": "Which blocks belong in on start?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nstrip.showColor(neopixel.colors(NeoPixelColors.White))\nstrip.show()",
+      "run": "Connect the eight-LED strip to P16. Download and reset; check the external strip before pressing A.",
+      "kind": "guided",
+      "focusCode": "let strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nstrip.showColor(neopixel.colors(NeoPixelColors.White))\nstrip.show()",
+      "focusNote": "Excerpt: add these on-start blocks; keep the paired Button A motor program unchanged."
+    },
+    {
+      "title": "Read the surrounding light",
+      "concept": "A forever loop repeatedly reads the light level.",
+      "adds": "Keep the motors and white strip. Add a forever loop that shows the light level on the micro:bit display.",
+      "predict": "Will covering the LED display lower the reading?",
+      "observe": [
+        "The display scrolls changing light readings.",
+        "Cover or uncover the display and compare.",
+        "The external strip remains white."
+      ],
+      "question": "Why must the sensor be read repeatedly?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nstrip.showColor(neopixel.colors(NeoPixelColors.White))\nstrip.show()\nbasic.forever(function () {\n    basic.showNumber(input.lightLevel())\n})",
+      "run": "Download, then cover and uncover the micro:bit LED display. Wait for each number to finish scrolling. Motor checks still need the physical build.",
+      "kind": "guided",
+      "focusCode": "basic.forever(function () {\n    basic.showNumber(input.lightLevel())\n})",
+      "focusNote": "Intermediate excerpt: add this forever loop. Keep Button A and the existing strip setup."
+    },
+    {
+      "title": "Drive with automatic lights",
+      "concept": "An if/else chooses the lights from the current light level.",
+      "adds": "Replace the number display and startup white command with light control: above 100, show black; otherwise, show white. Keep Button A unchanged.",
+      "predict": "At light level 100, will the strip be white?",
+      "observe": [
+        "Above 100: the strip is black (off).",
+        "At 100 or below: it shows white.",
+        "A still sends motor A 100 and B -100."
+      ],
+      "question": "Which branch runs when the light level is 100?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+      "run": "Download. Cover and uncover the display to cross the threshold. Test Button A separately with the wheels raised. Reset and repeat the checks.",
+      "kind": "guided",
+      "focusCode": "let strip: neopixel.Strip = null\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+      "focusNote": "Loop excerpt only: keep the P16 eight-LED strip setup and Button A motor event. See Full program for all blocks."
+    },
+    {
+      "title": "Try an idea: a stop button",
+      "concept": "A second event can stop both motors.",
+      "adds": "Start with the complete driving and lighting program. Add Button B with motor A 0 and motor B 0.",
+      "predict": "What should B do after A starts the motors?",
+      "observe": [
+        "A starts both motors at 100 and -100.",
+        "B sends 0 to both motors.",
+        "The light loop continues independently."
+      ],
+      "question": "Why should B stop both motors?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})\ninput.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "run": "Download with the wheels raised. Press A, then B; repeat A-B to check restart and stop. The external light strip should still react.",
+      "kind": "idea",
+      "focusCode": "input.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "focusNote": "Add a separate Button B event to stop both motors. Keep the existing light-control loop."
+    },
+    {
+      "title": "Try an idea: compare power",
+      "concept": "A fair test changes motor power while keeping distance fixed.",
+      "adds": "Optional variation: keep the stop button; change A to 50 and B to -50 in the launch event.",
+      "predict": "Will half power give exactly half the speed?",
+      "observe": [
+        "A sends 50 to A and -50 to B.",
+        "B still stops both motors.",
+        "Compare travel time on the same track."
+      ],
+      "question": "What must stay the same for a fair comparison?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(50)\n    bricks4kidz.motorB(-50)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})\ninput.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "run": "Compare this 50-power version with the full-power version over the same marked distance. Use the same surface and battery; stop with B.",
+      "kind": "idea",
+      "focusCode": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(50)\n    bricks4kidz.motorB(-50)\n})\ninput.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "focusNote": "Set the launch power to 50/-50 and keep Button B stop. Keep the light-control program unchanged."
+    },
+    {
+      "title": "Try an idea: a one-second run",
+      "concept": "A pause holds the sequence before the stop commands.",
+      "adds": "Optional variation: after 50/-50, add pause 1000 ms, then set both motors to 0. Keep Button B stop.",
+      "predict": "Which command comes after the one-second pause?",
+      "observe": [
+        "A starts a one-second command sequence.",
+        "After the pause, both motors receive 0.",
+        "B can send 0 before the pause ends."
+      ],
+      "question": "Does the pause turn the motors off by itself?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(50)\n    bricks4kidz.motorB(-50)\n    basic.pause(1000)\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 100) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})\ninput.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "run": "Press A once and wait for the timed stop before pressing A again. Check B during a run. This simple version has no running guard; avoid starting another run before the previous one finishes.",
+      "kind": "idea",
+      "focusCode": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(50)\n    bricks4kidz.motorB(-50)\n    basic.pause(1000)\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})\ninput.onButtonPressed(Button.B, function () {\n    bricks4kidz.motorA(0)\n    bricks4kidz.motorB(0)\n})",
+      "focusNote": "Replace the launch event with this timed version. Keep Button B stop and the light-control loop."
+    },
+    {
+      "title": "Try an idea: adjust the threshold",
+      "concept": "The threshold changes when the headlights switch on.",
+      "adds": "Start with the complete driving and lighting program. Change only the light threshold from 100 to 150.",
+      "predict": "At light level 120, will the lights turn on?",
+      "observe": [
+        "Above 150: the strip is off.",
+        "At 150 or below: it is white.",
+        "At 120, it now takes the white branch."
+      ],
+      "question": "How does a higher threshold change the response?",
+      "code": "input.onButtonPressed(Button.A, function () {\n    bricks4kidz.motorA(100)\n    bricks4kidz.motorB(-100)\n})\nlet strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)\nbasic.forever(function () {\n    if (input.lightLevel() > 150) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+      "run": "Test the same locations with threshold 100, then 150. Compare where the strip changes. Keep motor A at 100 and motor B at -100 for this experiment.",
+      "kind": "idea",
+      "focusCode": "let strip: neopixel.Strip = null\nbasic.forever(function () {\n    if (input.lightLevel() > 150) {\n        strip.showColor(neopixel.colors(NeoPixelColors.Black))\n        strip.show()\n    } else {\n        strip.showColor(neopixel.colors(NeoPixelColors.White))\n        strip.show()\n    }\n})",
+      "focusNote": "Loop excerpt only: keep the P16 eight-LED strip setup and Button A motor event. See Full program for all blocks."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+let strip: neopixel.Strip = null
+basic.forever(function () {
+    if (input.lightLevel() > 150) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        strip.show()
+    } else {
+        strip.showColor(neopixel.colors(NeoPixelColors.White))
+        strip.show()
+    }
+})

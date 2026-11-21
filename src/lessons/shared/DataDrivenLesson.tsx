@@ -25,10 +25,11 @@ export const DataDrivenLesson: React.FC<{
   activityTabs?: (props: {activeId: string; onSelect: (id: string) => void}) => React.ReactNode;
   partPreview?: (part: string) => React.ReactNode;
   codingStage?: () => React.ReactNode;
+  codingTabLabel?: string;
   exploreStage?: () => React.ReactNode;
   stageCompletesActivity?: boolean;
   identifyStage?: (props: {activePart: string; lastSelectedPart: string | null; identified: Set<string>; onSelect: (part: string) => void}) => React.ReactNode;
-}> = ({content: rawContent, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, activityStage, identifyStage, exploreStage, stageCompletesActivity, activityTabs, partPreview, codingStage}) => {
+}> = ({content: rawContent, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, activityStage, identifyStage, exploreStage, stageCompletesActivity, activityTabs, partPreview, codingStage, codingTabLabel}) => {
   const content = asContent(rawContent);
   return (
     <GenericLesson
@@ -42,6 +43,7 @@ export const DataDrivenLesson: React.FC<{
       stageCompletesActivity={stageCompletesActivity}
       activityTabs={activityTabs}
       codingTab={Boolean(codingStage)}
+      codingTabLabel={codingTabLabel}
       stage={(props) => (
         props.mode === 'warmup' ? (
           <WarmupScreen videoUrl={props.warmupVideoUrl} />

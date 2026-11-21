@@ -1,0 +1,11 @@
+input.onButtonPressed(Button.A, function () {
+    bricks4kidz.motorA(50)
+    bricks4kidz.motorB(-50)
+    basic.pause(1000)
+    bricks4kidz.motorA(0)
+    bricks4kidz.motorB(0)
+})
+input.onButtonPressed(Button.B, function () {
+    bricks4kidz.motorA(0)
+    bricks4kidz.motorB(0)
+})

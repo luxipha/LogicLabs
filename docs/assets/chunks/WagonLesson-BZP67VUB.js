@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-IYMEYG2N.js";import{a as t}from"./chunk-QAH4KPRS.js";import"./chunk-W6AJZAGH.js";import"./chunk-W7CONZIZ.js";import{c as o,e as n}from"./chunk-HLYRQ3WR.js";var r=o(n()),a=i=>(0,r.jsx)(e,{content:t,...i}),p=a;export{a as WagonLesson,p as default};

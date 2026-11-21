@@ -1,0 +1,18 @@
+input.onButtonPressed(Button.A, function () {
+    bricks4kidz.motorA(50)
+    bricks4kidz.motorB(-50)
+})
+let strip = neopixel.create(DigitalPin.P16, 8, NeoPixelMode.RGB)
+basic.forever(function () {
+    if (input.lightLevel() > 100) {
+        strip.showColor(neopixel.colors(NeoPixelColors.Black))
+        strip.show()
+    } else {
+        strip.showColor(neopixel.colors(NeoPixelColors.White))
+        strip.show()
+    }
+})
+input.onButtonPressed(Button.B, function () {
+    bricks4kidz.motorA(0)
+    bricks4kidz.motorB(0)
+})

@@ -1,0 +1,4 @@
+input.onButtonPressed(Button.A, function () {
+    bricks4kidz.motorA(100)
+    bricks4kidz.motorB(-100)
+})

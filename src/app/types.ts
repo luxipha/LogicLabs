@@ -77,6 +77,7 @@ export type LessonContent = {
   codingInstruction?: string;
   exploreTitle?: string;
   exploreInstruction?: string;
+  exploreBanner?: string;
   difficulty: number;
   topics: string[];
   classIds: string[];

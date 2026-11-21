@@ -37,6 +37,7 @@ export const GenericLesson: React.FC<{
   onBoard?: () => void;
   stageCompletesActivity?: boolean;
   codingTab?: boolean;
+  codingTabLabel?: string;
   storyPresentation?: 'video' | 'reading';
   activityTabs?: (props: {activeId: string; onSelect: (id: string) => void}) => React.ReactNode;
   stage: (props: {
@@ -53,7 +54,7 @@ export const GenericLesson: React.FC<{
     setActivityStep: (id: string) => void;
   }) => React.ReactNode;
   partPreview: (part: string) => React.ReactNode;
-}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, storyPresentation = 'video', activityTabs, stage, partPreview}) => {
+}> = ({content, onHome, onComplete, onReset, warmupVideoUrl, onDraw, onBoard, stageCompletesActivity = false, codingTab = false, codingTabLabel = 'Coding', storyPresentation = 'video', activityTabs, stage, partPreview}) => {
   const [mode, setMode] = useState<GenericMode>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('mode');
@@ -266,7 +267,9 @@ export const GenericLesson: React.FC<{
                     ? storyPresentation === 'reading' ? 'Read the story and look for clues.' : 'Watch the story and look for clues.'
                     : mode === 'warmup'
                       ? 'Watch the warmup video to get ready.'
-                      : parts.find((p) => p.id === activePart)?.fact ?? '';
+                      : mode === 'explore' && content.exploreBanner
+                        ? content.exploreBanner
+                        : parts.find((p) => p.id === activePart)?.fact ?? '';
   const bannerState = storyFeedback ?? feedback ?? quizFeedback;
 
   const partRows = parts.map((part) => ({
@@ -296,7 +299,7 @@ export const GenericLesson: React.FC<{
     <div className={`app-shell generic-app generic-app--${content.slug} generic-app--mode-${mode}`}>
       <div className="sky-layer" />
       <MissionHeader score={120 + identified.size * 10} onDraw={onDraw} onBoard={onBoard} />
-      <ModeTabs tabs={codingTab ? MODE_TABS.map(tab => tab.id === 'quiz' ? {id: 'coding' as const, label: 'Coding', icon: 'CODE', tone: tab.tone} : tab) : MODE_TABS} activeMode={mode} onSelect={selectMode} />
+      <ModeTabs tabs={codingTab ? MODE_TABS.map(tab => tab.id === 'quiz' ? {id: 'coding' as const, label: codingTabLabel, icon: 'CODE', tone: tab.tone} : tab) : MODE_TABS} activeMode={mode} onSelect={selectMode} />
 
       <LessonStage>
         {mode === 'activity' && openGame ? (
